@@ -1,0 +1,357 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2018, 11:08:57 AM
+    Author     : Decen
+*/
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: #64b5f600;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #33333388;
+}
+.category_list_contain::-webkit-scrollbar{
+    width: 0px;
+}
+
+body {
+    min-height: 100vh;
+}
+.login__logo {
+    color: #03a9f4;
+}
+.login__background{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #64b5f6;
+}
+.login__container{
+    padding: 50px 50px;
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+    background-color: #ffffff;
+}
+.login__container h2 {
+    color: #333333;
+}
+.login__form{
+    width: 100%;
+}
+.login__link{
+    text-align: right;
+}
+.menu_bar {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    z-index: 10;
+}
+.main_contain{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+}
+.main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #007dff;
+    background-image: linear-gradient(45deg, #007dff 0%, #7b8bf0 100%);
+}
+.nar_bar{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    max-width: 250px;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.category_list_contain{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.category{
+    cursor: pointer;
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition: background 0.5s, border 0.5s;
+}
+.category:hover{
+    background-color: #e3f2fd;
+}
+.category.active{
+    color: #fff;
+    background-color: #007dff;
+}
+.product_show{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.paging_contain{
+    position: absolute;
+    top:10px;
+    left: 10px;
+    padding: 5px;
+    border: 1px solid #3338;
+    border-radius: 30px;
+    background-color: #fff;
+    font-size: 0.8em;
+    z-index: 10px;
+}
+.paging_contain .btn{
+    color: #fff;
+    background-color: #03a9f4;
+}
+.paging_contain .btn:focus{
+    outline: none;
+}
+.paging_contain .btn:disabled{
+    color: #666;
+    background-color: #ccc;
+}
+
+.product__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding-top: 48px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.product__card{
+    position: relative;
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.product__card:hover{
+    box-shadow: 0px 0px 15px #2228; 
+}
+.product__image{
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+.product__info {
+    height: 100px;
+    color: #000;
+}
+.product__info p {
+    font-size: 0.9em;
+    margin: 5px 0px;
+}
+.product__info p.product__name {
+    font-size: 1.2em;
+    margin: 20px 0px 20px;
+}
+.product__price{
+    font-weight: bold;
+    float: right;
+}
+.product__status{
+    float: right;
+}
+.info__title{
+    color: #888;
+}
+
+.search__contain {
+    display: flex;
+    align-item: stretch;
+    position: relative;
+    padding: 10px 5px;
+    font-size: 0.9em;
+}
+input.search__input{
+    width: 100%;
+    margin: 0px;
+    padding-left: 10px;
+    border: 1px solid #03a9f4;
+    border-radius: 20px 0 0 20px;
+    box-sizing: content-box;
+    font-size: 1em;
+}
+input.search__input:focus{
+    outline: none;
+    border: 1px solid #007dff;
+}
+.filter{
+    height: 25px;
+}
+.filter:focus{
+    outline: none;
+}
+button.search__button {
+    font-size: 1em;
+    background-color: #03a9f4;
+    color: #fff;
+}
+button.search__button:focus {
+    outline: none;
+}
+
+.product_detail__contain{
+    padding-top: 48px;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.product__detail{
+    display: flex;
+    align-items: stretch;
+}
+.product_detail__name{
+    width: 100%;
+}
+.product_detail__thumbnails{
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.product_detail__image{
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+.product_detail__image img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+.thumbnails{
+    display: flex;
+}
+.thumbnails img{
+    cursor: pointer;
+    height: 100px;
+    margin: 5px;
+}
+.product_detail__info{
+    width: 50%;
+    height: 100%;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 0.9em;
+}
+.product_detail__price{
+    color: rgb(255, 57, 69);
+    font-size: 2em;
+}
+.product_detail__status{
+    color: rgb(255, 57, 69);
+}
+
+.btn_addToCart{
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgb(255, 57, 69);
+}
+.btn_addToCart:disabled{
+    background-color: #888888;
+}
+
+.btn_edit{
+    color: #fff;
+    background-color: #44cc44;
+}
+.form__checkout__contain{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.form__checkout{
+    position: absolute;
+    min-width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.form__checkout input{
+    font-size: 1em;
+}
+.cart__contain{
+    width: 100%;
+    height: 100%;
+}
+.cart{
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+.cart__item {
+    display: flex;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+}
+.cart__product__info{
+    width: 100%;
+}
+.cart__product__control{
+    max-width: 350px;
+}
+.success__info{
+    text-align: center;
+    color: #fff;
+}
+.success__info__contain{
+    padding-top: 100px; 
+    width: 100%;
+    height: 100vh;
+    background-color: #007dff;
+    background-image: linear-gradient(45deg, #007dff 0%, #7b8bf0 100%);
+}
+.btnCheckout:disabled {
+    background-color: #ccc;
+}
+
+footer{
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
+
+footer.absolute {
+    position: absolute;
+    bottom: 0;
+}
+
+footer>div{
+    max-width: 1024px;
+    padding: 20px;
+}

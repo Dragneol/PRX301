@@ -1,0 +1,149 @@
+﻿ private void btReadFile_Click(object sender, EventArgs e)
+        {
+            picFileInInputField.Visible = false;
+            btgenscript.Enabled = false;
+            //chon 1 file
+            string filePath = string.Empty;
+            string fileExt = string.Empty;
+            string FullTXTFilePath = folderPath + "\\" + "ExportData.txt";
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.Title = "Chọn 1 file thôi nha ...";
+            dlg.Filter = "Excel file|*.xlsx|Excel file|*.xls|Text file|*.txt|CSV file|*.csv|PDF file|*.pdf|Report HTML file|*.html";
+            dlg.Multiselect = false;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                cbSheet.Text = "";
+                filePath = dlg.FileName;
+                fileExt = System.IO.Path.GetExtension(filePath);
+                if (fileExt.CompareTo(".txt") == 0)
+                {
+                    ChangeModeTextView();
+                    txtView.Text = File.ReadAllText(dlg.FileName); // file.readalltext(...) doc het noi dung trong file đó,dlg.filename là đường dẫn đến file
+
+                }
+                else if (fileExt.CompareTo(".csv") == 0)
+                {
+                    ChangeModeTextView();
+                    txtView.Text = File.ReadAllText(dlg.FileName);
+                }
+                else if (fileExt.CompareTo(".pdf") == 0)
+                {
+                    ChangeModeTextView();
+                    txtView.Text = "";
+                    using (PdfReader reader = new PdfReader(dlg.FileName))
+                    {
+                        string[] words;
+                        string lines;
+                        for (int i = 1; i <= reader.NumberOfPages; i++)
+                        {
+                            LocationTextExtractionStrategy strategy = new LocationTextExtractionStrategy();
+                            var text = PdfTextExtractor.GetTextFromPage(reader, i, strategy);
+                            words = text.Split('\n');
+                            int length = words.Length;
+                            for (int j = 0; j < length; j++)
+                            {
+                                lines = Encoding.UTF8.GetString(
+                                ASCIIEncoding.Convert(
+                                Encoding.Default,
+                                Encoding.UTF8,
+                                Encoding.Default.GetBytes(words[j])));
+                                txtView.Text += lines + "\r\n";
+                            }
+                        }
+                    }
+                }
+                else if (fileExt.CompareTo(".xls") == 0 || fileExt.CompareTo(".xlsx") == 0)
+                {
+                    ChangeModeGridView();
+                    gridExcel.DataSource = null;
+                    OleDbcon = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties=Excel 12.0;");
+
+                    OleDbcon.Open();
+                    // https://www.microsoft.com/en-us/download/details.aspx?id=23734 neu bi loi support OleDb thi set up 
+                    dt = OleDbcon.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+
+                    OleDbcon.Close();
+
+                    cbSheet.Items.Clear();
+                    arrayNameSheet = new string[dt.Rows.Count];
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        string sheetName = dt.Rows[i]["TABLE_NAME"].ToString();
+                        arrayNameSheet[i] = sheetName;
+                        HandleConvertActualSheetName(sheetName);
+                    }
+                    ExcelPath = filePath;
+                    checkExelfileIsSelected = true;
+
+                }
+                else if (fileExt.CompareTo(".html") == 0)
+                {
+                    try
+                    {
+                        {
+                            string line;
+                            string report = "";
+                            System.IO.StreamReader file =
+                                new System.IO.StreamReader(dlg.FileName);
+
+                            do
+                            {
+                                line = file.ReadLine();
+                            }
+                            while (!line.Contains("Scenario Summary"));
+
+                            while ((line = file.ReadLine()) != null)
+                            {
+                                if (line.Contains("Scenario:"))
+                                {
+                                    if (line.Contains("</a>"))
+                                    {
+                                        string acceptable = "script|link|title";
+                                        string stringPattern = @"</?(?(?=" + acceptable + @")notag|[a-zA-Z0-9]+)(?:\s[a-zA-Z0-9\-]+=?(?:([""']?).*?\1?)?)*\s*/?>";
+                                        line = Regex.Replace(line, stringPattern, "");
+
+                                        report += "+" + line.Trim();
+                                    }
+                                }
+                                else if (line.Contains("bar color"))
+                                {
+                                    string temp = line;
+                                    line = file.ReadLine();
+                                    if (line.Contains("199px"))
+                                    {
+                                        if (temp.Contains("Succeeded"))
+                                        {
+                                            report += " - Succeeded";
+                                            report += Environment.NewLine;
+                                        }
+                                        else if (temp.Contains("Failed"))
+                                        {
+                                            report += " - Failed";
+                                            report += Environment.NewLine;
+                                        }
+                                        else
+                                        {
+                                            report += " - Pending";
+                                            report += Environment.NewLine;
+                                        }
+                                    }
+                                }
+                            }
+                            file.Close();
+                            File.WriteAllText(resultPath, report);
+                        }
+                        MessageBox.Show("Get result succeeded! Please read corresponding FTC to continue!", "Convert Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        checkImportHTML = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error :", ex.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please choose .txt|.csv|.pdf|.xls|.xlsx files!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error); //custom messageBox to show error
+                }
+
+            }
+        }        

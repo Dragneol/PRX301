@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--<!DOCTYPE library [
+<!ELEMENT library (book)*>
+<!ELEMENT book (booktile, author, price)+>
+<!ELEMENT booktile (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+]>-->
+<library>
+    <book id="123" saleoff="50">
+        <booktile>The Firm</booktile>
+        <author>
+            <firstName>John</firstName>
+            <lastName> Grisham</lastName>
+        </author>
+        <price>99</price>
+    </book>
+    <book id="618">
+        <booktile>
+            Coma
+        </booktile>
+        <author>
+            <firstName>Robin     </firstName>
+            <lastName> Cook</lastName>
+        </author>
+        <price>99.5</price>
+    </book>
+    <book id="456">
+        <booktile>Wild Horses</booktile>
+        <author>
+            <firstName>Rebeca           </firstName>
+            <lastName>Moore</lastName>
+        </author>
+        <price>35.5</price>
+    </book>
+</library>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<crawler>
+    <list-movies>//h2[@class='product-name']/a</list-movies>
+    <detail>
+        <name>//div[@class='product-name']/span</name>
+        <description>//div[contains(h2, 'Chi tiết')]/div</description>
+        <duration>//div[contains(label, 'Thời lượng')]/div</duration>
+        <director>//div[@class='movie-director movie-info']/div</director>
+        <stars>//div[contains(label, 'Diễn viên')]/div</stars>
+        <category>//div[@class='movie-genre movie-info']/div</category>
+        <languages>//div[@class='movie-language movie-info']/div</languages>
+        <type>//div[@class='movie-rating movie-rated-web']/div</type>
+        <image-url>//img[contains(@src,'406')]/@src</image-url>
+        <alternative-image-url>//img[@id='image-2']/@src</alternative-image-url>
+    </detail>
+    <id>substring-before(substring-after(//div[@class='movie-detail-fb-booking']//button/@onclick, "'"), "'")</id>
+    <schedules path="//dt[starts-with(span,'2D')]/following-sibling::dd[1]//div[@class='site sitecgv']">
+        <department>div/h3</department>
+        <department-schedules path="ul/li//span[1]"></department-schedules>
+    </schedules>
+    <processor>
+        <home>
+            <start>&lt;ul class="products-grid products-grid--max-4-col"&gt;</start>
+            <end>&lt;script type="text/javascript"&gt;</end>
+        </home>
+        <detail>
+            <start>&lt;div class="product-view"&gt;</start>
+            <end>&lt;div id="loading-mask"</end>
+            <remove-list>
+                <remove-item>allowfullscreen</remove-item>
+            </remove-list>
+        </detail>
+    </processor>
+</crawler>

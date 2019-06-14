@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<websites xmlns="http://www.thang.com/XMLSchema/thang">
+    <categories>
+        <category>
+            <id>1</id>
+            <name>Bàn làm việc</name>
+            <altName>Bàn làm việc cũ</altName>
+            <altName>Bàn làm việc thanh lý</altName>
+        </category>
+        <category>
+            <id>2</id>
+            <name>Bàn họp</name>
+            <altName>Bàn họp cũ</altName>
+            <altName>Bàn họp thanh lý</altName>
+        </category>
+        <category>
+            <id>3</id>
+            <name>Bàn giám đốc, trưởng phòng</name>
+            <altName>Bàn giám đốc cũ</altName>
+            <altName>Bàn giám đốc thanh lý</altName>
+            <altName>Bàn trưởng phòng thanh lý</altName>
+        </category>
+        <category>
+            <id>4</id>
+            <name>Bàn tròn</name>
+            <altName>Bàn tròn thanh lý</altName>
+        </category>
+        <category>
+            <id>5</id>
+            <name>Ghế văn phòng</name>
+            <altName>Ghế văn phòng cũ</altName>
+            <altName>Ghế làm việc thanh lý</altName>
+        </category>
+        <category>
+            <id>6</id>
+            <name>Ghế giám đốc</name>
+            <altName>Ghế giám đốc thanh lý</altName>
+        </category>
+        <category>
+            <id>7</id>
+            <name>Tủ kệ hồ sơ</name>
+            <altName>Tủ kệ hồ sơ cũ</altName>
+            <altName>Tủ cao thanh lý</altName>
+            <altName>Kệ hồ sơ thanh lý</altName>
+            <altName>Tủ thấp thanh lý</altName>
+        </category>
+        <category>
+            <id>8</id>
+            <name>Tủ cabinet</name>
+            <altName>Tủ cabinet thanh lý</altName>
+        </category>
+        <category>
+            <id>9</id>
+            <name>Tủ kệ gia đình</name>
+            <altName>Tủ kệ bếp cũ</altName>
+            <altName>Thanh lý tủ kệ tivi cũ</altName>
+            <altName>Tủ kệ giầy dép cũ</altName>
+        </category>
+        <category>
+            <id>10</id>
+            <name>Sofa</name>
+            <altName>Sofa thanh lý</altName>
+            <altName>Bán Salon - Sofa cũ</altName>
+        </category>
+        <category>
+            <id>11</id>
+            <name>Tủ treo</name>
+            <altName>Tủ treo thanh lý</altName>
+        </category>
+        <category>
+            <id>12</id>
+            <name>Bàn ăn</name>
+            <altName>Bán Bàn ăn cũ</altName>
+        </category>
+        <category>
+            <id>13</id>
+            <name>Tủ quần áo</name>
+            <altName>Tủ quần áo thanh lý</altName>
+            <altName>Bán tủ quần áo cũ</altName>
+        </category>
+        <category>
+            <id>14</id>
+            <name>Giường</name>
+            <altName>Thanh lý giường cũ</altName>
+            <altName>Giường thanh lý</altName>
+        </category>
+        <category>
+            <id>15</id>
+            <name>Bộ bàn ăn</name>
+            <altName>BÀN GHE QUÁN ĂN CŨ</altName>
+        </category>
+        <category>
+            <id>16</id>
+            <name>Bàn ghế cafe</name>
+            <altName>BÀN GHẾ CAFE CŨ</altName>
+        </category>
+        <category>
+            <id>17</id>
+            <name>Quầy lễ tân</name>
+            <altName>Quầy lễ tân thanh lý</altName>
+            <altName>QUẦY TÍNH TIỀN LỄ TÂN CŨ</altName>
+        </category>
+        <category>
+            <id>18</id>
+            <name>Bàn ghế học sinh</name>
+            <altName>BÀN GHẾ HOC SINH CŨ</altName>
+        </category>
+        <category>
+            <id>19</id>
+            <name>Khác</name>
+            <altName>other</altName>
+        </category>
+    </categories>
+    <website>
+        <homeUrl>https://thumuabanghe.com/</homeUrl>
+        <categoryLink>
+            <xslUrl>WEB-INF/xsl/categoryLink.xsl</xslUrl>
+            <marks>
+                <mark>
+                    <start>&lt;div class=&quot;mar top10</start>
+                    <end>&lt;div class=&quot;col-sm-9 top10</end>
+                    <isInclude>true</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;col-sm-3&quot;&gt;</start>
+                    <end>&lt;div class=&quot;col-sm-9 top10</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;left&quot; style=&quot;border:2px solid #183546&quot;&gt;</start>
+                    <end>&lt;div class=&quot;left&quot;&gt;</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;left&quot; style=&quot;border:2px solid #183546&quot;&gt;</start>
+                    <end> TỦ KỆ KÍNH TRƯNG BÀY  </end>
+                    <isInclude>true</isInclude>
+                </mark>
+            </marks>
+        </categoryLink>
+        <productLink>
+            <xslUrl>WEB-INF/xsl/productLink.xsl</xslUrl>
+            <marks>
+                <mark>
+                    <start>&lt;div class=&quot;mar top10</start>
+                    <end>&lt;footer class=&quot;mar</end>
+                    <isInclude>true</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;col-sm-9 phaicss</start>
+                    <end>&lt;footer class=&quot;mar</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div id=&quot;contentsp</start>
+                    <end>&lt;div class=&quot;paging&quot;</end>
+                    <isInclude>false</isInclude>
+                </mark>
+            </marks>
+        </productLink>
+        <product>
+            <xslUrl>WEB-INF/xsl/products.xsl</xslUrl>
+            <marks>
+                <mark>
+                    <start>&lt;div class=&quot;mar top10</start>
+                    <end>&lt;footer class=&quot;mar</end>
+                    <isInclude>true</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;col-sm-9 phaicss</start>
+                    <end>&lt;footer class=&quot;mar</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;mar top15</start>
+                    <end>&lt;h5 class=&quot;cenn1</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;mar top15</start>
+                    <end>&lt;div class=&quot;cenn</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;mar top15</start>
+                    <end>&lt;script&gt;window</end>
+                    <isInclude>false</isInclude>
+                </mark>
+            </marks>
+        </product>
+    </website>
+    <website>
+        <homeUrl>https://thanhlydocugiare.com/noi-that/</homeUrl>
+        <categoryLink>
+            <xslUrl>WEB-INF/xsl/categoryLink_1.xsl</xslUrl>
+            <marks>
+                <mark>
+                    <start>&lt;!-- ./group_tin_tieude --&gt;</start>
+                    <end>&lt;!-- ./group_tin_noidung --&gt;</end>
+                    <isInclude>false</isInclude>
+                </mark>
+            </marks>
+        </categoryLink>
+        <productLink>
+            <xslUrl>WEB-INF/xsl/productLink_1.xsl</xslUrl>
+            <marks>
+                <mark>
+                    <start>&lt;div id=&quot;colcontent</start>
+                    <end>&lt;div id=&quot;col1&quot;&gt;</end>
+                    <isInclude>true</isInclude>
+                </mark>
+            </marks>
+        </productLink>
+        <product>
+            <xslUrl>WEB-INF/xsl/products_1.xsl</xslUrl>
+            <marks>
+                <mark>
+                    <start>&lt;div id=&quot;colcontent&quot;&gt;</start>
+                    <end>&lt;div id=&quot;col1&quot;&gt;</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;noidungchitiet&quot;&gt;</start>
+                    <end>&lt;div class=&quot;spnb-title titlebase&quot;&gt;</end>
+                    <isInclude>false</isInclude>
+                </mark>
+                <mark>
+                    <start>&lt;div class=&quot;sanpham_img&quot;&gt;</start>
+                    <end>&lt;!-- /.col-sm-7 --&gt;</end>
+                    <isInclude>false</isInclude>
+                </mark>
+            </marks>
+        </product>
+    </website>
+</websites>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE library[
+    <!ELEMENT library (book)*>
+    <!ELEMENT book (booktitle, author, price)+>
+    <!ELEMENT booktitle (#PCDATA)>
+    <!ELEMENT author (#PCDATA)><!ELEMENT price (#PCDATA)>
+]>
+<library>
+    <book>
+        <booktitle>  The Frim</booktitle>
+        <author>
+            John Graham</author>
+        <price>   99</price>
+    </book>
+    <book>
+        <booktitle>Coma </booktitle>
+        <author>Robin Cook</author>
+        <price><![CDATA[<99]]></price>
+    </book>
+    <book>
+        <booktitle>Wild Hourse</booktitle>
+        <author>Rebeca Morris</author>
+        <price>35.5</price>
+    </book>
+</library>

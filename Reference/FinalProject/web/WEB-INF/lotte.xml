@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<crawler>
+    <list-movies>//div[@class='over']/a[2]</list-movies>
+    <detail>
+        <name>//div[@class='caption']/h3</name>
+        <description>//span</description>
+        <duration>//li[contains(span, 'Thời lượng')]/span[@class='dn_ldtmv330']</duration>
+        <director>//li[contains(span, 'Đạo diễn')]/span[@class='dn_ldtmv330']</director>
+        <stars>//li[contains(span, 'Diễn viên')]/span[@class='dn_ldtmv330']</stars>
+        <category>//li[contains(span, 'Loại phim')]/span[@class='dn_ldtmv330']</category>
+        <languages>//li[contains(span, 'Phiên bản')]/span[@class='dn_ldtmv330']</languages>
+        <image-url>substring-before(substring-after(//div[@class='movie-img img-background']/@style, "url('"), "?")</image-url>
+    </detail>
+    <schedules path="//div[@style='height: 25px; line-height: 25px; background: #BEB195; padding-left: 10px; font-weight: bold; color: #FFF']">
+        <department></department>
+        <department-schedules path="table">
+            <date>tr//div[@style='padding-right: 10px; width: 130px;']</date>
+            <times>tr//a[@class='pointer booking-link-detail']</times>
+        </department-schedules>
+    </schedules>
+    <processor>
+        <home>
+            <start>&lt;div role="tabpanel" class="tab-pane active" id="nowPlaying"&gt;</start>
+            <end>&lt;div role="tabpanel" class="tab-pane" id="commingSoon"&gt;</end>
+        </home>
+        <detail>
+            <start>&lt;div class="movie-details"&gt;</start>
+            <end>&lt;div class="dn_dtmv" style="display: none;"&gt;</end>
+        </detail>
+        <description>
+            <start>&lt;div role="tabpanel" class="tab-pane active" id="tomtacnoidung"&gt;</start>
+            <end>&lt;div role="tabpanel" class="tab-pane" id="lichchieuphim"&gt;</end>
+        </description>
+        <schedule>
+            <start>&lt;div role="tabpanel" class="tab-pane" id="lichchieuphim"&gt;</start>
+            <end>&lt;div role="tabpanel" class="tab-pane" id="binhluanphim"&gt;</end>
+            <remove-list>
+                <remove-item>&lt;td&gt;</remove-item>
+            </remove-list>
+        </schedule>
+    </processor>
+</crawler>

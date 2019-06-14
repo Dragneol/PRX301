@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://nguyenviethung.com/movieSchedule"
+           targetNamespace="http://nguyenviethung.com/movieSchedule"
+           elementFormDefault="qualified">
+    <xs:element name="MovieSchedule">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="movieId" type="xs:int"/>
+                <xs:element name="departmentId" type="xs:int"/>
+                <xs:element name="date" type="xs:date"/>
+                <xs:element name="showingTimeList">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="time" type="xs:string" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="bookingUrl" type="xs:string"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

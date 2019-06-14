@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student id='1' class='se1262'>
+        <lastname>Pham</lastname>
+        <middlename>Cong</middlename>
+        <firstname>Thanh</firstname>
+        <gender>0</gender>
+        <password>123456</password>
+        <address>TpHCM</address>
+        <status>studying</status>
+    </student>
+    <student id='2' class='se1262'>
+        <lastname>Tran</lastname>
+        <middlename>Hoang</middlename>
+        <firstname>Duong</firstname>
+        <gender>0</gender>
+        <password>123456</password>
+        <address>TpHCM</address>
+        <status>studying</status>
+    </student>
+    <student id='3' class='se1262'>
+        <lastname>Duong</lastname>
+        <middlename>Thanh</middlename>
+        <firstname>Dat</firstname>
+        <gender>1</gender>
+        <password>23</password>
+        <address>TpHCM</address>
+        <status>studying</status>
+    </student>
+</students>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE document [
+    <!ELEMENT document (graphics)+>
+    <!ELEMENT graphics EMPTY>
+    <!ATTLIST graphics
+        image ENTITIES #REQUIRED
+        altenative CDATA #IMPLIED
+    >
+    <!NOTATION JPG SYSTEM "/images">
+    <!ENTITY logo SYSTEM "foo.jpg" NDATA JPG>
+    <!NOTATION PNG SYSTEM "/images">
+    <!ENTITY logoPNG SYSTEM "foo.png" NDATA PNG>
+    <!ENTITY wwc "World Wide Web Corporation">
+]>
+<document>
+    <graphics image="logo logoPNG" altenative="&wwc; Logo" />
+</document>

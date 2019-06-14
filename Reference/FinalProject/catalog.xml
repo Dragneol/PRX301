@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/E:/FPT%20University/2018-zFall-PRX301/FinalProject/web/WEB-INF/MovieSchedules.xsd" uri="src/conf/xml-resources/jaxb/MovieSchedules/MovieSchedules.xsd"/>
+    <system systemId="file:/E:/FPT%20University/2018-zFall-PRX301/FinalProject/web/WEB-INF/Theater.xsd" uri="src/conf/xml-resources/jaxb/Theater/Theater.xsd"/>
+    <system systemId="file:/E:/FPT%20University/2018-zFall-PRX301/FinalProject/web/WEB-INF/MovieSchedule.xsd" uri="src/conf/xml-resources/jaxb/MovieSchedule/MovieSchedule.xsd"/>
+    <system systemId="file:/E:/FPT%20University/2018-zFall-PRX301/FinalProject/web/WEB-INF/Movies.xsd" uri="src/conf/xml-resources/jaxb/Movies/Movies.xsd"/>
+    <system systemId="file:/E:/FPT%20University/2018-zFall-PRX301/FinalProject/web/WEB-INF/Movie.xsd" uri="src/conf/xml-resources/jaxb/Movies/Movie.xsd"/>
+    <system systemId="file:/E:/FPT%20University/2018-zFall-PRX301/FinalProject/web/WEB-INF/Departments.xsd" uri="src/conf/xml-resources/jaxb/Departments/Departments.xsd"/>
+    <system systemId="file:/E:/FPT%20University/2018-zFall-PRX301/FinalProject/web/WEB-INF/Department.xsd" uri="src/conf/xml-resources/jaxb/Departments/Department.xsd"/>
+</catalog>

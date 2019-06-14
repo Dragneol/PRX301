@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+    <XML ID="xmlDoc">
+        <contacts>
+            <contact>
+                <lastname>Duong</lastname>
+                <firstname>Hoang</firstname>
+            </contact>
+            <contact>
+                <lastname>Thanh</lastname>
+                <firstname>Pham</firstname>
+            </contact>
+            <contact>
+                <lastname>Khanh</lastname>
+                <firstname>Kieu</firstname>
+            </contact>
+        </contacts>
+    </XML>
+    <table border="1" DATASRC="#xmlDoc">
+        <thead>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span DATAFLD="lastname"></span></td>
+                <td><span DATAFLD="firstname"></span></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

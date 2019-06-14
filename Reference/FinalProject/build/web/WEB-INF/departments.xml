@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Departments xmlns="http://nguyenviethung.com/department" xmlns:ns2="http://nguyenviethung.com/departments">
+    <Department>
+        <id>313</id>
+        <name>CGV Hùng Vương Plaza</name>
+        <address>10.7560898;106.6630254;Parkson Hung Vuong Plaza, 126 Đường Hùng Vương, Phường 12, Quận 5, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>314</id>
+        <name>CGV CT Plaza</name>
+        <address>10.8132480;106.6658153;CT Plaza, 60A Trường Sơn, Phường 2, Tân Bình, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>315</id>
+        <name>CGV Crescent Mall</name>
+        <address>10.7287873;106.7188121;101 Tôn Dật Tiên, Tân Phú, Quận 7, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>316</id>
+        <name>CGV Pandora City</name>
+        <address>10.8065944;106.6342112;1 Trường Chinh, Phường 15, Tân Phú, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>317</id>
+        <name>CGV Aeon Tân Phú</name>
+        <address>10.8017020;106.6179746;30, Level 3 Aeon Mall, Bờ Bao Tân Thắng, Sơn Ký, Tân Phú, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>318</id>
+        <name>CGV Thảo Điền Pearl</name>
+        <address>10.8016868;106.7329703;12 Quốc Hương, Thảo Điền, Quận 2, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>319</id>
+        <name>CGV Liberty Citypoint</name>
+        <address>10.7746896;106.7006204;Khách sạn Liberty Citypoint, Pasteur, Bến Nghé, Quận 1, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>320</id>
+        <name>CGV Vincom Thủ Đức</name>
+        <address>10.8499171;106.7652107;216 Võ Văn Ngân, Bình Thọ, Thủ Đức, Bình Thọ Thủ Đức Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>321</id>
+        <name>CGV Pearl Plaza</name>
+        <address>10.8000606;106.7185875;Pearl Plaza Apartment, 561 Điện Biên Phủ, Phường 25, Bình Thạnh, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>322</id>
+        <name>CGV Vincom Gò Vấp</name>
+        <address>10.8270916;106.6892330;12 Phan Văn Trị, Phường 5, Gò Vấp, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>323</id>
+        <name>CGV Hoàng Văn Thụ</name>
+        <address>10.7987229;106.6601247;415 Hoàng Văn Thụ, Phường 2, Tân Bình, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>324</id>
+        <name>CGV Aeon Bình Tân</name>
+        <address>10.7432125;106.6131745;1 Đường Số 17A, An Lạc, Bình Tân, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>325</id>
+        <name>CGV Vincom Đồng Khởi</name>
+        <address>10.7779662;106.7020584;72 Lê Thánh Tôn, Bến Nghé, Quận 1, Hồ Chí Minh 700000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>326</id>
+        <name>CGV Saigonres Nguyễn Xí</name>
+        <address>10.8164304;106.7072269;Saigonres Plaza, 188, 79-81 Nguyễn Xí, Phường 26, Bình Thạnh, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>327</id>
+        <name>CGV Golden Plaza</name>
+        <address>10.7536086;106.6547646;922 Nguyễn Trãi, Phường 14, Quận 5, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>328</id>
+        <name>CGV Parkson Đồng Khởi</name>
+        <address>10.7778321;106.7024588;bis-45,, 35 Lê Thánh Tôn, Bến Nghé, Quận 1, Hồ Chí Minh 700000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>329</id>
+        <name>CGV Sư Vạn Hạnh</name>
+        <address>10.7705133;106.6698264;Vạn Hạnh Mall, 11 Sư Vạn Hạnh, Phường 12, Quận 10, Hồ Chí Minh 700000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>330</id>
+        <name>CGV IMC Trần Quang Khải</name>
+        <address>10.7924770;106.6939150;Tầng 2 &amp; 3, Trung Tâm Văn Hóa Đa Năng, 62 Trần Quang Khải, Tân Định, Quận 1, Hồ Chí Minh 70000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>331</id>
+        <name>CGV Vincom Center Landmark 81</name>
+        <address>10.7947904;106.7222397;Tầng B1 , TTTM Vincom Center Landmark 81, 772 Điện Biên Phủ, P.22, Q. Bình P.22, Q, Bình Thạnh, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>332</id>
+        <name>CGV Vivo City</name>
+        <address>10.7301828;106.7038375;Lầu 5, Trung tâm thương mại SC VivoCity, 1058 Nguyễn Văn Linh, Tân Phong, Quận 7, Hồ Chí Minh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>333</id>
+        <name>CGV Vincom Center Bà Triệu</name>
+        <address>21.0110831;105.8495107;Tầng 6, Toà nhà Vincom Center, 191 đường Bà Triệu, Lê Đại Hành, Hai Bà Trưng, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>334</id>
+        <name>CGV Mipec Tower</name>
+        <address>21.0055654;105.8237330;Tầng 5, MIPEC Tower, 229 Tây Sơn, Ngã Tư Sở, Đống Đa, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>335</id>
+        <name>CGV Hồ Gươm Plaza</name>
+        <address>20.9790077;105.7856378;Tầng 3, TTTM Hồ Gươm Plaza, 110 Trần Phú, P. Mộ Lao, Hà Đông, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>336</id>
+        <name>CGV Vincom Nguyễn Chí Thanh</name>
+        <address>21.0232842;105.8092125;số 54A Nguyễn Chí Thanh, Láng Thượng, Đống Đa, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>337</id>
+        <name>CGV Indochina Plaza Hà Nội</name>
+        <address>21.0360560;105.7822750;Tầng 4, Indochina Plaza, 241 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>338</id>
+        <name>CGV Rice City</name>
+        <address>20.9633682;105.8229783;Tầng 2 và 4, Tòa nhà Trung Rice City Linh Đàm - Tòa Trung, 100000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>339</id>
+        <name>CGV Artemis Hà Nội</name>
+        <address>20.9996882;105.8283506;Tầng 6, Tòa nhà Artemis, số 3, Lê Trọng Tấn, Khương Mai, Thanh Xuân, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>340</id>
+        <name>CGV Hà Nội Centerpoint</name>
+        <address>21.0042811;105.8049250;Tầng 5 TTTM Hà Nội Centerpoint, 27 Đường Lê Văn Lương, Nhân Chính, Thanh Xuân, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>341</id>
+        <name>CGV Tràng Tiền Plaza</name>
+        <address>21.0248411;105.8533411;Tầng 5 , TTTM, 24 Hai Bà Trưng, Tràng Tiền, Hoàn Kiếm, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>342</id>
+        <name>CGV Trương Định Plaza</name>
+        <address>20.9842970;105.8462610;Tầng 5, TTTM Trương Định Plaza, 461 Trương Định, Tân Mai, Hoàng Mai, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>343</id>
+        <name>CGV Vincom Royal City</name>
+        <address>21.0030263;105.8154839;TTTM Vincom Mega Mall Royal City, 72A Nguyễn Trãi, Thượng Đình, Thanh Xuân, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>344</id>
+        <name>CGV Vincom Times City </name>
+        <address>20.9942669;105.8684911;Tầng B1, TTTM Vincom Mega Mall, 458 Minh Khai, Khu đô thị Times City, Hai Bà Trưng, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>345</id>
+        <name>CGV Vincom Long Biên </name>
+        <address>21.0509866;105.9163423;Vincom Plaza, Tầng 5, TTTM, Khu đô thị Vinhomes Riverside, Long Biên, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>346</id>
+        <name>CGV Machinco</name>
+        <address>20.9833790;105.7915160;Tầng 7, TTTM Machinco, 10 Trần Phú, P. Mộ Lao, Hà Đông, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>347</id>
+        <name>CGV Aeon Long Biên</name>
+        <address>21.0265591;105.9006806;Tầng 4, TTTM AEON Mega Maill, Số 27 Cổ Linh, Long Biên, Hà Nội, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>348</id>
+        <name>CGV Vĩnh Trung Plaza</name>
+        <address>16.0666860;108.2134549;255-257 Hùng Vương, Vĩnh Trung, Thanh Khê, Đà Nẵng 550000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>349</id>
+        <name>CGV Vincom Đà Nẵng</name>
+        <address>16.0710745;108.2301815;Tầng 4 Trung tâm Thương Mại Vincom Đà Nẵng, Q, Ngô Quyền, An Hải Bắc, Sơn Trà, Đà Nẵng, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>350</id>
+        <name>CGV Sense City</name>
+        <address>10.0341076;105.7859695;Sense City, 1 Đại lộ Hoà Bình, Tân An, Ninh Kiều, Cần Thơ, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>351</id>
+        <name>CGV Vincom Xuân Khánh</name>
+        <address>10.0246788;105.7749034;Vincom Xuân Khánh, 209 Đường 30 Tháng 4, Xuân Khánh, Ninh Kiều, Cần Thơ 900000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>352</id>
+        <name>CGV Vincom Hùng Vương</name>
+        <address>10.0453833;105.7796137;02 Hùng Vương, Thới Bình, Ninh Kiều, Cần Thơ, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>353</id>
+        <name>CGV Coopmart Biên Hòa</name>
+        <address>10.9586030;106.8339602;Tầng 3 Khu Siêu thị Co-op Mart 121 Phạm Văn Thuận,Tan Tien Ward Bien Hoa VN, 121 Phạm Văn Thuận, Thống Nhất, Thành phố Biên Hòa, Đồng Nai, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>354</id>
+        <name>CGV Big C Đồng Nai</name>
+        <address>10.9062802;106.8508482;Đường 2A, Long Bình Tân, Thành phố Biên Hòa, Long Bình Tân Thành phố Biên Hòa Đồng Nai, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>355</id>
+        <name>CGV Thùy Dương Plaza</name>
+        <address>20.8463948;106.7068879;Tầng 5, Thùy Dương Plaza, Lê Hồng Phong, Đằng Giang, Ngô Quyền, Hải Phòng, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>356</id>
+        <name>CGV Vincom Hạ Long</name>
+        <address>20.9502607;107.0841509;Cột đồng hồ, Tầng 4, TTTM Vincom Center Hạ Long, Khu, P. Bạch Đằng, Quảng Ninh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>357</id>
+        <name>CGV Marine Plaza</name>
+        <address>20.9553230;107.0127904;Marine Plaza Khu Đô Thị Hùng Thắng, P, Thành phố Hạ Long, Quảng Ninh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>358</id>
+        <name>CGV Lam Sơn Square</name>
+        <address>10.3485847;107.0740269;Tầng 4, Lam Sơn Square, 9 Lê Lợi, Phường 1, Thành phố Vũng Tầu, Bà Rịa - Vũng Tàu, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>359</id>
+        <name>CGV Lapen Center Vũng Tàu</name>
+        <address>10.3697860;107.0851620;Lapen Center, 33A, Đường 30/4, Phường 9, Thành phố Vũng Tầu, Bà Rịa - Vũng Tàu, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>360</id>
+        <name>CGV Kim Cúc Plaza</name>
+        <address>13.7539247;109.2077195;Tầng 3 | Kim Cúc Plaza (BigC Quy Nhơn) Khu Đô Thị Vũng Chua, Bình Định, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>361</id>
+        <name>CGV Bình Dương Square</name>
+        <address>10.9842298;106.6671181;1 Phú Lợi, Thủ Dầu Một, Phú Lợi, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>362</id>
+        <name>CGV Aeon Canary</name>
+        <address>10.9309662;106.7119234;Tầng 2,Trung tâm mua sắm Aeon-bình Dương Canary 77 Thuận An, Đại lộ Bình Dương, Thuận Giao, Thuận An, Bình Dương, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>363</id>
+        <name>CGV Empire</name>
+        <address>10.9747974;106.6565686;A45/2 Lý Thường Kiệt, Phú Cường, Vietnam, Bình Dương, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>364</id>
+        <name>CGV Buôn Mê Thuột</name>
+        <address>12.6934449;108.0643639;Tầng 4 TTTM Nguyễn Kim, số 01, Nguyễn Chí Thanh, Tân An, Thành phố Buôn Ma Thuột, Đắk Lắk, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>365</id>
+        <name>CGV Vincom Trà Vinh</name>
+        <address>9.9356930;106.3368140;Tầng 4, TTTM Vincom Plaza Trà Vinh -Khóm 3, Phường 2, Trà Vinh, 940000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>366</id>
+        <name>CGV Vincom Yên Bái</name>
+        <address>21.7085230;104.8816320;Tầng 4 – TTTM Vincom Yên Bái, Khu Bán Đảo Công Viên Yên Hòa, Nguyễn Thái Học, Yên Bái, 320000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>367</id>
+        <name>CGV Vincom Vĩnh Long</name>
+        <address>10.2463860;105.9776360;Tầng 4, Vincom Plaza Vĩnh Long, số 55, Phạm Thái Bường, Phường 4, Vĩnh Long, 890000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>368</id>
+        <name>CGV Vincom Rạch Giá</name>
+        <address>10.0032580;105.0810580;Co Bac Road, Phường Vĩnh Bảo, Rạch Giá, tỉnh Kiên Giang, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>369</id>
+        <name>CGV Vincom Vị Thanh</name>
+        <address>9.7837494;105.4695811;Tầng 4, TTTM Vincom Plaza Hậu Giang, Số 1, Đường 3 Tháng 2, Khu vực 3,, Phường 5, Vị Thanh, Hậu Giang, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>370</id>
+        <name>CGV Vincom Hà Tĩnh</name>
+        <address>18.3358861;105.8983069;9-152 Hà Huy Tập, Nam Hà, Hà Tĩnh, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>371</id>
+        <name>CGV Vincom Phú Yên</name>
+        <address>13.1011630;109.3088200;Vincom Plaza Tuy Hoà - Phú Yên, Hùng Vương, Phường7, Tuy Hòa, Phú Yên 620000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>372</id>
+        <name>CGV Big C Nha Trang</name>
+        <address>12.2563650;109.1702280;TTTM Big C Nha Trang, Lô số 4 đường 19/5, Khu đô thị Vĩnh Điềm Trung, Nha Trang, Khánh Hòa 650000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>373</id>
+        <name>CGV Vincom Lạng Sơn</name>
+        <address>21.8477764;106.7579380;TTTM Vincom Plaza, Thành phố Lạng Sơn, Lạng Sơn, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>374</id>
+        <name>CGV Vincom Sơn La</name>
+        <address>21.3229035;103.9173511;Tầng 3, TTTM Vincom Sơn La, Trường Chinh, P. Quyết Thắng, Sơn La, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>375</id>
+        <name>CGV Vincom Thái Nguyên</name>
+        <address>21.5887590;105.8279870;Tầng 4 , TTTM Vincom Thái Nguyên, 286 Lương Ngọc Quyến, Hàng Văn Thụ0, Thành phố Thái Nguyên, Thái Nguyên 250000, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>376</id>
+        <name>CGV GO! Mỹ Tho</name>
+        <address>10.3590333;106.3407254;545 Lê Văn Phẩm, Phường 5, Thành phố Mỹ Tho, Tiền Giang, Vietnam</address>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>377</id>
+        <name>Lotte Nam Sai Gon</name>
+        <address>10.7408474;106.7023616;Tầng 3 Lotte Mart NSG, 469 Đường Nguyễn Hữu Thọ, Tân Hưng, Quận 7, Hồ Chí Minh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>378</id>
+        <name>Lotte Diamond</name>
+        <address>10.7806206;106.6983943;34 Lê Duẩn, Bến Nghé, Quận 1, Hồ Chí Minh 700000, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>379</id>
+        <name>Lotte Landmark</name>
+        <address>21.0170462;105.7835932;Keangnam Hanoi Landmark Tower, Phạm Hùng, Mễ Trì, Cầu Giấy, Hà Nội, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>380</id>
+        <name>Lotte Nha Trang</name>
+        <address>12.2483989;109.1867668;Lầu 5, 60 Thái Nguyên, Phương Sài, Thành phố Nha Trang, Khánh Hòa 650000, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>381</id>
+        <name>Lotte Ha Dong</name>
+        <address>20.9636625;105.7718115;5rd Floor, Melinh Plaza to Hieu Street, Ha Cau, Ha Dong, Hanoi., Hà Nội, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>382</id>
+        <name>Lotte Da Nang</name>
+        <address>16.0345893;108.2294799;Lotte Mart Đà Nẵng, Tầng 5, Nại Nam, Hoà Cường Bắc, Hải Châu, Đà Nẵng, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>383</id>
+        <name>Lotte Cong Hoa</name>
+        <address>10.8008453;106.6530491;Pico Plaza, 20 Cộng Hòa, Phường 12, Tân Bình, Hồ Chí Minh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>384</id>
+        <name>Lotte Cantavil</name>
+        <address>10.8014352;106.7469001;Song Hành, An Phú, Quận 2, Hồ Chí Minh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>385</id>
+        <name>Lotte Binh Duong</name>
+        <address>10.9056762;106.7117956;Khu đô thị The Seasons P., Đại lộ Bình Dương, Lái Thiêu, Thuận An, Bình Dương, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>386</id>
+        <name>Lotte Phan Thiet</name>
+        <address>10.9387669;108.1110264;Khu dân cư Hùng Vương I, Phú Thuỷ, Thành phố Phan Thiết, Phú Thuỷ Thành phố Phan Thiết Bình Thuận, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>387</id>
+        <name>Lotte Phu Tho</name>
+        <address>10.7631133;106.6570733;Lotte Mart, 968 Đường 3/2, Phường 15, Quận 11, Hồ Chí Minh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>388</id>
+        <name>Lotte Hue</name>
+        <address>16.4602398;107.5991810;Tầng 4 Big C Huế, 181 Bà Triệu, Phú Nhuận, Thành phố Huế, Thừa Thiên Huế, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>389</id>
+        <name>Lotte Ha Long</name>
+        <address>20.9421623;107.1105517;Nguyễn Văn Cừ, Hồng Hà, Thành phố Hạ Long, Quảng Ninh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>390</id>
+        <name>Lotte Vung Tau</name>
+        <address>10.3501440;107.0939940;3 Tháng 2, Phường 8, Thành phố Vũng Tầu, phường 8, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>391</id>
+        <name>Lotte Can Tho</name>
+        <address>10.0425844;105.7665141;84, Mậu Thân, Phường An Hòa, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>392</id>
+        <name>Lotte Bac Giang</name>
+        <address>21.2667501;106.2083048;Tầng trệt, Trung tâm Thương mại Big C Bắc Giang, xã Tân Tiến, thành phố Bắc Giang, tỉnh Bắc Giang, Tân Tiến, Yên Dũng, Bắc Giang, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>393</id>
+        <name>Lotte Can Tho Ninh Kieu</name>
+        <address>10.0422661;105.7669419;Tầng 3 TTTM Lotte Mart, 84 Mậu Thân, An Hoà, Ninh Kiều, Cần Thơ, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>394</id>
+        <name>Lotte Bien Hoa</name>
+        <address>10.9577074;106.8431749;Vincom Biên Hòa, 1096 Phạm Văn Thuận, Tân Mai, Thành phố Biên Hòa, Đồng Nai, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>395</id>
+        <name>Lotte An Giang</name>
+        <address>10.3836990;105.4373093;Trần Hưng Đạo, P. Mỹ Bình, Thành phố Long Xuyên, An Giang, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>396</id>
+        <name>Lotte Viet Tri</name>
+        <address>21.3122469;105.3955485;tầng 5 Vincom Plaza,, Ph.Tiên Cát, Thành phố Việt Trì, Phú Thọ, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>397</id>
+        <name>Lotte Hai Phong</name>
+        <address>20.8658747;106.6913653;1 Lê Thánh Tông, Máy Tơ, Ngô Quyền, Hải Phòng, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>398</id>
+        <name>Lotte Ninh Binh</name>
+        <address>20.2421667;106.0041833;Trần Nhân Tông, Ninh Phú, Ninh Bình, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>399</id>
+        <name>Lotte Now Zone</name>
+        <address>10.7642847;106.6823515;TTTM Nowzone, 235 Đường Nguyễn Văn Cừ, Phường Nguyễn Cư Trinh, Quận 1, Hồ Chí Minh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>400</id>
+        <name>Lotte Thang Long</name>
+        <address>21.0079594;105.7932772;Big C Thăng Long, 222 Trần Duy Hưng, Trung Hoà, Cầu Giấy, Hà Nội, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>401</id>
+        <name>Lotte Thai Binh</name>
+        <address>20.4444697;106.3368630;Vincom Thai Binh, 460 Lý Bôn, P. Đề Thám, Thành phố Thái Bình, Thái Bình 000036, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>402</id>
+        <name>Lotte Go Vap</name>
+        <address>10.8382676;106.6715626;Lotte Mart, 242 Nguyễn Văn Lượng, Phường 10, Gò Vấp, Hồ Chí Minh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>403</id>
+        <name>Lotte Thu Duc</name>
+        <address>10.8709355;106.7691654;Tòa nhà Joy Citipoint, QL1A, Phường Linh Trung, Thủ Đức, Hồ Chí Minh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>404</id>
+        <name>Lotte Vinh</name>
+        <address>18.6878634;105.6657331;Tầng 5, Mường Thanh VRC, số 1, Phan Bội Châu, Lê Lợi, Thành phố Vinh, Nghệ An, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>405</id>
+        <name>Lotte Tuyen Quang</name>
+        <address>21.8189594;105.2052689;260 Quang Trung, P. Phan Thiết, Tuyên Quang, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>406</id>
+        <name>Lotte Tay Ninh</name>
+        <address>11.3126047;106.0958367;Trần Quốc Toản, Phường 2, Tây Ninh, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>407</id>
+        <name>Lotte Nam Dinh</name>
+        <address>20.4299976;106.1613687;Tầng 5, toà nhà Nam Định Tower, 91 Điện Biên, Lộc Hoà, TP. Nam Định, Nam Định, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>408</id>
+        <name>Lotte Long Bien</name>
+        <address>21.0506906;105.8918255;7 Nguyễn Văn Linh, Gia Thụy, Long Biên, Hà Nội, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>409</id>
+        <name>Lotte Thanh Hoa</name>
+        <address>19.8099103;105.7773181;Tầng 4 Vincom, Trần Phú, P. Lam Sơn, Thành phố Thanh Hóa, Thanh Hoá, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>410</id>
+        <name>Lotte Bao Loc</name>
+        <address>11.5449163;107.8106163;59 Lê Hồng Phong, Phường 1, Bảo Lộc, Bảo Lộc Lâm Đồng, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>411</id>
+        <name>Lotte Dong Hoi</name>
+        <address>17.4652738;106.6260376;Tầng 3 Vincom, P Hải Đính, Quảng Bình, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>412</id>
+        <name>Lotte Nha Trang Tran Phu</name>
+        <address>12.2332440;109.1974406;78 Trần Phú, Lộc Thọ, Thành phố Nha Trang, Khánh Hòa 650000, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>413</id>
+        <name>Lotte Bac Ninh</name>
+        <address>21.1784821;106.0720314;Đại Phúc, Bắc Ninh, Bac Ninh Province, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>414</id>
+        <name>Lotte Phu Ly</name>
+        <address>20.5376512;105.9195908;136 Đường Lê Công Thanh, Trần Hưng Đạo, Phủ Lý, Hà Nam, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>415</id>
+        <name>Lotte Dong Nai</name>
+        <address>10.9486682;106.8711227;Khu TM AMATA, QL 1A, Long Bình, Thành phố Biên Hòa, Đồng Nai, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>416</id>
+        <name>Lotte Hai Duong</name>
+        <address>20.9301829;106.3141140;Đỗ Gia Palace, 158 Ngô Quyền, P. Thanh Trung, Thành phố Hải Dương, Hải Dương, Vietnam</address>
+        <theaterId>9</theaterId>
+    </Department>
+    <Department>
+        <id>417</id>
+        <name>CGV Satra Củ Chi</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>418</id>
+        <name>CGV Giga Mall Thủ Đức</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>419</id>
+        <name>CGV Vincom Metropolis Liễu Giai </name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>420</id>
+        <name>CGV Vincom Sky Lake</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>421</id>
+        <name>CGV Sun Grand Lương Yên </name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>422</id>
+        <name>CGV Xuân Diệu</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>423</id>
+        <name>CGV Vincom Trần Duy Hưng</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>424</id>
+        <name>CGV Vincom Bắc Từ Liêm </name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>425</id>
+        <name>CGV Vincom Hải Phòng</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>426</id>
+        <name>CGV Happyland Việt Trì</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>427</id>
+        <name>CGV Vincom Quảng Ngãi</name>
+        <theaterId>8</theaterId>
+    </Department>
+    <Department>
+        <id>428</id>
+        <name>CGV Vincom Tây Ninh</name>
+        <theaterId>8</theaterId>
+    </Department>
+</ns2:Departments>

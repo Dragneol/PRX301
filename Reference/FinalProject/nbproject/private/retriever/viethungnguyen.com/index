@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<!-- BEGIN html -->
+<html lang="vi" class="no-js">
+<!-- A ThemeZilla design (http://www.themezilla.com) - Proudly powered by WordPress (http://wordpress.org) -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Viet Hung Nguyen | Everyday Higher</title>
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://viethungnguyen.com/xmlrpc.php" />
+
+	<script type="text/javascript">
+  WebFontConfig = {"google":{"families":["Noto+Sans:r,i,b,bi:latin,latin-ext,vietnamese"]}};
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = 'https://s0.wp.com/wp-content/plugins/custom-fonts/js/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+	})();
+</script><style id="jetpack-custom-fonts-css">.wf-active body{font-family:"Noto Sans",sans-serif}.wf-active button, .wf-active input, .wf-active select, .wf-active textarea{font-family:"Noto Sans",sans-serif}.wf-active blockquote{font-family:"Noto Sans",sans-serif}.wf-active pre{font-family:"Noto Sans",sans-serif}.wf-active code, .wf-active kbd, .wf-active tt, .wf-active var{font-family:"Noto Sans",sans-serif}.wf-active button, .wf-active html input[type="submit"], .wf-active input[type="reset"], .wf-active input[type="submit"]{font-family:"Noto Sans",sans-serif}.wf-active input[type="email"], .wf-active input[type="password"], .wf-active input[type="search"], .wf-active input[type="text"], .wf-active input[type="url"], .wf-active textarea{font-family:"Noto Sans",sans-serif}.wf-active #logo, .wf-active #logo a{font-family:"Noto Sans",sans-serif}.wf-active .primary-menu > li > a{font-family:"Noto Sans",sans-serif}.wf-active #infinite-handle{font-family:"Noto Sans",sans-serif}.wf-active .entry-link .link-url, .wf-active .format-quote .quote-source, .wf-active .format-quote blockquote cite{font-family:"Noto Sans",sans-serif}.wf-active .gallery-caption, .wf-active .wp-caption{font-family:"Noto Sans",sans-serif}</style>
+<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+		<script src='https://r-login.wordpress.com/remote-login.php?action=js&amp;host=viethungnguyen.com&amp;id=112576676&amp;t=1540718233&amp;back=https%3A%2F%2Fviethungnguyen.com%2F' type="text/javascript"></script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if ( 'function' === typeof WPRemoteLogin ) {
+				document.cookie = "wordpress_test_cookie=test; path=/";
+				if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+					WPRemoteLogin();
+				}
+			}
+		/* ]]> */
+		</script>
+		<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//viethungnguyen.wordpress.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="Dòng thông tin Viet Hung Nguyen &raquo;" href="https://viethungnguyen.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Dòng phản hồi Viet Hung Nguyen &raquo;" href="https://viethungnguyen.com/comments/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1532082729h&ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0-1' href='https://s2.wp.com/_static/??/wp-content/mu-plugins/wpcom-smileys/wpcom-smileys.css,/wp-content/mu-plugins/likes/jetpack-likes.css?m=1524769025j&cssminify=yes' type='text/css' media='all' />
+<link rel='stylesheet' id='curator-playfair-css'  href='https://fonts.googleapis.com/css?family=Playfair+Display%3A400%2C700%2C900%2C400italic%2C700italic&#038;ver=4.9.8' type='text/css' media='all' />
+<link rel='stylesheet' id='all-css-2-1' href='https://s2.wp.com/_static/??-eJyNkNFuwyAMRX9oFEVqq+5h2rc4xCXeACPsqO3fjzTLomob6gu6hnuuje0lG8dJMamNk8lh8pTEUjpTIr39iJ0TebF/mx0XrPcxg86OiAMBBozV1sIuNHjUisuqjeK1icR8XBvNcgT3Kc0WubpN3+eCIqaekaZodKyzbRwlF6YBl0EGkJFqkuwipV/RC2m/g6ybCigXK3oL+MxXlbPJLFU9jQg7gmDuMz0UC0w2sS6Pq2ilemQT2IESp4fCnANQaaEF+8C+Sn9f1Fa2IHBzeA9lU/8tddxbH7iHMBve41t36I6vp0O3P318ASQR/rM=?cssminify=yes' type='text/css' media='all' />
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyFkGEKwjAMhS9kV5WJ+yOepXZxpi5tbVqHnt4IkyFOhUAg+XjJe3qICr3tSwusndSlQLqNrXK80L8ARdglk6Ei9C/YBp/B5ydL4YA9qMKQTCczETqGGS4GzgTMAs1s319Cf0UY/mIOcjT2rBIw3j9U8wnkno4JCAtpW8RESJNKhSS/cB9MC+1cChwnw9/jG6k97VZ1s103q029dA+GGYpq'></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s0.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1530132353h&cssminify=yes' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://viethungnguyen.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress.com" />
+<link rel='shortlink' href='https://wp.me/7CmkQ' />
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Viet Hung Nguyen" />
+<meta property="og:description" content="Everyday Higher" />
+<meta property="og:url" content="https://viethungnguyen.com/" />
+<meta property="og:site_name" content="Viet Hung Nguyen" />
+<meta property="og:image" content="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=200" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta property="og:locale" content="vi_VN" />
+<meta name="twitter:site" content="@wordpressdotcom" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="search" type="application/opensearchdescription+xml" href="https://viethungnguyen.com/osd.xml" title="Viet Hung Nguyen" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<meta name="theme-color" content="#f1f1f1" />
+<meta name="application-name" content="Viet Hung Nguyen" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Everyday Higher" /><meta name="msapplication-task" content="name=Theo dõi;action-uri=https://viethungnguyen.com/feed/;icon-uri=https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=16" /><meta name="msapplication-task" content="name=Đăng ký một blog miễn phí;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Hỗ trợ của WordPress.com;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Diễn đàn của WordPress.com;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="description" content="Everyday Higher" />
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f1f1f1; }
+</style>
+	<style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=32" sizes="32x32" />
+<link rel="icon" href="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=192" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=180" />
+<meta name="msapplication-TileImage" content="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=270" />
+</head>
+
+<body class="home blog custom-background mp6 customizer-styles-applied layout_2_col_sidebar sidebar-l no-js highlander-enabled highlander-light custom-colors infinite-scroll">
+    <div class="hfeed site">
+		<!-- BEGIN #masthead .site-header -->
+		<header id="masthead" class="site-header">
+
+		    <!-- BEGIN .header-inner -->
+		    <div class="header-inner">
+
+    			<!-- BEGIN #logo -->
+    			<div id="logo">
+										<a class="site-title" href="https://viethungnguyen.com">Viet Hung Nguyen</a>
+    				<p class="site-description">Everyday Higher</p>
+    			<!-- END #logo -->
+    			</div>
+
+			<!-- END .header-inner -->
+			</div>
+
+		<!-- END #header-->
+		</header>
+
+		<!-- BEGIN .main-navigation -->
+		<nav class="main-navigation">
+
+    		<!-- BEGIN #primary-nav -->
+    		<div id="primary-nav" class="primary-nav clearfix">
+    		    <ul id="primary-menu" class="sf-menu primary-menu"><li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-10"><a href="/">Home</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-93"><a href="https://viethungnguyen.com/tag/sach-hay/">Sách hay</a></li>
+<li id="menu-item-936" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-936"><a href="https://viethungnguyen.com/category/song-tich-cuc/">Sống tích cực</a></li>
+<li id="menu-item-1161" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1161"><a href="https://viethungnguyen.com/2016/04/01/hanh-trinh-hanh-phuc-1-0/">Cuốn sách đầu tiên</a></li>
+<li id="menu-item-920" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-920"><a href="https://viethungnguyen.com/tag/english/">English</a></li>
+<li id="menu-item-921" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-921"><a href="https://viethungnguyen.com/tag/tieng-viet/">Tiếng Việt</a></li>
+<li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-has-children menu-item-11"><a href="https://viethungnguyen.com/about/">About me</a>
+<ul class="sub-menu">
+	<li id="menu-item-1115" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1115"><a href="https://viethungnguyen.com/category/thu-gui-con-gai/">Thư gửi con gái</a></li>
+	<li id="menu-item-3873" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-3873"><a href="https://viethungnguyen.com/tag/joy/">Joy</a></li>
+</ul>
+</li>
+</ul>
+    		    <form role="search" method="get" class="search-form" action="https://viethungnguyen.com/">
+				<label>
+					<span class="screen-reader-text">Tìm kiếm cho:</span>
+					<input type="search" class="search-field" placeholder="Tìm kiếm &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Tìm kiếm" />
+			</form>    		<!-- END #primary-nav -->
+    		</div>
+
+		<!-- END .main-navigation -->
+		</nav>
+
+		<!-- BEGIN #content -->
+		<div id="content" class="site-content clearfix">
+	<!-- BEGIN #primary .site-main-->
+	<div id="primary" class="site-main clearfix" role="main">
+	<div id="infinite-scroll" class="isotope-container">
+<article class="post-4254 post type-post status-publish format-standard hentry category-blog tag-hanh-phuc tag-ngai-sayadaw-u-jotika tag-phat-trien-ca-nhan tag-tieng-viet" id="post-4254">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/10/01/tan-man-sang-thang-10/" rel="bookmark">Tản mạn sáng tháng&nbsp;10</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/10/01/tan-man-sang-thang-10/">Tháng Mười 1, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <p><img data-attachment-id="4253" data-permalink="https://viethungnguyen.com/2018/10/01/tan-man-sang-thang-10/img_5847-2/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=580" data-orig-size="3816,2858" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.4&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1538383038&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;6&quot;,&quot;iso&quot;:&quot;16&quot;,&quot;shutter_speed&quot;:&quot;0.016666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="img_5847" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=580?w=580" class="wp-image-4253 size-full" src="https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=580" srcset="https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/10/img_5847.jpg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   /></p>
+<p>Có một ly trà chờ trong nắng thu&#8230;.</p>
+<p>&#8230;. Vàng!</p>
+<blockquote><p><em>&#8220;Nếu chúng ta không chạm tới được và hiểu được con người của chính mình, làm sao chúng ta có thể hiểu được người khác?</em></p>
+<p><em>Không kết nối và hiểu được chính mình là nguyên nhân khiến mình không thể hiểu được người khác, đó là lý do hầu hết tất cả mọi người đều cô đơn.&#8221; &#8211; trích từ cuốn Tuyết giữa mùa hè của Ngài Sayadaw U Jotika</em></p></blockquote>
+<p>Cô đơn có lẽ là nỗi sợ hãi lớn nhất của bất cứ ai. Và thường là chúng ta chạy trốn bằng cách khoả lấp cô đơn với những thú tiêu khiển, giải trí, hay với các chất gây nghiện. Cuối cùng thì cũng chỉ là những che đậy tạm thời. Sau tất cả, chúng ta vẫn phải đối diện trọn vẹn với sự cô đơn của bản thân khi tuổi xế chiều, khi tuổi già và bệnh tật đến.</p>
+<p>Kết nối trở lại với thân và tâm mình chính là phương cách đối trị với sự cô đơn một cách hiệu quả nhất, trực tiếp nhất và trọn vẹn nhất.</p>
+<p>Tản mạn một sáng đầu tháng 10, trong nắng thu với ly cafe và tách trà chờ còn mới trinh nguyên.</p>
+<p>Một tháng 10 bình yên nhé mọi người!</p>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/10/01/tan-man-sang-thang-10/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/ngai-sayadaw-u-jotika/" rel="tag">Ngài Sayadaw U. Jotika</a>, <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4241 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-hanh-phuc tag-phat-trien-ca-nhan tag-tieng-viet" id="post-4241">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/08/23/victim-thinking-van-de-cua-moi-nguoi/" rel="bookmark">Victim thinking &#8211; Vấn đề không của riêng&nbsp;ai</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/08/23/victim-thinking-van-de-cua-moi-nguoi/">Tháng Tám 23, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <div class="text_exposed_show">
+<p><img data-attachment-id="4240" data-permalink="https://viethungnguyen.com/hqjqrsmhqo2khavvh52ypq/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=580" data-orig-size="4032,3024" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;1.8&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1534833811&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;4&quot;,&quot;iso&quot;:&quot;20&quot;,&quot;shutter_speed&quot;:&quot;0.0043478260869565&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="hQJqRSmHQO2kHaVvh52YpQ" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=580?w=580" class="alignnone size-full wp-image-4240" src="https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=580" alt="hQJqRSmHQO2kHaVvh52YpQ.jpg" srcset="https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/08/hqjqrsmhqo2khavvh52ypq.jpg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   />Đọc tới đoạn này trong cuốn <a href="https://www.amazon.com/dp/B01N5J5IWN/ref=dp-kindle-redirect?_encoding=UTF8&amp;btkr=1">13 things mentally strong parents don&#8217;t do</a> và thấy cần phải dịch và chia sẻ&#8230; Bạn có thấy mình trong những hoàn cảnh sau?</p>
+<p><em>Trích đoạn từ sách&#8230;</em></p>
+<ol>
+<li><em>Bạn nghĩ rằng có một ai đó hoặc có những hoàn cảnh không may mắn đã ngăn cản bạn để bạn có thể đạt được những tốt đẹp nhất.</em></li>
+<li><em>Bạn nghĩ rằng nói chung thì những người khác thường may mắn hơn bạn.</em></li>
+<li><em>Trong khi một số giải pháp có thể hiệu quả cho những người khác, vấn đề của bạn khó khăn hơn gấp bội lần.</em></li>
+<li><em>Bạn dành rất nhiều th<span class="text_exposed_show">ời gian than phiền về hành vi của người khác và điều đó đã ảnh hưởng tồi tệ đến bạn như thế nào.</span></em></li>
+<li><em><span class="text_exposed_show">Bạn tin rằng không có gì xảy ra một cách đúng đắn trong cuộc sống của bạn cả.</span></em></li>
+</ol>
+<div class="text_exposed_show">
+<p>Chẳng nên tin vào bất cứ điều gì ở trên cả. Đó là cách suy nghĩ tự xem mình là nạn nhân trong cuộc sống này và nó sẽ lấy đi rất nhiều cơ hội cũng như năng lượng của bạn. Và cũng vì đó mà cuộc sống này trở nên bớt tươi đẹp hơn vốn dĩ như nó đang là. <a href="https://viethungnguyen.com/2018/08/23/victim-thinking-van-de-cua-moi-nguoi/#more-4241" class="more-link">Xem chi tiết&#8230;</a></div>
+</div>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/08/23/victim-thinking-van-de-cua-moi-nguoi/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4211 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-hanh-phuc tag-phat-trien-ca-nhan tag-thien tag-tieng-viet" id="post-4211">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/08/09/khoang-trong-can-thiet-cho-tam-hon/" rel="bookmark">Khoảng trống cần thiết cho tâm&nbsp;hồn</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/08/09/khoang-trong-can-thiet-cho-tam-hon/">Tháng Tám 9, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <p><img data-attachment-id="4210" data-permalink="https://viethungnguyen.com/fullsizeoutput_b316/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=580" data-orig-size="4032,3024" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.4&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1532247914&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;6&quot;,&quot;iso&quot;:&quot;16&quot;,&quot;shutter_speed&quot;:&quot;0.0033557046979866&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="fullsizeoutput_b316" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=580?w=580" class="alignnone size-full wp-image-4210" src="https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=580" alt="fullsizeoutput_b316.jpeg" srcset="https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/08/fullsizeoutput_b316.jpeg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   /></p>
+<blockquote><p><em>“Mỗi khi trong nhà bạn có một khoảng trống, có phải bạn sẽ nghĩ ngay đến việc lấp đầy nó như thể ‘có thêm chỗ để đồ’ hay không? Trên một chiếc bàn trống chỉ cần để một lọ hoa một cành là đủ. Nếu bạn định để tạp chí, sách báo hay bánh kẹo thì tốt nhất là nên bỏ ý nghĩ đó đi.</em><br />
+<em>Mỗi lần nhìn thấy một khoảng trống, bạn đều sẽ đặt một vật gì đó để lấp đầy khoảng trống ấy. Chính hành động này làm nhà bạn lộn xộn hơn. Và nếu sống trong một không gian lộn xộn như vậy thì đến một lúc nà<span class="text_exposed_show">o đó, chính tinh thần của bạn cũng sẽ rối tung cả lên.<br />
+Những khoảng không gian trống không phải để lấp đầy, mà chúng tồn tại để giúp tinh thần bạn được thoải mái hơn.”<br />
+Trích dẫn từ cuốn Sống đơn giản cho mình thanh thản của Thiền sư Shunmyo Masuno</span></em></p></blockquote>
+<div class="text_exposed_show">
+<p>Đây là sự thật, một sự thật có thể được áp dụng trong bất cứ hoàn cảnh nào của cuộc sống: sắp xếp nhà cửa, tình cảm yêu đương, dọn dẹp tâm hồn, &#8230; <a href="https://viethungnguyen.com/2018/08/09/khoang-trong-can-thiet-cho-tam-hon/#more-4211" class="more-link">Xem chi tiết&#8230;</a></div>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/08/09/khoang-trong-can-thiet-cho-tam-hon/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/thien/" rel="tag">Thiền</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4203 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-english tag-happiness tag-hanh-phuc tag-personal-development tag-phat-trien-ca-nhan tag-tieng-viet" id="post-4203">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/07/17/hai-con-cho-soi/" rel="bookmark">Hai con chó&nbsp;sói</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/07/17/hai-con-cho-soi/">Tháng Bảy 17, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <div data-shortcode="caption" id="attachment_4204" style="width: 1034px" class="wp-caption alignnone"><img data-attachment-id="4204" data-permalink="https://viethungnguyen.com/2018/07/17/hai-con-cho-soi/two-wolves/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=580" data-orig-size="1024,768" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="two-wolves" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=580?w=580" class="alignnone size-full wp-image-4204" src="https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=580" alt="two-wolves" srcset="https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg 1024w" sizes="(max-width: 580px) 100vw, 580px"   /><p class="wp-caption-text">Image source: <a href="https://wolvesonline.com/tag/breeding-pair/" rel="nofollow">https://wolvesonline.com/tag/breeding-pair/</a></p></div>
+<p>Tôi tình cờ đọc được câu chuyện dân gian của người Cherokee (một tộc người thổ dân Bắc Mỹ) đầy ý nghĩa này. Thấy câu chuyện quá ý nghĩa, nên tôi dịch sang tiếng Việt ở đây để có thể chia sẻ đến với mọi người. Phiên bản gốc tiếng Anh ở bên dưới nhé.</p>
+<blockquote>
+<h2>Hai con chó sói</h2>
+<p>Một cụ già người Cherokee dạy người cháu của cụ về cuộc sống. &#8220;Có một trận chiến đang diễn ra ở bên trong con người của ông&#8221;, cụ nói với người cháu trai.</p>
+<p>&#8220;Một cuộc chiến kinh khủng con ạ, giữa hai con chó sói. Một bên là con chó sói của quỉ dữ&#8230; đó là hiện thân của giận dữ, sự thèm muốn, đố kị, sự khổ đau, nuối tiếc, lòng tham, sự kiêu ngạo, tự ti, cảm giác tội lỗi, sự thấp kém, dối trá, sự tự hào một cách giả dối, tự cao, tự đại và hiện thân của một cái tôi (tự ngã) to lớn.&#8221; Ông tiếp tục: &#8220;Con sói kia là một con sói tử tế. Nó là hiện thân của niềm vui, sự bình an, sự yêu thương, hy vọng, sự thanh thản, khiêm tốn, sự tử tế, tấm lòng nhân từ, rộng lượng, sự cảm thông, rộng rãi, chân lý, lòng trắc ẩn, và niềm tin.</p>
+<p>Ở bên trong con người con cũng như bao người khác, ai cũng có cùng một cuộc chiến như thế đang xảy ra trong mỗi một giây phút.&#8221;</p>
+<p>Người cháu suy nghĩ về lời dạy trong chốc lát và sau đó hỏi ông: &#8220;Vậy thì con sói nào sẽ chiến thắng?&#8221;</p>
+<p>Người ông đáp một cách đơn giản: &#8220;Con sói mà con cho nó ăn.&#8221;</p></blockquote>
+<p>Vâng, chúng ta không thể đổ lỗi cho ai trong cuộc sống này về những gì chúng ta đang phải gánh chịu hoặc tận hưởng. Chính thức ăn tâm hồn mà chúng ta nạp vào hàng ngày là yếu tố quyết định cho những gì mỗi một chúng ta xứng đáng được hưởng ngay tại thời điểm bây giờ cũng như mai sau. <a href="https://viethungnguyen.com/2018/07/17/hai-con-cho-soi/#more-4203" class="more-link">Xem chi tiết&#8230;</a></p>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/07/17/hai-con-cho-soi/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/english/" rel="tag">English</a>, <a href="https://viethungnguyen.com/tag/happiness/" rel="tag">Happiness</a>, <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/personal-development/" rel="tag">Personal Development</a>, <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4179 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-hanh-phuc tag-phat-trien-ca-nhan tag-tieng-viet" id="post-4179">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/06/03/hoc-hoi-va-quan-sat-tu-tu-nhien/" rel="bookmark">Học hỏi và quan sát từ tự&nbsp;nhiên</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/06/03/hoc-hoi-va-quan-sat-tu-tu-nhien/">Tháng Sáu 3, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <p><img data-attachment-id="4178" data-permalink="https://viethungnguyen.com/fullsizeoutput_afbd/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=580" data-orig-size="3736,2170" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.4&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1528551575&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;6&quot;,&quot;iso&quot;:&quot;16&quot;,&quot;shutter_speed&quot;:&quot;0.00020798668885191&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fullsizeoutput_afbd" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=580?w=580" class="alignnone size-full wp-image-4178" src="https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=580" alt="fullsizeoutput_afbd" srcset="https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/06/fullsizeoutput_afbd.jpeg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   /></p>
+<p>Sức mạnh của tự nhiên và bản năng tự nhiên trong vạn vật luôn là một điều đáng kinh ngạc và khâm phục. Có điều, con người của chúng ta, với hiểu biết có hạn hoặc do lòng tham lam và giận dữ, lại đi ngược lại quá nhiều với những gì tự nhiên đang vận hành. Thật đáng tiếc. Kết quả là bệnh tật trong thân và đặc biệt là trong tâm của chúng ta trở nên ngày càng trầm trọng, khó đỡ. Chỉ cần dừng lại, cho tâm trí nghỉ ngơi thì chúng ta hoàn toàn có thể khôi phục lại những gì mẹ thiên nhiên đã ban tặng cho chúng ta, trên chính cơ thể của chúng ta.</p>
+<p>(Tâm sự của một thanh niên U50 vào một sáng chủ nhật, sau khi cho tâm trí nghỉ ngơi&#8230;) Chúc mọi người một CN ấm áp.</p>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/06/03/hoc-hoi-va-quan-sat-tu-tu-nhien/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4152 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-hanh-phuc tag-phat-trien-ca-nhan tag-tieng-viet" id="post-4152">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/05/23/hanh-phuc-trong-su-phu-thuoc/" rel="bookmark">Hạnh phúc trong sự phụ&nbsp;thuộc?</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/05/23/hanh-phuc-trong-su-phu-thuoc/">Tháng Năm 23, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <p><img data-attachment-id="4153" data-permalink="https://viethungnguyen.com/2018/05/23/hanh-phuc-trong-su-phu-thuoc/fullsizeoutput_aea7/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=580" data-orig-size="4032,3024" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.4&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1526800667&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;6&quot;,&quot;iso&quot;:&quot;16&quot;,&quot;shutter_speed&quot;:&quot;0.0083333333333333&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="fullsizeoutput_aea7" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=580?w=580" class="alignnone wp-image-4153 size-full" src="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=580" alt="fullsizeoutput_aea7.jpeg" srcset="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_aea7.jpeg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   /></p>
+<blockquote><p><em>&#8220;Tôi hạnh phúc khi thấy những người xung quanh an lành tận hưởng cuộc sống bằng chính khả năng của họ.&#8221;</em></p></blockquote>
+<p>Đây là trả lời của một bạn ở tầm tuổi 30-40 cho câu hỏi &#8220;Điều gì sẽ làm bạn hạnh phúc?&#8221;. Việc nhìn thấy những người xung quanh an lành, tận hưởng chắc chắn là một niềm vui và hạnh phúc rồi. Nhưng nếu hạnh phúc hoàn toàn phụ thuộc vào đó thì liệu có ổn và thực tế không?</p>
+<p>Câu trả lời này cho thấy hạnh phúc của người trả lời phụ thuộc vào sự an lành của những người xung quanh, mà trong thực tế người trả lời sẽ rất khó có ảnh hưởng đến sự an lành này (cho dù muốn cách mấy đi nữa). Như vậy, thì có vẻ như hạnh phúc sẽ rất xa vời trong trường hợp này, nếu chỉ được đo bằng sự an lành của những người xung quanh. Chẳng lẽ, như vậy người này sẽ không có được một hạnh phúc cho bản thân? Họ không xứng đáng? Hay câu trả lời chưa thực sự là câu trả lời đúng đắn, chưa đầy đủ, chưa trọn vẹn?</p>
+<p>Như mọi người có thể hình dung, chỉ đơn giản bằng việc trả lời câu hỏi &#8220;Điều gì sẽ làm bạn hạnh phúc?&#8221;, bạn có thể nghiền ngẫm và hình dung ngay được nhiều điều từ chính câu trả lời này. Liệu đó có phải là hạnh phúc mà ta đang kiếm tìm, có thực tế không, có khả thi không? Và nếu câu trả lời là &#8220;không&#8221; thì chắc chắn bạn cần suy nghĩ thêm để tìm ra được câu trả lời đúng đắn hơn cho bạn. Ai cũng có quyền được hạnh phúc cả, nhé.<br />
+H vẫn đang thu thập những câu trả lời về &#8220;điều gì sẽ làm bạn hạnh phúc?&#8221; ở <a href="https://viethungnguyen.com/2018/04/26/dieu-gi-se-lam-ban-hanh-phuc/">đây</a>. Rất vui khi có thể nhận được câu trả lời mang tính ẩn danh của bạn và H sẽ chọn một vài câu cụ thể để chia sẻ và trình bày quan điểm cá nhân của H.</p>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/05/23/hanh-phuc-trong-su-phu-thuoc/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4148 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-phat-trien-ca-nhan tag-phat-giao tag-thien tag-tieng-viet" id="post-4148">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/05/18/sach-nao-hay-de-hoc-phat-phap/" rel="bookmark">Sách nào hay để học Phật&nbsp;pháp?</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/05/18/sach-nao-hay-de-hoc-phat-phap/">Tháng Năm 18, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <p><img data-attachment-id="4149" data-permalink="https://viethungnguyen.com/2018/05/18/sach-nao-hay-de-hoc-phat-phap/fullsizeoutput_ae37/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=580" data-orig-size="3930,2950" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.4&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1526138174&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;6&quot;,&quot;iso&quot;:&quot;16&quot;,&quot;shutter_speed&quot;:&quot;0.0005&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fullsizeoutput_ae37" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=580?w=580" class="aligncenter size-full wp-image-4149" src="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=580" alt="fullsizeoutput_ae37.jpeg" srcset="https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/05/fullsizeoutput_ae37.jpeg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   /></p>
+<p>Gần đây, tôi nhận được câu hỏi này từ một người bạn. Thiết nghĩ, có lẽ cũng có nhiều người có câu hỏi tương tự, nên tôi chia sẻ lại đây để mọi người cùng tham khảo.</p>
+<blockquote><p><em>Anh Hung oi, </em></p>
+<p><em>Cam on anh rat nhieu vi cac bai viet gan day ve hanh phuc. Em doc va ngo ra duoc rat nhieu dieu va thay hanh phuc hon. Em co gap mot vai ban o ben Anh va ho cung rat thich nghien cuu them ve Phat Giao, de co duoc inner peace va inner happiness. Anh co the recommend giup em mot vai cuon sach hay ve chu de nay bang tieng Anh de em order tang cho cac ban duoc khong a? Em cam on Anh nhieu!</em></p>
+<p><em>Anh oi, em thay cai list nay. Anh co the tu van gium em cuon nao la phu hop nhat cho nguoi nhap mon khong a? <a href="https://www.huffingtonpost.co.uk/entry/buddhist-on-buddhism_us_56d4a75ce4b0bf0dab330320" target="_blank" rel="noopener">12 Buddhist Books To Read On Your Path To Enlightenment</a></em></p></blockquote>
+<p>Thực tế mà nói, khó có thể nói cái nào là phù hợp, cái nào là không phù hợp. Bởi vì mỗi một con người chúng ta quá khác nhau. Nên có một số điểm sau tôi sẽ đề nghị mọi người lưu ý.</p>
+<ul>
+<li>Về con đường hạnh phúc, cần phải bắt đầu bằng mong muốn thực sự và nghiêm túc tìm kiếm hạnh phúc cho bản thân, mong muốn học hỏi thực sự, với một sự kiên trì và một tâm trí rộng mở để học hỏi.</li>
+<li>Về câu trả lời cho một con đường hạnh phúc đích thực, đến thời điểm này, tôi tin và chỉ tin vào một con đường duy nhất mà Đức Phật đã để lại cho muôn vàn đời sau. Tuy nhiên, đó cũng là điều thách thức. Con đường theo dấu chân Phật này có vẻ như khác nhau một cách rất là tinh tế đối với mỗi một người chúng ta.</li>
+<li>Và điều này cũng đúng với đối việc tìm kiếm sách vở phù hợp. Có những cuốn sách, tôi học được nhiều điều tâm đắc và sâu sắc. Nhưng khi tôi tặng cho nhiều người, thực tế là nó lại là một cuốn sách &#8220;dở&#8221; cho họ. Họ thậm chí không hiểu những gì tác giả đã gửi vào trang sách. Và chắc chắn là không cảm nhận được một điều gì có ích, ngoại trừ việc&#8230; bối rối :). <a href="https://viethungnguyen.com/2018/05/18/sach-nao-hay-de-hoc-phat-phap/#more-4148" class="more-link">Xem chi tiết&#8230;</a></li>
+</ul>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/05/18/sach-nao-hay-de-hoc-phat-phap/#comments">2</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/phat-giao/" rel="tag">Phật giáo</a>, <a href="https://viethungnguyen.com/tag/thien/" rel="tag">Thiền</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4139 post type-post status-publish format-standard hentry category-blog tag-english tag-happiness tag-personal-development" id="post-4139">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/04/27/happiness-starts-with-the-definition-of-it/" rel="bookmark">Happiness starts with the definition of&nbsp;it</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/04/27/happiness-starts-with-the-definition-of-it/">Tháng Tư 27, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <div class="">
+<div><img data-attachment-id="4140" data-permalink="https://viethungnguyen.com/2018/04/27/happiness-starts-with-the-definition-of-it/fullsizeoutput_ad23/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=580" data-orig-size="4032,3024" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.4&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1524743712&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;6&quot;,&quot;iso&quot;:&quot;16&quot;,&quot;shutter_speed&quot;:&quot;0.0049751243781095&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="fullsizeoutput_ad23" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=580?w=580" class="aligncenter size-full wp-image-4140" src="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=580" alt="fullsizeoutput_ad23.jpeg" srcset="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad23.jpeg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   /></div>
+<div></div>
+<div class="_1mf _1mj">After starting to viral this question &#8220;<a href="https://viethungnguyen.com/2018/04/25/what-would-make-you-happy-cai-gi-se-lam-ban-hanh-phuc/">What would make you happy?</a>&#8220;, I have received quite many answers on the first day. It&#8217;s very exciting reading all the answers. One young person has responded as below.</div>
+<blockquote>
+<div class="_1mf _1mj"><em>&#8220;Be, just be, being myself, be a part of this universe&#8230; Just be, nothing more, nothing less&#8230; So then I can experience everything that life can / has to offer.&#8221; </em></div>
+<div class="_1mf _1mj"><strong><em>From a young person between 22-30.</em></strong></div>
+</blockquote>
+</div>
+<p>Wonderful, don&#8217;t you agree? Do you have your own answer? If you do, fill in the form as  commitment for your own happiness. There are a few notes here:</p>
+<div class="">
+<ul>
+<li>There is no such right or wrong answer to this question. The answer is for yourself to experience, for your own happiness.</li>
+<li class="_1mf _1mj">If you haven&#8217;t had the answer, start searching one for yourself and start stepping on your happiness journey.</li>
+<li class="_1mf _1mj">Being able to articulate the answer to this question is really a great step to commit to live up to the values that you think it would bring you happiness. <a href="https://viethungnguyen.com/2018/04/27/happiness-starts-with-the-definition-of-it/#more-4139" class="more-link">Xem chi tiết&#8230;</a></li>
+</ul>
+</div>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/04/27/happiness-starts-with-the-definition-of-it/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/english/" rel="tag">English</a>, <a href="https://viethungnguyen.com/tag/happiness/" rel="tag">Happiness</a>, <a href="https://viethungnguyen.com/tag/personal-development/" rel="tag">Personal Development</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4136 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-hanh-phuc tag-phat-trien-ca-nhan tag-tieng-viet" id="post-4136">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/04/27/hanh-phuc-bat-dau-tu-viec-dinh-nghia-hanh-phuc-la-gi/" rel="bookmark">Hạnh phúc bắt đầu tự việc định nghĩa hạnh phúc là&nbsp;gì?</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/04/27/hanh-phuc-bat-dau-tu-viec-dinh-nghia-hanh-phuc-la-gi/">Tháng Tư 27, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <div class="">
+<div class="_1mf _1mj"><span><img data-attachment-id="4137" data-permalink="https://viethungnguyen.com/2018/04/27/hanh-phuc-bat-dau-tu-viec-dinh-nghia-hanh-phuc-la-gi/fullsizeoutput_ad22/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=580" data-orig-size="4032,3024" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.4&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;iPhone X&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1524746724&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;6&quot;,&quot;iso&quot;:&quot;16&quot;,&quot;shutter_speed&quot;:&quot;0.0026666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fullsizeoutput_ad22" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=580?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=580?w=580" class="alignnone size-full wp-image-4137" src="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=580" alt="fullsizeoutput_ad22.jpeg" srcset="https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=580 580w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=1160 1160w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=150 150w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=768 768w, https://viethungnguyen.files.wordpress.com/2018/04/fullsizeoutput_ad22.jpeg?w=1024 1024w" sizes="(max-width: 580px) 100vw, 580px"   />Sau khi bắt đầu viral câu hỏi &#8220;<a href="https://viethungnguyen.com/2018/04/26/dieu-gi-se-lam-ban-hanh-phuc/">Điều gì sẽ làm bạn hạnh phúc?</a>&#8220;, tôi đã bắt đầu nhận được khá khá các phản hồi. Rất thú vị khi đọc qua các câu trả lời. </span>Một U80 đã gửi câu trả lời như sau.</div>
+<blockquote>
+<div class="_1mf _1mj"><em> &#8220;Ở cái tuổi U80 rồi mà không cần một viên thuốc nào trong túi, tự phục vụ mình được và giúp cho con cháu chút đỉnh lấy đó là niềm vui. Đó là hạnh phúc rồi.&#8221;</em></div>
+</blockquote>
+</div>
+<div class="">
+<div class="_1mf _1mj"><span>Quá tuyệt vời phải không các bạn. Bạn đã có câu trả lời cho mình chưa? Có rồi thì điền vào mẫu trong <a href="https://viethungnguyen.com/2018/04/26/dieu-gi-se-lam-ban-hanh-phuc/">link</a> này để cam kết cho hạnh phúc của bản thân nhé. Có một số</span> điều cần lưu ý:</div>
+</div>
+<div class="">
+<ul>
+<li class="_1mf _1mj"><span>Không có câu trả lời đúng hay sai cho câu hỏi này. Câu trả lời là cho chính bản thân mỗi chúng ta trải nghiệm, cho chính hạnh phúc của bản thân mà thôi.</span></li>
+<li class="_1mf _1mj">Nếu bạn chưa có câu trả lời, hãy bắt đầu tìm cho bản thân một câu trả lời và bắt đầu bước đi trên con đường hạnh phúc của bạn.</li>
+<li class="_1mf _1mj">Việc trả lời rành mạch được câu hỏi này thực sự là một bước cam kết của bạn sống với các giá trị mà bạn nghĩ sẽ đem lại hạnh phúc cho bạn.</li>
+<li class="_1mf _1mj">Câu trả lời nên mang tính định hướng cho cuộc đời của bạn. Và nên cụ thể, thực tế để bạn có cách kiểm nghiệm thông qua cuộc sống của bạn. Nếu không đạt yêu cầu này (nghĩa là bạn có cách kiểm chứng, trải nghiệm các đặc tính hạnh phúc của bạn) thì &#8230; hạnh phúc của bạn còn mơ hồ lắm. Hãy tìm một câu trả lời tốt hơn. <a href="https://viethungnguyen.com/2018/04/27/hanh-phuc-bat-dau-tu-viec-dinh-nghia-hanh-phuc-la-gi/#more-4136" class="more-link">Xem chi tiết&#8230;</a></li>
+</ul>
+</div>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/04/27/hanh-phuc-bat-dau-tu-viec-dinh-nghia-hanh-phuc-la-gi/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" rel="tag">Phát triển cá nhân</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article>
+<article class="post-4130 post type-post status-publish format-standard hentry category-blog category-song-tich-cuc tag-hanh-phuc tag-tieng-viet" id="post-4130">
+
+		
+	
+		
+		<header class="entry-header">
+			<h1 class="entry-title"><a href="https://viethungnguyen.com/2018/04/26/dieu-gi-se-lam-ban-hanh-phuc/" rel="bookmark">Điều gì sẽ làm bạn hạnh&nbsp;phúc?</a></h1>			    <!-- BEGIN .entry-meta-header-->
+    <div class="entry-meta-header">
+        <span class="published"><a href="https://viethungnguyen.com/2018/04/26/dieu-gi-se-lam-ban-hanh-phuc/">Tháng Tư 26, 2018</a></span>
+    <!-- END .entry-meta-header -->
+    </div>
+		</header>
+		
+		    <!-- BEGIN .entry-content -->
+    <div class="entry-content">
+        <div class="_1mf _1mj">Tôi tò mò muốn biết cái gì sẽ làm bạn hạnh phúc? Tôi muốn biết câu trả lời từ mọi châu lục, mọi dân tộc, mọi quốc gia. Tôi tò mò xem thử dữ liệu thu được sẽ như thế nào? Nên tôi tạo ra mẫu bên dưới với 2 câu hỏi đơn giản. Và tôi hy vọng bạn có thể có đủ cởi mở và thoải mái để trả lời điều gì sẽ làm bạn hạnh phúc.</div>
+<div class=""></div>
+<div class="">
+<div class="_1mf _1mj">Khi bạn trả lời câu hỏi này, tôi chắc chắn rằng bạn đang tiến thêm một bước về hạnh phúc đích thực cho cuộc đời của bạn. Nếu bạn không hỏi (về hạnh phúc của bạn), sẽ không có câu trả lời, chắc chắn là như vậy.</div>
+</div>
+<div class=""></div>
+<div class="">
+<div class="_1mf _1mj">Tôi dự định trước tiên cố gắng thu thập được 10.000 phản hồi và sẽ xem có thể nhìn thấy gì từ dữ liệu thu được và tôi sẽ trình bày kết quả trong một bài viết khác.</div>
+</div>
+<div class=""></div>
+<div class="">
+<div class="_1mf _1mj">Điều gì sẽ làm bạn hạnh phúc?</div>
+</div>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScz5PSDlWFg0YOStfplzQhFRtL8WaOxWLZQRa_MSEOBvmPJOg/viewform?embedded=true" frameborder="0" width="580" height="1000" marginheight="0" marginwidth="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <!-- END .entry-content -->
+    </div>
+		    <!-- BEGIN .entry-meta-footer-->
+    <footer class="entry-meta-footer">
+        <span class="comment-count">Comments: <a href="https://viethungnguyen.com/2018/04/26/dieu-gi-se-lam-ban-hanh-phuc/#respond">0</a></span>
+        <span class="author">Posted by: <a href="https://viethungnguyen.com/author/viethungnguyen/" title="Đăng bởi viethungnguyen" rel="author">viethungnguyen</a></span>
+        <span class="entry-categories">Chuyên mục: <a href="https://viethungnguyen.com/category/blog/" rel="category tag">Blog</a>, <a href="https://viethungnguyen.com/category/song-tich-cuc/" rel="category tag">Sống tích cực</a></span>
+        <span class="entry-tags">Nhãn: <a href="https://viethungnguyen.com/tag/hanh-phuc/" rel="tag">Hạnh phúc</a>, <a href="https://viethungnguyen.com/tag/tieng-viet/" rel="tag">Tiếng Việt</a></span>
+            <!-- END .entry-meta-footer-->
+    </footer>
+	
+	
+</article></div>    <!-- BEGIN .navigation .page-navigation -->
+    <nav class="navigation page-navigation">
+        <div class="nav-next">
+            <a href="https://viethungnguyen.com/page/2/" >Older Entries</a>        </div>
+        <div class="nav-previous">
+                    </div>
+    <!-- END .navigation .page-navigation -->
+    </nav>
+    
+	<!-- END #primary .site-main .isotope-container -->
+	</div>
+
+    
+    <!-- BEGIN #sidebar .aside-->
+	<div id="sidebar" class="sidebar-container aside" role="complementary">
+
+		<div id="media_image-3" class="widget widget_media_image"><style>.widget.widget_media_image { overflow: hidden; }.widget.widget_media_image img { height: auto; max-width: 100%; }</style><a href="https://viethungnguyen.com/about/"><img width="300" height="300" src="https://viethungnguyen.files.wordpress.com/2018/04/2018.jpg?w=300" class="image wp-image-4104  attachment-300x300 size-300x300" alt="" style="max-width: 100%; height: auto;" srcset="https://viethungnguyen.files.wordpress.com/2018/04/2018.jpg?w=300 300w, https://viethungnguyen.files.wordpress.com/2018/04/2018.jpg?w=600 600w, https://viethungnguyen.files.wordpress.com/2018/04/2018.jpg?w=150 150w" sizes="(max-width: 300px) 100vw, 300px" data-attachment-id="4104" data-permalink="https://viethungnguyen.com/2018/" data-orig-file="https://viethungnguyen.files.wordpress.com/2018/04/2018.jpg" data-orig-size="959,958" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2018" data-image-description="" data-medium-file="https://viethungnguyen.files.wordpress.com/2018/04/2018.jpg?w=300" data-large-file="https://viethungnguyen.files.wordpress.com/2018/04/2018.jpg?w=580" /></a></div><div id="text-9" class="widget widget_text"><h3 class="widget-title">Hãy hành thiền</h3>			<div class="textwidget"><p>Khi bạn ngồi xuống, nhắm mắt lại để tĩnh tâm, sẽ không còn sự khác biệt giữa một nguyên thủ quốc gia và một phó thường dân, không còn sự khác biệt giữa một giám đốc và nhân viên, không còn sự khác biệt giữa một đại gia và một người nghèo khó, không còn sự khác biệt giữa một người hạnh phúc và một người đang mang nhiều khổ đau nữa. Mọi thứ đều giống nhau và cuộc sống rất công bằng ở khía cạnh này. Không có sự khác biệt nữa, bởi vì tâm bạn đang hướng vào trong, quay trở lại với bản chất thực có của tâm mình. Đó là lúc bạn nhìn vào bên trong, thay vì nhìn ra bên ngoài và so sánh. Ai cũng cần phải nhìn vào bên trong, mới có thể thực sự phát triển được các tiềm năng tâm linh của bản thân, để có thể trở nên ý nghĩa hơn, hạnh phúc hơn trong cuộc sống này.</p>
+<p>Hãy hành thiền!</p>
+<p>Once you sit down and close your eyes to calm your mind, there will not be difference between a Prime Minister and a civilian, no difference between a CEO and a staff, no difference between a rich and a poor, no difference between a person fully in happiness and a person being burdened with too much suffering. Things suddenly become equal and life is fair from this angle. There is no difference because your mind is now steering backward to the insight, to the true self. That&#8217;s once you are looking into yourself, rather than looking outside and compare. One need to look inside in order to really un-earth and grow your spiritual potential, in order to become more meaningful, happier in this very life.</p>
+<p>Do meditate!</p>
+</div>
+		</div><div id="search-1" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://viethungnguyen.com/">
+				<label>
+					<span class="screen-reader-text">Tìm kiếm cho:</span>
+					<input type="search" class="search-field" placeholder="Tìm kiếm &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="Tìm kiếm" />
+			</form></div><div id="top-posts-3" class="widget widget_top-posts"><h3 class="widget-title">Mostly viewed</h3><ul class='widgets-list-layout no-grav'>
+					<li>
+												<a href="https://viethungnguyen.com/2014/11/04/mat-ho-tinh-lang/" title="Mặt hồ tĩnh lặng" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2014/11/011.jpg?resize=40%2C40" class='widgets-list-layout-blavatar' alt="Mặt hồ tĩnh lặng" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2014/11/04/mat-ho-tinh-lang/" class="bump-view" data-bump-view="tp">
+								Mặt hồ tĩnh lặng							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2017/07/23/sach-noi-ban-do-hanh-trinh-tam-linh/" title="Sách nói: Bản đồ hành trình tâm linh" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=40" class='widgets-list-layout-blavatar' alt="Sách nói: Bản đồ hành trình tâm linh" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2017/07/23/sach-noi-ban-do-hanh-trinh-tam-linh/" class="bump-view" data-bump-view="tp">
+								Sách nói: Bản đồ hành trình tâm linh							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2018/02/26/suc-manh-ve-dep-va-su-dieu-ky-cua-su-tap-trung/" title="Sức mạnh, vẻ đẹp, và sự diệu kỳ của sự tập trung" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2018/02/fullsizeoutput_a39d.jpeg?resize=40%2C40" class='widgets-list-layout-blavatar' alt="Sức mạnh, vẻ đẹp, và sự diệu kỳ của sự tập trung" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2018/02/26/suc-manh-ve-dep-va-su-dieu-ky-cua-su-tap-trung/" class="bump-view" data-bump-view="tp">
+								Sức mạnh, vẻ đẹp, và sự diệu kỳ của sự tập trung							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2017/05/09/ren-luyen-noi-tam-la-phuong-thuc-doi-tri-tot-nhat-cho-phien-muon/" title="Rèn luyện nội tâm là phương thức đối trị tốt nhất cho phiền muộn" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2017/05/img_8006.jpg?resize=40%2C40" class='widgets-list-layout-blavatar' alt="Rèn luyện nội tâm là phương thức đối trị tốt nhất cho phiền muộn" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2017/05/09/ren-luyen-noi-tam-la-phuong-thuc-doi-tri-tot-nhat-cho-phien-muon/" class="bump-view" data-bump-view="tp">
+								Rèn luyện nội tâm là phương thức đối trị tốt nhất cho phiền muộn							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2018/07/17/hai-con-cho-soi/" title="Hai con chó sói" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2018/07/two-wolves.jpeg?resize=40%2C40" class='widgets-list-layout-blavatar' alt="Hai con chó sói" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2018/07/17/hai-con-cho-soi/" class="bump-view" data-bump-view="tp">
+								Hai con chó sói							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2016/06/08/sach-hay-khong-co-song-nao-de-vuot-qua/" title="Sách hay: Không Có Sông Nào Để Vượt Qua" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2016/06/screen-shot-2016-06-08-at-8-36-48-pm.png?resize=40%2C40" class='widgets-list-layout-blavatar' alt="Sách hay: Không Có Sông Nào Để Vượt Qua" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2016/06/08/sach-hay-khong-co-song-nao-de-vuot-qua/" class="bump-view" data-bump-view="tp">
+								Sách hay: Không Có Sông Nào Để Vượt Qua							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2012/03/02/tim-lai-chinh-minh/" title="Tìm lại chính mình" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=40" class='widgets-list-layout-blavatar' alt="Tìm lại chính mình" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2012/03/02/tim-lai-chinh-minh/" class="bump-view" data-bump-view="tp">
+								Tìm lại chính mình							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2013/06/25/ky-uc-cua-mot-chuyen-di-thien-nguyen/" title="Ký ức của một chuyến đi thiện nguyện" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2013/06/01.jpg?resize=40%2C40" class='widgets-list-layout-blavatar' alt="Ký ức của một chuyến đi thiện nguyện" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2013/06/25/ky-uc-cua-mot-chuyen-di-thien-nguyen/" class="bump-view" data-bump-view="tp">
+								Ký ức của một chuyến đi thiện nguyện							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2017/08/12/noi-loan-va-tu-do/" title="Nổi loạn và Tự do" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2018/08/cropped-2018.jpg?w=40" class='widgets-list-layout-blavatar' alt="Nổi loạn và Tự do" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2017/08/12/noi-loan-va-tu-do/" class="bump-view" data-bump-view="tp">
+								Nổi loạn và Tự do							</a>
+						</div>
+												</li>
+										<li>
+												<a href="https://viethungnguyen.com/2017/12/17/the-word-family/" title="The word &quot;family&quot;" class="bump-view" data-bump-view="tp">
+							<img width="40" height="40" src="https://viethungnguyen.files.wordpress.com/2017/12/img_0212.jpg?resize=40%2C40" class='widgets-list-layout-blavatar' alt="The word &quot;family&quot;" data-pin-nopin="true" />
+						</a>
+						<div class="widgets-list-layout-links">
+							<a href="https://viethungnguyen.com/2017/12/17/the-word-family/" class="bump-view" data-bump-view="tp">
+								The word &quot;family&quot;							</a>
+						</div>
+												</li>
+					</ul>
+</div><div id="wp_tag_cloud-3" class="widget wp_widget_tag_cloud"><h3 class="widget-title">Thẻ</h3><div style="overflow:hidden"><a href="https://viethungnguyen.com/tag/buddhism/" class="tag-cloud-link tag-link-158 tag-link-position-1" style="font-size: 10.372881355932pt;" aria-label="Buddhism (3 mục)">Buddhism</a>
+<a href="https://viethungnguyen.com/tag/business/" class="tag-cloud-link tag-link-179 tag-link-position-2" style="font-size: 14.723163841808pt;" aria-label="Business (13 mục)">Business</a>
+<a href="https://viethungnguyen.com/tag/buoc-dau-hoc-thien/" class="tag-cloud-link tag-link-568144493 tag-link-position-3" style="font-size: 8pt;" aria-label="Bước đầu học thiền (1 mục)">Bước đầu học thiền</a>
+<a href="https://viethungnguyen.com/tag/english/" class="tag-cloud-link tag-link-3205 tag-link-position-4" style="font-size: 19.389830508475pt;" aria-label="English (54 mục)">English</a>
+<a href="https://viethungnguyen.com/tag/great-book/" class="tag-cloud-link tag-link-1511366 tag-link-position-5" style="font-size: 10.372881355932pt;" aria-label="Great book (3 mục)">Great book</a>
+<a href="https://viethungnguyen.com/tag/happiness/" class="tag-cloud-link tag-link-22297 tag-link-position-6" style="font-size: 16.225988700565pt;" aria-label="Happiness (21 mục)">Happiness</a>
+<a href="https://viethungnguyen.com/tag/hanh-phuc/" class="tag-cloud-link tag-link-788842 tag-link-position-7" style="font-size: 18.757062146893pt;" aria-label="Hạnh phúc (45 mục)">Hạnh phúc</a>
+<a href="https://viethungnguyen.com/tag/joy/" class="tag-cloud-link tag-link-5840 tag-link-position-8" style="font-size: 8pt;" aria-label="Joy (1 mục)">Joy</a>
+<a href="https://viethungnguyen.com/tag/kinh-doanh/" class="tag-cloud-link tag-link-207888 tag-link-position-9" style="font-size: 11.16384180791pt;" aria-label="Kinh doanh (4 mục)">Kinh doanh</a>
+<a href="https://viethungnguyen.com/tag/lam-cha-me-tot/" class="tag-cloud-link tag-link-180238601 tag-link-position-10" style="font-size: 13.853107344633pt;" aria-label="Làm cha mẹ tốt (10 mục)">Làm cha mẹ tốt</a>
+<a href="https://viethungnguyen.com/tag/meditation/" class="tag-cloud-link tag-link-6197 tag-link-position-11" style="font-size: 10.372881355932pt;" aria-label="Meditation (3 mục)">Meditation</a>
+<a href="https://viethungnguyen.com/tag/ngai-sayadaw-u-jotika/" class="tag-cloud-link tag-link-607662910 tag-link-position-12" style="font-size: 9.4237288135593pt;" aria-label="Ngài Sayadaw U. Jotika (2 mục)">Ngài Sayadaw U. Jotika</a>
+<a href="https://viethungnguyen.com/tag/personal-development/" class="tag-cloud-link tag-link-19129 tag-link-position-13" style="font-size: 17.175141242938pt;" aria-label="Personal Development (28 mục)">Personal Development</a>
+<a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" class="tag-cloud-link tag-link-91354702 tag-link-position-14" style="font-size: 20.813559322034pt;" aria-label="Phát triển cá nhân (83 mục)">Phát triển cá nhân</a>
+<a href="https://viethungnguyen.com/tag/phat-giao/" class="tag-cloud-link tag-link-8105299 tag-link-position-15" style="font-size: 18.598870056497pt;" aria-label="Phật giáo (43 mục)">Phật giáo</a>
+<a href="https://viethungnguyen.com/tag/sach-hay/" class="tag-cloud-link tag-link-634479 tag-link-position-16" style="font-size: 17.09604519774pt;" aria-label="Sách hay (27 mục)">Sách hay</a>
+<a href="https://viethungnguyen.com/tag/sach-toi-viet/" class="tag-cloud-link tag-link-102058373 tag-link-position-17" style="font-size: 9.4237288135593pt;" aria-label="Sách tôi viết (2 mục)">Sách tôi viết</a>
+<a href="https://viethungnguyen.com/tag/su-tam-phap/" class="tag-cloud-link tag-link-505553956 tag-link-position-18" style="font-size: 11.796610169492pt;" aria-label="Sư Tâm Pháp (5 mục)">Sư Tâm Pháp</a>
+<a href="https://viethungnguyen.com/tag/thien/" class="tag-cloud-link tag-link-262848 tag-link-position-19" style="font-size: 16.937853107345pt;" aria-label="Thiền (26 mục)">Thiền</a>
+<a href="https://viethungnguyen.com/tag/thien-tu-niem-xu/" class="tag-cloud-link tag-link-218303319 tag-link-position-20" style="font-size: 8pt;" aria-label="Thiền tứ niệm xứ (1 mục)">Thiền tứ niệm xứ</a>
+<a href="https://viethungnguyen.com/tag/tieng-viet/" class="tag-cloud-link tag-link-732284 tag-link-position-21" style="font-size: 22pt;" aria-label="Tiếng Việt (116 mục)">Tiếng Việt</a>
+<a href="https://viethungnguyen.com/tag/vipassana/" class="tag-cloud-link tag-link-42429 tag-link-position-22" style="font-size: 10.372881355932pt;" aria-label="Vipassana (3 mục)">Vipassana</a></div></div>
+	<!-- END #sidebar .aside-->
+	</div>
+
+		<!-- END #content -->
+		</div>
+
+		<!-- BEGIN #footer -->
+		<footer id="footer" class="site-footer">
+
+		    <!-- BEGIN .footer-inner -->
+		    <div class="footer-inner">
+
+		        <!-- BEGIN .footer-col-1 -->
+<div class="footer-col-1">
+
+    <div id="text-4" class="widget widget_text"><h3 class="widget-title">Hãy biến bản thân thành một mặt hồ tĩnh lặng</h3>			<div class="textwidget"><p>“Chúng ta có thể làm tâm mình trở thành một mặt hồ tĩnh lặng để người khác quây quần chung quanh, và họ sẽ thấy được hình bóng của chính họ. Vì vậy, hãy sống một cuộc đời trong sáng hơn, và có lẽ mãnh liệt hơn, với sự tĩnh lặng của mình” &#8211; William Butler Yeats</p>
+</div>
+		</div>    
+<!-- END .footer-col-1 -->
+</div>
+
+<!-- BEGIN .footer-col-2 -->
+<div class="footer-col-2">
+
+    <div id="text-7" class="widget widget_text"><h3 class="widget-title">Hai câu hỏi cho cuộc đời</h3>			<div class="textwidget"><p>Hãy liên tục tự hỏi bản thân hai câu hỏi sau: (1) Cái gì làm cho bạn hạnh phúc? (2) Bạn muốn sống cuộc sống như thế nào vào ngày hôm nay, 1 năm nữa, 5 năm nữa, và đến khi bạn 80 tuổi? Đa phần mọi người đều sống theo quán tính mà quên mất việc quan trọng nhất là sống tốt cho bản thân, được là chính mình. Nên mọi người cứ đuổi hình bắt bóng. Cái gì sẽ làm bạn hạnh phúc? Nếu có câu trả lời, hãy làm bước kế tiếp là kiểm tra thực tế xem, nó có thực sự đem lại hạnh phúc không? 99.9% là không. Và thế là bạn nhận ra rằng không phải. Và câu trả lời được thay đổi. Lại tiếp tục chứng nghiệm. Đó là một hành trình học hỏi tuyệt vời.</p>
+</div>
+		</div>
+<!-- END .footer-col-2 -->
+</div>
+
+<!-- BEGIN .footer-col-3 -->
+<div class="footer-col-3">
+
+    <div id="wp_tag_cloud-9" class="widget wp_widget_tag_cloud"><h3 class="widget-title">Tags</h3><div style="overflow:hidden"><a href="https://viethungnguyen.com/tag/buddhism/" class="tag-cloud-link tag-link-158 tag-link-position-1" style="font-size: 10.372881355932pt;" aria-label="Buddhism (3 mục)">Buddhism</a>
+<a href="https://viethungnguyen.com/tag/business/" class="tag-cloud-link tag-link-179 tag-link-position-2" style="font-size: 14.723163841808pt;" aria-label="Business (13 mục)">Business</a>
+<a href="https://viethungnguyen.com/tag/buoc-dau-hoc-thien/" class="tag-cloud-link tag-link-568144493 tag-link-position-3" style="font-size: 8pt;" aria-label="Bước đầu học thiền (1 mục)">Bước đầu học thiền</a>
+<a href="https://viethungnguyen.com/tag/english/" class="tag-cloud-link tag-link-3205 tag-link-position-4" style="font-size: 19.389830508475pt;" aria-label="English (54 mục)">English</a>
+<a href="https://viethungnguyen.com/tag/great-book/" class="tag-cloud-link tag-link-1511366 tag-link-position-5" style="font-size: 10.372881355932pt;" aria-label="Great book (3 mục)">Great book</a>
+<a href="https://viethungnguyen.com/tag/happiness/" class="tag-cloud-link tag-link-22297 tag-link-position-6" style="font-size: 16.225988700565pt;" aria-label="Happiness (21 mục)">Happiness</a>
+<a href="https://viethungnguyen.com/tag/hanh-phuc/" class="tag-cloud-link tag-link-788842 tag-link-position-7" style="font-size: 18.757062146893pt;" aria-label="Hạnh phúc (45 mục)">Hạnh phúc</a>
+<a href="https://viethungnguyen.com/tag/joy/" class="tag-cloud-link tag-link-5840 tag-link-position-8" style="font-size: 8pt;" aria-label="Joy (1 mục)">Joy</a>
+<a href="https://viethungnguyen.com/tag/kinh-doanh/" class="tag-cloud-link tag-link-207888 tag-link-position-9" style="font-size: 11.16384180791pt;" aria-label="Kinh doanh (4 mục)">Kinh doanh</a>
+<a href="https://viethungnguyen.com/tag/lam-cha-me-tot/" class="tag-cloud-link tag-link-180238601 tag-link-position-10" style="font-size: 13.853107344633pt;" aria-label="Làm cha mẹ tốt (10 mục)">Làm cha mẹ tốt</a>
+<a href="https://viethungnguyen.com/tag/meditation/" class="tag-cloud-link tag-link-6197 tag-link-position-11" style="font-size: 10.372881355932pt;" aria-label="Meditation (3 mục)">Meditation</a>
+<a href="https://viethungnguyen.com/tag/ngai-sayadaw-u-jotika/" class="tag-cloud-link tag-link-607662910 tag-link-position-12" style="font-size: 9.4237288135593pt;" aria-label="Ngài Sayadaw U. Jotika (2 mục)">Ngài Sayadaw U. Jotika</a>
+<a href="https://viethungnguyen.com/tag/personal-development/" class="tag-cloud-link tag-link-19129 tag-link-position-13" style="font-size: 17.175141242938pt;" aria-label="Personal Development (28 mục)">Personal Development</a>
+<a href="https://viethungnguyen.com/tag/phat-trien-ca-nhan/" class="tag-cloud-link tag-link-91354702 tag-link-position-14" style="font-size: 20.813559322034pt;" aria-label="Phát triển cá nhân (83 mục)">Phát triển cá nhân</a>
+<a href="https://viethungnguyen.com/tag/phat-giao/" class="tag-cloud-link tag-link-8105299 tag-link-position-15" style="font-size: 18.598870056497pt;" aria-label="Phật giáo (43 mục)">Phật giáo</a>
+<a href="https://viethungnguyen.com/tag/sach-hay/" class="tag-cloud-link tag-link-634479 tag-link-position-16" style="font-size: 17.09604519774pt;" aria-label="Sách hay (27 mục)">Sách hay</a>
+<a href="https://viethungnguyen.com/tag/sach-toi-viet/" class="tag-cloud-link tag-link-102058373 tag-link-position-17" style="font-size: 9.4237288135593pt;" aria-label="Sách tôi viết (2 mục)">Sách tôi viết</a>
+<a href="https://viethungnguyen.com/tag/su-tam-phap/" class="tag-cloud-link tag-link-505553956 tag-link-position-18" style="font-size: 11.796610169492pt;" aria-label="Sư Tâm Pháp (5 mục)">Sư Tâm Pháp</a>
+<a href="https://viethungnguyen.com/tag/thien/" class="tag-cloud-link tag-link-262848 tag-link-position-19" style="font-size: 16.937853107345pt;" aria-label="Thiền (26 mục)">Thiền</a>
+<a href="https://viethungnguyen.com/tag/thien-tu-niem-xu/" class="tag-cloud-link tag-link-218303319 tag-link-position-20" style="font-size: 8pt;" aria-label="Thiền tứ niệm xứ (1 mục)">Thiền tứ niệm xứ</a>
+<a href="https://viethungnguyen.com/tag/tieng-viet/" class="tag-cloud-link tag-link-732284 tag-link-position-21" style="font-size: 22pt;" aria-label="Tiếng Việt (116 mục)">Tiếng Việt</a>
+<a href="https://viethungnguyen.com/tag/vipassana/" class="tag-cloud-link tag-link-42429 tag-link-position-22" style="font-size: 10.372881355932pt;" aria-label="Vipassana (3 mục)">Vipassana</a></div></div>
+<!-- END .footer-col-3 -->
+</div>
+		    <!-- END .footer-inner -->
+		    </div>
+
+		    <div class="footer-lower">
+		        <div class="footer-inner">
+					<a href="https://vi.wordpress.com/?ref=footer_blog">Blog tại WordPress.com.</a>
+					
+									</div>
+		    </div>
+
+		<!-- END #footer .site-footer-->
+		</footer>
+
+		<a href="#" id="back-to-top" class="back-to-top"></a>
+
+	<!-- END .hfeed .site -->
+	</div>
+	<!-- Theme Hook -->
+			<script type="text/javascript">
+		//<![CDATA[
+		var infiniteScroll = {"settings":{"id":"infinite-scroll","ajaxurl":"https:\/\/viethungnguyen.com\/?infinity=scrolling","type":"click","wrapper":false,"wrapper_class":"infinite-wrap","footer":false,"click_handle":"1","text":"B\u00e0i c\u0169 h\u01a1n","totop":"Scroll back to top","currentday":"26.04.18","order":"DESC","scripts":[],"styles":[],"google_analytics":false,"offset":0,"history":{"host":"viethungnguyen.com","path":"\/page\/%d\/","use_trailing_slashes":true,"parameters":""},"query_args":{"error":"","m":"","p":0,"post_parent":"","subpost":"","subpost_id":"","attachment":"","attachment_id":0,"name":"","pagename":"","page_id":0,"second":"","minute":"","hour":"","day":0,"monthnum":0,"year":0,"w":0,"category_name":"","tag":"","cat":"","tag_id":"","author":"","author_name":"","feed":"","tb":"","paged":0,"meta_key":"","meta_value":"","preview":"","s":"","sentence":"","title":"","fields":"","menu_order":"","embed":"","category__in":[],"category__not_in":[],"category__and":[],"post__in":[],"post__not_in":[],"post_name__in":[],"tag__in":[],"tag__not_in":[],"tag__and":[],"tag_slug__in":[],"tag_slug__and":[],"post_parent__in":[],"post_parent__not_in":[],"author__in":[],"author__not_in":[],"posts_per_page":10,"ignore_sticky_posts":false,"suppress_filters":false,"cache_results":false,"update_post_term_cache":true,"lazy_load_term_meta":true,"update_post_meta_cache":true,"post_type":"","nopaging":false,"comments_per_page":"50","no_found_rows":false,"order":"DESC"},"last_post_date":"2018-04-26 16:18:23","stats":"blog=112576676&v=wpcom&tz=7&user_id=0&subd=viethungnguyen&x_pagetype=infinite-click"}};
+		//]]>
+		</script>
+		<!--  -->
+<script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201843y'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"\u0110\u0103ng b\u00ecnh lu\u1eadn\u2026","postCommentText":"G\u1eedi b\u00ecnh lu\u1eadn","connectingToText":"Connecting to %s","commentingAsText":"%1$s: B\u1ea1n \u0111ang b\u00ecnh lu\u1eadn b\u1eb1ng t\u00e0i kho\u1ea3n %2$s","logoutText":"\u0110i ra kh\u1ecfi nh\u00e0 THchansan","loginText":"\u0110\u0103ng nh\u1eadp","connectURL":"https:\/\/viethungnguyen.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/viethungnguyen.wordpress.com\/wp-login.php?action=logout&_wpnonce=682a279722","homeURL":"https:\/\/viethungnguyen.com\/","postID":"4254","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Xin vui l\u00f2ng \u0111i\u1ec1n \u0111\u1ecba ch\u1ec9 email c\u1ee7a b\u1ea1n","invalidEmailError":"Invalid email address","enterAuthorError":"Xin vui l\u00f2ng \u0111i\u1ec1n t\u00ean c\u1ee7a b\u1ea1n","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"\u0110\u0103ng nh\u1eadp \u0111\u1ec3 s\u1eed d\u1ee5ng th\u00f4ng tin t\u1eeb c\u00e1c t\u00e0i kho\u1ea3n sau","change":"Thay \u0111\u1ed5i","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"","isJetpack":"","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1521806916j'></script>
+
+	<div id="carousel-reblog-box">
+		<form action="#" name="carousel-reblog">
+			<textarea id="carousel-reblog-content" name="carousel-reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+			<label for="carousel-reblog-to-blog-id" id="carousel-reblog-lblogid">Post to</label>
+			<select name="carousel-reblog-to-blog-id" id="carousel-reblog-to-blog-id">
+						</select>
+
+			<div class="submit">
+				<span class="canceltext"><a href="#" class="cancel">Hủy bỏ</a></span>
+				<input type="submit" name="carousel-reblog-submit" class="button" id="carousel-reblog-submit" value="Reblog Post" />
+				<input type="hidden" id="carousel-reblog-blog-id" value="112576676" />
+				<input type="hidden" id="carousel-reblog-blog-url" value="https://viethungnguyen.com" />
+				<input type="hidden" id="carousel-reblog-blog-title" value="Viet Hung Nguyen" />
+				<input type="hidden" id="carousel-reblog-post-url" value="" />
+				<input type="hidden" id="carousel-reblog-post-title" value="" />
+			</div>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="4ad3f6d93d" /><input type="hidden" name="_wp_http_referer" value="/" />		</form>
+
+		<div class="arrow"></div>
+	</div>
+<link rel='stylesheet' id='all-css-0-3' href='https://s0.wp.com/wp-content/mu-plugins/carousel/jetpack-carousel.css?m=1524699534h&cssminify=yes' type='text/css' media='all' />
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='https://s1.wp.com/wp-content/mu-plugins/carousel/jetpack-carousel-ie8fix.css?m=1412618825h&#038;ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='all-css-2-3' href='https://s2.wp.com/wp-content/mu-plugins/tiled-gallery/tiled-gallery.css?m=1443731146h&cssminify=yes' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var curator = {"navmenu":"Menu","ajaxurl":"https:\/\/viethungnguyen.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"33b4f5d298","loading":"\u0110ang t\u1ea3i..."};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var actionbardata = {"siteID":"112576676","siteName":"Viet Hung Nguyen","siteURL":"https:\/\/viethungnguyen.com","icon":"<img alt='' src='https:\/\/viethungnguyen.files.wordpress.com\/2018\/08\/cropped-2018.jpg?w=50' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"premium\/curator","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/viethungnguyen.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fviethungnguyen.com%2F2018%2F10%2F01%2Ftan-man-sang-thang-10%2F","themeURL":"","xhrURL":"https:\/\/viethungnguyen.com\/wp-admin\/admin-ajax.php","nonce":"0fb4eb036e","isSingular":"","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"19af3f6ae9\" \/>","referer":"https:\/\/viethungnguyen.com\/","canFollow":"1","feedID":"49613036","statusMessage":"","customizeLink":"https:\/\/viethungnguyen.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fviethungnguyen.wordpress.com%2F","i18n":{"view":"View site","follow":"Theo d\u00f5i","following":"Following","edit":"Edit","login":"\u0110\u0103ng nh\u1eadp","signup":"\u0110\u0103ng k\u00fd","customize":"T\u00f9y ch\u1ec9nh","report":"Report this content","themeInfo":"Get theme: Curator","shortlink":"Copy shortlink","copied":"\u0110\u00e3 sao ch\u00e9p","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"M\u1edf r\u1ed9ng","unfoldBar":"Expand this bar","editSubs":"Qu\u1ea3n l\u00fd s\u1ef1 \u0111\u0103ng k\u00ed theo d\u00f5i","viewReader":"Xem trang v\u1edbi t\u01b0 c\u00e1ch ng\u01b0\u1eddi \u0111\u1ecdc","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"Join 39 other followers","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/viethungnguyen.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fviethungnguyen.com%2F2018%2F10%2F01%2Ftan-man-sang-thang-10%2F\">Log in now.<\/a>","stats":"Th\u1ed1ng k\u00ea"}};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"vi","ajaxurl":"https:\/\/viethungnguyen.com\/wp-admin\/admin-ajax.php","nonce":"44c628c6da","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"B\u00ecnh lu\u1eadn","post_comment":"G\u1eedi b\u00ecnh lu\u1eadn","write_comment":"Write a Comment...","loading_comments":"\u0110ang t\u1ea3i B\u00ecnh lu\u1eadn...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/viethungnguyen.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fviethungnguyen.com%2F2018%2F10%2F01%2Ftan-man-sang-thang-10%2F","blog_id":"112576676","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">Th\u01b0 \u0111i\u1ec7n t\u1eed (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">T\u00ean (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Trang web<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=112576676&v=wpcom&tz=7&user_id=0&subd=viethungnguyen","is_public":"1","reblog_enabled":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyVkdtuwjAMhl9oIaCJcTXtWULiUoecZjuFvv0SpFYbF9W48+n75d/Wt6JsTgJJtGftYEIL5b7z/KZ/tWJVJdQLJtYBr8D6u0KF0SQXgDaGMQ2YUOY1eJ6VEWKTKwQRa9S2kpFMfRWuBWhAHv+P+LYVzTvkLLnAy5ytLDluuDEuYlJnQzoaFqAWqTwBEbomvNZeVBAy9spbkBXMqUNrtDFtDeXKELQHKU1ZLYUNRjCAUxcT2jfnv9lCYbKhdpv9Nbchnz1YeZZc9KZ2kKwNM8gDeOTt8NxtfsXPw/H943A67Y97/wPGevKM'></script>
+<script type='text/javascript' src='https://platform.twitter.com/widgets.js?ver=20111117'></script>
+<script type='text/javascript' src='https://s1.wp.com/_static/??-eJyVyzEOgCAMAMAPiRXjAIPxLYINKWptoOj33dy9/eAREy9WZIWzGTlaIq6gD6liMeFY4x6obEYIgfHGgrwRpz7XDv5c+d5yznYanPfOjja/fEYvZQ=='></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script type="text/javascript">
+			jQuery.extend( infiniteScroll.settings.scripts, ["jquery-core","jquery-migrate","jquery","mobile-useragent-info","postmessage","jquery_inview","jetpack_resize","imagesLoaded","spin","jquery.spin","grofiles-cards","wpgroho","jquery.autoresize","highlander-comments","devicepx","jetpack_likes_queuehandler","the-neverending-homepage","superfish","isotope","curator-custom","wpcom-masterbar-js","wpcom-masterbar-tracks-js","wpcom-actionbar-bar","jetpack-carousel","tiled-gallery","swfobject","videopress","twitter-widgets","twitter-widgets-infinity","twitter-widgets-pending"] );
+			jQuery.extend( infiniteScroll.settings.styles, ["wpcom-smileys","jetpack_likes","the-neverending-homepage","wpcom-core-compat-playlist-styles","wpcom-text-widget-styles","mp6hacks","wpcom-bbpress2-staff-css","dashicons","curator-style","jetpack-top-posts-widget","jetpack-widget-social-icons-styles","noticons","geo-location-flair","reblogging","wpcom-actionbar-bar","h4-global","curator-playfair","highlander-comments","highlander-comments-ie7","jetpack-carousel","tiled-gallery","jetpack-carousel-ie8fix"] );
+		</script><script src="//stats.wp.com/w.js?56" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'112576676','blog_tz':'7','user_lang':'vi','blog_lang':'vi','user_id':'0'}]);
+_stq.push(['view', {'blog':'112576676','v':'wpcom','tz':'7','user_id':'0','subd':'viethungnguyen'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1TaVhzUzFMbjdWNHpwZGhTayxPSUFCMGRVYVNrSFguN3FwSmQ5RGtNX3VQcj1yVzhiflM1THQtLGFdQ2toOXYlX2JFQTVHZlszT3M5QnJsOT16Q1tJOUQwfENMMHN0clFmRng0VkdhMFlQVGEtdltsdll6bzZxZFBmSzFJZUl3N3JRaGZsa2dqeSUlMEdQYTd2c2pKWnw5alRhd1UrUk53YksyLEt3STIxYTA9Q0E1R3A4VityV205WW89ckNsV1RZL0Fwd10xbUxJNmdWNU4lWTAuMlZOek0lc3VRNmR5cjdBbzJLbDMrblY1JWIuTj1veHktZjU5K215ZUI5TlpxX0ElSm90cGNN'}]);
+_stq.push([ 'clickTrackerInit', '112576676', '0' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+		<script>
+			jQuery( '#resend-verifyemail' ).on( 'click', function(e) {
+				var link = jQuery(e.target);
+
+				e.preventDefault();
+
+				var r = jQuery.ajax( {
+					type: 'POST',
+					url: '/wp-admin/admin-ajax.php',
+					data: {
+						'action': 'resend_verify_email',
+						'_wpnonce': link.data( 'nonce' )
+					}
+				} );
+
+				setTimeout( function() {
+					link.hide();
+					link.after( '<strong id="email-sent">Email Sent</strong>' );
+				}, 200 );
+
+				setTimeout( function() {
+					jQuery( "strong#email-sent" ).hide().remove();
+					link.show();
+				}, 4000 );
+			} );
+		</script>
+	<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+<!-- END body-->
+</body>
+<!-- END html-->
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <booktitle>The Firm</booktitle>
+        <author>John Grisham</author>
+        <price><![CDATA[<99] ]></price>
+    </book>
+    <book>
+        <booktitle>Coma</booktitle>
+        <author>John Grisham</author>
+        <price>99</price>
+    </book>
+    <book>
+        <booktitle>The Firm</booktitle>
+        <author>John Grisham</author>
+        <price>99</price>
+    </book>
+</library>

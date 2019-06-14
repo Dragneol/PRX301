@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.fpt.edu.vn" 
+         xmlns:article="http://www.article.fpt.edu.vn" 
+         xmlns:person="http://www.biolography.com.vn">
+    <book article:id="B0001">
+        <article:title>The Firm</article:title>
+        <person:author>John Grisham</person:author>
+        <article:price>99</article:price>
+    </book>
+    <book article:id="B0002">
+        <article:title>Coma</article:title>
+        <person:author>John Grisham</person:author>
+        <article:price>99</article:price>
+    </book>
+    <book article:id="B0003">
+        <article:title>The Firm</article:title>
+        <person:author>John Grisham</person:author>
+        <article:price>99</article:price>
+    </book>
+</library>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><students>
+    <student class="se1262" id="1">
+        <firstname>Duong</firstname>
+        <lastname>Hoang</lastname>
+        <password>123</password>
+        <sex>M</sex>
+        <address>HCM</address>
+        <status>studying</status>
+    </student>
+    <student class="se1267" id="2">
+        <firstname>Khai</firstname>
+        <lastname>Nguyen</lastname>
+        <password>123</password>
+        <sex>M</sex>
+        <address>HCM</address>
+        <status>studying</status>
+    </student>
+    
+    
+</students>

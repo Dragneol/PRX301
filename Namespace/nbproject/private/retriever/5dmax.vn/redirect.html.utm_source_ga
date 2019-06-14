@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)http://5dmax.vn/index.php/phim/6487/giang-sinh-nho-doi?utm_source=GA -->
+<html lang="vi"><script async="" src="./giang-sinh-nho-doi_files/analytics.js.download"></script><script id="allow-copy_script">(function agent() {
+    let isUnlockingCached = false
+            const isUnlocking = () => isUnlockingCached
+            document.addEventListener('allow_copy', event => {
+            const { unlock } = event.detail
+                    isUnlockingCached = unlock
+            })
+
+            const copyEvents = [
+                    'copy',
+                    'cut',
+                    'contextmenu',
+                    'selectstart',
+                    'mousedown',
+                    'mouseup',
+                    'mousemove',
+                    'keydown',
+                    'keypress',
+                    'keyup',
+            ]
+            const rejectOtherHandlers = e => {
+            if (isUnlocking()) {
+            e.stopPropagation()
+                    if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+            }
+            }
+    copyEvents.forEach(evt => {
+    document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+    capture: true,
+    })
+    })
+    })()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+
+        .vjs-fluid {
+            padding-top: 56.25%
+        }
+        </style>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> <meta name="csrf-param" content="_csrf">
+        <meta name="csrf-token" content="cFRzVjd6M1RAFgkJDzQGbBwbFjV9Hn4kOSUSJFoQYh8VZSxkT0tEHw==">
+
+        <title>Giáng Sinh Nhớ Đời</title>
+        <meta name="description">
+        <meta name="keywords">
+        <meta name="og:title" content="Giáng Sinh Nhớ Đời">
+        <meta name="og:description" content="Một bộ phim Mỹ thuộc thể loại hài hước lãng mạn với chủ đề ngày lễ Giáng Sinh của đạo diễn Jessie Nelson. Câu chuyện trong phim xoay quanh cuộc đoàn tụ hàng năm để ăn mừng dịp Giáng Sinh của đại gia đình nhà Coopers với 4 thế hệ, cùng bao nhiêu tình tiết không ngờ đầy hài hước và đậm tình cảm con người.">
+        <meta name="og:image" content="http://static2.myclip.vn/0312fb6f6ac781a8564ec682047b66f11544674473/image1/2018_02_07/1517974407318/2949d71ea884_640_360.jpg">
+        <link href="./giang-sinh-nho-doi_files/homezip.css" rel="stylesheet">
+        <link href="./giang-sinh-nho-doi_files/video-js.css" rel="stylesheet">
+        <link href="./giang-sinh-nho-doi_files/video-js-skin.css" rel="stylesheet">
+        <style type="text/css" data-asas-style="">body, div, a, p, span{ user-select: text !important; }p, h1, h2, h3, h4, h5, h6{ cursor: auto; user-select: text !important; }::selection{ background-color: #338FFF !important; color: #fff !important; }</style></head>
+    <body>
+
+
+
+        <div class="mdl-header navbar-fixed-top">
+            <div class="container">
+                <div class="icon-menu-bar">
+                    <div id="hamburger"><span></span></div>
+                </div>
+                <a href="http://5dmax.vn/index.php/" class="logo"></a>
+                <div class="menu-top">
+                    <div class="link-mobile">
+                        <div class="item-link">
+                            <a href="http://5dmax.vn/index.php/auth/login">ĐĂNG NHẬP</a>
+                        </div>
+                    </div>
+                    <div class="item-link active"><a href="http://5dmax.vn/index.php/"><i class="fa icon2-home-5dmax"></i>Trang chủ</a></div>
+                    <div class="item-link has-menu  ">
+                        <a href="javascript:void(0)">
+                            <i class="fa icon2-film-5dmax"></i>Phim lẻ
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="sub-menu-top">
+                            <!--<div class="sub-menu-top sub-menu-top-two">-->
+                            <div class="line-top">
+                                <span class="square"><i class="fa fa-caret-up"></i></span>
+                            </div>
+                            <ul>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_10616">Hài Hước</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_10623">Kịch tính</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_10627">Tình cảm</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_10635">Võ thuật</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_10637">Viễn Tưởng</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_382082">Tâm lý</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_382084">Kinh dị</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_382086">Hành động</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_398856">Trinh thám</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_1412953">Chính Kịch</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/category_group_7808173">Phim Giáng Sinh</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-link has-menu ">
+                        <a href="javascript:void(0)"><i class="fa icon2-episode-5dmax"></i>Phim bộ <i class="fa fa-angle-down"></i></a>
+                        <!--<div class="sub-menu-top">-->
+                        <div class="sub-menu-top sub-menu-top-two">
+                            <div class="line-top">
+                                <span class="square"><i class="fa fa-caret-up"></i></span>
+                            </div>
+                            <ul>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199805">Mỹ</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199814">Trung Quốc</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199829">Hàn Quốc</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199848">Nhật bản</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199865">Ấn độ</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199873">Hồng Kông</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199893">Việt Nam</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199925">Thái Lan</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_200126">Đài loan</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_233944">Nga</a></li>
+                                <li><a href="http://5dmax.vn/index.php/xem-them/film_info_199807">Khác</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-link"><a href="http://5dmax.vn/index.php/goi-cuoc"><i class="fa icon2-package-5dmax"></i>Gói cước</a></div>
+                    <div class="item-link hide-object-web"><a href="http://5dmax.vn/index.php/auth/login"><i class="fa icon2-logout-5dmax icon-login"></i>Đăng nhập</a></div>
+
+
+                </div>
+
+                <div class="pull-right right-header">
+                    <a href="javascript:void(0)" class="btn-search"><i class="fa fa-search"></i></a>
+
+                    <a href="http://5dmax.vn/index.php/auth/login" class="link-login">ĐĂNG NHẬP</a>
+                </div>
+            </div>
+        </div>
+
+        <!--Full item-->
+
+
+        <div class="mdl-body" style="margin-top: 65px;">
+
+
+
+
+
+            <input type="hidden" id="trace-interval" value="10000">
+            <input type="hidden" id="trace-key" value="">
+            <input type="hidden" id="play" name="play" value="true">
+            <input type="hidden" id="poster" name="poster" value="http://static2.myclip.vn/0312fb6f6ac781a8564ec682047b66f11544674473/image1/2018_02_07/1517974407318/2949d71ea884_640_360.jpg">
+            <input type="hidden" id="play" value="true">
+            <input type="hidden" id="is_pc" value="1">
+            <input type="hidden" id="is_ios" value="">
+            <input type="hidden" id="ajaxUrl" value="http://5dmax.vn/account/watch-time">
+
+
+
+            <div class="container">
+                <!--Description-->
+
+                <div class="mdl-player">
+
+                    <div class="player-left">
+                        <div id="player" class="player" onclick="$( & #39; #popup - step1 & #39; ).fadeIn()">
+                            <img id="playerImage" src="./giang-sinh-nho-doi_files/2949d71ea884_640_360.jpg" width="100%" onerror="this.onerror=null;this.src=&#39;/images/16x9.gif&#39;;">
+                            <span class="play-icon"><i class="fa icon-play-solid"></i></span>
+                            <!-- start -->
+                            <input type="hidden" name="package_id" value="18">
+                            <input type="hidden" id="_csrf" name="_csrf" value="">
+                            <input type="hidden" id="step-confirm" value="1">
+                            <a href="javascript:void(0)" class="btn-upgrage" onclick="registerPackageAtDetail()">
+                                <span class="btn-vip"><i class="fa fa-play"></i></span>
+                                <span id="confirm-action">Xem phim</span> <br> Đăng ký Gói ngày
+                            </a>
+                            <a href="http://5dmax.vn" class="btn-skip">Bỏ qua</a>
+                            <form action="http://5dmax.vn/index.php/account/register-service?utm_source=GA&refer=http://5dmax.vn/index.php/phim/6487/giang-sinh-nho-doi?utm_source=GA" method="post" id="register-sub-form">
+                                <input type="hidden" name="package_id" value="18"/>
+                                <input type="hidden" name="_csrf" value="">
+                            </form>
+                            <!-- end -->
+                        </div>
+                    </div>
+
+                    <div class="player-right">
+                        <h1 class="title">Giáng Sinh Nhớ Đời</h1>
+
+                        <p class="text-sub">  13+ <span>|</span>                 <a href="http://5dmax.vn/xem-them/film_year_2015">2015</a>
+                            <span>|</span> 107  phút                 </p>
+                        <p>
+
+
+                        </p>
+                        <div class="text-des">
+                            Một bộ phim Mỹ thuộc thể loại hài hước lãng mạn với chủ đề ngày lễ Giáng Sinh của đạo diễn Jessie Nelson. Câu chuyện trong phim xoay quanh cuộc đoàn tụ hàng năm để ăn mừng dịp Giáng Sinh của đại gia đình nhà Coopers với 4 thế hệ, cùng bao nhiêu tình tiết không ngờ đầy hài hước và đậm tình cảm con người.
+                        </div>
+                        <div class="btn-view-more">
+                            <span>Xem thêm</span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="wrap-block" id="film-info-anchor">
+                        <h3>Thông tin</h3>
+                        <p>Diễn viên: <span class="cl-white">
+                                <a href="http://5dmax.vn/xem-them/film_info_199011">Diane Keaton</a>, 
+                                <a href="http://5dmax.vn/xem-them/film_info_224077359">John Goodman</a>, 
+                                <a href="http://5dmax.vn/xem-them/film_info_224081569">Steve Martin</a>
+                            </span>
+                        </p>
+
+                        <p>Thể loại: <span class="cl-white">
+                                <a href="http://5dmax.vn/xem-them/category_group_10616"> Hài Hước </a>
+
+                                <a href="http://5dmax.vn/xem-them/category_group_382092"> Lãng mạn </a>
+
+                                <a href="http://5dmax.vn/xem-them/category_group_7808173"> Phim Giáng Sinh </a>
+
+                            </span></p>
+
+                        <p>Quốc gia: <span class="cl-white">
+                                <a href="http://5dmax.vn/xem-them/film_info_199805">Mỹ</a>
+                            </span>
+                        </p>
+
+                        <p>Đánh giá: <span class="cl-white">5.7</span></p>
+
+                    </div>
+
+
+                </div>
+                <div class="clear"></div>
+                <div class="mdl-default" id="film-related">
+                    <h1 class="title ellipsis"><span class="text-1">Liên Quan</span></h1>
+                    <div class="grid-row">
+                        <div class="content">
+
+                            <a href="http://5dmax.vn/index.php/phim/8189/tinh-yeu-gia-doi" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/e3715633e07e_320_180.jpg" width="100%"></span>
+                                <span class="text">Tình Yêu Giả Dối</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8195/hoang-tu-hao-hoa" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/cef4598371f8_320_180.jpg" width="100%"></span>
+                                <span class="text">Hoàng Tử Hào Hoa</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8203/trong-tung-nhip-tho" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/5b765de33b3f_320_180.jpg" width="100%"></span>
+                                <span class="text">Trong Từng Nhịp Thở</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8217/duyen-voi" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/f71b02f25f7e_320_180.jpg" width="100%"></span>
+                                <span class="text">Duyên Vội</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8247/lay-vo-sai-gon" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/9a7ae8e7-c39c-4815-b913-b4f303a7a939_320_180.jpg" width="100%"></span>
+                                <span class="text">Lấy Vợ Sài Gòn</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8271/ngong-vit-phieu-luu-ky" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/b216cbb80b0b_320_180.jpg" width="100%"></span>
+                                <span class="text">Ngỗng Vịt Phiêu Lưu Ký</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8290/tat-ca-roi-se-qua" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/a1fcdecaf819_320_180.jpg" width="100%"></span>
+                                <span class="text">Tất Cả Rồi Sẽ Qua</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8293/hai-nguoi-co-tuong-giet-vo" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/7b24ecfefcae_320_180.jpg" width="100%"></span>
+                                <span class="text">Hai Người Có Tướng Giết Vợ</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8392/hoang-tu-hac-ma" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/51f95f832921_320_180.jpg" width="100%"></span>
+                                <span class="text">Hoàng Tử Hắc Mã</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8431/quan-an-luu-dong" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/ef9d912d527a_320_180.jpg" width="100%"></span>
+                                <span class="text">Quán Ăn Lưu Động</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8437/ki-muu-dieu-ke-ngu-phuc-tinh-ke-thang-nguoi-thua" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/aef434894be1_320_180.jpg" width="100%"></span>
+                                <span class="text">Kì Mưu Diệu Kế Ngũ Phúc Tinh (Kẻ Thắng Người Thua)</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8443/suat-de-xuat-ma" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/c585e8e5a5c0_320_180.jpg" width="100%"></span>
+                                <span class="text">Suất Đệ Xuất Mã</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8446/cuoc-san-chim-quy" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/fa57a9e5fd22_320_180.jpg" width="100%"></span>
+                                <span class="text">Cuộc Săn Chim Quý</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8470/bay-vao-coi-mong" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/455539e1-af5f-43fb-8e93-25a02d83ac5e_320_180.jpg" width="100%"></span>
+                                <span class="text">Bay Vào Cõi Mộng</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8476/ra-gieng-anh-cuoi-em" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/53a0cc43-eb5e-4b71-98f2-992171d9d248_320_180.jpg" width="100%"></span>
+                                <span class="text">Ra Giêng Anh Cưới Em</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8521/lop-hoc-102" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/07c6aa59-95dd-434e-90fa-2b0d958ebf6f_320_180.jpg" width="100%"></span>
+                                <span class="text">Lớp Học 102</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8542/hello-co-ba-phim-bo" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/aa152152-3ea1-430f-a54a-2a0bc5118831_320_180.jpg" width="100%"></span>
+                                <span class="text">Hello Cô Ba (phim bộ)</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8545/yeu-anh-em-dam-khong" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/c4c6f494-946a-482a-ab80-244fe7f57898_320_180.jpg" width="100%"></span>
+                                <span class="text">Yêu Anh Em Dám Không</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8551/nha-doc-tai" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/1c376ff2-5c01-4f89-8088-5dcc682b74f4_320_180.jpg" width="100%"></span>
+                                <span class="text">Nhà Độc Tài</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8560/o-nha-mot-minh-2-lac-loi-o-new-york" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/c399336ccbdb_320_180.jpg" width="100%"></span>
+                                <span class="text">Ở Nhà Một Mình 2: Lạc Lối Ở New York</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8569/tay-trom-huyen-thoai" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/c1315e8e2a5d_320_180.jpg" width="100%"></span>
+                                <span class="text">Tay Trộm Huyền Thoại</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8581/ac-mong-dem-giang-sinh" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/1b5144187b06_320_180.jpg" width="100%"></span>
+                                <span class="text">Ác mộng đêm Giáng sinh</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8605/chuyen-tinh-cancun" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/7d3751f13f6a_320_180.jpg" width="100%"></span>
+                                <span class="text">Chuyện Tình Cancun</span>
+                            </a>
+                            <a href="http://5dmax.vn/index.php/phim/8614/ngoi-nha-ki-dieu" class="item grid-08">
+                                <span class="image"><img src="./giang-sinh-nho-doi_files/4bf8781dfd27_320_180.jpg" width="100%"></span>
+                                <span class="text">Ngôi Nhà Kì Diệu</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdl-popup" id="popupCommon" style="display: none">
+            <div class="content">
+                <div class="popup">
+                    <div class="piracy">
+                        <h4>Thông báo</h4>
+                        <p class="p-title"></p>
+                        <div class="row-form">
+                            <button class="btn btn-low-p" onclick="$( & #39; #popupCommon & #39; ).fadeOut()">ĐÓNG</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="mdl-footer">
+            <div class="container">
+                <p class="text-warning">Tải app &amp; theo dõi 5DMAX</p>
+                <div class="footer-right">
+                    <a href="https://itunes.apple.com/vn/app/5dmax-xem-phim-online/id1239253794?l=vi&amp;mt=8"><i class="fa fa-apple"></i></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.viettel.xemphim&amp;hl=vi"><img src="./giang-sinh-nho-doi_files/1495612176_google_play.png" height="28"></a>
+                    <a href="http://5dmax.vn/index.php/phim/6487/giang-sinh-nho-doi?utm_source=GA#"><i class="fa fa-facebook-square"></i></a>
+                    <a href="http://5dmax.vn/index.php/phim/6487/giang-sinh-nho-doi?utm_source=GA#"><i class="fa fa-envelope"></i></a>
+                    <p class="text-01">©2017 Viettel telecom. All right reserved</p>
+                </div>
+                <ul>
+                    <li>©2017 Viettel telecom. All right reserved</li>
+                    <li><a href="http://5dmax.vn/goi-cuoc">Gói cước</a></li>
+                    <li><a href="http://5dmax.vn/dieu-khoan-su-dung">Điều khoản</a></li>
+                    <li><a href="http://5dmax.vn/index.php/phim/6487/chinh-sach-rieng-tu">Chính sách bảo mật</a></li>
+                    <li><a href="http://5dmax.vn/gioi-thieu-dich-vu">Hỗ trợ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            (function(i, s, o, g, r, a, m){i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function(){
+            (i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-96778844-1', 'auto');
+            ga('send', 'pageview');</script>
+
+
+
+        <!--------------------------------------POPUP SEARCH-------------------------------------->
+        <div class="popup-search">
+            <div class="box-search">
+                <h1>Tìm kiếm <span class="pull-right" id="closeBox"><i class="fa icon-delete"></i></span></h1>
+                <div class="box-search-content">
+                    <input type="hidden" value="http://5dmax.vn/default/search-suggestion" id="urlSearch">
+                    <input id="keyword" type="text" maxlength="255" onkeydown="limitText(this, 255)" onkeyup="limitText(this, 255)" placeholder="Nội dung tìm kiếm ..." class="ipt-search">
+                </div>
+            </div>
+            <div class="box-search-suggess">
+                <p class="mar-left5" id="error-msg">  </p>
+                <div class="mdl-default">
+                    <h1 class="title ellipsis"><span class="text-1"></span> <span class="text-3"></span></h1>
+                    <div class="grid-row">
+                        <div class="content" id="contentSuggess">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./giang-sinh-nho-doi_files/jquery-1.11.2.min.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/jquery-ui.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/owl.carousel.min.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/5dtv.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/main.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/mobile-detect.min.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/video.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/videojs-flash.min.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/videojs-contrib-quality-levels.min.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/videojs-contrib-hls.min.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/videojs.hotkeys.js.download"></script>
+        <script src="./giang-sinh-nho-doi_files/player-vjs.js.download"></script>
+        <script>
+                        var getUrlParameter = function getUrlParameter(sParam) {
+                        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                                sURLVariables = sPageURL.split('&'),
+                                sParameterName,
+                                i;
+                        for (i = 0; i < sURLVariables.length; i++) {
+                        sParameterName = sURLVariables[i].split('=');
+                        if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : sParameterName[1];
+                        }
+                        }
+                        };
+                        var utm_source = getUrlParameter('utm_source');
+                        if (utm_source !== undefined) {
+                        $("a").each(function (index) {
+                        var href = $(this).attr("href");
+                        var addText = "utm_source=" + utm_source;
+                        if (href.length == 0 || href == "javascript:void(0)" || href == "#") {
+                        } else if (href.indexOf('?') != - 1) {
+                        href = href + "&" + addText;
+                        $(this).attr("href", href);
+                        } else {
+                        href = href + "?" + addText;
+                        $(this).attr("href", href);
+                        }
+
+                        });
+                        }
+        </script>
+
+
+    </body></html>

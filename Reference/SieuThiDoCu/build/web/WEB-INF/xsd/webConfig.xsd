@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.thang.com/XMLSchema/thang"
+           xmlns="http://www.thang.com/XMLSchema/thang"
+           elementFormDefault="qualified">
+    <xs:element name="websites" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categories" type="CategoriesType"/>
+                <xs:element name="website" type="Website" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="CategoriesType">
+        <xs:sequence>
+            <xs:element name="category" type="CategoryType" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CategoryType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="altName" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Website">
+        <xs:sequence>
+            <xs:element name="homeUrl" type="xs:string"/>
+            <xs:element name="categoryLink" type="CrawlObject"/>
+            <xs:element name="productLink" type="CrawlObject"/>
+            <xs:element name="product" type="CrawlObject"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CrawlObject">
+        <xs:sequence>
+            <xs:element name="xslUrl" type="xs:string" />
+            <xs:element name="marks" type="Marks" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Marks">
+        <xs:sequence>
+            <xs:element name="mark" type="Mark" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Mark">
+        <xs:sequence>
+            <xs:element name="start" type="xs:string" />
+            <xs:element name="end" type="xs:string" />
+            <xs:element name="isInclude" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

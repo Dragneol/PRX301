@@ -1,0 +1,92 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 1, 2018, 3:57:56 PM
+    Author     : ahhun
+*/
+
+.theaters {
+    display: flex;
+    justify-content: space-between;
+}
+
+.theaters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.theaters-search {
+    height: 32px;
+    display: flex;
+}
+
+.theaters-search input {
+    width: 200px;
+    padding: 0px 6px;
+    box-sizing: border-box;
+}
+
+.theaters-search button {
+    background-color: #7CB342;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.05em;
+    cursor: pointer;
+    border: none;
+}
+
+.theaters-table {
+    flex: 1;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0px 12px;
+}
+
+.theaters-table tr:nth-child(even) {
+    background-color: rgba(128,128,0,0.1);
+}
+
+.theaters-table button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #2196F3;
+    border: none;
+    cursor: pointer;
+}
+
+.theaters-department {
+    width: 170px;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.theaters-department > a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.theaters-distance {
+    color: #00f;
+    font-weight: bold;
+    white-space: nowrap;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.theaters-address {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin: 10px 0px;
+}
