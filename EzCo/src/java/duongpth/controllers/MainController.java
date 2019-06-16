@@ -41,7 +41,7 @@ public class MainController extends HttpServlet {
                 case "CrawlRecipe":
                     path = RECIPE_CRAWLER;
                     break;
-                case "FoodRecipe":
+                case "CrawlFood":
                     path = FOOD_CRAWLER;
                     break;
                 default:

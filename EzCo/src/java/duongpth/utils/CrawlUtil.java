@@ -69,12 +69,19 @@ public class CrawlUtil implements Serializable {
     }
 
     public static String cutContent(String content) {
-        String start = "<div class=\"box-recipe_bottom\">";
-        String end = "Tiếp theo</a></div> </div> </div>";
+        String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
+        String end = "</main><!-- #main -->";
         content = content.substring(content.indexOf(start), content.indexOf(end) + end.length());
         content = "<root>" + content + "</root>";
         return content;
     }
+//    public static String cutContent(String content) {
+//        String start = "<div class=\"box-recipe_bottom\">";
+//        String end = "Tiếp theo</a></div> </div> </div>";
+//        content = content.substring(content.indexOf(start), content.indexOf(end) + end.length());
+//        content = "<root>" + content + "</root>";
+//        return content;
+//    }
 
     /**
      * Wellform input stream
@@ -98,6 +105,7 @@ public class CrawlUtil implements Serializable {
             try {
                 event = reader.nextEvent();
             } catch (XMLStreamException ex) {
+                ex.printStackTrace();
                 String message = ex.getMessage();
                 String errString = "matching end-tag \"</";
                 if (message.contains("Message: The element type")) {

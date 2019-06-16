@@ -15,6 +15,9 @@ public class EncodeUtil implements Serializable {
 
     public static String encode(String string) {
         String s = string;
+        s = s.replaceAll("&ndash;", "-");
+        s = s.replaceAll("&rarr;", "→");
+        s = s.replaceAll("&hellip;", "…");
         s = s.replaceAll("&<br>;", "");
         s = s.replaceAll("&<br/>;", "");
         s = s.replaceAll("&</br>;", "");
@@ -490,6 +493,7 @@ public class EncodeUtil implements Serializable {
         s = s.replaceAll("&ndash;", "–");
         s = s.replaceAll("&mdash;", "—");
         s = s.replaceAll("&#8470;", "№");
+        s = s.replaceAll("&", "&amp;");
         return s;
     }
 }

@@ -1,21 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><links>
-    <recipe>
-        <link>/cong-thuc/4796-cach-nau-canh-kim-chi-han-quoc-nong-hoi-thom-ngon.html</link>
-        <link>/cong-thuc/4794-tom-chien-pesto-voi-toi-va-khoai-tay-day-dinh-duong.html</link>
-        <link>/cong-thuc/4792-uc-vit-khoai-tay-sot-chanh-leo-hap-dan-nhu-nha-hang.html</link>
-        <link>/cong-thuc/4791-kem-vien-chien-cuc-hot-mua-dong.html</link>
-        <link>/cong-thuc/4790-cong-thuc-mi-y-tom-sot-kem-thom-ngay-kho-cuong.html</link>
-        <link>/cong-thuc/4789-salad-ga-thai-ca-rot-thanh-dam-va-tot-cho-suc-khoe.html</link>
-        <link>/cong-thuc/4788-canh-ga-chien-nuoc-mam-dam-duoi-bua-com-gia-dinh.html</link>
-        <link>/cong-thuc/4787-sinh-to-matcha-xoai-la-mieng-bo-duong.html</link>
-        <link>/cong-thuc/4786-nau-mien-luon-ngon-khong-thua-gi-nha-hang.html</link>
-        <link>/cong-thuc/4785-tu-lam-trung-cut-lon-xao-me-an-vat-cuc-vui-mieng.html</link>
-        <link>/cong-thuc/4784-cong-thuc-sup-ca-chua-thom-ngay-bo-duong.html</link>
-        <link>/cong-thuc/4783-trung-op-let-kieu-tay-ban-nha-dam-da-huong-vi.html</link>
-        <link>/cong-thuc/4780-mi-chay-yakisoba-chua-ngot-ngon-het-cho-che.html</link>
-        <link>/cong-thuc/4779-cong-thuc-banh-tra-sua-tran-chau-duong-den-noi-nhu-con.html</link>
-        <link>/cong-thuc/4778-mi-ca-ri-chay-dam-da-khong-sao-cuong-lai-duoc.html</link>
-        <link>/cong-thuc/4777-mojito-mam-xoi-bo-sung-vitamin-lai-thu-gian-hieu-qua.html</link>
-    </recipe>
-    <nextpage>/cong-thuc/105-thanh-phan/trang-2/</nextpage>
-</links>
+<ingredients>
+    <ingredient>
+        <link>http://nkfood.vn/cua-hang/?product=phi-le-bo-xay-tuoi-ngon-xay-nho</link>
+        <link>http://nkfood.vn/cua-hang/?product=phi-le-bo-thai-mong</link>
+        <link>http://nkfood.vn/cua-hang/?product=xa-lach-caron</link>
+        <link>http://nkfood.vn/cua-hang/?product=tai-heo-lam-sach</link>
+        <link>http://nkfood.vn/cua-hang/?product=bot-rau-cau-goi-viet-xo-50-g</link>
+        <link>http://nkfood.vn/cua-hang/?product=xuong-suon-bo-tuoi-ngon</link>
+        <link>http://nkfood.vn/cua-hang/?product=dua-hau-khong-hat</link>
+        <link>http://nkfood.vn/cua-hang/?product=oi-dai-loan</link>
+        <link>http://nkfood.vn/cua-hang/?product=dua-gang</link>
+        <link>http://nkfood.vn/cua-hang/?product=ca-chua-chin-dl</link>
+        <link>http://nkfood.vn/cua-hang/?product=bot-khoai</link>
+        <link>http://nkfood.vn/cua-hang/?product=ba-roi-rut-xuong-lam-sach</link>
+    </ingredient>
+    <nextpage>http://nkfood.vn/cua-hang/?paged=2</nextpage>
+</ingredients>

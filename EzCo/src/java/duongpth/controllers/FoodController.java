@@ -5,7 +5,13 @@
  */
 package duongpth.controllers;
 
+import duongpth.utils.CrawlUtil;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -30,17 +36,32 @@ public class FoodController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet FoodController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet FoodController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String path = MainController.ERRORPAGE;
+        try {
+            String homePage = request.getParameter("foodPage");
+            String subDomain = request.getParameter("foodSubDomain");
+
+            String crawLink = homePage + subDomain;
+//            String xslFile = getServletContext().getRealPath("/") + "WEB-INF\\xsl\\recipeLink.xsl";
+
+            InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
+//            stream = CrawlUtil.processWellForm(stream);
+//            stream = CrawlUtil.transformXML(stream, xslFile);
+
+            String line, lines = "";
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+                while ((line = reader.readLine()) != null) {
+                    lines += line;
+                }
+            }
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
+            writer.write(lines);
+            writer.close();
+        } catch (Exception e) {
+            log("ERROR at FoodController:" + e.getMessage());
+        } finally {
+            request.getRequestDispatcher(path).forward(request, response);
         }
     }
 

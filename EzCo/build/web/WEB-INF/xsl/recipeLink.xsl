@@ -15,7 +15,7 @@
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
     <xsl:template match="/">
-        <links>
+        <recipes>
             <recipe>
                 <xsl:for-each select="//div[@class='it-body_bottom col-md-8 col-sm-8']">
                     <link>
@@ -26,7 +26,7 @@
             <nextpage>
                 <xsl:value-of select="//a[@class='next']/@href"/>
             </nextpage>
-        </links>
+        </recipes>
     </xsl:template>
 
 </xsl:stylesheet>

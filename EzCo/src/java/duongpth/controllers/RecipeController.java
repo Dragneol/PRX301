@@ -44,8 +44,8 @@ public class RecipeController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String path = MainController.ERRORPAGE;
         try {
-            String homePage = request.getParameter("homePage");
-            String subDomain = request.getParameter("subDomain");
+            String homePage = request.getParameter("recipePage");
+            String subDomain = request.getParameter("recipeSubDomain");
 
             String crawLink = homePage + subDomain;
             String xslFile = getServletContext().getRealPath("/") + "WEB-INF\\xsl\\recipeLink.xsl";
