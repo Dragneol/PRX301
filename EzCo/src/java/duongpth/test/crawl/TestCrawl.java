@@ -5,16 +5,20 @@
  */
 package duongpth.test.crawl;
 
+import duongpth.utils.CrawlUtil;
 import duongpth.utils.EncodeUtil;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.transform.TransformerException;
 
 /**
  *
@@ -22,20 +26,22 @@ import java.util.logging.Logger;
  */
 public class TestCrawl {
 
-    public static void crawlPageRecipe(String url, int numPage) throws MalformedURLException, IOException {
+    public static void crawlPageRecipe(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException {
         String start = "<div class=\"box-recipe_bottom\">";
         String end = "Tiếp theo</a></div> </div> </div>";
         String crawLink = url + "/trang-" + numPage + "/";
-        URL link = new URL(crawLink);
+        InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
+        stream = CrawlUtil.processWellForm(stream);
+        String xslFile = "web\\WEB-INF\\xsl\\recipeLink.xsl";
+        stream = CrawlUtil.transformXML(stream, xslFile);
         String line, lines = "";
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(link.openStream(), "UTF8"))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
             while ((line = reader.readLine()) != null) {
-                line = line.substring(line.indexOf(start), line.indexOf(end) + end.length());
                 lines += line;
             }
         }
-        lines = EncodeUtil.encode(lines);
-        BufferedWriter writer = new BufferedWriter(new FileWriter("page.html"));
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
         writer.write(lines);
         writer.close();
 
@@ -61,7 +67,7 @@ public class TestCrawl {
             for (int page = 1; page < 2; page++) {
                 crawlPageRecipe(homeUrl, page);
             }
-        } catch (IOException ex) {
+        } catch (IOException | XMLStreamException | TransformerException ex) {
             Logger.getLogger(TestCrawl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

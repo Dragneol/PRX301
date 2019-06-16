@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Jun 11, 2019, 3:42:02 PM
+    Document   : error
+    Created on : Jun 15, 2019, 11:43:47 PM
     Author     : dragn
 --%>
 
@@ -12,6 +12,7 @@
         <title>EzCo</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>ERROR PAGE</h1>
+        <p>There something wrong! Check Log File</p>
     </body>
 </html>

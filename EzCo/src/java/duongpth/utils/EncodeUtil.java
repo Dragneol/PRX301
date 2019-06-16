@@ -15,6 +15,9 @@ public class EncodeUtil implements Serializable {
 
     public static String encode(String string) {
         String s = string;
+        s = s.replaceAll("&<br>;", "");
+        s = s.replaceAll("&<br/>;", "");
+        s = s.replaceAll("&</br>;", "");
         s = s.replaceAll("&nbsp;", " ");
         s = s.replaceAll("&Ccedil;", "Ç");
         s = s.replaceAll("&ccedil;", "ç");
