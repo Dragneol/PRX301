@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.ezco.com/XMLSchema/ezco"
+           xmlns="http://www.ezco.com/XMLSchema/ezco"
+           elementFormDefault="qualified">
+    <xs:element name="ingredients">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ingredient" type="Ingredient" maxOccurs="unbounded" />
+                <xs:element name="nextPage" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Ingredient">
+        <xs:sequence>
+            <xs:element name="id" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="name" type ="xs:string" minOccurs="0"/>
+            <xs:element name="categoryId" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="link" type ="xs:string" minOccurs="0"/>
+            <xs:element name="price" type ="xs:positiveInteger" minOccurs="0"/>
+            <xs:element name="unit" type ="xs:positiveInteger" minOccurs="0" default="100"/>
+            <xs:element name="image" type ="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

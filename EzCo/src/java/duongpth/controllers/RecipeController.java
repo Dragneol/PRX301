@@ -12,7 +12,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.util.logging.Level;
@@ -48,13 +47,11 @@ public class RecipeController extends HttpServlet {
             String subDomain = request.getParameter("recipeSubDomain");
 
             String crawLink = homePage + subDomain;
-            String xslFile = getServletContext().getRealPath("/") + "WEB-INF\\xsl\\recipeLink.xsl";
+            String xslFile = getServletContext().getRealPath("/") + "WEB-INF/xsl/recipeLink.xsl";
 
             InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
             stream = CrawlUtil.processWellForm(stream);
             stream = CrawlUtil.transformXML(stream, xslFile);
-            
-            
 
             String line, lines = "";
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {

@@ -12,7 +12,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,11 +41,11 @@ public class FoodController extends HttpServlet {
             String subDomain = request.getParameter("foodSubDomain");
 
             String crawLink = homePage + subDomain;
-//            String xslFile = getServletContext().getRealPath("/") + "WEB-INF\\xsl\\recipeLink.xsl";
+            String xslFile = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientLink.xsl";
 
             InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
-//            stream = CrawlUtil.processWellForm(stream);
-//            stream = CrawlUtil.transformXML(stream, xslFile);
+            stream = CrawlUtil.processWellForm(stream);
+            stream = CrawlUtil.transformXML(stream, xslFile);
 
             String line, lines = "";
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
