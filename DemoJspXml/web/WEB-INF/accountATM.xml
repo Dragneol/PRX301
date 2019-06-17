@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customers xmlns="foo.bar">
+    <account:allowed username='duongpth' balance='300'>
+        <fullname>Hoang Duong</fullname>
+        <address>foo bar</address>
+        <pin>4419</pin>
+        <class>D</class>
+        <transactions>
+            <transaction>
+                <id>16092019001</id>
+                <date>2019/09/16</date>
+                <amount>50</amount>
+                <type>1</type>
+            </transaction>
+            <transaction>
+                <id>25092019002</id>
+                <date>2019/09/25</date>
+                <amount>150</amount>
+                <type>2</type>
+            </transaction>
+            <transaction>
+                <id>31092019003</id>
+                <date>2019/09/31</date>
+                <amount>250</amount>
+                <type>3</type>
+            </transaction>
+        </transactions>
+    </account:allowed>
+    <account:expired username='dragneol' balance='500'>
+        <fullname>Hoang Duong</fullname>
+        <address>foo bar</address>
+        <pin>4419</pin>
+        <class>S</class>
+        <transactions>
+            <transaction>
+                <id>16092019001</id>
+                <date>2019/09/16</date>
+                <amount>50</amount>
+                <type>1</type>
+            </transaction>
+            <transaction>
+                <id>25092019002</id>
+                <date>2019/09/25</date>
+                <amount>150</amount>
+                <type>2</type>
+            </transaction>
+            <transaction>
+                <id>31092019003</id>
+                <date>2019/09/31</date>
+                <amount>250</amount>
+                <type>3</type>
+            </transaction>
+        </transactions>
+    </account:expired
+</customers>
