@@ -61,7 +61,7 @@ public class CrawlUtil implements Serializable {
             content = new StringBuilder();
             String line = null;
             while ((line = br.readLine()) != null) {
-                line = EncodeUtil.encode(line);
+                line = EncrypteUtil.decode(line);
                 content.append(line);
             }
         }
@@ -73,6 +73,7 @@ public class CrawlUtil implements Serializable {
         String end = marker.getEnd();
         content = content.substring(content.indexOf(start), content.indexOf(end) + end.length());
         content = "<root>" + content + "</root>";
+        content = EncrypteUtil.decode(content);
         return content;
     }
 

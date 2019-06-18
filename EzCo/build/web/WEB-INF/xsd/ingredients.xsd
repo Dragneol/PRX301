@@ -14,7 +14,7 @@ and open the template in the editor.
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="ingredient" type="ingredient" maxOccurs="unbounded" />
-                <xs:element name="nextPage" type="xs:string" minOccurs="0"/>
+                <xs:element name="nextpage" type="xs:string" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

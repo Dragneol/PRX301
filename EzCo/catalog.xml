@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/D:/XML/EzCo/web/WEB-INF/xsd/ingredients.xsd" uri="src/conf/xml-resources/jaxb/Ingredient/ingredients.xsd"/>
+    <system systemId="file:/D:/XML/EzCo/web/WEB-INF/xsd/ingredients.xsd" uri="src/conf/xml-resources/jaxb/ingredients/ingredients.xsd"/>
 </catalog>

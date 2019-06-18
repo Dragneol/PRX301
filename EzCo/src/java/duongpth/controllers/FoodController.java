@@ -47,44 +47,65 @@ public class FoodController extends HttpServlet {
             String nextPage = "";
 
             String crawLink = homePage + subDomain;
-            String xslFile = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientLink.xsl";
+            String xslFileLinks = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientLink.xsl";
 
             String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
             String end = "</main><!-- #main -->";
-            MarkerDTO marker = new MarkerDTO();
-            marker.setEnd(end);
-            marker.setStart(start);
+
+            MarkerDTO markerHome = new MarkerDTO();
+            markerHome.setEnd(end);
+            markerHome.setStart(start);
+
+            start = "<div class=\"summary entry-summary\">";
+            end = "</div><!-- .summary -->";
+            MarkerDTO markerDetail = new MarkerDTO();
+            markerDetail.setEnd(end);
+            markerDetail.setStart(start);
+            String xslFileDetail = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientDetail.xsl";
+
+            InputStream stream = null;
+            String line, lines = "";
+
+            List<Ingredient> list = null;
+            Ingredients ingredients = null;
+            Ingredient ing = null;
 
             do {
-                InputStream stream = CrawlUtil.getDataFromWeb(crawLink, marker);
+                System.out.println("Crawling " + crawLink);
+                stream = CrawlUtil.getDataFromWeb(crawLink, markerHome);
                 stream = CrawlUtil.processWellForm(stream);
-//                stream = CrawlUtil.transformXML(stream, xslFile);
+                stream = CrawlUtil.transformXML(stream, xslFileLinks);
+                stream.reset();
 
-                String line, lines = "";
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
-                    while ((line = reader.readLine()) != null) {
-                        lines += line;
-                    }
+                ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
+                list = ingredients.getIngredient();
+
+                nextPage = ingredients.getNextPage();
+                if (nextPage != null && nextPage.equals("")) {
+                    crawLink = nextPage;
                 }
 
-                BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
-                writer.write(lines);
-                writer.close();
+                for (Ingredient ingredient : list) {
+                    System.out.println("Crawling " + ingredient.getLink());
+                    stream = CrawlUtil.getDataFromWeb(ingredient.getLink(), markerDetail);
+                    stream = CrawlUtil.processWellForm(stream);
+                    stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                    stream.reset();
 
-//                Ingredients ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
-//                List<Ingredient> list = ingredients.getIngredient();
-//
-//                nextPage = ingredients.getNextPage();
-//
-//                for (int i = 0; i < list.size(); i++) {
-//                    System.out.println("Crawling " + list.get(i).getLink());
-//
-////                    CrawlUtil.getDataFromWeb(list.get(i).getLink(), marker)
-//                }
+                    ing = JAXBUtil.unmarshalling(stream, new Ingredient());
+                    ingredient.setName(ing.getName());
+                    ingredient.setOldid(ing.getOldid());
+                    ingredient.setUnit(ing.getUnit());
+                    ingredient.setPrice(ing.getPrice());
+                    lines += ingredient.toString() + "\n";
+                }
             } while (nextPage != null && !nextPage.equals(""));
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
+            writer.write(lines);
+            writer.close();
         } catch (Exception e) {
-//            log("ERROR at FoodController:" + e.getMessage());
-            e.printStackTrace();
+            log("ERROR at FoodController:" + e.getMessage());
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
         }
