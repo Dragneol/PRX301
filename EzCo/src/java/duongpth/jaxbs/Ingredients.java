@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ingredient" type="{http://www.ezco.com/XMLSchema/ezco}Ingredient" maxOccurs="unbounded"/>
+ *         &lt;element name="ingredient" type="{http://www.ezco.com/XMLSchema/ezco}ingredient" maxOccurs="unbounded"/>
  *         &lt;element name="nextPage" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>

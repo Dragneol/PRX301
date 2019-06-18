@@ -5,16 +5,25 @@
  */
 package duongpth.test.crawl;
 
+import duongpth.jaxbs.Ingredient;
+import duongpth.jaxbs.Ingredients;
 import duongpth.utils.CrawlUtil;
+import duongpth.utils.JAXBUtil;
+import duongpth.utils.MarkerDTO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringWriter;
+import java.math.BigInteger;
 import java.net.MalformedURLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
 
@@ -25,38 +34,89 @@ import javax.xml.transform.TransformerException;
 public class TestCrawl {
 
     public static void crawlPageRecipe(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException {
-        String crawLink = url + "/trang-" + numPage + "/";
-        InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
-        stream = CrawlUtil.processWellForm(stream);
-        String xslFile = "web\\WEB-INF\\xsl\\recipeLink.xsl";
-        stream = CrawlUtil.transformXML(stream, xslFile);
-        String line, lines = "";
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
-            while ((line = reader.readLine()) != null) {
-                lines += line;
-            }
-        }
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
-        writer.write(lines);
-        writer.close();
+//        String crawLink = url + "/trang-" + numPage + "/";
+//        InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
+//        stream = CrawlUtil.processWellForm(stream);
+//        String xslFile = "web/WEB-INF/xsl/recipeLink.xsl";
+//        stream = CrawlUtil.transformXML(stream, xslFile);
+//        String line, lines = "";
+//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+//            while ((line = reader.readLine()) != null) {
+//                lines += line;
+//            }
+//        }
+//
+//        BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
+//        writer.write(lines);
+//        writer.close();
 
     }
 
-    public static void crawlPageFood(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException {
-        String crawLink = url + "/?paged=" + numPage;
-        System.out.println("Crawling:" + crawLink);
-        InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
-        stream = CrawlUtil.processWellForm(stream);
-        String xslFile = "web\\WEB-INF\\xsl\\ingredientLink.xsl";
-        stream = CrawlUtil.transformXML(stream, xslFile);
+    public static void crawlPageFood(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException {
         String line, lines = "";
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
-            while ((line = reader.readLine()) != null) {
-                lines += line;
-            }
+        String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
+        String end = "</main><!-- #main -->";
+
+        MarkerDTO marker = new MarkerDTO();
+        marker.setEnd(end);
+        marker.setStart(start);
+        InputStream stream = CrawlUtil.getDataFromWeb(url, marker);
+        stream = CrawlUtil.processWellForm(stream);
+        String xslFile = "web/WEB-INF/xsl/ingredientLink.xsl";
+        stream = CrawlUtil.transformXML(stream, xslFile);
+        stream.reset();
+
+//        Ingredients ingredients = new Ingredients();
+//        ingredients.setNextPage("asdasda");
+//        List<Ingredient> list = ingredients.getIngredient();
+//        Ingredient ingredient = new Ingredient();
+//        ingredient.setImage("sdfsdfs");
+//        ingredient.setLink("asdadas");
+//        ingredient.setName("adasdadaasas");
+//        ingredient.setPrice(new BigInteger("0"));
+//        Ingredient ingredient1 = new Ingredient();
+//        ingredient1.setImage("sdfsdfs");
+//        ingredient1.setLink("asdadas");
+//        ingredient1.setName("adasdadaasas");
+//        ingredient1.setPrice(new BigInteger("0"));
+//        
+//        list.add(ingredient);
+//        list.add(ingredient1);
+//        InputStream stream = new FileInputStream("page2.xml");
+//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+//            while ((line = reader.readLine()) != null) {
+//                lines += line;
+//            }
+//        }
+        Ingredients ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
+        List<Ingredient> list = ingredients.getIngredient();
+        Ingredient ingredient = null;
+        start = "<div class=\"summary entry-summary\">";
+        end = "</div><!-- .summary -->";
+        marker.setEnd(end);
+        marker.setStart(start);
+        xslFile = "web/WEB-INF/xsl/ingredientDetail.xsl";
+        Ingredient tmp = null;
+        for (int i = 0; i < list.size(); i++) {
+            ingredient = list.get(i);
+            stream = CrawlUtil.getDataFromWeb(ingredient.getLink(), marker);
+            stream = CrawlUtil.processWellForm(stream);
+            stream = CrawlUtil.transformXML(stream, xslFile);
+            stream.reset();
+           
+//        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+//            while ((line = reader.readLine()) != null) {
+//                lines += line;
+//            }
+//        }
+            tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
+//            ingredient.setName(tmp.getName());
+//            ingredient.setOldid(tmp.getOldid());
+//            ingredient.setUnit(tmp.getUnit());
+//            ingredient.setPrice(tmp.getPrice());
+//            lines += ingredient.toString() + "\n";
         }
-        BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("page2.xml"));
         writer.write(lines);
         writer.close();
     }
@@ -65,10 +125,12 @@ public class TestCrawl {
 //        String homeUrl = "http://www.amthuc365.vn/cong-thuc/105-thanh-phan";
         String homeUrl = "http://nkfood.vn/cua-hang";
         try {
-            for (int page = 1; page < 2; page++) {
-                crawlPageFood(homeUrl, page);
-            }
+            do {
+                crawlPageFood(homeUrl, 1);
+            } while (false);
         } catch (IOException | XMLStreamException | TransformerException ex) {
+            Logger.getLogger(TestCrawl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
             Logger.getLogger(TestCrawl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

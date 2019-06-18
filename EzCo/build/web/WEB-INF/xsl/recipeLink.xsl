@@ -14,15 +14,15 @@
     <!-- TODO customize transformation rules 
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
-    <xsl:template match="/">
-        <recipes>
-            <recipe>
-                <xsl:for-each select="//div[@class='it-body_bottom col-md-8 col-sm-8']">
+    <xsl:template match="root">
+        <recipes xmlns="http://www.ezco.com/XMLSchema/ezco">
+            <xsl:for-each select="//div[@class='it-body_bottom col-md-8 col-sm-8']">
+                <recipe>
                     <link>
                         <xsl:value-of select=".//h3/a/@href"/>
                     </link>
-                </xsl:for-each>
-            </recipe>
+                </recipe>
+            </xsl:for-each>
             <nextpage>
                 <xsl:value-of select="//a[@class='next']/@href"/>
             </nextpage>

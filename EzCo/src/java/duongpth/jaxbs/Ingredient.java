@@ -5,21 +5,23 @@ import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Ingredient complex type.
+ * <p>Java class for ingredient complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Ingredient">
+ * &lt;complexType name="ingredient">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
+ *         &lt;element name="oldid" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="categoryId" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
  *         &lt;element name="link" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -35,8 +37,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Ingredient", propOrder = {
+@XmlType(name = "ingredient", propOrder = {
     "id",
+    "oldid",
     "name",
     "categoryId",
     "link",
@@ -44,9 +47,11 @@ import javax.xml.bind.annotation.XmlType;
     "unit",
     "image"
 })
+@XmlRootElement(name = "ingredient")
 public class Ingredient {
 
     protected BigInteger id;
+    protected String oldid;
     protected String name;
     protected BigInteger categoryId;
     protected String link;
@@ -79,6 +84,30 @@ public class Ingredient {
      */
     public void setId(BigInteger value) {
         this.id = value;
+    }
+
+    /**
+     * Gets the value of the oldid property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOldid() {
+        return oldid;
+    }
+
+    /**
+     * Sets the value of the oldid property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOldid(String value) {
+        this.oldid = value;
     }
 
     /**

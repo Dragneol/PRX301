@@ -46,16 +46,16 @@ public class CrawlUtil implements Serializable {
      * @throws IOException
      * @throws XMLStreamException
      */
-    public static InputStream getDataFromWeb(String url) throws MalformedURLException, IOException, XMLStreamException {
+    public static InputStream getDataFromWeb(String url, MarkerDTO marker) throws MalformedURLException, IOException, XMLStreamException {
         URL urlink = new URL(url);
         HttpURLConnection con = (HttpURLConnection) urlink.openConnection();
         InputStream inputStream = con.getInputStream();
         String content = processStreamToString(inputStream);
-        content = cutContent(content);
+        content = cutContent(content, marker);
         return new ByteArrayInputStream(content.getBytes("UTF-8"));
     }
 
-    public static String processStreamToString(InputStream inputStream) throws IOException {
+    private static String processStreamToString(InputStream inputStream) throws IOException {
         StringBuilder content;
         try (InputStreamReader reader = new InputStreamReader(inputStream, "UTF-8"); BufferedReader br = new BufferedReader(reader)) {
             content = new StringBuilder();
@@ -68,20 +68,13 @@ public class CrawlUtil implements Serializable {
         return content.toString().trim();
     }
 
-    public static String cutContent(String content) {
-        String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
-        String end = "</main><!-- #main -->";
+    private static String cutContent(String content, MarkerDTO marker) {
+        String start = marker.getStart();
+        String end = marker.getEnd();
         content = content.substring(content.indexOf(start), content.indexOf(end) + end.length());
         content = "<root>" + content + "</root>";
         return content;
     }
-//    public static String cutContent(String content) {
-//        String start = "<div class=\"box-recipe_bottom\">";
-//        String end = "Tiếp theo</a></div> </div> </div>";
-//        content = content.substring(content.indexOf(start), content.indexOf(end) + end.length());
-//        content = "<root>" + content + "</root>";
-//        return content;
-//    }
 
     /**
      * Wellform input stream

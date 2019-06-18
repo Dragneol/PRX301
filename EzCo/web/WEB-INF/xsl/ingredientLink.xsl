@@ -9,20 +9,23 @@
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:output method="html"/>
+    <xsl:output method="xml"/>
 
     <!-- TODO customize transformation rules 
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
-    <xsl:template match="/">
-        <ingredients>
-            <ingredient>
-                <xsl:for-each select="//ul[@class='products']/li">
+    <xsl:template match="root">
+        <ingredients xmlns="http://www.ezco.com/XMLSchema/ezco">
+            <xsl:for-each select="//ul[@class='products']/li">
+                <ingredient>
                     <link>
                         <xsl:value-of select=".//a/@href"/>
                     </link>
-                </xsl:for-each>
-            </ingredient>
+                    <image>
+                        <xsl:value-of select=".//a/img/@src"/>
+                    </image>
+                </ingredient>
+            </xsl:for-each>
             <nextpage>
                 <xsl:value-of select="//a[@class='next page-numbers']/@href"/>
             </nextpage>

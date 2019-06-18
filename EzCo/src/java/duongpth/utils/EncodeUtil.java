@@ -15,6 +15,7 @@ public class EncodeUtil implements Serializable {
 
     public static String encode(String string) {
         String s = string;
+        s = s.replaceAll("itemscope", "");
         s = s.replaceAll("&ndash;", "-");
         s = s.replaceAll("&rarr;", "→");
         s = s.replaceAll("&hellip;", "…");
@@ -26,6 +27,7 @@ public class EncodeUtil implements Serializable {
         s = s.replaceAll("&ccedil;", "ç");
         s = s.replaceAll("&Euml;", "Ë");
         s = s.replaceAll("&euml;", "ë");
+        s = s.replaceAll("&#8363;", "");
         s = s.replaceAll("&#262;", "Ć");
         s = s.replaceAll("&#263;", "ć");
         s = s.replaceAll("&#268;", "Č");

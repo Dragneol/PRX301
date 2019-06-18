@@ -6,6 +6,7 @@
 package duongpth.controllers;
 
 import duongpth.utils.CrawlUtil;
+import duongpth.utils.MarkerDTO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -49,7 +50,14 @@ public class RecipeController extends HttpServlet {
             String crawLink = homePage + subDomain;
             String xslFile = getServletContext().getRealPath("/") + "WEB-INF/xsl/recipeLink.xsl";
 
-            InputStream stream = CrawlUtil.getDataFromWeb(crawLink);
+            String start = "<div class=\"box-recipe_bottom\">";
+            String end = "Tiếp theo</a></div> </div> </div>";
+
+            MarkerDTO marker = new MarkerDTO();
+            marker.setEnd(end);
+            marker.setStart(start);
+            
+            InputStream stream = CrawlUtil.getDataFromWeb(crawLink, marker);
             stream = CrawlUtil.processWellForm(stream);
             stream = CrawlUtil.transformXML(stream, xslFile);
 
