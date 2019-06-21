@@ -26,14 +26,20 @@
                 <xsl:value-of select="//div[@class='info-intro']"/>                
             </description>
             <ration>
-                <xsl:value-of select="//div[@class='entry-detail_meta mt30']//p[2]"/>
+                <xsl:variable name="ration" select="//div[@class='entry-detail_meta mt30']//p[2]"/>
+                <xsl:value-of select="translate($ration, translate($ration, '0123456789', ''), '')"/>
             </ration>
             <preparetime>
-                <xsl:value-of select="//div[@class='entry-detail_meta mt30']//p[3]"/>
+                <xsl:variable name="ration" select="//div[@class='entry-detail_meta mt30']//p[3]"/>
+                <xsl:value-of select="translate($ration, translate($ration, '0123456789', ''), '')"/>
             </preparetime>
             <cookingtime>
-                <xsl:value-of select="//div[@class='entry-detail_meta mt30']//p[4]"/>
+                <xsl:variable name="ration" select="//div[@class='entry-detail_meta mt30']//p[4]"/>
+                <xsl:value-of select="translate($ration, translate($ration, '0123456789', ''), '')"/>
             </cookingtime>
+<!--            <ingredientmenu>
+                
+            </ingredientmenu>-->
         </recipe>
     </xsl:template>
 

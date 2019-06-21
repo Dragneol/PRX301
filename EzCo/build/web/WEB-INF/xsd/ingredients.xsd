@@ -25,8 +25,8 @@ and open the template in the editor.
             <xs:element name="name" type ="xs:string" minOccurs="0"/>
             <xs:element name="categoryId" type ="xs:integer" minOccurs="0"/>
             <xs:element name="link" type ="xs:string" minOccurs="0"/>
-            <xs:element name="price" type ="xs:positiveInteger" minOccurs="0"/>
-            <xs:element name="unit" type ="xs:positiveInteger" minOccurs="0" default="100"/>
+            <xs:element name="price" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="unit" type ="xs:integer" minOccurs="0" default="100"/>
             <xs:element name="image" type ="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>

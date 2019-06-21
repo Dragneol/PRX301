@@ -45,4 +45,20 @@ public class ObjectFactory {
         return new Recipe();
     }
 
+    /**
+     * Create an instance of {@link Ingredientmenu }
+     * 
+     */
+    public Ingredientmenu createIngredientmenu() {
+        return new Ingredientmenu();
+    }
+
+    /**
+     * Create an instance of {@link Instructionmenu }
+     * 
+     */
+    public Instructionmenu createInstructionmenu() {
+        return new Instructionmenu();
+    }
+
 }
