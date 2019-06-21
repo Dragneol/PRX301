@@ -12,6 +12,12 @@
         <title>EzCo</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hello User of EzCo!</h1>
+        <form action="MainController" method="POST">
+            <input type="submit" value="ViewIngredients" name="action" />
+        </form>
+        <form action="MainController" method="POST">
+            <input type="submit" value="ViewRecipes" name="action" />
+        </form>
     </body>
 </html>

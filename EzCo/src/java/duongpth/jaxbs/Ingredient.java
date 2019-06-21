@@ -51,11 +51,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "ingredient")
 public class Ingredient {
 
-    @Override
-    public String toString() {
-        return "Ingredient{" + "oldid=" + oldid + ", name=" + name + ", link=" + link + ", price=" + price + ", unit=" + unit + ", image=" + image + '}';
-    }
-
     protected BigInteger id;
     protected String oldid;
     protected String name;
@@ -67,6 +62,24 @@ public class Ingredient {
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger unit;
     protected String image;
+
+    public Ingredient() {
+    }
+
+    public Ingredient(BigInteger id, String oldid, String name, String link, BigInteger price, BigInteger unit, String image) {
+        this.id = id;
+        this.oldid = oldid;
+        this.name = name;
+        this.link = link;
+        this.price = price;
+        this.unit = unit;
+        this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" + "oldid=" + oldid + ", name=" + name + ", link=" + link + ", price=" + price + ", unit=" + unit + ", image=" + image + '}';
+    }
 
     /**
      * Gets the value of the id property.

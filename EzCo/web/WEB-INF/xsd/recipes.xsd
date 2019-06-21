@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.ezco.com/XMLSchema/ezco"
+           xmlns="http://www.ezco.com/XMLSchema/ezco"
+           elementFormDefault="qualified">
+    <xs:element name="recipes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="recipe" type="recipe" maxOccurs="unbounded" />
+                <xs:element name="nextpage" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="recipe">
+        <xs:sequence>
+            <xs:element name="id" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="title" type ="xs:string" minOccurs="0"/>
+            <xs:element name="link" type ="xs:string" minOccurs="0"/>
+            <xs:element name="image" type ="xs:string" minOccurs="0"/>
+            <xs:element name="description" type ="xs:string" minOccurs="0"/>
+            <xs:element name="ration" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="preparetime" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="cookingtime" type ="xs:integer" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

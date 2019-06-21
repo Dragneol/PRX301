@@ -5,22 +5,26 @@
  */
 package duongpth.controllers;
 
+import duongpth.daos.IngredientDAO;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
 import duongpth.utils.MarkerDTO;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.transform.TransformerException;
 
 /**
  *
@@ -46,7 +50,7 @@ public class FoodController extends HttpServlet {
             String subDomain = request.getParameter("foodSubDomain");
             String nextPage = "";
 
-            String crawLink = homePage + subDomain;
+            String crawLink = CrawlUtil.normalizeLink(homePage, subDomain);
             String xslFileLinks = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientLink.xsl";
 
             String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
@@ -55,21 +59,23 @@ public class FoodController extends HttpServlet {
             MarkerDTO markerHome = new MarkerDTO();
             markerHome.setEnd(end);
             markerHome.setStart(start);
+            markerHome.setIncluded(true);
 
             start = "<div class=\"summary entry-summary\">";
             end = "</div><!-- .summary -->";
             MarkerDTO markerDetail = new MarkerDTO();
             markerDetail.setEnd(end);
             markerDetail.setStart(start);
+            markerDetail.setIncluded(true);
             String xslFileDetail = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientDetail.xsl";
 
             InputStream stream = null;
-            String line, lines = "";
 
             List<Ingredient> list = null;
             Ingredients ingredients = null;
             Ingredient ing = null;
-
+            IngredientDAO dao = new IngredientDAO();
+            int numPage = 1;
             do {
                 System.out.println("Crawling " + crawLink);
                 stream = CrawlUtil.getDataFromWeb(crawLink, markerHome);
@@ -80,8 +86,8 @@ public class FoodController extends HttpServlet {
                 ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
                 list = ingredients.getIngredient();
 
-                nextPage = ingredients.getNextPage();
-                if (nextPage != null && nextPage.equals("")) {
+                nextPage = ingredients.getNextpage();
+                if (nextPage != null && !nextPage.equals("")) {
                     crawLink = nextPage;
                 }
 
@@ -97,13 +103,12 @@ public class FoodController extends HttpServlet {
                     ingredient.setOldid(ing.getOldid());
                     ingredient.setUnit(ing.getUnit());
                     ingredient.setPrice(ing.getPrice());
-                    lines += ingredient.toString() + "\n";
+
+                    dao.insert(ingredient);
                 }
             } while (nextPage != null && !nextPage.equals(""));
-
-            BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
-            writer.write(lines);
-            writer.close();
+        } catch (NamingException | SQLException | IOException | JAXBException | XMLStreamException | TransformerException ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             log("ERROR at FoodController:" + e.getMessage());
         } finally {

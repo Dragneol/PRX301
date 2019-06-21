@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="ingredient" type="{http://www.ezco.com/XMLSchema/ezco}ingredient" maxOccurs="unbounded"/>
- *         &lt;element name="nextPage" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="nextpage" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,14 +33,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "ingredient",
-    "nextPage"
+    "nextpage"
 })
 @XmlRootElement(name = "ingredients")
 public class Ingredients {
 
     @XmlElement(required = true)
     protected List<Ingredient> ingredient;
-    protected String nextPage;
+    protected String nextpage;
 
     /**
      * Gets the value of the ingredient property.
@@ -72,27 +72,27 @@ public class Ingredients {
     }
 
     /**
-     * Gets the value of the nextPage property.
+     * Gets the value of the nextpage property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNextPage() {
-        return nextPage;
+    public String getNextpage() {
+        return nextpage;
     }
 
     /**
-     * Sets the value of the nextPage property.
+     * Sets the value of the nextpage property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNextPage(String value) {
-        this.nextPage = value;
+    public void setNextpage(String value) {
+        this.nextpage = value;
     }
 
 }

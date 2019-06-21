@@ -14,7 +14,7 @@
     <!-- TODO customize transformation rules 
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
-    <xsl:template match="root">
+    <xsl:template match="/">
         <recipes xmlns="http://www.ezco.com/XMLSchema/ezco">
             <xsl:for-each select="//div[@class='it-body_bottom col-md-8 col-sm-8']">
                 <recipe>

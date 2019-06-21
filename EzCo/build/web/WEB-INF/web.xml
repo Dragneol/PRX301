@@ -16,6 +16,10 @@
         <servlet-name>FoodController</servlet-name>
         <servlet-class>duongpth.controllers.FoodController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FoodInfoController</servlet-name>
+        <servlet-class>duongpth.controllers.FoodInfoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -32,12 +36,16 @@
         <servlet-name>FoodController</servlet-name>
         <url-pattern>/FoodController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FoodInfoController</servlet-name>
+        <url-pattern>/FoodInfoController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>admin.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

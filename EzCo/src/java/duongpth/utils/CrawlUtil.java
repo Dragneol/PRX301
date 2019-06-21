@@ -37,6 +37,26 @@ import javax.xml.transform.stream.StreamSource;
  */
 public class CrawlUtil implements Serializable {
 
+    public static String normalizeLink(String homePage, String url) {
+        String s = "";
+
+        if (!homePage.startsWith("http://")) {
+            s = "http://" + homePage;
+        } else {
+            s = homePage;
+        }
+
+        if (url.startsWith(s)) {
+            s = url;
+        } else {
+            s += url;
+        }
+        if (!s.endsWith(".html") && s.charAt(s.length() - 1) != '/') {
+            s += '/';
+        }
+        return s;
+    }
+
     /**
      * Crawl from url and return InputStream
      *
@@ -71,7 +91,11 @@ public class CrawlUtil implements Serializable {
     private static String cutContent(String content, MarkerDTO marker) {
         String start = marker.getStart();
         String end = marker.getEnd();
-        content = content.substring(content.indexOf(start), content.indexOf(end) + end.length());
+        if (marker.isIncluded()) {
+            content = content.substring(content.indexOf(start), content.indexOf(end) + end.length());
+        } else {
+            content = content.substring(content.indexOf(start), content.indexOf(end));
+        }
         content = "<root>" + content + "</root>";
         content = EncrypteUtil.decode(content);
         return content;
@@ -99,7 +123,7 @@ public class CrawlUtil implements Serializable {
             try {
                 event = reader.nextEvent();
             } catch (XMLStreamException ex) {
-                ex.printStackTrace();
+//                ex.printStackTrace();
                 String message = ex.getMessage();
                 String errString = "matching end-tag \"</";
                 if (message.contains("Message: The element type")) {

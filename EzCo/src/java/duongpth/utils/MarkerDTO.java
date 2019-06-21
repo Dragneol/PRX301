@@ -12,6 +12,15 @@ package duongpth.utils;
 public class MarkerDTO {
 
     private String start, end;
+    private boolean included; 
+
+    public boolean isIncluded() {
+        return included;
+    }
+
+    public void setIncluded(boolean included) { 
+        this.included = included;
+    }
 
     public MarkerDTO() {
     }

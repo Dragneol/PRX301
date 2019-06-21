@@ -5,7 +5,11 @@
  */
 package duongpth.controllers;
 
+import duongpth.daos.RecipeDAO;
+import duongpth.jaxbs.Recipe;
+import duongpth.jaxbs.Recipes;
 import duongpth.utils.CrawlUtil;
+import duongpth.utils.JAXBUtil;
 import duongpth.utils.MarkerDTO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,6 +19,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -47,38 +52,60 @@ public class RecipeController extends HttpServlet {
             String homePage = request.getParameter("recipePage");
             String subDomain = request.getParameter("recipeSubDomain");
 
-            String crawLink = homePage + subDomain;
-            String xslFile = getServletContext().getRealPath("/") + "WEB-INF/xsl/recipeLink.xsl";
+            String crawLink = CrawlUtil.normalizeLink(homePage, subDomain);
+            String xslFileLinks = getServletContext().getRealPath("/") + "WEB-INF/xsl/recipeLink.xsl";
 
             String start = "<div class=\"box-recipe_bottom\">";
             String end = "Tiếp theo</a></div> </div> </div>";
+            String nextPage = "";
+            MarkerDTO markerHome = new MarkerDTO();
+            markerHome.setEnd(end);
+            markerHome.setStart(start);
+            markerHome.setIncluded(true);
 
-            MarkerDTO marker = new MarkerDTO();
-            marker.setEnd(end);
-            marker.setStart(start);
-            
-            InputStream stream = CrawlUtil.getDataFromWeb(crawLink, marker);
-            stream = CrawlUtil.processWellForm(stream);
-            stream = CrawlUtil.transformXML(stream, xslFile);
+            start = "<div class=\"summary entry-summary\">";
+            end = "</div><!-- .summary -->";
+            MarkerDTO markerDetail = new MarkerDTO();
+            markerDetail.setEnd(end);
+            markerDetail.setStart(start);
+            markerDetail.setIncluded(false);
+            String xslFileDetail = getServletContext().getRealPath("/") + "WEB-INF/xsl/recipeDetail.xsl";
 
-            String line, lines = "";
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
-                while ((line = reader.readLine()) != null) {
-                    lines += line;
+            InputStream stream = null;
+
+            List<Recipe> list = null;
+            Recipes recipes = null;
+            Recipe ing = null;
+            RecipeDAO dao = new RecipeDAO();
+            int numPage = 1;
+            do {
+                System.out.println("Crawling " + crawLink);
+                stream = CrawlUtil.getDataFromWeb(crawLink, markerHome);
+                stream = CrawlUtil.processWellForm(stream);
+                stream = CrawlUtil.transformXML(stream, xslFileLinks);
+                stream.reset();
+
+                recipes = JAXBUtil.unmarshalling(stream, new Recipes());
+                list = recipes.getRecipe();
+
+                nextPage = recipes.getNextpage();
+                if (nextPage != null && !nextPage.equals("")) {
+                    crawLink = nextPage;
                 }
-            }
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
-            writer.write(lines);
-            writer.close();
+                for (Recipe recipe : list) {
+                    System.out.println("Crawling " + recipe.getLink());
+                    stream = CrawlUtil.getDataFromWeb(recipe.getLink(), markerDetail);
+                    stream = CrawlUtil.processWellForm(stream);
+                    stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                    stream.reset();
 
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (XMLStreamException ex) {
-            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (TransformerException ex) {
-            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedEncodingException ex) {
+                    dao.insert(recipe);
+                }
+                System.out.println("next page: " + nextPage);
+            } while (nextPage != null && !nextPage.equals("") && numPage < 3);
+
+        } catch (MalformedURLException | XMLStreamException | TransformerException | UnsupportedEncodingException ex) {
             Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             log("ERROR at RecipeController: " + ex.getMessage());

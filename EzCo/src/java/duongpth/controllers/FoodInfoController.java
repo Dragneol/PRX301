@@ -6,6 +6,7 @@
 package duongpth.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author dragn
  */
-public class MainController extends HttpServlet {
-
-    public static final String ERRORPAGE = "error.jsp";
-    public static final String RECIPE_CRAWLER = "RecipeController";
-    public static final String RECIPE_VIEWER = "RecipeInfoController";
-    public static final String FOOD_CRAWLER = "FoodController";
-    public static final String FOOD_VIEWER = "FoodInfoController";
+public class FoodInfoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,30 +30,17 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = ERRORPAGE;
-        try {
-            String action = request.getParameter("action");
-            switch (action) {
-                case "CrawlRecipe":
-                    path = RECIPE_CRAWLER;
-                    break;
-                case "CrawlFood":
-                    path = FOOD_CRAWLER;
-                    break;
-                case "ViewIngredients":
-                    path = FOOD_VIEWER;
-                    break;
-                case "ViewRecipes":
-                    path = RECIPE_VIEWER;
-                    break;
-                default:
-                    log("ERROR at MainController: Action not supported");
-                    break;
-            }
-        } catch (Exception e) {
-            log("ERROR at MainController: " + e.getMessage());
-        } finally {
-            request.getRequestDispatcher(path).forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet FoodInfoController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet FoodInfoController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

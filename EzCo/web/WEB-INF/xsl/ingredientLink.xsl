@@ -14,7 +14,7 @@
     <!-- TODO customize transformation rules 
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
-    <xsl:template match="root">
+    <xsl:template match="/">
         <ingredients xmlns="http://www.ezco.com/XMLSchema/ezco">
             <xsl:for-each select="//ul[@class='products']/li">
                 <ingredient>
