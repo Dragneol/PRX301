@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<customers xmlns="foo.bar">
+<customers xmlns:account="foo.bar">
     <account:allowed username='duongpth' balance='300'>
         <fullname>Hoang Duong</fullname>
         <address>foo bar</address>
@@ -51,5 +51,5 @@
                 <type>3</type>
             </transaction>
         </transactions>
-    </account:expired
+    </account:expired>
 </customers>

@@ -8,9 +8,17 @@
         <servlet-name>SearchController</servlet-name>
         <servlet-class>controllers.SearchController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchJSTLController</servlet-name>
+        <servlet-class>controllers.SearchJSTLController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchController</servlet-name>
         <url-pattern>/SearchController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchJSTLController</servlet-name>
+        <url-pattern>/SearchJSTLController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -18,6 +26,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>searchJSTL.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
