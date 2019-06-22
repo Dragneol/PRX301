@@ -20,28 +20,34 @@ and open the template in the editor.
     </xs:element>
     <xs:complexType name="recipe">
         <xs:sequence>
-            <xs:element name="id" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="id" type ="xs:int" minOccurs="0"/>
             <xs:element name="title" type ="xs:string" minOccurs="0"/>
             <xs:element name="link" type ="xs:string" minOccurs="0"/>
             <xs:element name="image" type ="xs:string" minOccurs="0"/>
             <xs:element name="description" type ="xs:string" minOccurs="0"/>
-            <xs:element name="ration" type ="xs:integer" minOccurs="0"/>
-            <xs:element name="preparetime" type ="xs:integer" minOccurs="0"/>
-            <xs:element name="cookingtime" type ="xs:integer" minOccurs="0"/>
+            <xs:element name="ration" type ="xs:int" minOccurs="0"/>
+            <xs:element name="preparetime" type ="xs:int" minOccurs="0"/>
+            <xs:element name="cookingtime" type ="xs:int" minOccurs="0"/>
             <xs:element name="ingredientmenu" type="ingredientmenu" minOccurs="0"/>
             <xs:element name="instructionmenu" type="instructionmenu" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="ingredientmenu">
+        <xs:element name="ingredientdetail" type="ingredientdetail" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:complexType name="instructionmenu">
+        <xs:element name="instructiondetail" type="instructiondetail" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:complexType name="ingredientdetail">
         <xs:sequence>
-            <xs:element name="quantitive" type="xs:integer" minOccurs="0"/>
+            <xs:element name="quantitive" type="xs:int" minOccurs="0"/>
             <xs:element name="unit" type="xs:string" minOccurs="0"/>
             <xs:element name="name" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="instructionmenu">
+    <xs:complexType name="instructiondetail">
         <xs:sequence>
-            <xs:element name="numstep" type="xs:integer" minOccurs="0"/>
+            <xs:element name="numstep" type="xs:int" minOccurs="0"/>
             <xs:element name="detail" type="xs:string" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>

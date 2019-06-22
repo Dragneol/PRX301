@@ -6,13 +6,16 @@
 package duongpth.controllers;
 
 import duongpth.daos.RecipeDAO;
+import duongpth.handler.ItemHandler;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
+import duongpth.utils.LogUtil;
 import duongpth.utils.MarkerDTO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,6 +29,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
 
@@ -52,63 +56,67 @@ public class RecipeController extends HttpServlet {
             String homePage = request.getParameter("recipePage");
             String subDomain = request.getParameter("recipeSubDomain");
 
-            String crawLink = CrawlUtil.normalizeLink(homePage, subDomain);
-            String xslFileLinks = getServletContext().getRealPath("/") + "WEB-INF/xsl/recipeLink.xsl";
+            String nextPage = "";
+            ItemHandler handler = new ItemHandler(getServletContext());
+
+            String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
 
             String start = "<div class=\"box-recipe_bottom\">";
             String end = "Tiếp theo</a></div> </div> </div>";
-            String nextPage = "";
-            MarkerDTO markerHome = new MarkerDTO();
-            markerHome.setEnd(end);
-            markerHome.setStart(start);
-            markerHome.setIncluded(true);
+            MarkerDTO markerHome = handler.getMarker(start, end, true);
 
             start = "<div class=\"summary entry-summary\">";
             end = "</div><!-- .summary -->";
-            MarkerDTO markerDetail = new MarkerDTO();
-            markerDetail.setEnd(end);
-            markerDetail.setStart(start);
-            markerDetail.setIncluded(false);
-            String xslFileDetail = getServletContext().getRealPath("/") + "WEB-INF/xsl/recipeDetail.xsl";
+            MarkerDTO markerDetail = handler.getMarker(start, end, false);
+
+            String xslFileLinks = handler.getRecipes();
+            String xslFileDetail = handler.getRecipeDetail();
 
             InputStream stream = null;
-
             List<Recipe> list = null;
             Recipes recipes = null;
             Recipe ing = null;
-            RecipeDAO dao = new RecipeDAO();
-            int numPage = 1;
-            do {
-                System.out.println("Crawling " + crawLink);
-                stream = CrawlUtil.getDataFromWeb(crawLink, markerHome);
-                stream = CrawlUtil.processWellForm(stream);
+
+            int index;
+        do {
+            crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
+            System.out.println("Crawling " + crawledLink);
+            stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
+            if (stream != null) {
                 stream = CrawlUtil.transformXML(stream, xslFileLinks);
                 stream.reset();
 
                 recipes = JAXBUtil.unmarshalling(stream, new Recipes());
                 list = recipes.getRecipe();
 
-                nextPage = recipes.getNextpage();
-                if (nextPage != null && !nextPage.equals("")) {
-                    crawLink = nextPage;
-                }
-
+                Recipe tmp = null;
                 for (Recipe recipe : list) {
-                    System.out.println("Crawling " + recipe.getLink());
-                    stream = CrawlUtil.getDataFromWeb(recipe.getLink(), markerDetail);
-                    stream = CrawlUtil.processWellForm(stream);
-                    stream = CrawlUtil.transformXML(stream, xslFileDetail);
-                    stream.reset();
-
-                    dao.insert(recipe);
+                    crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
+                    System.out.println("Crawling " + crawledLink);
+                    stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
+                    if (stream != null) {
+                        stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                        tmp = JAXBUtil.unmarshalling(stream, new Recipe());
+                        tmp.setLink(crawledLink);
+                        index = list.indexOf(recipe);
+                        list.set(index, tmp);
+                    }
                 }
-                System.out.println("next page: " + nextPage);
-            } while (nextPage != null && !nextPage.equals("") && numPage < 3);
-
-        } catch (MalformedURLException | XMLStreamException | TransformerException | UnsupportedEncodingException ex) {
+            }
+            nextPage = recipes.getNextpage();
+            if (nextPage != null && !nextPage.equals("")) {
+                crawledLink = nextPage;
+            }
+            System.out.println("next page: " + nextPage);
+        } while (nextPage != null && !nextPage.equals(""));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            log("ERROR at RecipeController: " + ex.getMessage());
+            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
         }

@@ -1,7 +1,8 @@
 
 package duongpth.jaxbs;
 
-import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -16,11 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType name="ingredientmenu">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="quantitive" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element name="unit" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
+ *       &lt;element name="ingredientdetail" type="{http://www.ezco.com/XMLSchema/ezco}ingredientdetail" maxOccurs="unbounded" minOccurs="0"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -30,86 +27,39 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ingredientmenu", propOrder = {
-    "quantitive",
-    "unit",
-    "name"
+    "ingredientdetail"
 })
 public class Ingredientmenu {
 
-    protected BigInteger quantitive;
-    protected String unit;
-    protected String name;
+    protected List<Ingredientdetail> ingredientdetail;
 
     /**
-     * Gets the value of the quantitive property.
+     * Gets the value of the ingredientdetail property.
      * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getQuantitive() {
-        return quantitive;
-    }
-
-    /**
-     * Sets the value of the quantitive property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the ingredientdetail property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setQuantitive(BigInteger value) {
-        this.quantitive = value;
-    }
-
-    /**
-     * Gets the value of the unit property.
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getIngredientdetail().add(newItem);
+     * </pre>
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getUnit() {
-        return unit;
-    }
-
-    /**
-     * Sets the value of the unit property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setUnit(String value) {
-        this.unit = value;
-    }
-
-    /**
-     * Gets the value of the name property.
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Ingredientdetail }
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public List<Ingredientdetail> getIngredientdetail() {
+        if (ingredientdetail == null) {
+            ingredientdetail = new ArrayList<Ingredientdetail>();
+        }
+        return this.ingredientdetail;
     }
 
 }

@@ -17,7 +17,7 @@
                 <tbody>
                     <tr>
                         <td>Recipe : </td>
-                        <td><input type="text" name="recipePage" value="http://www.amthuc365.vn/" readonly="readonly" /></td>
+                        <td><input type="text" name="recipePage" value="http://www.amthuc365.vn/cong-thuc/" readonly="readonly" /></td>
                         <td><input type="text" name="recipeSubDomain" value="104-cach-che-bien" /></td>
                         <td><input type="submit" value="CrawlRecipe" name="action" /></td>
                     </tr>

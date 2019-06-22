@@ -1,7 +1,8 @@
 
 package duongpth.jaxbs;
 
-import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -16,10 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType name="instructionmenu">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="numstep" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element name="detail" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
+ *       &lt;element name="instructiondetail" type="{http://www.ezco.com/XMLSchema/ezco}instructiondetail" maxOccurs="unbounded" minOccurs="0"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -29,60 +27,39 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "instructionmenu", propOrder = {
-    "numstep",
-    "detail"
+    "instructiondetail"
 })
 public class Instructionmenu {
 
-    protected BigInteger numstep;
-    protected String detail;
+    protected List<Instructiondetail> instructiondetail;
 
     /**
-     * Gets the value of the numstep property.
+     * Gets the value of the instructiondetail property.
      * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getNumstep() {
-        return numstep;
-    }
-
-    /**
-     * Sets the value of the numstep property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the instructiondetail property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setNumstep(BigInteger value) {
-        this.numstep = value;
-    }
-
-    /**
-     * Gets the value of the detail property.
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getInstructiondetail().add(newItem);
+     * </pre>
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDetail() {
-        return detail;
-    }
-
-    /**
-     * Sets the value of the detail property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Instructiondetail }
+     * 
+     * 
      */
-    public void setDetail(String value) {
-        this.detail = value;
+    public List<Instructiondetail> getInstructiondetail() {
+        if (instructiondetail == null) {
+            instructiondetail = new ArrayList<Instructiondetail>();
+        }
+        return this.instructiondetail;
     }
 
 }

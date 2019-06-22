@@ -42,19 +42,33 @@ public class IngredientDAO implements Serializable {
 
     public boolean insert(Ingredient i) throws NamingException, SQLException {
         boolean inserted = false;
-        String sql = "Insert Into Ingredient(OldID, [Name], Price, Link, [Image], Unit) "
-                + "values(?, ?,?, ?,?,?)";
+        String sql = "IF EXISTS (SELECT * FROM Ingredient WHERE OldID = ?)\n"
+                + "BEGIN\n"
+                + "	UPDATE Ingredient\n"
+                + "	SET [Name] = ?, Price= ?, Unit = ?\n"
+                + "	WHERE OldID = ?;\n"
+                + "END\n"
+                + "ELSE\n"
+                + "BEGIN\n"
+                + "   Insert Into Ingredient(OldID, [Name], Price, Link, [Image], Unit) values(?,?,?,?, ?,?)\n"
+                + "END";
         try {
 
             connection = DatabaseUtil.getConnection();
             if (connection != null) {
                 preparedStatement = connection.prepareStatement(sql);
+
                 preparedStatement.setString(1, i.getOldid());
                 preparedStatement.setString(2, i.getName());
-                preparedStatement.setBigDecimal(3, new BigDecimal(i.getPrice()));
-                preparedStatement.setString(4, i.getLink());
-                preparedStatement.setString(5, i.getImage());
-                preparedStatement.setBigDecimal(6, new BigDecimal(i.getUnit()));
+                preparedStatement.setInt(3, i.getPrice());
+                preparedStatement.setInt(4, i.getUnit());
+                preparedStatement.setString(5, i.getOldid());
+                preparedStatement.setString(6, i.getOldid());
+                preparedStatement.setString(7, i.getName());
+                preparedStatement.setInt(8, i.getPrice());
+                preparedStatement.setString(9, i.getLink());
+                preparedStatement.setString(10, i.getImage());
+                preparedStatement.setInt(11, i.getUnit());
 
                 inserted = preparedStatement.executeUpdate() > 0;
             }

@@ -40,6 +40,7 @@ public class RecipeDAO implements Serializable {
 
     public boolean insert(Recipe r) throws NamingException, SQLException {
         boolean inserted = false;
+//        String sql = "" 
         return inserted;
     }
 }

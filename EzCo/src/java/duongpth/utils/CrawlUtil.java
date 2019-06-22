@@ -18,6 +18,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -36,6 +38,38 @@ import javax.xml.transform.stream.StreamSource;
  * @author dragn
  */
 public class CrawlUtil implements Serializable {
+
+    public static InputStream crawlFromLink(String crawledLink, MarkerDTO marker) {
+        InputStream stream = null;
+        try {
+            stream = getDataFromWeb(crawledLink, marker);
+            stream = processWellForm(stream);
+        } catch (IOException | XMLStreamException ex) {
+            Logger.getLogger(CrawlUtil.class.getName()).log(Level.SEVERE, null, ex);
+            stream = null;
+        } finally {
+            return stream;
+        }
+    }
+
+    /**
+     * Apply xsl to transform into xml
+     *
+     * @param stream
+     * @param xslUrl
+     * @return
+     * @throws TransformerConfigurationException
+     * @throws TransformerException
+     * @throws UnsupportedEncodingException
+     */
+    public static InputStream transformXML(InputStream stream, String xslUrl) throws TransformerConfigurationException, TransformerException, UnsupportedEncodingException {
+        StringWriter writer = new StringWriter();
+        StreamResult streamResult = new StreamResult(writer);
+        TransformerFactory transformFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformFactory.newTransformer(new StreamSource(new File(xslUrl)));
+        transformer.transform(new StreamSource(stream), streamResult);
+        return new ByteArrayInputStream(writer.toString().getBytes("UTF-8"));
+    }
 
     public static String normalizeLink(String homePage, String url) {
         String s = "";
@@ -66,7 +100,7 @@ public class CrawlUtil implements Serializable {
      * @throws IOException
      * @throws XMLStreamException
      */
-    public static InputStream getDataFromWeb(String url, MarkerDTO marker) throws MalformedURLException, IOException, XMLStreamException {
+    private static InputStream getDataFromWeb(String url, MarkerDTO marker) throws MalformedURLException, IOException, XMLStreamException {
         URL urlink = new URL(url);
         HttpURLConnection con = (HttpURLConnection) urlink.openConnection();
         InputStream inputStream = con.getInputStream();
@@ -109,7 +143,7 @@ public class CrawlUtil implements Serializable {
      * @throws XMLStreamException
      * @throws UnsupportedEncodingException
      */
-    public static InputStream processWellForm(InputStream inputStream) throws XMLStreamException, UnsupportedEncodingException {
+    private static InputStream processWellForm(InputStream inputStream) throws XMLStreamException, UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
         StreamSource streamSource = new StreamSource(inputStream);
 
@@ -150,22 +184,4 @@ public class CrawlUtil implements Serializable {
         return new ByteArrayInputStream(res.getBytes("UTF-8"));
     }
 
-    /**
-     * Apply xsl to transform into xml
-     *
-     * @param inputStream
-     * @param xslUrl
-     * @return
-     * @throws TransformerConfigurationException
-     * @throws TransformerException
-     * @throws UnsupportedEncodingException
-     */
-    public static InputStream transformXML(InputStream inputStream, String xslUrl) throws TransformerConfigurationException, TransformerException, UnsupportedEncodingException {
-        StringWriter writer = new StringWriter();
-        StreamResult streamResult = new StreamResult(writer);
-        TransformerFactory transformFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformFactory.newTransformer(new StreamSource(new File(xslUrl)));
-        transformer.transform(new StreamSource(inputStream), streamResult);
-        return new ByteArrayInputStream(writer.toString().getBytes("UTF-8"));
-    }
 }

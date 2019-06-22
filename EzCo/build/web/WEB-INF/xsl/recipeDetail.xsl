@@ -37,9 +37,37 @@
                 <xsl:variable name="ration" select="//div[@class='entry-detail_meta mt30']//p[4]"/>
                 <xsl:value-of select="translate($ration, translate($ration, '0123456789', ''), '')"/>
             </cookingtime>
-<!--            <ingredientmenu>
-                
-            </ingredientmenu>-->
+            <ingredientmenu>
+                <xsl:for-each select="//ul[@class='menu-ingredients']/li">
+                    <ingredientdetail>
+                        <xsl:variable name="quan" select="."/>
+                        <xsl:variable name="quantitive" select="translate($quan, translate($quan, '0123456789', ''), '')"/>
+                        <xsl:variable name="name" select=".//a"/>
+                        <xsl:variable name="unit" select="substring-before(substring-after($quan,$quantitive),$name)" />
+                        <quantitive>
+                            <xsl:value-of select="$quantitive"/>
+                        </quantitive>
+                        <unit>
+                            <xsl:value-of select="$unit"/>
+                        </unit>
+                        <name>
+                            <xsl:value-of select="$name"/>                            
+                        </name>
+                    </ingredientdetail>
+                </xsl:for-each>
+            </ingredientmenu>
+            <instructionmenu>
+                <xsl:for-each select="//ul[@class='menu-directions']/li">
+                    <instructiondetail>
+                        <numstep>
+                            <xsl:value-of select=".//div/span[@class='num-step']"/>
+                        </numstep>
+                        <detail>
+                            <xsl:value-of select=".//div[@class='it-intro']"/>
+                        </detail>
+                    </instructiondetail>
+                </xsl:for-each>
+            </instructionmenu>
         </recipe>
     </xsl:template>
 

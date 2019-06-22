@@ -1,30 +1,31 @@
-
 package duongpth.jaxbs;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for recipe complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
+ * Java class for recipe complex type.
+ *
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
+ *
  * <pre>
  * &lt;complexType name="recipe">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="link" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="image" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="ration" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element name="preparetime" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
- *         &lt;element name="cookingtime" type="{http://www.w3.org/2001/XMLSchema}integer" minOccurs="0"/>
+ *         &lt;element name="ration" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="preparetime" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="cookingtime" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="ingredientmenu" type="{http://www.ezco.com/XMLSchema/ezco}ingredientmenu" minOccurs="0"/>
  *         &lt;element name="instructionmenu" type="{http://www.ezco.com/XMLSchema/ezco}instructionmenu" minOccurs="0"/>
  *       &lt;/sequence>
@@ -32,8 +33,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "recipe", propOrder = {
@@ -48,50 +49,45 @@ import javax.xml.bind.annotation.XmlType;
     "ingredientmenu",
     "instructionmenu"
 })
+@XmlRootElement(name = "recipe")
 public class Recipe {
 
-    protected BigInteger id;
+    protected Integer id;
     protected String title;
     protected String link;
     protected String image;
     protected String description;
-    protected BigInteger ration;
-    protected BigInteger preparetime;
-    protected BigInteger cookingtime;
+    protected Integer ration;
+    protected Integer preparetime;
+    protected Integer cookingtime;
     protected Ingredientmenu ingredientmenu;
     protected Instructionmenu instructionmenu;
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is {@link Integer }
+     *
      */
-    public BigInteger getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is {@link Integer }
+     *
      */
-    public void setId(BigInteger value) {
+    public void setId(Integer value) {
         this.id = value;
     }
 
     /**
      * Gets the value of the title property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getTitle() {
         return title;
@@ -99,11 +95,9 @@ public class Recipe {
 
     /**
      * Sets the value of the title property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setTitle(String value) {
         this.title = value;
@@ -111,11 +105,9 @@ public class Recipe {
 
     /**
      * Gets the value of the link property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getLink() {
         return link;
@@ -123,11 +115,9 @@ public class Recipe {
 
     /**
      * Sets the value of the link property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setLink(String value) {
         this.link = value;
@@ -135,11 +125,9 @@ public class Recipe {
 
     /**
      * Gets the value of the image property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getImage() {
         return image;
@@ -147,11 +135,9 @@ public class Recipe {
 
     /**
      * Sets the value of the image property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setImage(String value) {
         this.image = value;
@@ -159,11 +145,9 @@ public class Recipe {
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDescription() {
         return description;
@@ -171,11 +155,9 @@ public class Recipe {
 
     /**
      * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDescription(String value) {
         this.description = value;
@@ -183,83 +165,69 @@ public class Recipe {
 
     /**
      * Gets the value of the ration property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is {@link Integer }
+     *
      */
-    public BigInteger getRation() {
+    public Integer getRation() {
         return ration;
     }
 
     /**
      * Sets the value of the ration property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is {@link Integer }
+     *
      */
-    public void setRation(BigInteger value) {
+    public void setRation(Integer value) {
         this.ration = value;
     }
 
     /**
      * Gets the value of the preparetime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is {@link Integer }
+     *
      */
-    public BigInteger getPreparetime() {
+    public Integer getPreparetime() {
         return preparetime;
     }
 
     /**
      * Sets the value of the preparetime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is {@link Integer }
+     *
      */
-    public void setPreparetime(BigInteger value) {
+    public void setPreparetime(Integer value) {
         this.preparetime = value;
     }
 
     /**
      * Gets the value of the cookingtime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is {@link Integer }
+     *
      */
-    public BigInteger getCookingtime() {
+    public Integer getCookingtime() {
         return cookingtime;
     }
 
     /**
      * Sets the value of the cookingtime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is {@link Integer }
+     *
      */
-    public void setCookingtime(BigInteger value) {
+    public void setCookingtime(Integer value) {
         this.cookingtime = value;
     }
 
     /**
      * Gets the value of the ingredientmenu property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Ingredientmenu }
-     *     
+     *
+     * @return possible object is {@link Ingredientmenu }
+     *
      */
     public Ingredientmenu getIngredientmenu() {
         return ingredientmenu;
@@ -267,11 +235,9 @@ public class Recipe {
 
     /**
      * Sets the value of the ingredientmenu property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Ingredientmenu }
-     *     
+     *
+     * @param value allowed object is {@link Ingredientmenu }
+     *
      */
     public void setIngredientmenu(Ingredientmenu value) {
         this.ingredientmenu = value;
@@ -279,11 +245,9 @@ public class Recipe {
 
     /**
      * Gets the value of the instructionmenu property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Instructionmenu }
-     *     
+     *
+     * @return possible object is {@link Instructionmenu }
+     *
      */
     public Instructionmenu getInstructionmenu() {
         return instructionmenu;
@@ -291,11 +255,9 @@ public class Recipe {
 
     /**
      * Sets the value of the instructionmenu property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Instructionmenu }
-     *     
+     *
+     * @param value allowed object is {@link Instructionmenu }
+     *
      */
     public void setInstructionmenu(Instructionmenu value) {
         this.instructionmenu = value;

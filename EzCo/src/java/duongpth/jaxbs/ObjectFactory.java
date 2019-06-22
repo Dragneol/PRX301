@@ -54,6 +54,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Ingredientdetail }
+     * 
+     */
+    public Ingredientdetail createIngredientdetail() {
+        return new Ingredientdetail();
+    }
+
+    /**
+     * Create an instance of {@link Instructiondetail }
+     * 
+     */
+    public Instructiondetail createInstructiondetail() {
+        return new Instructiondetail();
+    }
+
+    /**
      * Create an instance of {@link Instructionmenu }
      * 
      */

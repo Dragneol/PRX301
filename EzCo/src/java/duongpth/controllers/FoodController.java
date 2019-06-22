@@ -6,13 +6,16 @@
 package duongpth.controllers;
 
 import duongpth.daos.IngredientDAO;
+import duongpth.handler.ItemHandler;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
 import duongpth.utils.MarkerDTO;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -49,68 +52,75 @@ public class FoodController extends HttpServlet {
             String homePage = request.getParameter("foodPage");
             String subDomain = request.getParameter("foodSubDomain");
             String nextPage = "";
+            ItemHandler handler = new ItemHandler(getServletContext());
 
-            String crawLink = CrawlUtil.normalizeLink(homePage, subDomain);
-            String xslFileLinks = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientLink.xsl";
+            String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
 
             String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
             String end = "</main><!-- #main -->";
-
-            MarkerDTO markerHome = new MarkerDTO();
-            markerHome.setEnd(end);
-            markerHome.setStart(start);
-            markerHome.setIncluded(true);
+            MarkerDTO markerHome = handler.getMarker(start, end, true);
 
             start = "<div class=\"summary entry-summary\">";
             end = "</div><!-- .summary -->";
-            MarkerDTO markerDetail = new MarkerDTO();
-            markerDetail.setEnd(end);
-            markerDetail.setStart(start);
-            markerDetail.setIncluded(true);
-            String xslFileDetail = getServletContext().getRealPath("/") + "WEB-INF/xsl/ingredientDetail.xsl";
+            MarkerDTO markerDetail = handler.getMarker(start, end, true);
+
+            String xslFileLinks = handler.getIngredients();
+            String xslFileDetail = handler.getIngredientDetail();
 
             InputStream stream = null;
-
             List<Ingredient> list = null;
             Ingredients ingredients = null;
-            Ingredient ing = null;
+            Ingredient tmp = null;
             IngredientDAO dao = new IngredientDAO();
-            int numPage = 1;
+            int index;
             do {
-                System.out.println("Crawling " + crawLink);
-                stream = CrawlUtil.getDataFromWeb(crawLink, markerHome);
-                stream = CrawlUtil.processWellForm(stream);
-                stream = CrawlUtil.transformXML(stream, xslFileLinks);
-                stream.reset();
+                System.out.println("Crawling " + crawledLink);
+                stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
+                if (stream != null) {
 
-                ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
-                list = ingredients.getIngredient();
-
-                nextPage = ingredients.getNextpage();
-                if (nextPage != null && !nextPage.equals("")) {
-                    crawLink = nextPage;
-                }
-
-                for (Ingredient ingredient : list) {
-                    System.out.println("Crawling " + ingredient.getLink());
-                    stream = CrawlUtil.getDataFromWeb(ingredient.getLink(), markerDetail);
-                    stream = CrawlUtil.processWellForm(stream);
-                    stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                    stream = CrawlUtil.transformXML(stream, xslFileLinks);
                     stream.reset();
 
-                    ing = JAXBUtil.unmarshalling(stream, new Ingredient());
-                    ingredient.setName(ing.getName());
-                    ingredient.setOldid(ing.getOldid());
-                    ingredient.setUnit(ing.getUnit());
-                    ingredient.setPrice(ing.getPrice());
+                    ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
+                    list = ingredients.getIngredient();
 
-                    dao.insert(ingredient);
+                    for (Ingredient ingredient : list) {
+                        crawledLink = CrawlUtil.normalizeLink(homePage, ingredient.getLink());
+                        System.out.println("Crawling " + crawledLink);
+                        stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
+                        if (stream != null) {
+                            stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                            stream.reset();
+
+                            tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
+                            index = list.indexOf(ingredient);
+                            tmp.setLink(crawledLink);
+                            list.set(index, tmp);
+                            dao.insert(tmp);
+                        }
+                    }
+                    nextPage = ingredients.getNextpage();
+                }
+                if (nextPage != null && !nextPage.equals("")) {
+                    crawledLink = nextPage;
                 }
             } while (nextPage != null && !nextPage.equals(""));
-        } catch (NamingException | SQLException | IOException | JAXBException | XMLStreamException | TransformerException ex) {
+        } catch (NamingException ex) {
             Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception e) {
-            log("ERROR at FoodController:" + e.getMessage());
+        } catch (SQLException ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (XMLStreamException ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (TransformerException ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
         }

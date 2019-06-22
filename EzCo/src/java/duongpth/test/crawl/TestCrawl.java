@@ -12,6 +12,7 @@ import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
+import duongpth.utils.LogUtil;
 import duongpth.utils.MarkerDTO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
-import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -37,7 +37,7 @@ import javax.xml.transform.TransformerException;
 public class TestCrawl {
 
     public static void crawlPageRecipe(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException {
-        String line, lines = "";
+        String lines = "";
         String start = "<div class=\"box-recipe_bottom\">";
         String end = "Tiếp theo</a></div> </div> </div>";
         String nextPage = "";
@@ -47,7 +47,7 @@ public class TestCrawl {
         markerHome.setStart(start);
         markerHome.setIncluded(true);
         String homePage = "http://www.amthuc365.vn";
-        String crawLink = CrawlUtil.normalizeLink(homePage, url);
+        String crawledLink = CrawlUtil.normalizeLink(homePage, url);
         start = "<div class=\"box-video_info\">";
         end = "<div class=\"comments mt20\"";
         MarkerDTO markerDetail = new MarkerDTO();
@@ -57,51 +57,47 @@ public class TestCrawl {
         String xslFileDetail = "web/WEB-INF/xsl/recipeDetail.xsl";
 
         InputStream stream = null;
-
         List<Recipe> list = null;
         Recipes recipes = null;
         Recipe ing = null;
 
         BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
+        int index;
         do {
-            crawLink = CrawlUtil.normalizeLink(homePage, crawLink);
-            System.out.println("Crawling " + crawLink);
-            stream = CrawlUtil.getDataFromWeb(crawLink, markerHome);
-            stream = CrawlUtil.processWellForm(stream);
-            stream = CrawlUtil.transformXML(stream, xslFileLinks);
-            stream.reset();
-
-//            stream.reset();
-            recipes = JAXBUtil.unmarshalling(stream, new Recipes());
-            list = recipes.getRecipe();
-
-            nextPage = recipes.getNextpage();
-            if (nextPage != null && !nextPage.equals("")) {
-                crawLink = nextPage;
-            }
-
-            for (Recipe recipe : list) {
-                crawLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
-                System.out.println("Crawling " + recipe.getLink());
-//                crawLink = CrawlUtil.normalizeLink(homePage, "/cong-thuc/4796-cach-nau-canh-kim-chi-han-quoc-nong-hoi-thom-ngon.html");
-                stream = CrawlUtil.getDataFromWeb(crawLink, markerDetail);
-                stream = CrawlUtil.processWellForm(stream);
-                stream = CrawlUtil.transformXML(stream, xslFileDetail);
+            crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
+            System.out.println("Crawling " + crawledLink);
+            stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
+            if (stream != null) {
+                stream = CrawlUtil.transformXML(stream, xslFileLinks);
                 stream.reset();
 
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
-                    while ((line = reader.readLine()) != null) {
-                        lines += line;
+                recipes = JAXBUtil.unmarshalling(stream, new Recipes());
+                list = recipes.getRecipe();
+
+                Recipe tmp = null;
+                for (Recipe recipe : list) {
+                    crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
+//        crawledLink = CrawlUtil.normalizeLink(homePage, "http://www.amthuc365.vn/cong-thuc/4796-cach-nau-canh-kim-chi-han-quoc-nong-hoi-thom-ngon.html");
+                    System.out.println("Crawling " + crawledLink);
+                    stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
+                    if (stream != null) {
+                        stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                        tmp = JAXBUtil.unmarshalling(stream, new Recipe());
+                        tmp.setLink(crawledLink);
+                        index = list.indexOf(recipe);
+                        list.set(index, tmp);
+                        writer.write(lines);
                     }
                 }
-                writer.write(lines);
-//                lines += recipe.getLink();
             }
-            writer.close();
+            nextPage = recipes.getNextpage();
+            if (nextPage != null && !nextPage.equals("")) {
+                crawledLink = nextPage;
+            }
             System.out.println("next page: " + nextPage);
             numPage++;
         } while (nextPage != null && !nextPage.equals("") && numPage < 1);
-
+        writer.close();
     }
 
     public static void crawlPageFood(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException {
@@ -112,8 +108,7 @@ public class TestCrawl {
         MarkerDTO marker = new MarkerDTO();
         marker.setEnd(end);
         marker.setStart(start);
-        InputStream stream = CrawlUtil.getDataFromWeb(url, marker);
-        stream = CrawlUtil.processWellForm(stream);
+        InputStream stream = CrawlUtil.crawlFromLink(url, marker);
         String xslFile = "web/WEB-INF/xsl/ingredientLink.xsl";
         stream = CrawlUtil.transformXML(stream, xslFile);
         stream.reset();
