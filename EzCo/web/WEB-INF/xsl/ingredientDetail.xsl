@@ -25,7 +25,10 @@
             <price>
                 <xsl:value-of select="//meta[@itemprop='price']/@content"/>
             </price>
-            <unit>100</unit>
+            <unit>
+                <xsl:variable name="text" select="//div[@itemprop='description']"/>
+                <xsl:value-of select="translate($text, translate($text, '0123456789', ''), '')"/>                
+            </unit>
         </ingredient>
     </xsl:template>
 

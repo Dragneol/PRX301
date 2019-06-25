@@ -15,26 +15,26 @@ create table [Ingredient](
 	[Name] nvarchar(800),
 	[Price] int,
 	[Link] nchar(1000),
-	[Image] nchar(100),
+	[Image] nchar(1000),
 	[Unit] int
 )
 go
 
 create table [Recipe](
-	[ID] int not null PRIMARY KEY IDENTITY,
+	[ID] int not null PRIMARY KEY,
 	[Title] nvarchar(1000),
+        [Link] nvarchar(1000),
+        [Image] nvarchar(1000),
 	[Description] nvarchar(2000),
 	[Ration] int,
 	[PrepareTime] int,
 	[CookingTime] int,
-	[Instruction] nvarchar(4000)
 )
 go
 
 create table [IngredientMenu](
 	[ID] int not null PRIMARY KEY IDENTITY,
 	[RecipeID] int FOREIGN KEY REFERENCES [Recipe](ID),
-	--[IngredientID] int FOREIGN KEY REFERENCES [Ingredient](ID),
 	[Name] nvarchar(1000),
 	[Unit] nvarchar(50),
 	[Quantitive] int

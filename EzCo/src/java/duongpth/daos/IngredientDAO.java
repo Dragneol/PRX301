@@ -38,7 +38,7 @@ public class IngredientDAO implements Serializable {
         }
     }
 
-    public boolean insert(Ingredient i) throws NamingException, SQLException {
+    public boolean insert(Ingredient i) throws NamingException, SQLException, ClassNotFoundException {
         boolean inserted = false;
         String sql = "IF NOT EXISTS (SELECT * FROM Ingredient WHERE ID = ?) \n"
                 + "Insert Into Ingredient(ID, [Name], Price, Link, [Image], Unit) values(?,?,?,?,?,?)";
@@ -48,12 +48,12 @@ public class IngredientDAO implements Serializable {
             if (connection != null) {
                 preparedStatement = connection.prepareStatement(sql);
 
-                preparedStatement.setString(1, i.getId());
-                preparedStatement.setString(2, i.getId());
-                preparedStatement.setString(3, i.getName());
+                preparedStatement.setString(1, i.getId().trim());
+                preparedStatement.setString(2, i.getId().trim());
+                preparedStatement.setString(3, i.getName().trim());
                 preparedStatement.setInt(4, i.getPrice());
-                preparedStatement.setString(5, i.getLink());
-                preparedStatement.setString(6, i.getImage());
+                preparedStatement.setString(5, i.getLink().trim());
+                preparedStatement.setString(6, i.getImage().trim());
                 preparedStatement.setInt(7, i.getUnit());
 
                 inserted = preparedStatement.executeUpdate() > 0;
@@ -64,7 +64,7 @@ public class IngredientDAO implements Serializable {
         return inserted;
     }
 
-    public List<Ingredient> getFirst(int n) throws NamingException, SQLException {
+    public List<Ingredient> getFirst(int n) throws NamingException, SQLException, ClassNotFoundException {
         List<Ingredient> list = new ArrayList<Ingredient>();
         String sql = "SELECT TOP (?) [ID]\n"
                 + "      ,[OldID]\n"
@@ -85,11 +85,11 @@ public class IngredientDAO implements Serializable {
 
             Ingredient ingredient = null;
             while (resultSet.next()) {
-                id = resultSet.getString("OldID");
-                name = resultSet.getString("Name");
+                id = resultSet.getString("OldID").trim();
+                name = resultSet.getString("Name").trim();
                 price = resultSet.getInt("Price");
-                link = resultSet.getString("Link");
-                image = resultSet.getString("Image");
+                link = resultSet.getString("Link").trim();
+                image = resultSet.getString("Image").trim();
                 unit = resultSet.getInt("Unit");
 
                 ingredient = new Ingredient();

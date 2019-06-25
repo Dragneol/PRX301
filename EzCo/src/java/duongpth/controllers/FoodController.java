@@ -72,8 +72,8 @@ public class FoodController extends HttpServlet {
             List<Ingredient> list = null;
             Ingredients ingredients = null;
             Ingredient tmp = null;
-            IngredientDAO dao = new IngredientDAO();
-//            IngredientBLO blo = new IngredientBLO();
+//            IngredientDAO dao = new IngredientDAO();
+            IngredientBLO blo = new IngredientBLO();
             int index;
             do {
                 System.out.println("Crawling " + crawledLink);
@@ -97,10 +97,10 @@ public class FoodController extends HttpServlet {
                             tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
                             index = list.indexOf(ingredient);
                             tmp.setLink(crawledLink);
-                            tmp.setLink(ingredient.getImage());
+                            tmp.setImage(ingredient.getImage());
                             list.set(index, tmp);
-                            dao.insert(tmp);
-//                            blo.insert(tmp);
+//                            dao.insert(tmp);
+                            blo.insert(tmp);
                         }
                     }
                     nextPage = ingredients.getNextpage();
@@ -109,10 +109,6 @@ public class FoodController extends HttpServlet {
                     crawledLink = nextPage;
                 }
             } while (nextPage != null && !nextPage.equals(""));
-        } catch (NamingException ex) {
-            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (JAXBException ex) {
             Logger.getLogger(FoodController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {

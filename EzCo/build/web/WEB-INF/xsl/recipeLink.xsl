@@ -18,8 +18,12 @@
         <recipes xmlns="http://www.ezco.com/XMLSchema/ezco">
             <xsl:for-each select="//div[@class='it-body_bottom col-md-8 col-sm-8']">
                 <recipe>
+                    <xsl:variable name="link" select=".//h3/a/@href" />
+                    <id>
+                        <xsl:value-of select="translate($link, translate($link, '0123456789', ''), '')"/>
+                    </id>
                     <link>
-                        <xsl:value-of select=".//h3/a/@href"/>
+                        <xsl:value-of select="$link"/>
                     </link>
                 </recipe>
             </xsl:for-each>
