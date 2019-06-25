@@ -16,12 +16,12 @@
     -->
     <xsl:template match="/">
         <ingredient xmlns="http://www.ezco.com/XMLSchema/ezco">
+            <id>
+                <xsl:value-of select="//span[@class='sku']"/>
+            </id>
             <name>
                 <xsl:value-of select="//h1"/>
             </name>
-            <oldid>
-                <xsl:value-of select="//span[@class='sku']"/>
-            </oldid>
             <price>
                 <xsl:value-of select="//meta[@itemprop='price']/@content"/>
             </price>

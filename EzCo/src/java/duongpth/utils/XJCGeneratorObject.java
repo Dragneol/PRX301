@@ -24,8 +24,8 @@ import org.xml.sax.SAXParseException;
 public class XJCGeneratorObject {
 
     public static void main(String[] args) {
-//        generate("duongpth.jaxbs", "web/WEB-INF/xsd/ingredients.xsd");
-        generate("duongpth.jaxbs", "web/WEB-INF/xsd/recipes.xsd");
+        generate("duongpth.jaxbs", "web/WEB-INF/xsd/ingredients.xsd");
+//        generate("duongpth.jaxbs", "web/WEB-INF/xsd/recipes.xsd");
     }
 
     private static void generate(String packageStr, String xsdUri) {

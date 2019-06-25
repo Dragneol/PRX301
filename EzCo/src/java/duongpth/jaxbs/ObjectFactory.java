@@ -30,51 +30,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Recipes }
+     * Create an instance of {@link Ingredients }
      * 
      */
-    public Recipes createRecipes() {
-        return new Recipes();
+    public Ingredients createIngredients() {
+        return new Ingredients();
     }
 
     /**
-     * Create an instance of {@link Recipe }
+     * Create an instance of {@link Ingredient }
      * 
      */
-    public Recipe createRecipe() {
-        return new Recipe();
-    }
-
-    /**
-     * Create an instance of {@link Ingredientmenu }
-     * 
-     */
-    public Ingredientmenu createIngredientmenu() {
-        return new Ingredientmenu();
-    }
-
-    /**
-     * Create an instance of {@link Ingredientdetail }
-     * 
-     */
-    public Ingredientdetail createIngredientdetail() {
-        return new Ingredientdetail();
-    }
-
-    /**
-     * Create an instance of {@link Instructiondetail }
-     * 
-     */
-    public Instructiondetail createInstructiondetail() {
-        return new Instructiondetail();
-    }
-
-    /**
-     * Create an instance of {@link Instructionmenu }
-     * 
-     */
-    public Instructionmenu createInstructionmenu() {
-        return new Instructionmenu();
+    public Ingredient createIngredient() {
+        return new Ingredient();
     }
 
 }

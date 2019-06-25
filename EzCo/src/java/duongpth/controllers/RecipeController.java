@@ -5,23 +5,16 @@
  */
 package duongpth.controllers;
 
-import duongpth.daos.RecipeDAO;
 import duongpth.handler.ItemHandler;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
-import duongpth.utils.LogUtil;
 import duongpth.utils.MarkerDTO;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,8 +22,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
 
 /**
@@ -78,37 +69,37 @@ public class RecipeController extends HttpServlet {
             Recipe ing = null;
 
             int index;
-        do {
-            crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
-            System.out.println("Crawling " + crawledLink);
-            stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
-            if (stream != null) {
-                stream = CrawlUtil.transformXML(stream, xslFileLinks);
-                stream.reset();
+            do {
+                crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
+                System.out.println("Crawling " + crawledLink);
+                stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
+                if (stream != null) {
+                    stream = CrawlUtil.transformXML(stream, xslFileLinks);
+                    stream.reset();
 
-                recipes = JAXBUtil.unmarshalling(stream, new Recipes());
-                list = recipes.getRecipe();
+                    recipes = JAXBUtil.unmarshalling(stream, new Recipes());
+                    list = recipes.getRecipe();
 
-                Recipe tmp = null;
-                for (Recipe recipe : list) {
-                    crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
-                    System.out.println("Crawling " + crawledLink);
-                    stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
-                    if (stream != null) {
-                        stream = CrawlUtil.transformXML(stream, xslFileDetail);
-                        tmp = JAXBUtil.unmarshalling(stream, new Recipe());
-                        tmp.setLink(crawledLink);
-                        index = list.indexOf(recipe);
-                        list.set(index, tmp);
+                    Recipe tmp = null;
+                    for (Recipe recipe : list) {
+                        crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
+                        System.out.println("Crawling " + crawledLink);
+                        stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
+                        if (stream != null) {
+                            stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                            tmp = JAXBUtil.unmarshalling(stream, new Recipe());
+                            tmp.setLink(crawledLink);
+                            index = list.indexOf(recipe);
+                            list.set(index, tmp);
+                        }
                     }
                 }
-            }
-            nextPage = recipes.getNextpage();
-            if (nextPage != null && !nextPage.equals("")) {
-                crawledLink = nextPage;
-            }
-            System.out.println("next page: " + nextPage);
-        } while (nextPage != null && !nextPage.equals(""));
+                nextPage = recipes.getNextpage();
+                if (nextPage != null && !nextPage.equals("")) {
+                    crawledLink = nextPage;
+                }
+                System.out.println("next page: " + nextPage);
+            } while (nextPage != null && !nextPage.equals(""));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {

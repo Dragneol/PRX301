@@ -8,8 +8,6 @@ package duongpth.daos;
 import duongpth.jaxbs.Ingredient;
 import duongpth.utils.DatabaseUtil;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,33 +40,21 @@ public class IngredientDAO implements Serializable {
 
     public boolean insert(Ingredient i) throws NamingException, SQLException {
         boolean inserted = false;
-        String sql = "IF EXISTS (SELECT * FROM Ingredient WHERE OldID = ?)\n"
-                + "BEGIN\n"
-                + "	UPDATE Ingredient\n"
-                + "	SET [Name] = ?, Price= ?, Unit = ?\n"
-                + "	WHERE OldID = ?;\n"
-                + "END\n"
-                + "ELSE\n"
-                + "BEGIN\n"
-                + "   Insert Into Ingredient(OldID, [Name], Price, Link, [Image], Unit) values(?,?,?,?, ?,?)\n"
-                + "END";
+        String sql = "IF NOT EXISTS (SELECT * FROM Ingredient WHERE ID = ?) \n"
+                + "Insert Into Ingredient(ID, [Name], Price, Link, [Image], Unit) values(?,?,?,?,?,?)";
         try {
 
             connection = DatabaseUtil.getConnection();
             if (connection != null) {
                 preparedStatement = connection.prepareStatement(sql);
 
-                preparedStatement.setString(1, i.getOldid());
-                preparedStatement.setString(2, i.getName());
-                preparedStatement.setInt(3, i.getPrice());
-                preparedStatement.setInt(4, i.getUnit());
-                preparedStatement.setString(5, i.getOldid());
-                preparedStatement.setString(6, i.getOldid());
-                preparedStatement.setString(7, i.getName());
-                preparedStatement.setInt(8, i.getPrice());
-                preparedStatement.setString(9, i.getLink());
-                preparedStatement.setString(10, i.getImage());
-                preparedStatement.setInt(11, i.getUnit());
+                preparedStatement.setString(1, i.getId());
+                preparedStatement.setString(2, i.getId());
+                preparedStatement.setString(3, i.getName());
+                preparedStatement.setInt(4, i.getPrice());
+                preparedStatement.setString(5, i.getLink());
+                preparedStatement.setString(6, i.getImage());
+                preparedStatement.setInt(7, i.getUnit());
 
                 inserted = preparedStatement.executeUpdate() > 0;
             }
@@ -94,20 +80,26 @@ public class IngredientDAO implements Serializable {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, n);
             resultSet = preparedStatement.executeQuery();
-            BigInteger id, unit, price;
-            String oldid, name, link, image;
+            int unit, price;
+            String id, name, link, image;
 
             Ingredient ingredient = null;
             while (resultSet.next()) {
-//                id = resultSet.getInt("ID");
-//                oldid = resultSet.getString("OldID");
-//                name = resultSet.getString("Name");
-//                price = resultSet.getInt("Price");
-//                link = resultSet.getString("Link");
-//                image = resultSet.getString("Image");
-//                unit = resultSet.getInt("Unit");
+                id = resultSet.getString("OldID");
+                name = resultSet.getString("Name");
+                price = resultSet.getInt("Price");
+                link = resultSet.getString("Link");
+                image = resultSet.getString("Image");
+                unit = resultSet.getInt("Unit");
 
-//                ingredient = new Ingredient(id, oldid, name, link, price, unit, image);
+                ingredient = new Ingredient();
+                ingredient.setId(id);
+                ingredient.setName(name);
+                ingredient.setPrice(price);
+                ingredient.setLink(link);
+                ingredient.setImage(image);
+                ingredient.setUnit(unit);
+                list.add(ingredient);
             }
         }
         return list;

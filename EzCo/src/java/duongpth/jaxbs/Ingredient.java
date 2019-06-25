@@ -1,3 +1,4 @@
+
 package duongpth.jaxbs;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -6,23 +7,19 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java class for ingredient complex type.
- *
- * <p>
- * The following schema fragment specifies the expected content contained within
- * this class.
- *
+ * <p>Java class for ingredient complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
  * <pre>
  * &lt;complexType name="ingredient">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
- *         &lt;element name="oldid" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="categoryId" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="link" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="unit" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -32,15 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ingredient", propOrder = {
     "id",
-    "oldid",
     "name",
-    "categoryId",
     "link",
     "price",
     "unit",
@@ -49,10 +44,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "ingredient")
 public class Ingredient {
 
-    protected Integer id;
-    protected String oldid;
+    protected String id;
     protected String name;
-    protected Integer categoryId;
     protected String link;
     protected Integer price;
     @XmlElement(defaultValue = "100")
@@ -61,49 +54,35 @@ public class Ingredient {
 
     /**
      * Gets the value of the id property.
-     *
-     * @return possible object is {@link Integer }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * Sets the value of the id property.
-     *
-     * @param value allowed object is {@link Integer }
-     *
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setId(Integer value) {
+    public void setId(String value) {
         this.id = value;
     }
 
     /**
-     * Gets the value of the oldid property.
-     *
-     * @return possible object is {@link String }
-     *
-     */
-    public String getOldid() {
-        return oldid;
-    }
-
-    /**
-     * Sets the value of the oldid property.
-     *
-     * @param value allowed object is {@link String }
-     *
-     */
-    public void setOldid(String value) {
-        this.oldid = value;
-    }
-
-    /**
      * Gets the value of the name property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getName() {
         return name;
@@ -111,39 +90,23 @@ public class Ingredient {
 
     /**
      * Sets the value of the name property.
-     *
-     * @param value allowed object is {@link String }
-     *
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /**
-     * Gets the value of the categoryId property.
-     *
-     * @return possible object is {@link Integer }
-     *
-     */
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    /**
-     * Sets the value of the categoryId property.
-     *
-     * @param value allowed object is {@link Integer }
-     *
-     */
-    public void setCategoryId(Integer value) {
-        this.categoryId = value;
-    }
-
-    /**
      * Gets the value of the link property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getLink() {
         return link;
@@ -151,9 +114,11 @@ public class Ingredient {
 
     /**
      * Sets the value of the link property.
-     *
-     * @param value allowed object is {@link String }
-     *
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setLink(String value) {
         this.link = value;
@@ -161,9 +126,11 @@ public class Ingredient {
 
     /**
      * Gets the value of the price property.
-     *
-     * @return possible object is {@link Integer }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
      */
     public Integer getPrice() {
         return price;
@@ -171,9 +138,11 @@ public class Ingredient {
 
     /**
      * Sets the value of the price property.
-     *
-     * @param value allowed object is {@link Integer }
-     *
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
      */
     public void setPrice(Integer value) {
         this.price = value;
@@ -181,9 +150,11 @@ public class Ingredient {
 
     /**
      * Gets the value of the unit property.
-     *
-     * @return possible object is {@link Integer }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
      */
     public Integer getUnit() {
         return unit;
@@ -191,9 +162,11 @@ public class Ingredient {
 
     /**
      * Sets the value of the unit property.
-     *
-     * @param value allowed object is {@link Integer }
-     *
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
      */
     public void setUnit(Integer value) {
         this.unit = value;
@@ -201,9 +174,11 @@ public class Ingredient {
 
     /**
      * Gets the value of the image property.
-     *
-     * @return possible object is {@link String }
-     *
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getImage() {
         return image;
@@ -211,9 +186,11 @@ public class Ingredient {
 
     /**
      * Sets the value of the image property.
-     *
-     * @param value allowed object is {@link String }
-     *
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setImage(String value) {
         this.image = value;

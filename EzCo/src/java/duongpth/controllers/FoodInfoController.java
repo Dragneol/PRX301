@@ -5,8 +5,15 @@
  */
 package duongpth.controllers;
 
+import duongpth.daos.IngredientDAO;
+import duongpth.jaxbs.Ingredient;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,17 +37,20 @@ public class FoodInfoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet FoodInfoController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet FoodInfoController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String path = MainController.INGREDIENTPAGE;
+        try {
+            IngredientDAO dao = new IngredientDAO();
+            List<Ingredient> list = dao.getFirst(10);
+
+            request.setAttribute("LIST_INGREDIENT", list);
+        } catch (NamingException ex) {
+            Logger.getLogger(FoodInfoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(FoodInfoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(FoodInfoController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            request.getRequestDispatcher(path).forward(request, response);
         }
     }
 

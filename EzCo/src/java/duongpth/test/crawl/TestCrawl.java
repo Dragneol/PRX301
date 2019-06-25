@@ -5,11 +5,14 @@
  */
 package duongpth.test.crawl;
 
+import duongpth.daos.IngredientDAO;
 import duongpth.daos.RecipeDAO;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
+import duongpth.persistences.IngredientBLO;
+import duongpth.persistences.RecipeBLO;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
 import duongpth.utils.LogUtil;
@@ -59,87 +62,121 @@ public class TestCrawl {
         InputStream stream = null;
         List<Recipe> list = null;
         Recipes recipes = null;
-        Recipe ing = null;
-
+        Recipe tmp = null;
+        RecipeBLO blo = new RecipeBLO();
         BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
         int index;
+//        do {
+//            crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
+//            System.out.println("Crawling " + crawledLink);
+//            stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
+//            if (stream != null) {
+//                stream = CrawlUtil.transformXML(stream, xslFileLinks);
+//                stream.reset();
+//
+//                recipes = JAXBUtil.unmarshalling(stream, new Recipes());
+//                list = recipes.getRecipe();
+//
+//                for (Recipe recipe : list) {
+//                    crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
+        crawledLink = CrawlUtil.normalizeLink(homePage, "http://www.amthuc365.vn/cong-thuc/4796-cach-nau-canh-kim-chi-han-quoc-nong-hoi-thom-ngon.html");
+        System.out.println("Crawling " + crawledLink);
+        stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
+        if (stream != null) {
+            stream = CrawlUtil.transformXML(stream, xslFileDetail);
+            tmp = JAXBUtil.unmarshalling(stream, new Recipe());
+            tmp.setLink(crawledLink);
+            blo.insert(tmp);
+//            index = list.indexOf(recipe);
+//            list.set(index, tmp);
+//            writer.write(lines);
+        }
+//                }
+//            }
+//            nextPage = recipes.getNextpage();
+//            if (nextPage != null && !nextPage.equals("")) {
+//                crawledLink = nextPage;
+//            }
+//            System.out.println("next page: " + nextPage);
+//            numPage++;
+//        } while (nextPage != null && !nextPage.equals("") && numPage < 1);
+//        writer.close();
+    }
+
+    public static void crawlPageFood(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException {
+        String homePage = "http://nkfood.vn/cua-hang";
+        String crawledLink = CrawlUtil.normalizeLink(homePage, url);
+        InputStream stream = null;
+        Ingredients ingredients = null;
+        List<Ingredient> list = null;
+        String nextPage = "";
+        Ingredient tmp = null;
+        int index;
+
+        String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
+        String end = "</main><!-- #main -->";
+        MarkerDTO markerHome = new MarkerDTO();
+        markerHome.setEnd(end);
+        markerHome.setStart(start);
+        markerHome.setIncluded(true);
+        String xslFileLinks = "web/WEB-INF/xsl/ingredientLink.xsl";
+
+        start = "<div class=\"summary entry-summary\">";
+        end = "</div><!-- .summary -->";
+        MarkerDTO markerDetail = new MarkerDTO();
+        markerDetail.setEnd(end);
+        markerDetail.setStart(start);
+        markerDetail.setIncluded(true);
+        String xslFileDetail = "web/WEB-INF/xsl/ingredientDetail.xsl";
+
+        IngredientBLO blo = new IngredientBLO();
+        IngredientDAO dao = new IngredientDAO();
         do {
-            crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
             System.out.println("Crawling " + crawledLink);
             stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
             if (stream != null) {
+
                 stream = CrawlUtil.transformXML(stream, xslFileLinks);
                 stream.reset();
 
-                recipes = JAXBUtil.unmarshalling(stream, new Recipes());
-                list = recipes.getRecipe();
+                ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
+                list = ingredients.getIngredient();
 
-                Recipe tmp = null;
-                for (Recipe recipe : list) {
-                    crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
-//        crawledLink = CrawlUtil.normalizeLink(homePage, "http://www.amthuc365.vn/cong-thuc/4796-cach-nau-canh-kim-chi-han-quoc-nong-hoi-thom-ngon.html");
+                for (Ingredient ingredient : list) {
+                    crawledLink = CrawlUtil.normalizeLink(homePage, ingredient.getLink());
                     System.out.println("Crawling " + crawledLink);
                     stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
                     if (stream != null) {
                         stream = CrawlUtil.transformXML(stream, xslFileDetail);
-                        tmp = JAXBUtil.unmarshalling(stream, new Recipe());
+                        stream.reset();
+
+                        tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
+                        index = list.indexOf(ingredient);
                         tmp.setLink(crawledLink);
-                        index = list.indexOf(recipe);
+                        tmp.setImage(ingredient.getImage());
                         list.set(index, tmp);
-                        writer.write(lines);
+                        blo.insert(tmp);
                     }
                 }
+                nextPage = ingredients.getNextpage();
             }
-            nextPage = recipes.getNextpage();
             if (nextPage != null && !nextPage.equals("")) {
                 crawledLink = nextPage;
             }
-            System.out.println("next page: " + nextPage);
             numPage++;
-        } while (nextPage != null && !nextPage.equals("") && numPage < 1);
-        writer.close();
-    }
-
-    public static void crawlPageFood(String url, int numPage) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException {
-        String line, lines = "";
-        String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
-        String end = "</main><!-- #main -->";
-
-        MarkerDTO marker = new MarkerDTO();
-        marker.setEnd(end);
-        marker.setStart(start);
-        InputStream stream = CrawlUtil.crawlFromLink(url, marker);
-        String xslFile = "web/WEB-INF/xsl/ingredientLink.xsl";
-        stream = CrawlUtil.transformXML(stream, xslFile);
-        stream.reset();
-        Ingredients ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
-        System.out.println("nextPage " + ingredients.getNextpage());
-        List<Ingredient> list = ingredients.getIngredient();
-        Ingredient ingredient = null;
-        String nextPage = "";
-
-        do {
-            nextPage = ingredients.getNextpage();
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
-                while ((line = reader.readLine()) != null) {
-                    lines += line;
-                }
-            }
-            numPage++;
-            System.out.println("next page: " + nextPage);
-        } while (nextPage != null && !nextPage.equals("") && numPage < 3);
-        BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
-        writer.write(lines);
-        writer.close();
+        } while (nextPage != null && !nextPage.equals(""));
+//        BufferedWriter writer = new BufferedWriter(new FileWriter("page.xml"));
+//        writer.write(lines);
+//        writer.close();
     }
 
     public static void main(String[] args) {
-        String homeUrl = "http://www.amthuc365.vn/cong-thuc/105-thanh-phan";
-//        String homeUrl = "http://nkfood.vn/cua-hang";
+        String ingredientUrl = "http://www.amthuc365.vn/cong-thuc/105-thanh-phan";
+        String recipeUrl = "http://nkfood.vn/cua-hang";
         try {
             do {
-                crawlPageRecipe(homeUrl, 1);
-//                crawlPageFood(homeUrl, 1);
+                crawlPageRecipe(recipeUrl, 1);
+//                crawlPageFood(ingredientUrl, 1);
             } while (false);
         } catch (IOException | XMLStreamException | TransformerException | JAXBException ex) {
             Logger.getLogger(TestCrawl.class.getName()).log(Level.SEVERE, null, ex);

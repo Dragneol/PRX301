@@ -35,7 +35,7 @@ public class AdminController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminController</title>");            
+            out.println("<title>Servlet AdminController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AdminController at " + request.getContextPath() + "</h1>");

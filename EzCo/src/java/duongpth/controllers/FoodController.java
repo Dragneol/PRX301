@@ -9,6 +9,7 @@ import duongpth.daos.IngredientDAO;
 import duongpth.handler.ItemHandler;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
+import duongpth.persistences.IngredientBLO;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
 import duongpth.utils.MarkerDTO;
@@ -72,6 +73,7 @@ public class FoodController extends HttpServlet {
             Ingredients ingredients = null;
             Ingredient tmp = null;
             IngredientDAO dao = new IngredientDAO();
+//            IngredientBLO blo = new IngredientBLO();
             int index;
             do {
                 System.out.println("Crawling " + crawledLink);
@@ -95,8 +97,10 @@ public class FoodController extends HttpServlet {
                             tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
                             index = list.indexOf(ingredient);
                             tmp.setLink(crawledLink);
+                            tmp.setLink(ingredient.getImage());
                             list.set(index, tmp);
                             dao.insert(tmp);
+//                            blo.insert(tmp);
                         }
                     }
                     nextPage = ingredients.getNextpage();

@@ -5,7 +5,7 @@
         driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
         name="DBSource" 
         type="javax.sql.DataSource" 
-        url="jdbc:sqlserver://localhost:1433;databaseName = EzCo" 
+        url="jdbc:sqlserver://localhost:1433;databaseName = EzCoVer1" 
         username="sa"
         password="P@ssw0rd" 
     />

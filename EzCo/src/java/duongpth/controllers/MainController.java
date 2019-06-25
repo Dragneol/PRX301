@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MainController extends HttpServlet {
 
     public static final String ERRORPAGE = "error.jsp";
+    public static final String INGREDIENTPAGE = "ingredient.jsp";
     public static final String RECIPE_CRAWLER = "RecipeController";
     public static final String RECIPE_VIEWER = "RecipeInfoController";
     public static final String FOOD_CRAWLER = "FoodController";
