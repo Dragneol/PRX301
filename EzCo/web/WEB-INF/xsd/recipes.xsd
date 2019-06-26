@@ -26,8 +26,8 @@ and open the template in the editor.
             <xs:element name="image" type ="xs:string" minOccurs="0"/>
             <xs:element name="description" type ="xs:string" minOccurs="0"/>
             <xs:element name="ration" type ="xs:int" minOccurs="0"/>
-            <xs:element name="preparetime" type ="xs:int" minOccurs="0"/>
-            <xs:element name="cookingtime" type ="xs:int" minOccurs="0"/>
+            <xs:element name="preparetime" type ="xs:int" minOccurs="0" default="10"/>
+            <xs:element name="cookingtime" type ="xs:int" minOccurs="0" default="20"/>
             <xs:element name="ingredientmenu" type="ingredientmenu" minOccurs="0"/>
             <xs:element name="instructionmenu" type="instructionmenu" minOccurs="0"/>
         </xs:sequence>

@@ -161,8 +161,8 @@ public class TestCrawl {
         String recipeUrl = "http://www.amthuc365.vn/cong-thuc/105-thanh-phan";
         try {
             do {
-                crawlPageRecipe(recipeUrl);
                 crawlPageFood(ingredientUrl);
+                crawlPageRecipe(recipeUrl);
             } while (false);
         } catch (IOException | XMLStreamException | TransformerException | JAXBException | SQLException | NamingException | ClassNotFoundException ex) {
             Logger.getLogger(TestCrawl.class.getName()).log(Level.SEVERE, null, ex);

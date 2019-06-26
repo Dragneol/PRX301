@@ -28,7 +28,7 @@ public class DatabaseUtil implements Serializable {
 //    }
     public static Connection getConnection() throws NamingException, SQLException, ClassNotFoundException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=EzCoVer1;","sa","P@ssw0rd");
+            Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=EzCoVer2;","sa","P@ssw0rd");
             return con;
     }
 }
