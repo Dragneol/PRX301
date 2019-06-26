@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book id="B001">
+        <booktitle>Java Desktop</booktitle>
+        <author>PRJ311</author>
+        <price>50</price>
+    </book>
+    <book id="B002">
+        <booktitle>Java Web</booktitle>
+        <author>PRJ321</author>
+        <price>100</price>
+    </book>
+    <book id="B003">
+        <booktitle>Java Web Advance</booktitle>
+        <author>PRX301</author>
+        <price>200</price>
+    </book>
+</library>
