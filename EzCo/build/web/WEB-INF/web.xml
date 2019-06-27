@@ -24,6 +24,10 @@
         <servlet-name>RecipeInfoController</servlet-name>
         <servlet-class>duongpth.controllers.RecipeInfoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RecipeDetailController</servlet-name>
+        <servlet-class>duongpth.controllers.RecipeDetailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>RecipeInfoController</servlet-name>
         <url-pattern>/RecipeInfoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecipeDetailController</servlet-name>
+        <url-pattern>/RecipeDetailController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

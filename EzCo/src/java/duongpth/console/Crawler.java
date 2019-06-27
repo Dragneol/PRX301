@@ -76,10 +76,24 @@ public class Crawler {
                         stream.reset();
                         stream = CrawlUtil.transformXML(stream, xslFileDetail);
                         tmp = JAXBUtil.unmarshalling(stream, new Recipe());
+                        //edit wrong data with default
+                        index = tmp.getRation() % 10;
+                        if (index == 0) {
+                            index = 10;
+                            tmp.setRation(10);
+                        }
+
+                        if (tmp.getCookingtime() == 0) {
+                            tmp.setCookingtime(index);
+                        }
+                        
+                        if(tmp.getPreparetime() == 0) {
+                            tmp.setPreparetime(10);
+                        }
+
                         tmp.setLink(crawledLink.trim());
                         tmp.setImage(recipe.getImage().trim());
                         tmp.setId(recipe.getId());
-                        tmp.setRation(tmp.getRation() % 10);
                         index = list.indexOf(recipe);
                         list.set(index, tmp);
                         dao.insert(tmp);

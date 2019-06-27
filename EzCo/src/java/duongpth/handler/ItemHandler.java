@@ -17,8 +17,8 @@ public class ItemHandler implements Serializable {
 
     public static final String INGREDIENTS = "WEB-INF/xsl/ingredientLink.xsl";
     public static final String INGREDIENT_DETAIL = "WEB-INF/xsl/ingredientDetail.xsl";
-    public static final String RECIPES = "WEB-INF/xsl/ingredientLink.xsl";
-    public static final String RECIPE_DETAIL = "WEB-INF/xsl/ingredientDetail.xsl";
+    public static final String RECIPES = "WEB-INF/xsl/recipeLink.xsl";
+    public static final String RECIPE_DETAIL = "WEB-INF/xsl/recipeDetail.xsl";
 
     private ServletContext context;
 

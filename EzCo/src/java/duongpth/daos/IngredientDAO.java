@@ -73,33 +73,36 @@ public class IngredientDAO implements Serializable {
                 + "      ,[Image]\n"
                 + "      ,[Unit]\n"
                 + "  FROM [Ingredient]";
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, n);
+                resultSet = preparedStatement.executeQuery();
+                int unit, price;
+                String id, name, link, image;
 
-        connection = DatabaseUtil.getConnection();
-        if (connection != null) {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, n);
-            resultSet = preparedStatement.executeQuery();
-            int unit, price;
-            String id, name, link, image;
+                Ingredient ingredient = null;
+                while (resultSet.next()) {
+                    id = resultSet.getString("ID").trim();
+                    name = resultSet.getString("Name").trim();
+                    price = resultSet.getInt("Price");
+                    link = resultSet.getString("Link").trim();
+                    image = resultSet.getString("Image").trim();
+                    unit = resultSet.getInt("Unit");
 
-            Ingredient ingredient = null;
-            while (resultSet.next()) {
-                id = resultSet.getString("ID").trim();
-                name = resultSet.getString("Name").trim();
-                price = resultSet.getInt("Price");
-                link = resultSet.getString("Link").trim();
-                image = resultSet.getString("Image").trim();
-                unit = resultSet.getInt("Unit");
-
-                ingredient = new Ingredient();
-                ingredient.setId(id);
-                ingredient.setName(name);
-                ingredient.setPrice(price);
-                ingredient.setLink(link);
-                ingredient.setImage(image);
-                ingredient.setUnit(unit);
-                list.add(ingredient);
+                    ingredient = new Ingredient();
+                    ingredient.setId(id);
+                    ingredient.setName(name);
+                    ingredient.setPrice(price);
+                    ingredient.setLink(link);
+                    ingredient.setImage(image);
+                    ingredient.setUnit(unit);
+                    list.add(ingredient);
+                }
             }
+        } finally {
+            closeConnection();
         }
         return list;
     }

@@ -13,11 +13,8 @@
     </head>
     <body>
         <h1>Hello User of EzCo!</h1>
-        <form action="MainController" method="POST">
-            <input type="submit" value="ViewIngredients" name="action" />
-        </form>
-        <form action="MainController" method="POST">
-            <input type="submit" value="ViewRecipes" name="action" />
-        </form>
+        <a href="ingredient.jsp">Looking for place to buy ingredient?</a>
+        <br/>
+        <a href="recipe.jsp">Looking for new recipe?</a>
     </body>
 </html>

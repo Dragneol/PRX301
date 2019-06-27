@@ -6,7 +6,9 @@
 package duongpth.daos;
 
 import duongpth.jaxbs.Ingredientdetail;
+import duongpth.jaxbs.Ingredientmenu;
 import duongpth.jaxbs.Instructiondetail;
+import duongpth.jaxbs.Instructionmenu;
 import duongpth.jaxbs.Recipe;
 import duongpth.utils.DatabaseUtil;
 import java.io.Serializable;
@@ -27,6 +29,12 @@ public class RecipeDAO implements Serializable {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
+    private final String insertTblRecipe = "IF NOT EXISTS (SELECT * FROM Recipe WHERE ID = ?) INSERT INTO Recipe([ID],[Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime]) VALUES(?,?,?,?,?,?,?,?)";
+    private final String findByIdTblRecipe = "SELECT [Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime] FROM [dbo].[Recipe] Where ID = ?";
+    private final String insertTblInstructionMenu = "INSERT INTO InstructionMenu([RecipeID], [NumStep], [Detail]) VALUES(?,?,?)";
+    private final String findByIdTblInstructionMenu = "SELECT [NumStep],[Detail] FROM [dbo].[InstructionMenu] where RecipeID = ?";
+    private final String insertTblIngredientMenu = "INSERT INTO IngredientMenu([RecipeID], [Name], [Unit], [Quantitive]) VALUES(?,?,?,?)";
+    private final String findByIdTblIngredientMenu = "SELECT [Name],[Unit],[Quantitive] FROM [dbo].[IngredientMenu] where RecipeID = ?";
 
     private void closeConnection() throws SQLException {
         if (resultSet != null) {
@@ -42,9 +50,6 @@ public class RecipeDAO implements Serializable {
 
     public boolean insert(Recipe r) throws NamingException, SQLException, ClassNotFoundException {
         boolean inserted = false;
-        String insertTblRecipe = "IF NOT EXISTS (SELECT * FROM Recipe WHERE ID = ?) INSERT INTO Recipe([ID],[Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime]) VALUES(?,?,?,?,?,?,?,?)";
-        String insertTblInstructionMenu = "INSERT INTO InstructionMenu([RecipeID], [NumStep], [Detail]) VALUES(?,?,?)";
-        String insertTblIngredientMenu = "INSERT INTO IngredientMenu([RecipeID], [Name], [Unit], [Quantitive]) VALUES(?,?,?,?)";
         PreparedStatement tmp = null;
 
         List<Ingredientdetail> ingredients = null;
@@ -112,24 +117,82 @@ public class RecipeDAO implements Serializable {
                 + "      ,[PrepareTime]\n"
                 + "      ,[CookingTime]\n"
                 + "  FROM [dbo].[Recipe] ORDER BY ID DESC";
-        connection = DatabaseUtil.getConnection();
-        if (connection != null) {
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, n);
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                recipe = new Recipe();
-                recipe.setId(resultSet.getInt("ID"));
-                recipe.setTitle(resultSet.getString("Title"));
-                recipe.setLink(resultSet.getString("Link"));
-                recipe.setImage(resultSet.getString("Image"));
-                recipe.setDescription(resultSet.getString("Description"));
-                recipe.setRation(resultSet.getInt("Ration"));
-                recipe.setPreparetime(resultSet.getInt("PrepareTime"));
-                recipe.setCookingtime(resultSet.getInt("CookingTime"));
-                list.add(recipe);
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, n);
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    recipe = new Recipe();
+                    recipe.setId(resultSet.getInt("ID"));
+                    recipe.setTitle(resultSet.getString("Title"));
+                    recipe.setLink(resultSet.getString("Link"));
+                    recipe.setImage(resultSet.getString("Image"));
+                    recipe.setDescription(resultSet.getString("Description"));
+                    recipe.setRation(resultSet.getInt("Ration"));
+                    recipe.setPreparetime(resultSet.getInt("PrepareTime"));
+                    recipe.setCookingtime(resultSet.getInt("CookingTime"));
+                    list.add(recipe);
+                }
             }
+        } finally {
+            closeConnection();
         }
         return list;
+    }
+
+    public Recipe getRecipe(int id) throws SQLException, NamingException, ClassNotFoundException {
+        Recipe recipe = null;
+        Instructionmenu instructions = null;
+        Instructiondetail instruction = null;
+        Ingredientmenu ingredients = null;
+        Ingredientdetail ingredient = null;
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(findByIdTblRecipe);
+                preparedStatement.setInt(1, id);
+                resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    recipe = new Recipe();
+                    recipe.setTitle(resultSet.getString("Title"));
+                    recipe.setLink(resultSet.getString("Link"));
+                    recipe.setImage(resultSet.getString("Image"));
+                    recipe.setDescription(resultSet.getString("Description"));
+                    recipe.setRation(resultSet.getInt("Ration"));
+                    recipe.setPreparetime(resultSet.getInt("PrepareTime"));
+                    recipe.setCookingtime(resultSet.getInt("CookingTime"));
+
+                    ingredients = new Ingredientmenu();
+                    preparedStatement = connection.prepareStatement(findByIdTblIngredientMenu);
+                    preparedStatement.setInt(1, id);
+                    resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+                        ingredient = new Ingredientdetail();
+                        ingredient.setName(resultSet.getString("Name"));
+                        ingredient.setUnit(resultSet.getString("Unit"));
+                        ingredient.setQuantitive(resultSet.getInt("Quantitive"));
+                        ingredients.getIngredientdetail().add(ingredient);
+                    }
+                    recipe.setIngredientmenu(ingredients);
+                    instructions = new Instructionmenu();
+                    preparedStatement = connection.prepareStatement(findByIdTblInstructionMenu);
+                    preparedStatement.setInt(1, id);
+                    resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+                        instruction = new Instructiondetail();
+                        instruction.setNumstep(resultSet.getInt("NumStep"));
+                        instruction.setDetail(resultSet.getString("Detail"));
+                        instructions.getInstructiondetail().add(instruction);
+                    }
+                    recipe.setInstructionmenu(instructions);
+                }
+
+            }
+        } finally {
+            closeConnection();
+        }
+        return recipe;
     }
 }

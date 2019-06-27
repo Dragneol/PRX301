@@ -5,7 +5,14 @@
  */
 package duongpth.controllers;
 
+import duongpth.daos.RecipeDAO;
+import duongpth.jaxbs.Recipe;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,17 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author dragn
  */
-public class MainController extends HttpServlet {
-
-    public static final String ERROR_PAGE = "error.jsp";
-    public static final String INGREDIENT_PAGE = "ingredient.jsp";
-    public static final String RECIPE_PAGE = "recipe.jsp";
-    public static final String RECIPE_DETAIL_PAGE = "recipe_detail.jsp";
-    public static final String RECIPE_CRAWLER = "RecipeController";
-    public static final String RECIPE_VIEWER = "RecipeInfoController";
-    public static final String RECIPE_DETAIL = "RecipeDetailController";
-    public static final String FOOD_CRAWLER = "FoodController";
-    public static final String FOOD_VIEWER = "FoodInfoController";
+public class RecipeDetailController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,31 +36,23 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = ERROR_PAGE;
+        String path = MainController.RECIPE_DETAIL_PAGE;
         try {
-            String action = request.getParameter("action");
-            switch (action) {
-                case "CrawlRecipe":
-                    path = RECIPE_CRAWLER;
-                    break;
-                case "CrawlFood":
-                    path = FOOD_CRAWLER;
-                    break;
-                case "ViewIngredients":
-                    path = FOOD_VIEWER;
-                    break;
-                case "ViewRecipes":
-                    path = RECIPE_VIEWER;
-                    break;
-                case "RecipeDetail":
-                    path = RECIPE_DETAIL;
-                    break;
-                default:
-                    log("ERROR at MainController: Action not supported");
-                    break;
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            RecipeDAO dao = new RecipeDAO();
+            Recipe recipe = dao.getRecipe(id);
+            if (recipe != null) {
+                request.setAttribute("RECIPE", recipe);
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(RecipeDetailController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NamingException ex) {
+            Logger.getLogger(RecipeDetailController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RecipeDetailController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
-            log("ERROR at MainController: " + e.getMessage());
+            Logger.getLogger(RecipeDetailController.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
         }

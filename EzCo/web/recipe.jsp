@@ -13,6 +13,10 @@
         <title>EzCo</title>
     </head>
     <body>
+        <form action="MainController" method="POST">
+            Find <input type="text" name="txtSearch" value="${param.txtSearch}" /><br/>
+            <input type="submit" value="ViewRecipes" name="action" />
+        </form>
         <c:set var="list" value="${requestScope.LIST_RECIPE}"/>
         <c:if var="check" test="${not empty list}">
             <table border="1">
@@ -33,7 +37,14 @@
                         <tr>
                             <td>${counter.count}</td>
                             <td>${dto.id}</td>
-                            <td><a href="${dto.link}">${dto.title}</a></td>
+                            <td>
+                                <c:url value="MainController" var="detail">
+                                    <c:param name="txtSearch" value="${param.txtSearch}"/>
+                                    <c:param name="id" value="${dto.id}"/>
+                                    <c:param name="action" value="RecipeDetail"/>
+                                </c:url>
+                                <a href="${detail}">${dto.title}</a>
+                            </td>
                             <td>${dto.description}</td>
                             <td>
                                 <img src="${dto.image}" width="100" height="100"/>
@@ -45,7 +56,6 @@
                     </c:forEach>
                 </tbody>
             </table>
-
         </c:if>
         <c:if test="${not check}">
             <h3>No records</h3>

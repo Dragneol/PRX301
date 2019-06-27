@@ -13,6 +13,10 @@
         <title>EzCo</title>
     </head>
     <body>
+        <form action="MainController" method="POST">
+            Find <input type="text" name="txtSearch" value="${param.txtSearch}" /><br/>
+            <input type="submit" value="ViewIngredients" name="action" />
+        </form>
         <c:set var="list" value="${requestScope.LIST_INGREDIENT}"/>
         <c:if var="check" test="${not empty list}">
             <table border="1">
