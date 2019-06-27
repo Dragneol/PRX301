@@ -20,11 +20,14 @@
                 <recipe>
                     <xsl:variable name="link" select=".//h3/a/@href" />
                     <id>
-                        <xsl:value-of select="translate($link, translate($link, '0123456789', ''), '')"/>
+                        <xsl:value-of select="substring-before(substring-after($link, '/cong-thuc/'),'-')"/>
                     </id>
                     <link>
                         <xsl:value-of select="$link"/>
                     </link>
+                    <image>
+                        <xsl:value-of select=".//preceding-sibling::div[@class='it-img_bottom col-md-4 col-sm-4']/a/image/@src"/>
+                    </image>
                 </recipe>
             </xsl:for-each>
             <nextpage>

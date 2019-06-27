@@ -9,7 +9,6 @@ import duongpth.daos.IngredientDAO;
 import duongpth.handler.ItemHandler;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
-import duongpth.persistences.IngredientBLO;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
 import duongpth.utils.MarkerDTO;
@@ -17,11 +16,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +45,7 @@ public class FoodController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = MainController.ERRORPAGE;
+        String path = MainController.ERROR_PAGE;
         try {
             String homePage = request.getParameter("foodPage");
             String subDomain = request.getParameter("foodSubDomain");
@@ -72,8 +69,7 @@ public class FoodController extends HttpServlet {
             List<Ingredient> list = null;
             Ingredients ingredients = null;
             Ingredient tmp = null;
-//            IngredientDAO dao = new IngredientDAO();
-            IngredientBLO blo = new IngredientBLO();
+            IngredientDAO dao = new IngredientDAO();
             int index;
             do {
                 System.out.println("Crawling " + crawledLink);
@@ -96,11 +92,10 @@ public class FoodController extends HttpServlet {
 
                             tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
                             index = list.indexOf(ingredient);
-                            tmp.setLink(crawledLink);
-                            tmp.setImage(ingredient.getImage());
+                            tmp.setLink(crawledLink.trim());
+                            tmp.setImage(ingredient.getImage().trim());
                             list.set(index, tmp);
-//                            dao.insert(tmp);
-                            blo.insert(tmp);
+                            dao.insert(tmp);
                         }
                     }
                     nextPage = ingredients.getNextpage();

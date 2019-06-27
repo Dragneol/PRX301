@@ -5,6 +5,7 @@
  */
 package duongpth.controllers;
 
+import duongpth.daos.RecipeDAO;
 import duongpth.handler.ItemHandler;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
@@ -42,7 +43,7 @@ public class RecipeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = MainController.ERRORPAGE;
+        String path = MainController.ERROR_PAGE;
         try {
             String homePage = request.getParameter("recipePage");
             String subDomain = request.getParameter("recipeSubDomain");
@@ -66,31 +67,35 @@ public class RecipeController extends HttpServlet {
             InputStream stream = null;
             List<Recipe> list = null;
             Recipes recipes = null;
-            Recipe ing = null;
+            Recipe tmp = null;
 
+            RecipeDAO dao = new RecipeDAO();
             int index;
             do {
                 crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
                 System.out.println("Crawling " + crawledLink);
                 stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
                 if (stream != null) {
-                    stream = CrawlUtil.transformXML(stream, xslFileLinks);
                     stream.reset();
-
+                    stream = CrawlUtil.transformXML(stream, xslFileLinks);
                     recipes = JAXBUtil.unmarshalling(stream, new Recipes());
                     list = recipes.getRecipe();
 
-                    Recipe tmp = null;
                     for (Recipe recipe : list) {
                         crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
                         System.out.println("Crawling " + crawledLink);
                         stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
                         if (stream != null) {
+                            stream.reset();
                             stream = CrawlUtil.transformXML(stream, xslFileDetail);
                             tmp = JAXBUtil.unmarshalling(stream, new Recipe());
-                            tmp.setLink(crawledLink);
+                            tmp.setLink(crawledLink.trim());
+                            tmp.setImage(recipe.getImage().trim());
+                            tmp.setId(recipe.getId());
+                            tmp.setRation(tmp.getRation() % 10);
                             index = list.indexOf(recipe);
                             list.set(index, tmp);
+                            dao.insert(tmp);
                         }
                     }
                 }

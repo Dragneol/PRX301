@@ -17,8 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MainController extends HttpServlet {
 
-    public static final String ERRORPAGE = "error.jsp";
-    public static final String INGREDIENTPAGE = "ingredient.jsp";
+    public static final String ERROR_PAGE = "error.jsp";
+    public static final String INGREDIENT_PAGE = "ingredient.jsp";
+    public static final String RECIPE_PAGE = "recipe.jsp";
     public static final String RECIPE_CRAWLER = "RecipeController";
     public static final String RECIPE_VIEWER = "RecipeInfoController";
     public static final String FOOD_CRAWLER = "FoodController";
@@ -36,7 +37,7 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = ERRORPAGE;
+        String path = ERROR_PAGE;
         try {
             String action = request.getParameter("action");
             switch (action) {

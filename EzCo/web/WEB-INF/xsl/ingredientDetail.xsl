@@ -16,18 +16,26 @@
     -->
     <xsl:template match="/">
         <ingredient xmlns="http://www.ezco.com/XMLSchema/ezco">
+            <xsl:variable name="titletext" select="//h1" />
+            <xsl:variable name="destext" select="//div[@itemprop='description']"/>
             <id>
                 <xsl:value-of select="//span[@class='sku']"/>
             </id>
             <name>
-                <xsl:value-of select="//h1"/>
+                <xsl:value-of select="$titletext"/>
             </name>
             <price>
                 <xsl:value-of select="//meta[@itemprop='price']/@content"/>
             </price>
             <unit>
-                <xsl:variable name="text" select="//div[@itemprop='description']"/>
-                <xsl:value-of select="translate($text, translate($text, '0123456789', ''), '')"/>                
+                <xsl:choose>
+                    <xsl:when test="$titletext[contains(text(),'0')]">
+                        <xsl:value-of select="translate($titletext, translate($titletext, '0123456789', ''), '')"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="translate($destext, translate($destext, '0123456789', ''), '')"/>
+                    </xsl:otherwise>
+                </xsl:choose>        
             </unit>
         </ingredient>
     </xsl:template>

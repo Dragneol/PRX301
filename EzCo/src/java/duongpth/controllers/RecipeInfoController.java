@@ -5,24 +5,25 @@
  */
 package duongpth.controllers;
 
-import duongpth.daos.IngredientDAO;
-import duongpth.jaxbs.Ingredient;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import duongpth.daos.RecipeDAO;
+import duongpth.jaxbs.Recipe;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
+
 /**
  *
  * @author dragn
  */
-public class FoodInfoController extends HttpServlet {
+public class RecipeInfoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,18 +37,18 @@ public class FoodInfoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = MainController.INGREDIENT_PAGE;
+        String path = MainController.RECIPE_PAGE;
         try {
-            IngredientDAO dao = new IngredientDAO();
-            List<Ingredient> list = dao.getFirst(10);
+            RecipeDAO dao = new RecipeDAO();
+            List<Recipe> list = dao.getFirst(10);
 
-            request.setAttribute("LIST_INGREDIENT", list);
+            request.setAttribute("LIST_RECIPE", list);
         } catch (NamingException ex) {
-            Logger.getLogger(FoodInfoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecipeInfoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(FoodInfoController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(FoodInfoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecipeInfoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RecipeInfoController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
         }

@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>EzCo</title>
     </head>
     <body>
         <c:set var="list" value="${requestScope.LIST_INGREDIENT}"/>
@@ -20,7 +20,6 @@
                     <tr>
                         <th>No</th>
                         <th>ID</th>
-                        <th>OldID</th>
                         <th>Name</th>
                         <th>Link</th>
                         <th>Image</th>
@@ -32,7 +31,6 @@
                         <tr>
                             <td>${counter.count}</td>
                             <td>${dto.id}</td>
-                            <td>${dto.oldid}</td>
                             <td>${dto.name}</td>
                             <td>${dto.link}</td>
                             <td>${dto.price}</td>

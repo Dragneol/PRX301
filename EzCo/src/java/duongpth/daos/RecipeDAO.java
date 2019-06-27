@@ -14,7 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 
@@ -42,7 +42,7 @@ public class RecipeDAO implements Serializable {
 
     public boolean insert(Recipe r) throws NamingException, SQLException, ClassNotFoundException {
         boolean inserted = false;
-        String insertTblRecipe = "INSERT INTO Recipe([ID],[Title], [Description], [Ration], [PrepareTime], [CookingTime]) VALUES(?,?,?,?,?,?)";
+        String insertTblRecipe = "IF NOT EXISTS (SELECT * FROM Recipe WHERE ID = ?) INSERT INTO Recipe([ID],[Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime]) VALUES(?,?,?,?,?,?,?,?)";
         String insertTblInstructionMenu = "INSERT INTO InstructionMenu([RecipeID], [NumStep], [Detail]) VALUES(?,?,?)";
         String insertTblIngredientMenu = "INSERT INTO IngredientMenu([RecipeID], [Name], [Unit], [Quantitive]) VALUES(?,?,?,?)";
         PreparedStatement tmp = null;
@@ -58,11 +58,14 @@ public class RecipeDAO implements Serializable {
 
                 preparedStatement = connection.prepareStatement(insertTblRecipe);
                 preparedStatement.setInt(1, r.getId());
-                preparedStatement.setString(2, r.getTitle().trim());
-                preparedStatement.setString(3, r.getDescription().trim());
-                preparedStatement.setInt(4, r.getRation());
-                preparedStatement.setInt(5, r.getPreparetime());
-                preparedStatement.setInt(6, r.getCookingtime());
+                preparedStatement.setInt(2, r.getId());
+                preparedStatement.setString(3, r.getTitle().trim());
+                preparedStatement.setString(4, r.getLink().trim());
+                preparedStatement.setString(5, r.getImage().trim());
+                preparedStatement.setString(6, r.getDescription().trim());
+                preparedStatement.setInt(7, r.getRation());
+                preparedStatement.setInt(8, r.getPreparetime());
+                preparedStatement.setInt(9, r.getCookingtime());
 
                 inserted = preparedStatement.executeUpdate() > 0;
                 if (inserted) {
@@ -95,5 +98,38 @@ public class RecipeDAO implements Serializable {
             }
         }
         return inserted;
+    }
+
+    public List<Recipe> getFirst(int n) throws NamingException, SQLException, ClassNotFoundException {
+        List<Recipe> list = new ArrayList<>();
+        Recipe recipe = null;
+        String sql = "SELECT TOP (?) [ID]\n"
+                + "      ,[Title]\n"
+                + "      ,[Link]\n"
+                + "      ,[Image]\n"
+                + "      ,[Description]\n"
+                + "      ,[Ration]\n"
+                + "      ,[PrepareTime]\n"
+                + "      ,[CookingTime]\n"
+                + "  FROM [dbo].[Recipe] ORDER BY ID DESC";
+        connection = DatabaseUtil.getConnection();
+        if (connection != null) {
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, n);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                recipe = new Recipe();
+                recipe.setId(resultSet.getInt("ID"));
+                recipe.setTitle(resultSet.getString("Title"));
+                recipe.setLink(resultSet.getString("Link"));
+                recipe.setImage(resultSet.getString("Image"));
+                recipe.setDescription(resultSet.getString("Description"));
+                recipe.setRation(resultSet.getInt("Ration"));
+                recipe.setPreparetime(resultSet.getInt("PrepareTime"));
+                recipe.setCookingtime(resultSet.getInt("CookingTime"));
+                list.add(recipe);
+            }
+        }
+        return list;
     }
 }

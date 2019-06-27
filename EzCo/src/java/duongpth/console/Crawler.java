@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duongpth.test.crawl;
+package duongpth.console;
 
 import duongpth.daos.IngredientDAO;
 import duongpth.daos.RecipeDAO;
@@ -11,7 +11,6 @@ import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
-import duongpth.persistences.IngredientBLO;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
 import duongpth.utils.MarkerDTO;
@@ -31,7 +30,7 @@ import javax.xml.transform.TransformerException;
  *
  * @author dragn
  */
-public class TestCrawl {
+public class Crawler {
 
     public static void crawlPageRecipe(String url) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException, SQLException, NamingException, ClassNotFoundException {
         String lines = "";
@@ -64,9 +63,8 @@ public class TestCrawl {
             System.out.println("Crawling " + crawledLink);
             stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
             if (stream != null) {
-                stream = CrawlUtil.transformXML(stream, xslFileLinks);
                 stream.reset();
-
+                stream = CrawlUtil.transformXML(stream, xslFileLinks);
                 recipes = JAXBUtil.unmarshalling(stream, new Recipes());
                 list = recipes.getRecipe();
 
@@ -78,8 +76,10 @@ public class TestCrawl {
                         stream.reset();
                         stream = CrawlUtil.transformXML(stream, xslFileDetail);
                         tmp = JAXBUtil.unmarshalling(stream, new Recipe());
-                        tmp.setLink(crawledLink);
+                        tmp.setLink(crawledLink.trim());
+                        tmp.setImage(recipe.getImage().trim());
                         tmp.setId(recipe.getId());
+                        tmp.setRation(tmp.getRation() % 10);
                         index = list.indexOf(recipe);
                         list.set(index, tmp);
                         dao.insert(tmp);
@@ -94,7 +94,7 @@ public class TestCrawl {
         } while (nextPage != null && !nextPage.equals(""));
     }
 
-    public static void crawlPageFood(String url) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException {
+    public static void crawlPageFood(String url) throws MalformedURLException, IOException, XMLStreamException, TransformerException, JAXBException, ClassNotFoundException, SQLException, NamingException {
         String homePage = "http://nkfood.vn/cua-hang";
         String crawledLink = CrawlUtil.normalizeLink(homePage, url);
         InputStream stream = null;
@@ -120,7 +120,7 @@ public class TestCrawl {
         markerDetail.setIncluded(true);
         String xslFileDetail = "web/WEB-INF/xsl/ingredientDetail.xsl";
 
-        IngredientBLO blo = new IngredientBLO();
+        IngredientDAO dao = new IngredientDAO();
         do {
             System.out.println("Crawling " + crawledLink);
             stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
@@ -142,10 +142,10 @@ public class TestCrawl {
 
                         tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
                         index = list.indexOf(ingredient);
-                        tmp.setLink(crawledLink);
-                        tmp.setImage(ingredient.getImage());
+                        tmp.setLink(crawledLink.trim());
+                        tmp.setImage(ingredient.getImage().trim());
                         list.set(index, tmp);
-                        blo.insert(tmp);
+                        dao.insert(tmp);
                     }
                 }
                 nextPage = ingredients.getNextpage();
@@ -161,11 +161,11 @@ public class TestCrawl {
         String recipeUrl = "http://www.amthuc365.vn/cong-thuc/105-thanh-phan";
         try {
             do {
-                crawlPageFood(ingredientUrl);
+//                crawlPageFood(ingredientUrl);
                 crawlPageRecipe(recipeUrl);
             } while (false);
         } catch (IOException | XMLStreamException | TransformerException | JAXBException | SQLException | NamingException | ClassNotFoundException ex) {
-            Logger.getLogger(TestCrawl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

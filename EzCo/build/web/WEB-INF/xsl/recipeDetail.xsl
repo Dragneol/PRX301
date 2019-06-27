@@ -17,7 +17,8 @@
     <xsl:template match="/">
         <recipe xmlns="http://www.ezco.com/XMLSchema/ezco">
             <title>
-                <xsl:value-of select="//h1"/>
+                <xsl:variable name="texttile" select="//h1" />
+                <xsl:value-of select="$texttile"/>
             </title>
             <image>
                 <xsl:value-of select="//img[@class='img-responsive']/@src"/>

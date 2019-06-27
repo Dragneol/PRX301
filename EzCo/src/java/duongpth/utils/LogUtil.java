@@ -5,7 +5,7 @@
  */
 package duongpth.utils;
 
-import duongpth.test.crawl.TestCrawl;
+import duongpth.console.Crawler;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ public class LogUtil {
                 lines += line;
             }
         } catch (IOException ex) {
-            Logger.getLogger(TestCrawl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lines;
     }

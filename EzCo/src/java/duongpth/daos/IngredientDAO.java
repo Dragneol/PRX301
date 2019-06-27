@@ -67,13 +67,12 @@ public class IngredientDAO implements Serializable {
     public List<Ingredient> getFirst(int n) throws NamingException, SQLException, ClassNotFoundException {
         List<Ingredient> list = new ArrayList<Ingredient>();
         String sql = "SELECT TOP (?) [ID]\n"
-                + "      ,[OldID]\n"
                 + "      ,[Name]\n"
                 + "      ,[Price]\n"
                 + "      ,[Link]\n"
                 + "      ,[Image]\n"
                 + "      ,[Unit]\n"
-                + "  FROM [EzCo].[dbo].[Ingredient]";
+                + "  FROM [Ingredient]";
 
         connection = DatabaseUtil.getConnection();
         if (connection != null) {
@@ -85,7 +84,7 @@ public class IngredientDAO implements Serializable {
 
             Ingredient ingredient = null;
             while (resultSet.next()) {
-                id = resultSet.getString("OldID").trim();
+                id = resultSet.getString("ID").trim();
                 name = resultSet.getString("Name").trim();
                 price = resultSet.getInt("Price");
                 link = resultSet.getString("Link").trim();
