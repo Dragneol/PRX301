@@ -7,6 +7,7 @@ package duongpth.console;
 
 import duongpth.daos.IngredientDAO;
 import duongpth.daos.RecipeDAO;
+import duongpth.handlers.DataErrorHandler;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
 import duongpth.jaxbs.Recipe;
@@ -77,23 +78,8 @@ public class Crawler {
                         stream = CrawlUtil.transformXML(stream, xslFileDetail);
                         tmp = JAXBUtil.unmarshalling(stream, new Recipe());
                         //edit wrong data with default
-                        index = tmp.getRation() % 10;
-                        if (index == 0) {
-                            index = 10;
-                            tmp.setRation(10);
-                        }
-
-                        if (tmp.getCookingtime() == 0) {
-                            tmp.setCookingtime(index);
-                        }
-                        
-                        if(tmp.getPreparetime() == 0) {
-                            tmp.setPreparetime(10);
-                        }
-
-                        tmp.setLink(crawledLink.trim());
-                        tmp.setImage(recipe.getImage().trim());
-                        tmp.setId(recipe.getId());
+                        recipe.setLink(crawledLink.trim());
+                        tmp = DataErrorHandler.normalizeRecipe(tmp, recipe);
                         index = list.indexOf(recipe);
                         list.set(index, tmp);
                         dao.insert(tmp);
@@ -175,8 +161,8 @@ public class Crawler {
         String recipeUrl = "http://www.amthuc365.vn/cong-thuc/105-thanh-phan";
         try {
             do {
-//                crawlPageFood(ingredientUrl);
-                crawlPageRecipe(recipeUrl);
+                crawlPageFood(ingredientUrl);
+//                crawlPageRecipe(recipeUrl);
             } while (false);
         } catch (IOException | XMLStreamException | TransformerException | JAXBException | SQLException | NamingException | ClassNotFoundException ex) {
             Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);

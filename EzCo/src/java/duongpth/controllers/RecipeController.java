@@ -6,7 +6,7 @@
 package duongpth.controllers;
 
 import duongpth.daos.RecipeDAO;
-import duongpth.handler.ItemHandler;
+import duongpth.handlers.ItemHandler;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
 import duongpth.utils.CrawlUtil;

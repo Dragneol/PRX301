@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package duongpth.handler;
+package duongpth.handlers;
 
 import duongpth.utils.MarkerDTO;
 import java.io.Serializable;
