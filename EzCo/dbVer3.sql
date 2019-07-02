@@ -16,8 +16,9 @@ create table [Ingredient](
 	[Price] int,
 	[Link] nchar(1000),
 	[Image] nchar(1000),
-	[Unit] nchar(10),
-	[Quantitive] nchar (10)
+	--[Unit] nchar(10),
+	--[Quantitive] nchar (10)
+	[Description] nvarchar(2000)
 )
 go
 

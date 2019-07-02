@@ -10,11 +10,11 @@ import duongpth.daos.RecipeDAO;
 import duongpth.handlers.DataErrorHandler;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
+import duongpth.jaxbs.Marker;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
-import duongpth.utils.MarkerDTO;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -39,7 +39,7 @@ public class Crawler {
         String end = "Tiếp theo</a></div> </div> </div>";
         String nextPage = "";
         String xslFileLinks = "web/WEB-INF/xsl/recipeLink.xsl";
-        MarkerDTO markerHome = new MarkerDTO();
+        Marker markerHome = new Marker();
         markerHome.setEnd(end);
         markerHome.setStart(start);
         markerHome.setIncluded(true);
@@ -47,7 +47,7 @@ public class Crawler {
         String crawledLink = CrawlUtil.normalizeLink(homePage, url);
         start = "<div class=\"box-video_info\">";
         end = "<div class=\"comments mt20\"";
-        MarkerDTO markerDetail = new MarkerDTO();
+        Marker markerDetail = new Marker();
         markerDetail.setEnd(end);
         markerDetail.setStart(start);
         markerDetail.setIncluded(false);
@@ -106,7 +106,7 @@ public class Crawler {
 
         String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
         String end = "</main><!-- #main -->";
-        MarkerDTO markerHome = new MarkerDTO();
+        Marker markerHome = new Marker();
         markerHome.setEnd(end);
         markerHome.setStart(start);
         markerHome.setIncluded(true);
@@ -114,7 +114,7 @@ public class Crawler {
 
         start = "<div class=\"summary entry-summary\">";
         end = "</div><!-- .summary -->";
-        MarkerDTO markerDetail = new MarkerDTO();
+        Marker markerDetail = new Marker();
         markerDetail.setEnd(end);
         markerDetail.setStart(start);
         markerDetail.setIncluded(true);

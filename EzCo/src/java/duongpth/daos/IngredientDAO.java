@@ -54,7 +54,7 @@ public class IngredientDAO implements Serializable {
                 preparedStatement.setInt(4, i.getPrice());
                 preparedStatement.setString(5, i.getLink().trim());
                 preparedStatement.setString(6, i.getImage().trim());
-                preparedStatement.setInt(7, i.getUnit());
+//                preparedStatement.setInt(7, i.getUnit());
 
                 inserted = preparedStatement.executeUpdate() > 0;
             }
@@ -97,7 +97,7 @@ public class IngredientDAO implements Serializable {
                     ingredient.setPrice(price);
                     ingredient.setLink(link);
                     ingredient.setImage(image);
-                    ingredient.setUnit(unit);
+//                    ingredient.setUnit(unit);
                     list.add(ingredient);
                 }
             }

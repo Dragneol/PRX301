@@ -57,7 +57,7 @@
                 </tbody>
             </table>
         </c:if>
-        <c:if test="${not check}">
+        <c:if test="${not empty param.txtSearch && not check}">
             <h3>No records</h3>
         </c:if>
     </body>

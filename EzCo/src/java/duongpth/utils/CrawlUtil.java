@@ -6,6 +6,7 @@
 package duongpth.utils;
 
 import com.sun.xml.internal.stream.events.EndElementEvent;
+import duongpth.jaxbs.Marker;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -40,7 +41,7 @@ import javax.xml.transform.stream.StreamSource;
  */
 public class CrawlUtil implements Serializable {
 
-    public static InputStream crawlFromLink(String crawledLink, MarkerDTO marker) {
+    public static InputStream crawlFromLink(String crawledLink, Marker marker) {
         InputStream stream = null;
         try {
             stream = getDataFromWeb(crawledLink, marker);
@@ -103,7 +104,7 @@ public class CrawlUtil implements Serializable {
      * @throws IOException
      * @throws XMLStreamException
      */
-    private static InputStream getDataFromWeb(String url, MarkerDTO marker) throws MalformedURLException, IOException, XMLStreamException {
+    private static InputStream getDataFromWeb(String url, Marker marker) throws MalformedURLException, IOException, XMLStreamException {
         URL urlink = new URL(url);
         HttpURLConnection con = (HttpURLConnection) urlink.openConnection();
         InputStream inputStream = con.getInputStream();
@@ -125,7 +126,7 @@ public class CrawlUtil implements Serializable {
         return content.toString().trim();
     }
 
-    private static String cutContent(String content, MarkerDTO marker) {
+    private static String cutContent(String content, Marker marker) {
         String start = marker.getStart();
         String end = marker.getEnd();
         if (marker.isIncluded()) {

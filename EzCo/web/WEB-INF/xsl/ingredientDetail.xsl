@@ -27,7 +27,10 @@
             <price>
                 <xsl:value-of select="//meta[@itemprop='price']/@content"/>
             </price>
-            <unit>
+            <description>
+                <xsl:value-of select="$destext"/>
+            </description>
+            <!--            <unit>
                 <xsl:choose>
                     <xsl:when test="$titletext[contains(text(),'0')]">
                         <xsl:value-of select="translate($titletext, translate($titletext, '0123456789', ''), '')"/>
@@ -36,7 +39,7 @@
                         <xsl:value-of select="translate($destext, translate($destext, '0123456789', ''), '')"/>
                     </xsl:otherwise>
                 </xsl:choose>        
-            </unit>
+            </unit>-->
         </ingredient>
     </xsl:template>
 

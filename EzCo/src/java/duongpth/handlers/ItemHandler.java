@@ -5,7 +5,7 @@
  */
 package duongpth.handlers;
 
-import duongpth.utils.MarkerDTO;
+import duongpth.jaxbs.Marker;
 import java.io.Serializable;
 import javax.servlet.ServletContext;
 
@@ -26,8 +26,8 @@ public class ItemHandler implements Serializable {
         this.context = context;
     }
 
-    public MarkerDTO getMarker(String start, String end, boolean included) {
-        MarkerDTO marker = new MarkerDTO();
+    public Marker getMarker(String start, String end, boolean included) {
+        Marker marker = new Marker();
         marker.setEnd(end);
         marker.setStart(start);
         marker.setIncluded(included);

@@ -46,7 +46,7 @@ and open the template in the editor.
         <xs:sequence>
             <xs:element name="start" type="xs:string" maxOccurs="1"/>
             <xs:element name="end" type="xs:string" maxOccurs="1"/>
-            <xs:element name="included" type="xs:string" maxOccurs="1"/>
+            <xs:element name="included" type="xs:boolean" maxOccurs="1"/>
             <xs:element name="xsl" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>

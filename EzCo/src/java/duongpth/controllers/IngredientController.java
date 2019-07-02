@@ -6,12 +6,12 @@
 package duongpth.controllers;
 
 import duongpth.daos.IngredientDAO;
-import duongpth.handlers.ItemHandler;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
+import duongpth.jaxbs.Marker;
+import duongpth.jaxbs.Website;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
-import duongpth.utils.MarkerDTO;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,6 +23,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
@@ -47,23 +48,25 @@ public class IngredientController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String path = MainController.ERROR_PAGE;
         try {
-            String homePage = request.getParameter("foodPage");
-            String subDomain = request.getParameter("foodSubDomain");
+            String homePage = request.getParameter("ingredientPage");
+            String subDomain = request.getParameter("ingredientSubDomain");
             String nextPage = "";
-            ItemHandler handler = new ItemHandler(getServletContext());
+            HttpSession session = request.getSession();
+            Website ingredientSite = (Website) session.getAttribute("INGREDIENT_WEBSITE");
+//            ItemHandler handler = new ItemHandler(getServletContext());
 
             String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
 
-            String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
-            String end = "</main><!-- #main -->";
-            MarkerDTO markerHome = handler.getMarker(start, end, true);
+//            String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
+//            String end = "</main><!-- #main -->";
+            Marker markerHome = ingredientSite.getMarkers().getHome();
+//
+//            start = "<div class=\"summary entry-summary\">";
+//            end = "</div><!-- .summary -->";
+            Marker markerDetail = ingredientSite.getMarkers().getDetail();
 
-            start = "<div class=\"summary entry-summary\">";
-            end = "</div><!-- .summary -->";
-            MarkerDTO markerDetail = handler.getMarker(start, end, true);
-
-            String xslFileLinks = handler.getIngredients();
-            String xslFileDetail = handler.getIngredientDetail();
+            String xslFileLinks = getServletContext().getRealPath("/") + markerHome.getXsl();
+            String xslFileDetail = getServletContext().getRealPath("/") + markerDetail.getXsl();
 
             InputStream stream = null;
             List<Ingredient> list = null;

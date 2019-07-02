@@ -7,12 +7,12 @@ package duongpth.controllers;
 
 import duongpth.daos.RecipeDAO;
 import duongpth.handlers.DataErrorHandler;
-import duongpth.handlers.ItemHandler;
+import duongpth.jaxbs.Marker;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
+import duongpth.jaxbs.Website;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
-import duongpth.utils.MarkerDTO;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +24,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.transform.TransformerException;
 
 /**
@@ -50,20 +51,23 @@ public class RecipeController extends HttpServlet {
             String subDomain = request.getParameter("recipeSubDomain");
 
             String nextPage = "";
-            ItemHandler handler = new ItemHandler(getServletContext());
+//            ItemHandler handler = new ItemHandler(getServletContext());
 
             String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
 
-            String start = "<div class=\"box-recipe_bottom\">";
-            String end = "Tiếp theo</a></div> </div> </div>";
-            MarkerDTO markerHome = handler.getMarker(start, end, true);
+            HttpSession session = request.getSession();
+            Website recipeSite = (Website) session.getAttribute("RECIPE_WEBSITE");
 
-            start = "<div class=\"box-video_info\">";
-            end = "<div class=\"comments mt20\"";
-            MarkerDTO markerDetail = handler.getMarker(start, end, false);
+//            String start = "<div class=\"box-recipe_bottom\">";
+//            String end = "Tiếp theo</a></div> </div> </div>";
+            Marker markerHome = recipeSite.getMarkers().getHome();
 
-            String xslFileLinks = handler.getRecipes();
-            String xslFileDetail = handler.getRecipeDetail();
+//            start = "<div class=\"box-video_info\">";
+//            end = "<div class=\"comments mt20\"";
+            Marker markerDetail = recipeSite.getMarkers().getDetail();
+
+            String xslFileLinks = getServletContext().getRealPath("/") + markerHome.getXsl();
+            String xslFileDetail = getServletContext().getRealPath("/") + markerDetail.getXsl();
 
             InputStream stream = null;
             List<Recipe> list = null;

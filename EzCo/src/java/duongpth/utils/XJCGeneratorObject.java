@@ -24,47 +24,49 @@ import org.xml.sax.SAXParseException;
 public class XJCGeneratorObject {
 
     public static void main(String[] args) {
+        generate("duongpth.jaxbs", "web/WEB-INF/xsd/websites.xsd");
 //        generate("duongpth.jaxbs", "web/WEB-INF/xsd/ingredients.xsd");
 //        generate("duongpth.jaxbs", "web/WEB-INF/xsd/recipes.xsd");
-//        generate("duongpth.jaxbs", "web/WEB-INF/xsd/websites.xsd");
     }
 
     private static void generate(String packageStr, String xsdUri) {
 
-        SchemaCompiler sc = XJC.createSchemaCompiler();
-        sc.setErrorListener(new ErrorListener() {
-            @Override
-            public void error(SAXParseException saxpe) {
-                System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
-            }
-
-            @Override
-            public void fatalError(SAXParseException saxpe) {
-                System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
-            }
-
-            @Override
-            public void warning(SAXParseException saxpe) {
-                System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
-            }
-
-            @Override
-            public void info(SAXParseException saxpe) {
-                System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
-            }
-        });
-        sc.forcePackageName(packageStr);
-        File schema = new File(xsdUri);
-        InputSource inputSource = new InputSource(schema.toURI().toString());
-        sc.parseSchema(inputSource);
-        S2JJAXBModel model = sc.bind();
-        JCodeModel code = model.generateCode(null, null);
         try {
+            SchemaCompiler sc = XJC.createSchemaCompiler();
+            sc.setErrorListener(new ErrorListener() {
+                @Override
+                public void error(SAXParseException saxpe) {
+                    System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
+                }
+
+                @Override
+                public void fatalError(SAXParseException saxpe) {
+                    System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
+                }
+
+                @Override
+                public void warning(SAXParseException saxpe) {
+                    System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
+                }
+
+                @Override
+                public void info(SAXParseException saxpe) {
+                    System.out.println("ERROR at XJC Generator: " + saxpe.getMessage());
+                }
+            });
+            sc.forcePackageName(packageStr);
+            File schema = new File(xsdUri);
+            InputSource inputSource = new InputSource(schema.toURI().toString());
+            sc.parseSchema(inputSource);
+            S2JJAXBModel model = sc.bind();
+            JCodeModel code = model.generateCode(null, null);
             code.build(new File("src/java"));
+            System.out.println("Generarion Finished");
         } catch (IOException ex) {
             Logger.getLogger(XJCGeneratorObject.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(XJCGeneratorObject.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Generarion Finished");
 
     }
 }
