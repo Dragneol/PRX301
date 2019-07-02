@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://netbeans.org.schema.library"
+           xmlns="http://netbeans.org.schema.library"
+           elementFormDefault="qualified">
+    <xs:element name="library">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="bookType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="bookType">
+        <xs:sequence>
+            <xs:element name="bookTitle" type="xs:string"/>
+            <xs:element name="author" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

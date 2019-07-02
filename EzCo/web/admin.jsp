@@ -17,15 +17,15 @@
                 <tbody>
                     <tr>
                         <td>Recipe : </td>
-                        <td><input type="text" name="recipePage" value="http://www.amthuc365.vn/cong-thuc/" readonly="readonly" /></td>
-                        <td><input type="text" name="recipeSubDomain" value="104-cach-che-bien" /></td>
+                        <td><input type="text" name="recipePage" value="http://www.amthuc365.vn" readonly="readonly" /></td>
+                        <td><input type="text" name="recipeSubDomain" value="/cong-thuc/104-cach-che-bien/trang-203/" /></td>
                         <td><input type="submit" value="CrawlRecipe" name="action" /></td>
                     </tr>
                     <tr>
                         <td>Ingredient : </td>
-                        <td><input type="text" name="foodPage" value="http://nkfood.vn/cua-hang/" readonly="readonly" /></td>
-                        <td><input type="text" name="foodSubDomain" value="" /></td>
-                        <td><input type="submit" value="CrawlFood" name="action" /></td>
+                        <td><input type="text" name="ingredientPage" value="http://nkfood.vn/cua-hang/" readonly="readonly" /></td>
+                        <td><input type="text" name="ingredientSubDomain" value="" /></td>
+                        <td><input type="submit" value="CrawlIngredient" name="action" /></td>
                     </tr>
                 </tbody>
             </table>

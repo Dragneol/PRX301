@@ -57,7 +57,7 @@
 //                alert(node.tagName);
                 if (node.tagName === "booktitle") {
                     var tmp = node.firstChild.nodeValue;
-                    alert(tmp.indexOf(strSearch, 0) + "----" + tmp + "----" + strSearch);
+//                    alert(tmp.indexOf(strSearch, 0) + "----" + tmp + "----" + strSearch);
                     if (tmp.indexOf(strSearch, 0) > -1) {
                         var parent = node.parentNode;
                         var attrID = parent.attributes.getNamedItem("id").text;
@@ -73,6 +73,7 @@
                         sibling = sibling.nextSibling;
                         cells[4] = sibling.firstChild.nodeValue;
                         new_XMLDOM += "<price>" + sibling.firstChild.nodeValue + "</price>";
+                        new_XMLDOM += "</book>"
                         addRow(table_id, cells);
                     }
                 }
@@ -93,13 +94,28 @@
                 count = 0;
                 new_XMLDOM = "";
 
-                var xmlDom = new ActiveXObject("Microsoft.XMLDOM");
+//                var xmlDom = new ActiveXObject("Microsoft.XMLDOM");
+                var xmlDom = getXmlHttpObject();
                 new_XMLDOM = '<library xmlns="http://netbeans.org.schema.library">';
                 xmlDom.async = false;
                 xmlDom.load(fileName);
                 searchNode(xmlDom, myForm.txtSearch.value, table_id);
                 new_XMLDOM += "</library>";
-                alert(new_XMLDOM);
+//                alert(new_XMLDOM);
+            }
+
+            function updateUnmarshall() {
+                xmlHttp = getXmlHttpObject();
+                if (xmlHttp === null) {
+                    alert("Your browser not support AJAX");
+                    return;
+                }
+
+                xmlHttp.open("POST", "UpdateController", true);
+                xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                var url = "xmlContent=";
+                url += new_XMLDOM;
+                xmlHttp.send(url);
             }
         </script>
     </head>
@@ -119,15 +135,21 @@
                     <th>Price</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
         </table>
+
+        <br/>
+        <form action="XsdController" method="POST">
+            <input type="submit" value="Create" name="action" />
+        </form>
+        <br/>
+        <form name="updateForm">
+            <input type="button" value="Synchronize" onclick="updateUnmarshall()"/>
+        </form>
+        <br/>
+        <form name="PrintPdfController">
+            Full name: <input type="text" name="txtSearch" value="" /><br/>
+            <input type="submit" value="Search" />
+        </form>
 
     </body>
 </html>

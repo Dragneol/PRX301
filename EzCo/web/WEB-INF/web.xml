@@ -1,67 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>AdminController</servlet-name>
-        <servlet-class>duongpth.controllers.AdminController</servlet-class>
+        <servlet-name>AdminControllers</servlet-name>
+        <servlet-class>duongpth.controllers.AdminControllers</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IngredientController</servlet-name>
+        <servlet-class>duongpth.controllers.IngredientController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MainController</servlet-name>
         <servlet-class>duongpth.controllers.MainController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>IngredientInfoController</servlet-name>
+        <servlet-class>duongpth.controllers.IngredientInfoController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>RecipeController</servlet-name>
         <servlet-class>duongpth.controllers.RecipeController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>FoodController</servlet-name>
-        <servlet-class>duongpth.controllers.FoodController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>FoodInfoController</servlet-name>
-        <servlet-class>duongpth.controllers.FoodInfoController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>RecipeInfoController</servlet-name>
-        <servlet-class>duongpth.controllers.RecipeInfoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RecipeDetailController</servlet-name>
         <servlet-class>duongpth.controllers.RecipeDetailController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RecipeInfoController</servlet-name>
+        <servlet-class>duongpth.controllers.RecipeInfoController</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>AdminController</servlet-name>
-        <url-pattern>/AdminController</url-pattern>
+        <servlet-name>AdminControllers</servlet-name>
+        <url-pattern>/AdminControllers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IngredientController</servlet-name>
+        <url-pattern>/IngredientController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>IngredientInfoController</servlet-name>
+        <url-pattern>/IngredientInfoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>RecipeController</servlet-name>
         <url-pattern>/RecipeController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>FoodController</servlet-name>
-        <url-pattern>/FoodController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>FoodInfoController</servlet-name>
-        <url-pattern>/FoodInfoController</url-pattern>
+        <servlet-name>RecipeDetailController</servlet-name>
+        <url-pattern>/RecipeDetailController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RecipeInfoController</servlet-name>
         <url-pattern>/RecipeInfoController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RecipeDetailController</servlet-name>
-        <url-pattern>/RecipeDetailController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
 </web-app>

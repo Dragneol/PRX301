@@ -31,6 +31,7 @@ public class RecipeDAO implements Serializable {
     ResultSet resultSet = null;
     private final String insertTblRecipe = "IF NOT EXISTS (SELECT * FROM Recipe WHERE ID = ?) INSERT INTO Recipe([ID],[Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime]) VALUES(?,?,?,?,?,?,?,?)";
     private final String findByIdTblRecipe = "SELECT [Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime] FROM [dbo].[Recipe] Where ID = ?";
+    private final String findByIngredientTblRecipe = "select Id, Title, Link, Image, Description, Ration, PrepareTime, CookingTime, (PrepareTime + CookingTime) as TotalTime from Recipe Where ID In (select RecipeID from IngredientMenu where [Name] like ?) ORDER BY TotalTime, CookingTime";
     private final String insertTblInstructionMenu = "INSERT INTO InstructionMenu([RecipeID], [NumStep], [Detail]) VALUES(?,?,?)";
     private final String findByIdTblInstructionMenu = "SELECT [NumStep],[Detail] FROM [dbo].[InstructionMenu] where RecipeID = ?";
     private final String insertTblIngredientMenu = "INSERT INTO IngredientMenu([RecipeID], [Name], [Unit], [Quantitive]) VALUES(?,?,?,?)";
@@ -92,7 +93,7 @@ public class RecipeDAO implements Serializable {
                         tmp.setInt(1, recipeId);
                         tmp.setString(2, ingredient.getName().trim());
                         tmp.setString(3, ingredient.getUnit().trim());
-                        tmp.setInt(4, ingredient.getQuantitive());
+                        tmp.setString(4, ingredient.getQuantitive());
                         tmp.executeUpdate();
                     }
                     connection.commit();
@@ -172,7 +173,7 @@ public class RecipeDAO implements Serializable {
                         ingredient = new Ingredientdetail();
                         ingredient.setName(resultSet.getString("Name"));
                         ingredient.setUnit(resultSet.getString("Unit"));
-                        ingredient.setQuantitive(resultSet.getInt("Quantitive"));
+                        ingredient.setQuantitive(resultSet.getString("Quantitive"));
                         ingredients.getIngredientdetail().add(ingredient);
                     }
                     recipe.setIngredientmenu(ingredients);
@@ -194,5 +195,46 @@ public class RecipeDAO implements Serializable {
             closeConnection();
         }
         return recipe;
+    }
+
+    public List<Recipe> getRecipeByIngredient(String ingredientName) throws SQLException, NamingException {
+        List<Recipe> recipes = new ArrayList<>();
+        String sql = findByIngredientTblRecipe;
+        // Id, Title, Link, Image, Description, Ration, PrepareTime, CookingTime, (PrepareTime + CookingTime) as TotalTime
+        int id, ration, preparetime, cookingtime, totaltime;
+        String title, link, image, description;
+        Recipe recipe = null;
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, "%" + ingredientName + "%");
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    id = resultSet.getInt("Id");
+                    title = resultSet.getString("Title");
+                    link = resultSet.getString("Link");
+                    image = resultSet.getString("Image");
+                    description = resultSet.getString("Description");
+                    ration = resultSet.getInt("Ration");
+                    preparetime = resultSet.getInt("PrepareTime");
+                    cookingtime = resultSet.getInt("CookingTime");
+                    totaltime = resultSet.getInt("TotalTime");
+                    recipe = new Recipe();
+                    recipe.setCookingtime(cookingtime);
+                    recipe.setDescription(description);
+                    recipe.setId(id);
+                    recipe.setImage(image);
+                    recipe.setLink(link);
+                    recipe.setPreparetime(preparetime);
+                    recipe.setRation(ration);
+                    recipe.setTitle(title);
+                    recipes.add(recipe);
+                }
+            }
+        } finally {
+            closeConnection();
+        }
+        return recipes;
     }
 }

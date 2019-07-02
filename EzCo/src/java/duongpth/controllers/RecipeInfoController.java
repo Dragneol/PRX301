@@ -5,19 +5,19 @@
  */
 package duongpth.controllers;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import duongpth.daos.RecipeDAO;
 import duongpth.jaxbs.Recipe;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -37,17 +37,21 @@ public class RecipeInfoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
         String path = MainController.RECIPE_PAGE;
         try {
+            request.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+            String ingredientName = request.getParameter("txtSearch");
+            byte[] bytes = ingredientName.getBytes(StandardCharsets.ISO_8859_1);
+            ingredientName = new String(bytes, StandardCharsets.UTF_8);
+            System.out.println(ingredientName);
             RecipeDAO dao = new RecipeDAO();
-            List<Recipe> list = dao.getFirst(10);
+            List<Recipe> list = dao.getRecipeByIngredient(ingredientName);
 
             request.setAttribute("LIST_RECIPE", list);
         } catch (NamingException ex) {
             Logger.getLogger(RecipeInfoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(RecipeInfoController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
             Logger.getLogger(RecipeInfoController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);

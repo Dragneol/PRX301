@@ -6,6 +6,7 @@
 package duongpth.controllers;
 
 import duongpth.daos.RecipeDAO;
+import duongpth.handlers.DataErrorHandler;
 import duongpth.handlers.ItemHandler;
 import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
@@ -57,8 +58,8 @@ public class RecipeController extends HttpServlet {
             String end = "Tiếp theo</a></div> </div> </div>";
             MarkerDTO markerHome = handler.getMarker(start, end, true);
 
-            start = "<div class=\"summary entry-summary\">";
-            end = "</div><!-- .summary -->";
+            start = "<div class=\"box-video_info\">";
+            end = "<div class=\"comments mt20\"";
             MarkerDTO markerDetail = handler.getMarker(start, end, false);
 
             String xslFileLinks = handler.getRecipes();
@@ -68,7 +69,6 @@ public class RecipeController extends HttpServlet {
             List<Recipe> list = null;
             Recipes recipes = null;
             Recipe tmp = null;
-
             RecipeDAO dao = new RecipeDAO();
             int index;
             do {
@@ -90,26 +90,16 @@ public class RecipeController extends HttpServlet {
                             stream = CrawlUtil.transformXML(stream, xslFileDetail);
                             tmp = JAXBUtil.unmarshalling(stream, new Recipe());
                             //edit wrong data with default
-                            index = tmp.getRation() % 10;
-                            if (index == 0) {
-                                index = 10;
-                                tmp.setRation(10);
-                            }
-
-                            if (tmp.getCookingtime() == 0) {
-                                tmp.setCookingtime(index);
-                            }
-
-                            if (tmp.getPreparetime() == 0) {
-                                tmp.setPreparetime(10);
-                            }
-
-                            tmp.setLink(crawledLink.trim());
-                            tmp.setImage(recipe.getImage().trim());
-                            tmp.setId(recipe.getId());
+                            recipe.setLink(crawledLink.trim());
+                            tmp = DataErrorHandler.normalizeRecipe(tmp, recipe);
                             index = list.indexOf(recipe);
                             list.set(index, tmp);
-                            dao.insert(tmp);
+                            try {
+                                dao.insert(tmp);
+                            } catch (Exception e) {
+//                                e.printStackTrace();
+                                log("ERROR at ID: " + tmp.getId() + " - " + e.getMessage());
+                            }
                         }
                     }
                 }

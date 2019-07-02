@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>XsdController</servlet-name>
+        <servlet-class>controllers.XsdController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateController</servlet-name>
+        <servlet-class>controllers.UpdateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PrintPdfController</servlet-name>
+        <servlet-class>controllers.PrintPdfController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>XsdController</servlet-name>
+        <url-pattern>/XsdController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateController</servlet-name>
+        <url-pattern>/UpdateController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PrintPdfController</servlet-name>
+        <url-pattern>/PrintPdfController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/EzCoDraftVer2">
+  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" name="DBSource" password="P@ssw0rd" type="javax.sql.DataSource" url="jdbc:sqlserver://localhost:1433;databaseName = EzCoVer3" username="sa"/>
+</Context>

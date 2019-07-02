@@ -18,6 +18,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.namespace.QName;
@@ -47,6 +48,8 @@ public class CrawlUtil implements Serializable {
         } catch (IOException | XMLStreamException ex) {
             Logger.getLogger(CrawlUtil.class.getName()).log(Level.SEVERE, null, ex);
             stream = null;
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             return stream;
         }
@@ -68,7 +71,7 @@ public class CrawlUtil implements Serializable {
         TransformerFactory transformFactory = TransformerFactory.newInstance();
         Transformer transformer = transformFactory.newTransformer(new StreamSource(new File(xslUrl)));
         transformer.transform(new StreamSource(stream), streamResult);
-        return new ByteArrayInputStream(writer.toString().getBytes("UTF-8"));
+        return new ByteArrayInputStream(writer.toString().getBytes(StandardCharsets.UTF_8));
     }
 
     public static String normalizeLink(String homePage, String url) {
@@ -106,12 +109,12 @@ public class CrawlUtil implements Serializable {
         InputStream inputStream = con.getInputStream();
         String content = processStreamToString(inputStream);
         content = cutContent(content, marker);
-        return new ByteArrayInputStream(content.getBytes("UTF-8"));
+        return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
     }
 
     private static String processStreamToString(InputStream inputStream) throws IOException {
         StringBuilder content;
-        try (InputStreamReader reader = new InputStreamReader(inputStream, "UTF-8"); BufferedReader br = new BufferedReader(reader)) {
+        try (InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8); BufferedReader br = new BufferedReader(reader)) {
             content = new StringBuilder();
             String line = null;
             while ((line = br.readLine()) != null) {
@@ -145,10 +148,8 @@ public class CrawlUtil implements Serializable {
      */
     private static InputStream processWellForm(InputStream inputStream) throws XMLStreamException, UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
-        StreamSource streamSource = new StreamSource(inputStream);
-
         XMLInputFactory factory = XMLInputFactory.newFactory();
-        XMLEventReader reader = factory.createXMLEventReader(inputStream, "UTF-8");
+        XMLEventReader reader = factory.createXMLEventReader(inputStream, StandardCharsets.UTF_8.toString());
 
         int tagMarker = 0;
 

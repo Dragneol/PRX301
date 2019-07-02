@@ -1,88 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>
-    <websites>
-        <website>
-            <homeurl>http://www.amthuc365.vn</homeurl>
-            <subdomains>
-                <subdomain href="/cong-thuc/72-mybunmien/">Mỳ/Bún/Miến</subdomain>
-                <subdomain href="/cong-thuc/106-thit-bo/">Thịt bò</subdomain>
-                <subdomain href="/cong-thuc/107-thit-cuu/">Thịt cừu</subdomain>
-                <subdomain href="/cong-thuc/108-thit-lon/">Thịt lợn</subdomain>
-                <subdomain href="/cong-thuc/109-thit-ga/">Thịt gà</subdomain>
-                <subdomain href="/cong-thuc/110-thit-vit/">Thịt vịt</subdomain>
-                <subdomain href="/cong-thuc/111-thit-ngan/">Thịt ngan</subdomain>
-                <subdomain href="/cong-thuc/112-hai-san/">Hải sản</subdomain>
-                <subdomain href="/cong-thuc/113-ca/">Cá</subdomain>
-                <subdomain href="/cong-thuc/114-gaocom/">Gạo/cơm</subdomain>
-                <subdomain href="/cong-thuc/116-pasta/">Pasta</subdomain>
-                <subdomain href="/cong-thuc/117-banh-my/">Bánh mỳ</subdomain>
-                <subdomain href="/cong-thuc/118-rau/">Rau</subdomain>
-                <subdomain href="/cong-thuc/119-hoa-qua/">Hoa quả</subdomain>
-                <subdomain href="/cong-thuc/120-dau-phu/">Đậu phụ</subdomain>
-                <subdomain href="/cong-thuc/121-nam/">Nấm</subdomain>
-                <subdomain href="/cong-thuc/122-phomai/">Phô-mai</subdomain>
-                <subdomain href="/cong-thuc/123-sua/">Sữa</subdomain>
-                <subdomain href="/cong-thuc/124-trung/">Trứng</subdomain>
-                <subdomain href="/cong-thuc/125-chocolate/">Chocolate</subdomain>
-                <subdomain href="/cong-thuc/185-tom/">Tôm</subdomain>
-                <subdomain href="/cong-thuc/186-thit-be/">Thịt bê</subdomain>
-            </subdomains>
-            <markers>
-                <home>
-                    <start>&lt;div class="box-recipe_bottom"&gt;</start>
-                    <end>Tiếp theo&lt;/a&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</end>
-                    <included>true</included>
-                    <xsl>WEB-INF/xsl/recipeLink.xsl</xsl>
-                </home>
-                <detail>
-                    <start>&lt;div class="box-video_info"&gt;</start>
-                    <end>&lt;div class="comments mt20"</end>
-                    <included>false</included>
-                    <xsl>WEB-INF/xsl/recipeDetail.xsl</xsl>
-                </detail>
-            </markers>
-        </website>
-        <website>
-            <homeurl>http://nkfood.vn/cua-hang</homeurl>
-            <subdomains>
-                <subdomain href="/?product_tag=nhom-rau-la-an-toan">Nhóm rau lá an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-rau-la-an-toan-so-che">Nhóm rau lá an toàn (sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-rau-thom-an-toan">Nhóm rau thơm an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-rau-thom-an-toan-so-che">Nhóm rau thơm an toàn (sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-cu-an-toan">Nhóm củ an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-rau-cu-an-toan-so-che">Nhóm củ an toàn (sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-qua-an-toan">Nhóm quả an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-qua-so-che">Nhóm quả an toàn (sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-bong-cai-an-toan-so-che">Nhóm bông cải an toàn (Sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-nam-an-toan">Nhóm nấm an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-nam-an-toan-so-che">Nhóm nấm an toàn (sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-thit-heo-an-toan">Nhóm thịt heo an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-thit-bo-an-toan">Nhóm thịt bò an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-thit-ga-an-toan">Nhóm thịt gà an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-che-bien-kho-an-toan">Nhóm chế biến khô an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-che-bien-tuoi-an-toan">Nhóm chế biến tươi an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-hai-san">Nhóm hải sản an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-hai-san-an-toan-so-che">Nhóm hải sản an toàn (sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-thuy-hai-san">Nhóm thủy sản an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-thuy-hai-san-so-che">Nhóm thủy sản an toàn (sơ chế)</subdomain>
-                <subdomain href="/?product_tag=nhom-trai-cay-an-toan">Nhóm trái cây an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-trung-an-toan">Nhóm trứng an toàn</subdomain>
-                <subdomain href="/?product_tag=nhom-gia-vi">Nhóm Gia Vị</subdomain>
-            </subdomains>
-            <markers>
-                <home>
-                    <start>&lt;div class="box-recipe_bottom"&gt;</start>
-                    <end>Tiếp theo&lt;/a&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</end>
-                    <included>true</included>
-                    <xsl>WEB-INF/xsl/ingredientLink.xsl</xsl>
-                </home>
-                <detail>
-                    <start>&lt;div class="box-video_info"&gt;</start>
-                    <end>&lt;div class="comments mt20"</end>
-                    <included>false</included>
-                    <xsl>WEB-INF/xsl/ingredientDetail.xsl</xsl>
-                </detail>
-            </markers>
-        </website>
-    </websites>
-</root>
+<websites xmlns="http://www.ezco.com/XMLSchema/ezco">
+    <website>
+        <homeurl>http://www.amthuc365.vn</homeurl>
+        <subdomains>
+            <subdomain href="/cong-thuc/72-mybunmien/">Mỳ/Bún/Miến</subdomain>
+            <subdomain href="/cong-thuc/106-thit-bo/">Thịt bò</subdomain>
+            <subdomain href="/cong-thuc/107-thit-cuu/">Thịt cừu</subdomain>
+            <subdomain href="/cong-thuc/108-thit-lon/">Thịt lợn</subdomain>
+            <subdomain href="/cong-thuc/109-thit-ga/">Thịt gà</subdomain>
+            <subdomain href="/cong-thuc/110-thit-vit/">Thịt vịt</subdomain>
+            <subdomain href="/cong-thuc/111-thit-ngan/">Thịt ngan</subdomain>
+            <subdomain href="/cong-thuc/112-hai-san/">Hải sản</subdomain>
+            <subdomain href="/cong-thuc/113-ca/">Cá</subdomain>
+            <subdomain href="/cong-thuc/114-gaocom/">Gạo/cơm</subdomain>
+            <subdomain href="/cong-thuc/116-pasta/">Pasta</subdomain>
+            <subdomain href="/cong-thuc/117-banh-my/">Bánh mỳ</subdomain>
+            <subdomain href="/cong-thuc/118-rau/">Rau</subdomain>
+            <subdomain href="/cong-thuc/119-hoa-qua/">Hoa quả</subdomain>
+            <subdomain href="/cong-thuc/120-dau-phu/">Đậu phụ</subdomain>
+            <subdomain href="/cong-thuc/121-nam/">Nấm</subdomain>
+            <subdomain href="/cong-thuc/122-phomai/">Phô-mai</subdomain>
+            <subdomain href="/cong-thuc/123-sua/">Sữa</subdomain>
+            <subdomain href="/cong-thuc/124-trung/">Trứng</subdomain>
+            <subdomain href="/cong-thuc/125-chocolate/">Chocolate</subdomain>
+            <subdomain href="/cong-thuc/185-tom/">Tôm</subdomain>
+            <subdomain href="/cong-thuc/186-thit-be/">Thịt bê</subdomain>
+        </subdomains>
+        <markers>
+            <home>
+                <start>&lt;div class="box-recipe_bottom"&gt;</start>
+                <end>Tiếp theo&lt;/a&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</end>
+                <included>true</included>
+                <xsl>WEB-INF/xsl/recipeLink.xsl</xsl>
+            </home>
+            <detail>
+                <start>&lt;div class="box-video_info"&gt;</start>
+                <end>&lt;div class="comments mt20"</end>
+                <included>false</included>
+                <xsl>WEB-INF/xsl/recipeDetail.xsl</xsl>
+            </detail>
+        </markers>
+    </website>
+    <website>
+        <homeurl>http://nkfood.vn/cua-hang</homeurl>
+        <subdomains>
+            <subdomain href="/?product_tag=nhom-rau-la-an-toan">Nhóm rau lá an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-la-an-toan-so-che">Nhóm rau lá an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-thom-an-toan">Nhóm rau thơm an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-thom-an-toan-so-che">Nhóm rau thơm an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-cu-an-toan">Nhóm củ an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-cu-an-toan-so-che">Nhóm củ an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-qua-an-toan">Nhóm quả an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-qua-so-che">Nhóm quả an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-bong-cai-an-toan-so-che">Nhóm bông cải an toàn (Sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-nam-an-toan">Nhóm nấm an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-nam-an-toan-so-che">Nhóm nấm an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-thit-heo-an-toan">Nhóm thịt heo an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-thit-bo-an-toan">Nhóm thịt bò an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-thit-ga-an-toan">Nhóm thịt gà an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-che-bien-kho-an-toan">Nhóm chế biến khô an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-che-bien-tuoi-an-toan">Nhóm chế biến tươi an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-hai-san">Nhóm hải sản an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-hai-san-an-toan-so-che">Nhóm hải sản an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-thuy-hai-san">Nhóm thủy sản an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-thuy-hai-san-so-che">Nhóm thủy sản an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-trai-cay-an-toan">Nhóm trái cây an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-trung-an-toan">Nhóm trứng an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-gia-vi">Nhóm Gia Vị</subdomain>
+        </subdomains>
+        <markers>
+            <home>
+                <start>&lt;div class="box-recipe_bottom"&gt;</start>
+                <end>Tiếp theo&lt;/a&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</end>
+                <included>true</included>
+                <xsl>WEB-INF/xsl/ingredientLink.xsl</xsl>
+            </home>
+            <detail>
+                <start>&lt;div class="box-video_info"&gt;</start>
+                <end>&lt;div class="comments mt20"</end>
+                <included>false</included>
+                <xsl>WEB-INF/xsl/ingredientDetail.xsl</xsl>
+            </detail>
+        </markers>
+    </website>
+</websites>
