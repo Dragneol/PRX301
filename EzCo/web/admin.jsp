@@ -7,7 +7,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="header.jsp"/>
-<jsp:include page="banner.jsp"/>
 <content>
     <c:set var="recipeHomeUrl" value="${sessionScope.RECIPE_WEBSITE}"/>
     <c:set var="ingredienHomeUrl" value="${sessionScope.INGREDIENT_WEBSITE}"/>
@@ -41,6 +40,5 @@
             </tbody>
         </table>
     </form>
-    <a href="index.jsp">HomePage</a>
 </content>
 <jsp:include page="footer.jsp"/>

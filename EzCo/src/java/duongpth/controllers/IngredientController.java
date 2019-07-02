@@ -46,23 +46,16 @@ public class IngredientController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = MainController.ERROR_PAGE;
+        String path = MainController.INDEX_CONTROLLER;
         try {
             String homePage = request.getParameter("ingredientPage");
             String subDomain = request.getParameter("ingredientSubDomain");
             String nextPage = "";
             HttpSession session = request.getSession();
             Website ingredientSite = (Website) session.getAttribute("INGREDIENT_WEBSITE");
-//            ItemHandler handler = new ItemHandler(getServletContext());
 
             String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
-
-//            String start = "<main id=\"main\" class=\"site-main\" role=\"main\">";
-//            String end = "</main><!-- #main -->";
             Marker markerHome = ingredientSite.getMarkers().getHome();
-//
-//            start = "<div class=\"summary entry-summary\">";
-//            end = "</div><!-- .summary -->";
             Marker markerDetail = ingredientSite.getMarkers().getDetail();
 
             String xslFileLinks = getServletContext().getRealPath("/") + markerHome.getXsl();

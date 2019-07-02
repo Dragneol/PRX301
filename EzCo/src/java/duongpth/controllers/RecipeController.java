@@ -45,25 +45,15 @@ public class RecipeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = MainController.ERROR_PAGE;
+        String path = MainController.INDEX_CONTROLLER;
         try {
             String homePage = request.getParameter("recipePage");
             String subDomain = request.getParameter("recipeSubDomain");
-
             String nextPage = "";
-//            ItemHandler handler = new ItemHandler(getServletContext());
-
             String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
-
             HttpSession session = request.getSession();
             Website recipeSite = (Website) session.getAttribute("RECIPE_WEBSITE");
-
-//            String start = "<div class=\"box-recipe_bottom\">";
-//            String end = "Tiếp theo</a></div> </div> </div>";
             Marker markerHome = recipeSite.getMarkers().getHome();
-
-//            start = "<div class=\"box-video_info\">";
-//            end = "<div class=\"comments mt20\"";
             Marker markerDetail = recipeSite.getMarkers().getDetail();
 
             String xslFileLinks = getServletContext().getRealPath("/") + markerHome.getXsl();

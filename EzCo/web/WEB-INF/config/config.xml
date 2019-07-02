@@ -72,15 +72,15 @@
         </subdomains>
         <markers>
             <home>
-                <start>&lt;div class="box-recipe_bottom"&gt;</start>
-                <end>Tiếp theo&lt;/a&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</end>
+                <start>&lt;main id="main" class="site-main" role="main"&gt;</start>
+                <end>&lt;/main&gt;&lt;!-- #main --&gt;</end>
                 <included>true</included>
                 <xsl>WEB-INF/xsl/ingredientLink.xsl</xsl>
             </home>
             <detail>
-                <start>&lt;div class="box-video_info"&gt;</start>
-                <end>&lt;div class="comments mt20"</end>
-                <included>false</included>
+                <start>&lt;div class="summary entry-summary"&gt;</start>
+                <end>&lt;/div&gt;&lt;!-- .summary --&gt;</end>
+                <included>true</included>
                 <xsl>WEB-INF/xsl/ingredientDetail.xsl</xsl>
             </detail>
         </markers>

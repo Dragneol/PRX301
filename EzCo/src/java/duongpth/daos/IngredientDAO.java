@@ -41,7 +41,7 @@ public class IngredientDAO implements Serializable {
     public boolean insert(Ingredient i) throws NamingException, SQLException, ClassNotFoundException {
         boolean inserted = false;
         String sql = "IF NOT EXISTS (SELECT * FROM Ingredient WHERE ID = ?) \n"
-                + "Insert Into Ingredient(ID, [Name], Price, Link, [Image], Unit) values(?,?,?,?,?,?)";
+                + "Insert Into Ingredient(ID, [Name], Price, Link, [Image], Description) values(?,?,?,?,?,?)";
         try {
 
             connection = DatabaseUtil.getConnection();
@@ -54,7 +54,7 @@ public class IngredientDAO implements Serializable {
                 preparedStatement.setInt(4, i.getPrice());
                 preparedStatement.setString(5, i.getLink().trim());
                 preparedStatement.setString(6, i.getImage().trim());
-//                preparedStatement.setInt(7, i.getUnit());
+                preparedStatement.setString(7, i.getDescription());
 
                 inserted = preparedStatement.executeUpdate() > 0;
             }
@@ -71,7 +71,7 @@ public class IngredientDAO implements Serializable {
                 + "      ,[Price]\n"
                 + "      ,[Link]\n"
                 + "      ,[Image]\n"
-                + "      ,[Unit]\n"
+                + "      ,[Description]\n"
                 + "  FROM [Ingredient]";
         try {
             connection = DatabaseUtil.getConnection();
@@ -79,8 +79,8 @@ public class IngredientDAO implements Serializable {
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, n);
                 resultSet = preparedStatement.executeQuery();
-                int unit, price;
-                String id, name, link, image;
+                int price;
+                String id, name, link, image, description;
 
                 Ingredient ingredient = null;
                 while (resultSet.next()) {
@@ -89,7 +89,8 @@ public class IngredientDAO implements Serializable {
                     price = resultSet.getInt("Price");
                     link = resultSet.getString("Link").trim();
                     image = resultSet.getString("Image").trim();
-                    unit = resultSet.getInt("Unit");
+                    description = resultSet.getString("Description").trim();
+                    
 
                     ingredient = new Ingredient();
                     ingredient.setId(id);
@@ -97,7 +98,7 @@ public class IngredientDAO implements Serializable {
                     ingredient.setPrice(price);
                     ingredient.setLink(link);
                     ingredient.setImage(image);
-//                    ingredient.setUnit(unit);
+                    ingredient.setDescription(description);
                     list.add(ingredient);
                 }
             }
