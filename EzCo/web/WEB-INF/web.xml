@@ -28,6 +28,10 @@
         <servlet-name>RecipeInfoController</servlet-name>
         <servlet-class>duongpth.controllers.RecipeInfoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IndexController</servlet-name>
+        <servlet-class>duongpth.controllers.IndexController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -56,12 +60,16 @@
         <servlet-name>RecipeInfoController</servlet-name>
         <url-pattern>/RecipeInfoController</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IndexController</servlet-name>
+        <url-pattern>/IndexController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>AdminController</welcome-file>
+        <welcome-file>IndexController</welcome-file>
     </welcome-file-list>
 </web-app>

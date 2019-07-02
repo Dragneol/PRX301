@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/XML/EzCo/src/java/duongpth/controllers/RecipeController.java</file>
-            <file>file:/D:/XML/EzCo/src/java/duongpth/daos/IngredientDAO.java</file>
-            <file>file:/D:/XML/EzCo/src/java/duongpth/controllers/RecipeInfoController.java</file>
-            <file>file:/D:/XML/EzCo/web/META-INF/context.xml</file>
+            <file>file:/D:/XML/EzCo/web/WEB-INF/config/config.xml</file>
             <file>file:/D:/XML/EzCo/web/admin.jsp</file>
+            <file>file:/D:/XML/EzCo/src/java/duongpth/controllers/IngredientController.java</file>
             <file>file:/D:/XML/EzCo/src/java/duongpth/utils/CrawlUtil.java</file>
-            <file>file:/D:/XML/EzCo/src/java/duongpth/console/Crawler.java</file>
-            <file>file:/D:/XML/EzCo/web/WEB-INF/xsl/ingredientDetail.xsl</file>
-            <file>file:/D:/XML/EzCo/web/recipe.jsp</file>
-            <file>file:/D:/XML/EzCo/src/java/duongpth/daos/RecipeDAO.java</file>
-            <file>file:/D:/XML/EzCo/src/java/duongpth/utils/DatabaseUtil.java</file>
         </group>
     </open-files>
 </project-private>

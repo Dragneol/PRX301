@@ -6,81 +6,56 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>EzCo</title>
-    </head>
-    <body>
-        <c:set var="recipe" value="${requestScope.RECIPE}"/>
-        <c:if var="check" test="${not empty recipe}">
-            <h1>Recipe Detail</h1>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th>Ration</th>
-                        <th>Prepare Time</th>
-                        <th>Cooking Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>${recipe.title}</td>
-                        <td>${recipe.description}</td>
-                        <td>
-                            <img src="${recipe.image}" width="100" height="100"/>
-                        </td>
-                        <td>${recipe.ration}</td>
-                        <td>${recipe.preparetime}</td>
-                        <td>${recipe.cookingtime}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <br/>
-            <h1>Recipe Steps</h1>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Num Step</th>
-                        <th>Detail</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${recipe.instructionmenu.instructiondetail}" var="step">
-                        <tr>
-                            <td>${step.numstep}</td>
-                            <td>${step.detail}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            <br/>
-            <h1>Ingredient Menu</h1>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Quantitive</th>
-                        <th>Unit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${recipe.ingredientmenu.ingredientdetail}" var="ing">
-                        <tr>
-                            <td>${ing.name}</td>
-                            <td>${ing.quantitive}</td>
-                            <td>${ing.unit}</td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </c:if>
-        <c:if test="${not check}">
-            <h1>Something wrong</h1>
-        </c:if>
-    </body>
-</html>
+<jsp:include page="header.jsp"/>
+<content>
+    <c:set var="recipe" value="${requestScope.RECIPE}"/>
+    <c:if var="check" test="${not empty recipe}">
+        <div class="food-detail">
+            <div class="print-cooking">
+                <img class="icon" src="img/png/001-fax.png" alt=""> In công thức
+            </div>
+            <div class="cooking">
+                <h2 class="title">
+                    ${recipe.title}
+                </h2>
+                <p class="description">
+                    ${recipe.description}
+                </p>
+                <div class="detail-cooking">
+                    <div class="quick-view">
+                        <ul>
+                            <li><span> <img class="icon" src="img/png/004-man-user.png" alt=""> Khẩu phần: ${recipe.ration} người</span></li>
+                            <li><span> <img class="icon" src="img/png/003-clock.png" alt=""> Chuẩn bị: ${recipe.preparetime} phút</span></li>
+                            <li><span> <img class="icon" src="img/png/002-cooking-on-fire.png" alt=""> Thực hiện: ${recipe.cookingtime} phút</span></li>
+                        </ul>
+                    </div>
+                    <div class="image-food">
+                        <img src="${recipe.image}" alt="Hình ảnh của ${recipe.title}" width="100%">
+                    </div>
+                    <div class="content-cooking">
+                        <div class="element">
+                            <h3 class="title">Thành phần</h3>
+                            <div class="content">
+                                <c:forEach items="${recipe.ingredientmenu.ingredientdetail}" var="ing">
+                                    <a href="#">${ing.quantitive} ${ing.unit} ${ing.name}</a>
+                                </c:forEach>
+                            </div>
+                        </div>
+                        <div class="instruction">
+                            <h3 class="title">Hướng dẫn</h3>
+                            <div class="content">
+                                <c:forEach items="${recipe.instructionmenu.instructiondetail}" var="step">
+                                    <p>${step.detail}</p>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </c:if>
+    <c:if test="${not check}">
+        <h1>Something wrong</h1>
+    </c:if>
+</content>
+<jsp:include page="footer.jsp"/>

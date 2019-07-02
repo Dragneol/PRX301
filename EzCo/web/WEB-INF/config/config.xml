@@ -3,6 +3,7 @@
     <website>
         <homeurl>http://www.amthuc365.vn</homeurl>
         <subdomains>
+            <subdomain href="/cong-thuc/105-thanh-phan/">Tất cả thành phần</subdomain>
             <subdomain href="/cong-thuc/72-mybunmien/">Mỳ/Bún/Miến</subdomain>
             <subdomain href="/cong-thuc/106-thit-bo/">Thịt bò</subdomain>
             <subdomain href="/cong-thuc/107-thit-cuu/">Thịt cừu</subdomain>
@@ -44,6 +45,7 @@
     <website>
         <homeurl>http://nkfood.vn/cua-hang</homeurl>
         <subdomains>
+            <subdomain href="/">Tất cả thực phẩm</subdomain>
             <subdomain href="/?product_tag=nhom-rau-la-an-toan">Nhóm rau lá an toàn</subdomain>
             <subdomain href="/?product_tag=nhom-rau-la-an-toan-so-che">Nhóm rau lá an toàn (sơ chế)</subdomain>
             <subdomain href="/?product_tag=nhom-rau-thom-an-toan">Nhóm rau thơm an toàn</subdomain>
