@@ -5,7 +5,11 @@
  */
 package duongpth.handlers;
 
+import duongpth.jaxbs.Ingredientdetail;
+import duongpth.jaxbs.Ingredientmenu;
 import duongpth.jaxbs.Recipe;
+import duongpth.utils.VietnameseUtil;
+import java.util.List;
 
 /**
  *
@@ -39,8 +43,17 @@ public class DataErrorHandler {
             tmp = 10;
         }
         r.setRation(tmp);
-        
 
+        r.setIngredientmenu(normalizeIngredientMenu(r.getIngredientmenu()));
         return r;
     }
-}
+
+    public static Ingredientmenu normalizeIngredientMenu(Ingredientmenu menu) {
+        List<Ingredientdetail> ingredients = menu.getIngredientdetail();
+        for (Ingredientdetail ingredient : ingredients) {
+            ingredient.setName(VietnameseUtil.normalizeWords(ingredient.getName().trim()));
+            ingredient.setUnit(VietnameseUtil.normalizeWords(ingredient.getUnit().trim()));
+        }
+        return menu;
+    }
+} 

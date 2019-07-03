@@ -8,34 +8,53 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="header.jsp"/>
 <jsp:include page="banner.jsp"/>
+<script type="text/javascript">
+    var recipes = [];
+    var page = 0;
+    var PAGE_SIZE = 6;
+    <c:forEach items="${requestScope.LIST_RECIPE}" var="r">
+    recipes.push({
+        id: ${r.id},
+        image: `${r.image}`,
+        title: `${r.title}`,
+        description: `${r.description}`,
+        time: ${r.preparetime + r.cookingtime},
+    });
+    </c:forEach>
+    console.log(recipes);
+</script>
 <content>
-    <div>
-        <c:forEach items="${requestScope.LIST_RECIPE}" var="r">
-            <div class="product-item">
+    <div id="list-recipe"></div>
+    <button id="load-button">Load more</button>
+</content>
+<script type="text/javascript">
+    function loadMoreRecipes() {
+        const showedElements = recipes.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item =>
+                `<div class="product-item">
                 <div class="image-product">
-                    <img src="${r.image}" alt="Hình ảnh của ${r.title}">
+                    <img src="\${item.image}" alt="Hình ảnh của \${item.title}">
                     <div class="info">
-                        <p>${r.title}</p>
+                        <p>\${item.title}</p>
                     </div>
                 </div>
                 <div class="content-product">
                     <div class="content">
-                        <h3>Tổng thời gian nấu: <c:out value="${r.preparetime} + ${r.cookingtime}"/> phút </h3>
-                        <p>${r.description}</p>
+                        <h3>Tổng thời gian nấu: \${item.time} phút </h3>
+                        <p>\${item.description}</p>
                     </div>
                     <div>
-                        <c:url value="MainController" var="detail">
-                            <c:param name="txtSearch" value="${param.txtSearch}"/>
-                            <c:param name="id" value="${r.id}"/>
-                        </c:url>
-                        <form action="${detail}" method="POST">
+                        <form action="MainController?id=\${item.id}" method="POST">
                             <input class="button" type="submit" value="RecipeDetail" name="action" />
                         </form>
                     </div>
                 </div>
 
             </div>
-        </c:forEach>
-    </div>
-</content>
+        `);
+        document.getElementById("list-recipe").innerHTML += showedElements.join('');
+        page++;
+    }
+    loadMoreRecipes();
+    document.getElementById("load-button").addEventListener('click', loadMoreRecipes);
+</script>
 <jsp:include page="footer.jsp"/>

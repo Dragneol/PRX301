@@ -37,7 +37,12 @@
                             <h3 class="title">Thành phần</h3>
                             <div class="content">
                                 <c:forEach items="${recipe.ingredientmenu.ingredientdetail}" var="ing">
-                                    <a href="#">${ing.quantitive} ${ing.unit} ${ing.name}</a>
+                                    <div class='ingredient'>${ing.quantitive} ${ing.unit} ${ing.name}</div>
+                                    <c:url value="MainController" var="ingredient_info">
+                                        <c:param name="action" value="Lookup"/>
+                                        <c:param name="name" value="${ing.name}"/>
+                                    </c:url>
+                                    <a href="${ingredient_info}">Tới chỗ mua</a>
                                 </c:forEach>
                             </div>
                         </div>

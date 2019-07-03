@@ -52,7 +52,7 @@ public class MainController extends HttpServlet {
                 case "CrawlIngredient":
                     path = INGREDIENT_CRAWLER;
                     break;
-                case "ViewIngredients":
+                case "Lookup":
                     path = INGREDIENT_VIEWER;
                     break;
                 case "Search":

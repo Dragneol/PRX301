@@ -119,7 +119,7 @@ public class CrawlUtil implements Serializable {
             content = new StringBuilder();
             String line = null;
             while ((line = br.readLine()) != null) {
-                line = EncrypteUtil.decode(line);
+                line = VietnameseUtil.decode(line);
                 content.append(line);
             }
         }
@@ -135,7 +135,7 @@ public class CrawlUtil implements Serializable {
             content = content.substring(content.indexOf(start), content.indexOf(end));
         }
         content = "<root>" + content + "</root>";
-        content = EncrypteUtil.decode(content);
+        content = VietnameseUtil.decode(content);
         return content;
     }
 
