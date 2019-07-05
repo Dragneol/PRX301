@@ -94,12 +94,16 @@ public class IngredientController extends HttpServlet {
                             dao.insert(tmp);
                         }
                     }
-                    nextPage = ingredients.getNextpage();
+                    try {
+                        nextPage = ingredients.getNextpage();
+                    } catch (NullPointerException e) {
+                        nextPage = "";
+                    }
                 }
-                if (nextPage != null && !nextPage.equals("")) {
+                if (!nextPage.equals("")) {
                     crawledLink = nextPage;
                 }
-            } while (nextPage != null && !nextPage.equals(""));
+            } while (!nextPage.equals(""));
         } catch (JAXBException ex) {
             Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {

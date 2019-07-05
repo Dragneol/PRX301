@@ -29,10 +29,13 @@ public class VietnameseUtil implements Serializable {
         return s;
     }
 
-    public static String normalizeWords(String words) {
+    public static String byteToUTF8(String words) {
         byte[] bytes = words.trim().getBytes(StandardCharsets.ISO_8859_1);
-        String newWords = new String(bytes, StandardCharsets.UTF_8);
-        newWords = newWords.replaceAll("  ", " ");
+        return new String(bytes, StandardCharsets.UTF_8);
+    }
+
+    public static String normalizeWords(String words) {
+        String newWords = words.trim().replaceAll("  ", " ");
         String[] word = newWords.split(" ");
         StringBuilder sb = new StringBuilder();
 
@@ -45,10 +48,5 @@ public class VietnameseUtil implements Serializable {
         }
         newWords = sb.toString().trim();
         return newWords;
-    }
-
-    public static void main(String[] args) {
-        String s = "    cAS  asf   ";
-        System.out.println('|' + normalizeWords(s) + '|');
     }
 }

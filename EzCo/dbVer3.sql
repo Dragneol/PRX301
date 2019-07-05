@@ -1,36 +1,38 @@
 IF EXISTS 
    (SELECT name FROM master.dbo.sysdatabases 
-    WHERE name = 'EzCoVer3')
+    WHERE name = 'EzCo')
 BEGIN
-    DROP DATABASE EzCoVer3
+    DROP DATABASE EzCo
 END
 
-CREATE DATABASE [EzCoVer3]
+CREATE DATABASE [EzCo]
 go
-use [EzCoVer3]
+use [EzCo]
 go
 
-create table [Ingredient](
-	[ID] nchar(10) not null PRIMARY KEY, 
-	[Name] nvarchar(800),
-	[Price] int,
-	[Link] nchar(1000),
-	[Image] nchar(1000),
-	--[Unit] nchar(10),
-	--[Quantitive] nchar (10)
-	[Description] nvarchar(2000)
+create table [RecipeCategory](
+	[ID] int not null PRIMARY KEY,
+	[Name] nvarchar(1000),
+	[Link] nchar(2000)
 )
 go
 
 create table [Recipe](
 	[ID] int not null PRIMARY KEY,
 	[Title] nvarchar(1000),
-    [Link] nvarchar(1000),
-    [Image] nvarchar(1000),
+        [Link] nvarchar(1000),
+        [Image] nvarchar(1000),
 	[Description] nvarchar(2000),
 	[Ration] int,
 	[PrepareTime] int,
 	[CookingTime] int,
+)
+go
+
+create table [CateRep](
+        [ID] int NOT NULL PRIMARY KEY IDENTITY,
+	[RecipeID] int FOREIGN KEY REFERENCES [Recipe](ID),
+	[CateID] int FOREIGN KEY REFERENCES [RecipeCategory](ID)
 )
 go
 
@@ -48,5 +50,15 @@ create table [InstructionMenu](
         [RecipeID] int FOREIGN KEY REFERENCES [Recipe](ID),
         [NumStep] int,
         [Detail] nvarchar(2000),
+)
+go
+
+create table [Ingredient](
+	[ID] nchar(10) not null PRIMARY KEY, 
+	[Name] nvarchar(800),
+	[Price] int,
+	[Link] nchar(1000),
+	[Image] nchar(1000),
+	[Description] nvarchar(2000)
 )
 go

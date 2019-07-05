@@ -33,6 +33,7 @@ and open the template in the editor.
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="href" type="xs:string"/>
+                <xs:attribute name="id" type="xs:int"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>

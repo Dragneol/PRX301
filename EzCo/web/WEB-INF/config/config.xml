@@ -3,35 +3,35 @@
     <website>
         <homeurl>http://www.amthuc365.vn</homeurl>
         <subdomains>
-            <subdomain href="/cong-thuc/105-thanh-phan/">Tất cả thành phần</subdomain>
-            <subdomain href="/cong-thuc/72-mybunmien/">Mỳ/Bún/Miến</subdomain>
-            <subdomain href="/cong-thuc/106-thit-bo/">Thịt bò</subdomain>
-            <subdomain href="/cong-thuc/107-thit-cuu/">Thịt cừu</subdomain>
-            <subdomain href="/cong-thuc/108-thit-lon/">Thịt lợn</subdomain>
-            <subdomain href="/cong-thuc/109-thit-ga/">Thịt gà</subdomain>
-            <subdomain href="/cong-thuc/110-thit-vit/">Thịt vịt</subdomain>
-            <subdomain href="/cong-thuc/111-thit-ngan/">Thịt ngan</subdomain>
-            <subdomain href="/cong-thuc/112-hai-san/">Hải sản</subdomain>
-            <subdomain href="/cong-thuc/113-ca/">Cá</subdomain>
-            <subdomain href="/cong-thuc/114-gaocom/">Gạo/cơm</subdomain>
-            <subdomain href="/cong-thuc/116-pasta/">Pasta</subdomain>
-            <subdomain href="/cong-thuc/117-banh-my/">Bánh mỳ</subdomain>
-            <subdomain href="/cong-thuc/118-rau/">Rau</subdomain>
-            <subdomain href="/cong-thuc/119-hoa-qua/">Hoa quả</subdomain>
-            <subdomain href="/cong-thuc/120-dau-phu/">Đậu phụ</subdomain>
-            <subdomain href="/cong-thuc/121-nam/">Nấm</subdomain>
-            <subdomain href="/cong-thuc/122-phomai/">Phô-mai</subdomain>
-            <subdomain href="/cong-thuc/123-sua/">Sữa</subdomain>
-            <subdomain href="/cong-thuc/124-trung/">Trứng</subdomain>
-            <subdomain href="/cong-thuc/125-chocolate/">Chocolate</subdomain>
-            <subdomain href="/cong-thuc/185-tom/">Tôm</subdomain>
-            <subdomain href="/cong-thuc/186-thit-be/">Thịt bê</subdomain>
+            <subdomain href="/cong-thuc/105-thanh-phan/" id="0">Tất cả thành phần</subdomain>
+            <subdomain href="/cong-thuc/72-mybunmien/" id="1">Mỳ/Bún/Miến</subdomain>
+            <subdomain href="/cong-thuc/106-thit-bo/" id="2">Thịt bò</subdomain>
+            <subdomain href="/cong-thuc/107-thit-cuu/" id="3">Thịt cừu</subdomain>
+            <subdomain href="/cong-thuc/108-thit-lon/" id="4">Thịt lợn</subdomain>
+            <subdomain href="/cong-thuc/109-thit-ga/" id="5">Thịt gà</subdomain>
+            <subdomain href="/cong-thuc/110-thit-vit/" id="6">Thịt vịt</subdomain>
+            <subdomain href="/cong-thuc/111-thit-ngan/" id="7">Thịt ngan</subdomain>
+            <subdomain href="/cong-thuc/112-hai-san/" id="8">Hải sản</subdomain>
+            <subdomain href="/cong-thuc/113-ca/" id="9">Cá</subdomain>
+            <subdomain href="/cong-thuc/114-gaocom/" id="10">Gạo/cơm</subdomain>
+            <subdomain href="/cong-thuc/116-pasta/" id="11">Pasta</subdomain>
+            <subdomain href="/cong-thuc/117-banh-my/" id="12">Bánh mỳ</subdomain>
+            <subdomain href="/cong-thuc/118-rau/" id="13">Rau</subdomain>
+            <subdomain href="/cong-thuc/119-hoa-qua/" id="14">Hoa quả</subdomain>
+            <subdomain href="/cong-thuc/120-dau-phu/" id="15">Đậu phụ</subdomain>
+            <subdomain href="/cong-thuc/121-nam/" id="16">Nấm</subdomain>
+            <subdomain href="/cong-thuc/122-phomai/" id="17">Phô-mai</subdomain>
+            <subdomain href="/cong-thuc/123-sua/" id="18">Sữa</subdomain>
+            <subdomain href="/cong-thuc/124-trung/" id="19">Trứng</subdomain>
+            <subdomain href="/cong-thuc/125-chocolate/" id="20">Chocolate</subdomain>
+            <subdomain href="/cong-thuc/185-tom/" id="21">Tôm</subdomain>
+            <subdomain href="/cong-thuc/186-thit-be/" id="22">Thịt bê</subdomain>
         </subdomains>
         <markers>
             <home>
                 <start>&lt;div class="box-recipe_bottom"&gt;</start>
-                <end>Tiếp theo&lt;/a&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</end>
-                <included>true</included>
+                <end>&lt;div class="col-md-3"&gt; &lt;div class="mt30 box-course_sb"&gt;</end>
+                <included>false</included>
                 <xsl>WEB-INF/xsl/recipeLink.xsl</xsl>
             </home>
             <detail>

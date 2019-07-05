@@ -17,13 +17,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class MainController extends HttpServlet {
 
+    public static final String CONFIG_FILE = "WEB-INF/config/config.xml";
     public static final String ADMIN_PAGE = "admin.jsp";
     public static final String ERROR_PAGE = "error.jsp";
     public static final String INDEX_PAGE = "index.jsp";
     public static final String INGREDIENT_PAGE = "ingredient.jsp";
     public static final String RECIPE_PAGE = "recipe.jsp";
     public static final String RECIPE_DETAIL_PAGE = "recipe_detail.jsp";
-    public static final String INDEX_CONTROLLER = "RecipeController";
+    public static final String INDEX_CONTROLLER = "IndexController";
     public static final String RECIPE_CRAWLER = "RecipeController";
     public static final String RECIPE_VIEWER = "RecipeInfoController";
     public static final String RECIPE_DETAIL = "RecipeDetailController";

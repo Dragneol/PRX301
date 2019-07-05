@@ -26,9 +26,6 @@ import javax.naming.NamingException;
  */
 public class RecipeDAO implements Serializable {
 
-    Connection connection = null;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
     private final String insertTblRecipe = "IF NOT EXISTS (SELECT * FROM Recipe WHERE ID = ?) INSERT INTO Recipe([ID],[Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime]) VALUES(?,?,?,?,?,?,?,?)";
     private final String findByIdTblRecipe = "SELECT [Title],[Link],[Image],[Description],[Ration],[PrepareTime],[CookingTime] FROM [dbo].[Recipe] Where ID = ?";
     private final String findByIngredientTblRecipe = "select Id, Title, Link, Image, Description, Ration, PrepareTime, CookingTime, (PrepareTime + CookingTime) as TotalTime from Recipe Where ID In (select RecipeID from IngredientMenu where [Name] like ?) ORDER BY TotalTime, CookingTime";
@@ -36,6 +33,10 @@ public class RecipeDAO implements Serializable {
     private final String findByIdTblInstructionMenu = "SELECT [NumStep],[Detail] FROM [dbo].[InstructionMenu] where RecipeID = ?";
     private final String insertTblIngredientMenu = "INSERT INTO IngredientMenu([RecipeID], [Name], [Unit], [Quantitive]) VALUES(?,?,?,?)";
     private final String findByIdTblIngredientMenu = "SELECT [Name],[Unit],[Quantitive] FROM [dbo].[IngredientMenu] where RecipeID = ?";
+
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
 
     private void closeConnection() throws SQLException {
         if (resultSet != null) {
@@ -97,7 +98,7 @@ public class RecipeDAO implements Serializable {
                         tmp.executeUpdate();
                     }
                     connection.commit();
-
+                    tmp.close();
                 }
             } finally {
                 closeConnection();

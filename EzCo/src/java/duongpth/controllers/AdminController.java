@@ -5,6 +5,8 @@
  */
 package duongpth.controllers;
 
+import duongpth.daos.RecipeCateDAO;
+import duongpth.jaxbs.Subdomain;
 import duongpth.jaxbs.Website;
 import duongpth.jaxbs.Websites;
 import duongpth.utils.JAXBUtil;
@@ -12,10 +14,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,11 +47,16 @@ public class AdminController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String path = MainController.ADMIN_PAGE;
         try {
-            String configFile = request.getServletContext().getRealPath("/") + "WEB-INF/config/config.xml";
+            String configFile = request.getServletContext().getRealPath("/") + MainController.CONFIG_FILE;
             FileInputStream stream = new FileInputStream(new File(configFile));
             Websites websites = JAXBUtil.unmarshalling(stream, new Websites());
             List<Website> list = websites.getWebsite();
             Website recipeHomeUrl = list.get(0);
+            RecipeCateDAO dao = new RecipeCateDAO();
+            List<Subdomain> categories = recipeHomeUrl.getSubdomains().getSubdomain();
+            for (Subdomain category : categories) {
+                dao.insertCategory(category);
+            }
             Website ingredientHomeUrl = list.get(1);
             HttpSession session = request.getSession();
             session.setAttribute("RECIPE_WEBSITE", recipeHomeUrl);
@@ -58,6 +66,12 @@ public class AdminController extends HttpServlet {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (XMLStreamException ex) {
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NamingException ex) {
+            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
