@@ -26,18 +26,23 @@
 
             <c:forEach items="${jspIng}" var="temp" varStatus="counter">
                 <%--<c:if test="${counter.count != 1}">--%>
-            ingredients.push(`${temp.value}`);
+            ingredients.push({
+                id: ${temp.id},
+                value: `${temp.value}`});
                 <%--</c:if>--%>
             </c:forEach>
             function suggest(event) {
                 if (event.keyCode === 13) {
                     const suggestions = document.getElementsByClassName("sug");
                     if (suggestions.length > suggestionIndex) {
-                        tags.push(suggestions[suggestionIndex].innerHTML);
+                        tags.push({
+                            id: suggestions[suggestionIndex].dataset.id,
+                            value: suggestions[suggestionIndex].innerHTML
+                        });
                     }
                     renderSuggestions();
-                    document.getElementById("tags-included").innerHTML = tags.map(item => `<span>\${item}</span>`).join('');
-                    document.getElementById("tags").value = tags;
+                    document.getElementById("tags-included").innerHTML = tags.map(item => `<span>\${item.value}</span>`).join('');
+                    document.getElementById("tags").value = tags.map(item => item.id);
                 } else if (event.keyCode === 38) {
                     // up
                     if (suggestionIndex > 0) {
@@ -56,7 +61,7 @@
                 } else {
                     const text = event.target.value;
                     suggestions = ingredients.filter(item => {
-                        return item.toLowerCase().includes(text.toLowerCase());
+                        return item.value.toLowerCase().includes(text.toLowerCase());
                     });
                     suggestionIndex = 0;
                     renderSuggestions();
@@ -65,9 +70,9 @@
 
             function renderSuggestions() {
                 const suggestionComponents = suggestions
-                        .filter(item => !tags.includes(item))
+                        .filter(item => !(tags.map(i => i.value)).includes(item.value))
                         .map((item, index) =>
-                                `<span class="sug \${index === suggestionIndex ? 'choosing' : ''}">\${item}</span>`
+                                `<span class="sug \${index === suggestionIndex ? 'choosing' : ''}" data-id="\${item.id}">\${item.value}</span>`
                         );
                 const area = document.getElementById("suggestion");
                 area.innerHTML = suggestionComponents.join('');
@@ -104,7 +109,7 @@
 
             <div class="search-right">
                 <form id="searchForm" autocomplete="off">
-                    <input id="input-search" class="txtSearch" type="text" name="txtSearch" value="${param.txtSearch}" />
+                    <input id="input-search" class="txtSearch" type="text" placeholder="i.e: Lẩu" name="txtSearch" value="${param.txtSearch}" />
                 </form>
                 <div id="tags-included"></div>
                 <div id="suggestion"></div>
