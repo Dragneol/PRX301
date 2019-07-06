@@ -35,14 +35,13 @@ public class AmThuc {
         BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
         String inputLine;
         String htmlFile = null;
-        BufferedWriter writer = new BufferedWriter(new FileWriter("amthuc.html"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("amthuc.xml"));
         while ((inputLine = in.readLine()) != null) {
             htmlFile += inputLine;
         }
-//        String begin = "<div class=\"box-video_info\">";
-//        String end = "<!--end box-recipe_content-->";
-//        String result = htmlFile.substring(htmlFile.indexOf(begin) + begin.length(), htmlFile.indexOf(end));
-//        String result = htmlFile.substring(htmlFile.indexOf(begin) + begin.length(), htmlFile.indexOf(end));
+        String begin = "<div class=\"box-recipe_bottom\">";
+        String end = " </div> <div class=\"col-md-3\"> <div class=\"mt30 box-course_sb\">";
+        String result = htmlFile = htmlFile.substring(htmlFile.indexOf(begin), htmlFile.indexOf(end));
         writer.write(htmlFile);
 //        writer.write(URLDecoder.decode(result, "UTF-8"));
         writer.close();

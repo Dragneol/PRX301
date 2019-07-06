@@ -19,6 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,7 +51,7 @@ public class CrawlUtil implements Serializable {
             Logger.getLogger(CrawlUtil.class.getName()).log(Level.SEVERE, null, ex);
             stream = null;
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger(CrawlUtil.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             return stream;
         }
@@ -150,7 +151,7 @@ public class CrawlUtil implements Serializable {
     private static InputStream processWellForm(InputStream inputStream) throws XMLStreamException, UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
         XMLInputFactory factory = XMLInputFactory.newFactory();
-        XMLEventReader reader = factory.createXMLEventReader(inputStream, StandardCharsets.UTF_8.toString());
+        XMLEventReader reader = factory.createXMLEventReader(inputStream, StandardCharsets.UTF_8.name());
 
         int tagMarker = 0;
 

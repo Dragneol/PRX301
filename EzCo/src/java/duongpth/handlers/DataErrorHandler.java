@@ -56,4 +56,11 @@ public class DataErrorHandler {
         }
         return menu;
     }
-} 
+
+    public static String normalizeIngredientsLink(String url) {
+        String s = url;
+        s = s.replaceAll("#038;", "");
+        s = s.replaceAll("%2F", "");
+        return s;
+    }
+}

@@ -26,12 +26,12 @@ public class TestCrawler {
      */
     public static void main(String[] args) {
         try {
-//            AmThuc.setUrl(new URL("http://www.amthuc365.vn/cong-thuc/105-thanh-phan/"));
-//            AmThuc.crawl();
+            AmThuc.setUrl(new URL("http://www.amthuc365.vn/cong-thuc/105-thanh-phan/"));
+            AmThuc.crawl();
 //            NguyenHaFood.setUrl(new URL("https://nguyenhafood.vn/detail/khoai-tay-dong-lanh-mccain-frozen-french-fries-5kggoi-977.html"));
 //            NguyenHaFood.crawl();
-            NkFood.setUrl(new URL("http://nkfood.vn/cua-hang/?paged=1"));
-            NkFood.crawl();
+//            NkFood.setUrl(new URL("http://nkfood.vn/cua-hang/?paged=1"));
+//            NkFood.crawl();
         } catch (MalformedURLException ex) {
             Logger.getLogger(TestCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

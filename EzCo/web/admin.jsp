@@ -31,7 +31,7 @@
                     <td>
                         <select name='ingredientSubDomain'>
                             <c:forEach items="${ingredienHomeUrl.subdomains.subdomain}" var="temp">
-                                <option value='${temp.href}'>${temp.value}</option>
+                                <option value='${temp.id}'>${temp.value}</option>
                             </c:forEach>
                         </select>
                     </td>

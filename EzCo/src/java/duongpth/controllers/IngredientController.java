@@ -6,9 +6,11 @@
 package duongpth.controllers;
 
 import duongpth.daos.IngredientDAO;
+import duongpth.handlers.ItemHandler;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
 import duongpth.jaxbs.Marker;
+import duongpth.jaxbs.Subdomain;
 import duongpth.jaxbs.Website;
 import duongpth.utils.CrawlUtil;
 import duongpth.utils.JAXBUtil;
@@ -50,60 +52,22 @@ public class IngredientController extends HttpServlet {
         try {
             String homePage = request.getParameter("ingredientPage");
             String subDomain = request.getParameter("ingredientSubDomain");
-            String nextPage = "";
+            int categoryId = Integer.parseInt(subDomain.trim());
             HttpSession session = request.getSession();
             Website ingredientSite = (Website) session.getAttribute("INGREDIENT_WEBSITE");
 
-            String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
-            Marker markerHome = ingredientSite.getMarkers().getHome();
-            Marker markerDetail = ingredientSite.getMarkers().getDetail();
+            List<Subdomain> subdomains = ingredientSite.getSubdomains().getSubdomain();
+            ItemHandler handler = new ItemHandler(getServletContext());
 
-            String xslFileLinks = getServletContext().getRealPath("/") + markerHome.getXsl();
-            String xslFileDetail = getServletContext().getRealPath("/") + markerDetail.getXsl();
-
-            InputStream stream = null;
-            List<Ingredient> list = null;
-            Ingredients ingredients = null;
-            Ingredient tmp = null;
-            IngredientDAO dao = new IngredientDAO();
-            int index;
-            do {
-                System.out.println("Crawling " + crawledLink);
-                stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
-                if (stream != null) {
-
-                    stream = CrawlUtil.transformXML(stream, xslFileLinks);
-                    stream.reset();
-
-                    ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
-                    list = ingredients.getIngredient();
-
-                    for (Ingredient ingredient : list) {
-                        crawledLink = CrawlUtil.normalizeLink(homePage, ingredient.getLink());
-                        System.out.println("Crawling " + crawledLink);
-                        stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
-                        if (stream != null) {
-                            stream = CrawlUtil.transformXML(stream, xslFileDetail);
-                            stream.reset();
-
-                            tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
-                            index = list.indexOf(ingredient);
-                            tmp.setLink(crawledLink.trim());
-                            tmp.setImage(ingredient.getImage().trim());
-                            list.set(index, tmp);
-                            dao.insert(tmp);
-                        }
-                    }
-                    try {
-                        nextPage = ingredients.getNextpage();
-                    } catch (NullPointerException e) {
-                        nextPage = "";
-                    }
+            if (categoryId != 0) {
+                subDomain = subdomains.get(categoryId).getHref();
+                handler.crawlIngredient(ingredientSite, homePage, subDomain, categoryId);
+            } else {
+                for (int i = 1; i < subdomains.size(); i++) {
+                    subDomain = subdomains.get(i).getHref();
+                    handler.crawlIngredient(ingredientSite, homePage, subDomain, i);
                 }
-                if (!nextPage.equals("")) {
-                    crawledLink = nextPage;
-                }
-            } while (!nextPage.equals(""));
+            }
         } catch (JAXBException ex) {
             Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {

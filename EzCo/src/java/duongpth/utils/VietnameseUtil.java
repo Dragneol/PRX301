@@ -49,4 +49,9 @@ public class VietnameseUtil implements Serializable {
         newWords = sb.toString().trim();
         return newWords;
     }
+    
+    public static void main(String[] args) {
+        String s = "http://nkfood.vn/cua-hang/?product_tag=nhom-rau-la-an-toan&paged=2/";
+        System.out.println(decode(s));
+    }
 }

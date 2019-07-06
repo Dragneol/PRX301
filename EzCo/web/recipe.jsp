@@ -21,7 +21,6 @@
         time: ${r.preparetime + r.cookingtime},
     });
     </c:forEach>
-    console.log(recipes);
 </script>
 <content>
     <div id="list-recipe"></div>

@@ -25,63 +25,65 @@
             <c:set value="${sessionScope.RECIPE_WEBSITE.subdomains.subdomain}" var="jspIng"/>
 
             <c:forEach items="${jspIng}" var="temp" varStatus="counter">
-                <c:if test="${counter.count != 1}">ingredients.push(`${temp.value}`);</c:if>
+                <%--<c:if test="${counter.count != 1}">--%>
+            ingredients.push(`${temp.value}`);
+                <%--</c:if>--%>
             </c:forEach>
-                    function suggest(event) {
-                        if (event.keyCode === 13) {
-                            const suggestions = document.getElementsByClassName("sug");
-                            if (suggestions.length > suggestionIndex) {
-                                tags.push(suggestions[suggestionIndex].innerHTML);
-                            }
-                            renderSuggestions();
-                            document.getElementById("tags-included").innerHTML = tags.map(item => `<span>\${item}</span>`).join('');
-                            document.getElementById("tags").value = tags;
-                        } else if (event.keyCode === 38) {
-                            // up
-                            if (suggestionIndex > 0) {
-                                suggestionIndex--;
-                                renderSuggestions();
-                            }
-                        } else if (event.keyCode === 40) {
-                            //down
-                            if (suggestionIndex < suggestions.length - 1) {
-                                suggestionIndex++;
-                                renderSuggestions();
-                            }
-                        } else if (event.keyCode === 27) {
-                            // esc
-                            document.getElementById("suggestion").style.visibility = 'hidden';
-                        } else {
-                            const text = event.target.value;
-                            suggestions = ingredients.filter(item => {
-                                return item.toLowerCase().includes(text.toLowerCase());
-                            });
-                            suggestionIndex = 0;
-                            renderSuggestions();
-                        }
+            function suggest(event) {
+                if (event.keyCode === 13) {
+                    const suggestions = document.getElementsByClassName("sug");
+                    if (suggestions.length > suggestionIndex) {
+                        tags.push(suggestions[suggestionIndex].innerHTML);
                     }
+                    renderSuggestions();
+                    document.getElementById("tags-included").innerHTML = tags.map(item => `<span>\${item}</span>`).join('');
+                    document.getElementById("tags").value = tags;
+                } else if (event.keyCode === 38) {
+                    // up
+                    if (suggestionIndex > 0) {
+                        suggestionIndex--;
+                        renderSuggestions();
+                    }
+                } else if (event.keyCode === 40) {
+                    //down
+                    if (suggestionIndex < suggestions.length - 1) {
+                        suggestionIndex++;
+                        renderSuggestions();
+                    }
+                } else if (event.keyCode === 27) {
+                    // esc
+                    document.getElementById("suggestion").style.visibility = 'hidden';
+                } else {
+                    const text = event.target.value;
+                    suggestions = ingredients.filter(item => {
+                        return item.toLowerCase().includes(text.toLowerCase());
+                    });
+                    suggestionIndex = 0;
+                    renderSuggestions();
+                }
+            }
 
-                    function renderSuggestions() {
-                        const suggestionComponents = suggestions
-                            .filter(item => !tags.includes(item))
-                            .map((item, index) =>
+            function renderSuggestions() {
+                const suggestionComponents = suggestions
+                        .filter(item => !tags.includes(item))
+                        .map((item, index) =>
                                 `<span class="sug \${index === suggestionIndex ? 'choosing' : ''}">\${item}</span>`
                         );
-                        const area = document.getElementById("suggestion");
-                        area.innerHTML = suggestionComponents.join('');
-                        area.style.visibility = 'visible';
-                    }
+                const area = document.getElementById("suggestion");
+                area.innerHTML = suggestionComponents.join('');
+                area.style.visibility = 'visible';
+            }
 
-                    function load() {
-                        document.getElementById("input-search").addEventListener('keyup', suggest);
-                        document.getElementById("input-search").addEventListener('blur', function() {
-                            document.getElementById("suggestion").style.visibility = 'hidden';
-                        });
-                        document.getElementById("searchForm").addEventListener('submit', function (e) {
-                            e.preventDefault();
-                            return false;
-                        });
-                    }
+            function load() {
+                document.getElementById("input-search").addEventListener('keyup', suggest);
+                document.getElementById("input-search").addEventListener('blur', function () {
+                    document.getElementById("suggestion").style.visibility = 'hidden';
+                });
+                document.getElementById("searchForm").addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
         </script>
     </head>
 
@@ -92,8 +94,11 @@
             </div>
             <div class="list-tag">
                 <ul class="wrap-list">
-                    <li class="item-list"><a href="recipe.jsp"><span>Recipe</span></a></li>
-                    <li class="item-list"><a href="ingredient.jsp"><span>Ingredient</span></a></li>
+                    <li class="item-list"><a href="IndexController"><span>Recipe</span></a></li>
+                        <c:url value="MainController" var="ingIndex">
+                            <c:param name="action" value="Lookup"/>
+                        </c:url>
+                    <li class="item-list"><a href="${ingIndex}"><span>Ingredient</span></a></li>
                 </ul>
             </div>
 

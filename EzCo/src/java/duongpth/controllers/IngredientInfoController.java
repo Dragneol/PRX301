@@ -39,7 +39,7 @@ public class IngredientInfoController extends HttpServlet {
         String path = MainController.INGREDIENT_PAGE;
         try {
             IngredientDAO dao = new IngredientDAO();
-            List<Ingredient> list = dao.getFirst(10);
+            List<Ingredient> list = dao.getFirst(6);
 
             request.setAttribute("LIST_INGREDIENT", list);
         } catch (NamingException ex) {

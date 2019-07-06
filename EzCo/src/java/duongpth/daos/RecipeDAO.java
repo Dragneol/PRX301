@@ -98,7 +98,9 @@ public class RecipeDAO implements Serializable {
                         tmp.executeUpdate();
                     }
                     connection.commit();
-                    tmp.close();
+                    if (tmp != null) {
+                        tmp.close();
+                    }
                 }
             } finally {
                 closeConnection();

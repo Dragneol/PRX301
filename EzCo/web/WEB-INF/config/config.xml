@@ -30,7 +30,7 @@
         <markers>
             <home>
                 <start>&lt;div class="box-recipe_bottom"&gt;</start>
-                <end>&lt;div class="col-md-3"&gt; &lt;div class="mt30 box-course_sb"&gt;</end>
+                <end> &lt;/div&gt; &lt;div class="col-md-3"&gt; &lt;div class="mt30 box-course_sb"&gt;</end>
                 <included>false</included>
                 <xsl>WEB-INF/xsl/recipeLink.xsl</xsl>
             </home>
@@ -45,30 +45,30 @@
     <website>
         <homeurl>http://nkfood.vn/cua-hang</homeurl>
         <subdomains>
-            <subdomain href="/">Tất cả thực phẩm</subdomain>
-            <subdomain href="/?product_tag=nhom-rau-la-an-toan">Nhóm rau lá an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-rau-la-an-toan-so-che">Nhóm rau lá an toàn (sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-rau-thom-an-toan">Nhóm rau thơm an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-rau-thom-an-toan-so-che">Nhóm rau thơm an toàn (sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-cu-an-toan">Nhóm củ an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-rau-cu-an-toan-so-che">Nhóm củ an toàn (sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-qua-an-toan">Nhóm quả an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-qua-so-che">Nhóm quả an toàn (sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-bong-cai-an-toan-so-che">Nhóm bông cải an toàn (Sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-nam-an-toan">Nhóm nấm an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-nam-an-toan-so-che">Nhóm nấm an toàn (sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-thit-heo-an-toan">Nhóm thịt heo an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-thit-bo-an-toan">Nhóm thịt bò an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-thit-ga-an-toan">Nhóm thịt gà an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-che-bien-kho-an-toan">Nhóm chế biến khô an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-che-bien-tuoi-an-toan">Nhóm chế biến tươi an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-hai-san">Nhóm hải sản an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-hai-san-an-toan-so-che">Nhóm hải sản an toàn (sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-thuy-hai-san">Nhóm thủy sản an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-thuy-hai-san-so-che">Nhóm thủy sản an toàn (sơ chế)</subdomain>
-            <subdomain href="/?product_tag=nhom-trai-cay-an-toan">Nhóm trái cây an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-trung-an-toan">Nhóm trứng an toàn</subdomain>
-            <subdomain href="/?product_tag=nhom-gia-vi">Nhóm Gia Vị</subdomain>
+            <subdomain href="/" id="0">Tất cả thực phẩm</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-la-an-toan" id="1">Nhóm rau lá an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-la-an-toan-so-che" id="2">Nhóm rau lá an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-thom-an-toan" id="3">Nhóm rau thơm an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-thom-an-toan-so-che" id="4">Nhóm rau thơm an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-cu-an-toan" id="5">Nhóm củ an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-rau-cu-an-toan-so-che" id="6">Nhóm củ an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-qua-an-toan" id="7">Nhóm quả an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-qua-so-che" id="8">Nhóm quả an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-bong-cai-an-toan-so-che" id="9">Nhóm bông cải an toàn (Sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-nam-an-toan" id="10">Nhóm nấm an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-nam-an-toan-so-che" id="11">Nhóm nấm an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-thit-heo-an-toan" id="12">Nhóm thịt heo an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-thit-bo-an-toan" id="13">Nhóm thịt bò an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-thit-ga-an-toan" id="14">Nhóm thịt gà an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-che-bien-kho-an-toan" id="15">Nhóm chế biến khô an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-che-bien-tuoi-an-toan" id="16">Nhóm chế biến tươi an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-hai-san" id="17">Nhóm hải sản an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-hai-san-an-toan-so-che" id="18">Nhóm hải sản an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-thuy-hai-san" id="19">Nhóm thủy sản an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-thuy-hai-san-so-che" id="20">Nhóm thủy sản an toàn (sơ chế)</subdomain>
+            <subdomain href="/?product_tag=nhom-trai-cay-an-toan" id="21">Nhóm trái cây an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-trung-an-toan" id="22">Nhóm trứng an toàn</subdomain>
+            <subdomain href="/?product_tag=nhom-gia-vi" id="23">Nhóm Gia Vị</subdomain>
         </subdomains>
         <markers>
             <home>
