@@ -41,17 +41,11 @@ public class RecipeInfoController extends HttpServlet {
         String path = MainController.RECIPE_PAGE;
         try {
             request.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-            String ingTags = request.getParameter("tags");
-//            byte[] bytes = ingredientName.getBytes(StandardCharsets.ISO_8859_1);
-//            ingredientName = new String(bytes, StandardCharsets.UTF_8);
-            String[] tags = ingTags.split(",");
-            for (String tag : tags) {
-                System.out.println(tag);
-            }
-            System.out.println(ingTags);
+            String text = request.getParameter("txtSearch");
+            byte[] bytes = text.getBytes(StandardCharsets.ISO_8859_1);
+            text = new String(bytes, StandardCharsets.UTF_8);
             RecipeDAO dao = new RecipeDAO();
-            List<Recipe> list = dao.getRecipeByIngredient(ingTags);
-
+            List<Recipe> list = dao.getRecipeLikeName(text);
             request.setAttribute("LIST_RECIPE", list);
         } catch (NamingException ex) {
             Logger.getLogger(RecipeInfoController.class.getName()).log(Level.SEVERE, null, ex);

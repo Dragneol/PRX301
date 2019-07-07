@@ -24,9 +24,11 @@
 </script>
 <content>
     <div id="list-recipe"></div>
-    <button id="load-button">Load more</button>
+    <div id="load-button">Load more</div>
 </content>
 <script type="text/javascript">
+    const loadButton = document.getElementById("load-button");
+
     function loadMoreRecipes() {
         const showedElements = recipes.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item =>
                 `<div class="product-item">
@@ -52,8 +54,12 @@
         `);
         document.getElementById("list-recipe").innerHTML += showedElements.join('');
         page++;
+        if (page * PAGE_SIZE > recipes.length) {
+//            loadButton.style.display = "none";
+            loadButton.outerHTML = "";
+        }
     }
     loadMoreRecipes();
-    document.getElementById("load-button").addEventListener('click', loadMoreRecipes);
+    loadButton.addEventListener('click', loadMoreRecipes);
 </script>
 <jsp:include page="footer.jsp"/>

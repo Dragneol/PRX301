@@ -125,6 +125,7 @@ content {
     background-color: #c00a27;
     color: #ffffff;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 .content-product button:hover {

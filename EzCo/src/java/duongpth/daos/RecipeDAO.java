@@ -240,4 +240,32 @@ public class RecipeDAO implements Serializable {
         }
         return recipes;
     }
+
+    public List<Recipe> getRecipeLikeName(String text) throws SQLException, NamingException {
+        List<Recipe> recipes = new ArrayList<>();
+        Recipe r = null;
+        String sql = "select Id, Title, Image, Description, Ration, PrepareTime, CookingTime, (PrepareTime + CookingTime) as Total from Recipe where Title like ? order by Total";
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, "%" + text + "%");
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    r = new Recipe();
+                    r.setCookingtime(resultSet.getInt("CookingTime"));
+                    r.setDescription(resultSet.getString("Description"));
+                    r.setId(resultSet.getInt("Id"));
+                    r.setImage(resultSet.getString("Image"));
+                    r.setPreparetime(resultSet.getInt("PrepareTime"));
+                    r.setRation(resultSet.getInt("Ration"));
+                    r.setTitle(resultSet.getString("Title"));
+                    recipes.add(r);
+                }
+            }
+        } finally {
+            closeConnection();
+        }
+        return recipes;
+    }
 }

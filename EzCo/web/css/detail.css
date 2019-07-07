@@ -1,5 +1,5 @@
 .food-detail {
-  width: 100%;
+    width: 100%;
 }
 
 .icon {
@@ -8,87 +8,87 @@
 }
 
 .print-cooking {
-  padding: 10px;
-  border-bottom: 1px solid #5d5d5d;
-  cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #5d5d5d;
+    cursor: pointer;
 }
 
 .cooking {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 .cooking .title {
-  font-weight: 200;
-  line-height: 4rem;
+    font-weight: 200;
+    line-height: 4rem;
 }
 
 .cooking .description {
-  font-weight: bold;
-  line-height: 2rem;
-  text-indent: 30px;
-  margin-bottom: 30px;
+    font-weight: bold;
+    line-height: 2rem;
+    text-indent: 30px;
+    margin-bottom: 30px;
 }
 
 .detail-cooking {
-  width: 100%;
-  display: table;
+    width: 100%;
+    display: table;
 }
 
 .quick-view {
-  max-width: 1024px;
-  margin: 15px auto;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #8b8b8b;
+    max-width: 1024px;
+    margin: 15px auto;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #8b8b8b;
 }
 
 .quick-view ul {
-  width: 55%;
-  display: flex;
-  justify-content: space-around;
+    width: 55%;
+    display: flex;
+    justify-content: space-around;
 }
 
 .quick-view ul li {
-  list-style-type: none;
-  cursor: pointer;
+    list-style-type: none;
+    cursor: pointer;
 }
 
 .image-food {
-  max-width: 1024px;
-  margin: auto;
+    max-width: 1024px;
+    margin: auto;
 }
 
 .content-cooking {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .content-cooking > div {
-  margin: 15px;
+    margin: 15px;
 }
 
 .content-cooking > div > h3 {
-  border-bottom: 1px solid #5d5d5d;
-  margin: 10px;
-  font-size: 1.5rem;
+    border-bottom: 1px solid #5d5d5d;
+    margin: 10px;
+    font-size: 1.5rem;
 }
 
 .content-cooking .element {
-  width: 35%;
+    width: 35%;
 }
 
 .content-cooking .content {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  margin: 0 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0 10px;
 }
 
 .content-cooking .content p {
-  display: block;
-  min-height: 60px;
-  padding: 20px;
-  border-bottom: 1px dotted #8b8b8b;
+    display: block;
+    min-height: 60px;
+    padding: 20px;
+    border-bottom: 1px dotted #8b8b8b;
 }
 
 .content-cooking .content .ingredient {
@@ -96,4 +96,18 @@
     color: black;
     padding: 10px;
     border-bottom: 1px dashed #8b8b8b;
+}
+
+#load-button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    text-align: center;
+    display: block;
+    border: 2px solid #c00a27;
+    background-color: #c00a27;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 8px;
+    cursor: pointer;
 }
