@@ -39,12 +39,15 @@ public class IngredientInfoController extends HttpServlet {
         String path = MainController.INGREDIENT_PAGE;
         try {
             IngredientDAO dao = new IngredientDAO();
-            List<Ingredient> list = dao.getFirst(6);
-
+            String text = request.getParameter("txtSearch");
+            List<Ingredient> list = null;
+            if (text == null) {
+                list = dao.getFirst(6);
+            } else {
+                list = dao.getIngredientsByLikeName(text);
+            }
             request.setAttribute("LIST_INGREDIENT", list);
-        } catch (NamingException ex) {
-            Logger.getLogger(IngredientInfoController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (NamingException | SQLException ex) {
             Logger.getLogger(IngredientInfoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(IngredientInfoController.class.getName()).log(Level.SEVERE, null, ex);

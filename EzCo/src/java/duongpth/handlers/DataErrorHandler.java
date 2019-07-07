@@ -6,6 +6,7 @@
 package duongpth.handlers;
 
 import duongpth.jaxbs.Categories;
+import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredientdetail;
 import duongpth.jaxbs.Ingredientmenu;
 import duongpth.jaxbs.Recipe;
@@ -30,11 +31,6 @@ public class DataErrorHandler {
         r.setId(src.getId());
         r.setImage(src.getImage());
         r.setLink(src.getLink());
-
-//        List<Integer> categories = r.getCategories().getCategory();
-//        if (!categories.contains(categoryId)) {
-//            categories.add(categoryId);
-//        }
 
         if (r.getCookingtime() == 0) {
             r.setCookingtime(30);
@@ -69,5 +65,21 @@ public class DataErrorHandler {
         s = s.replaceAll("#038;", "");
         s = s.replaceAll("%2F", "");
         return s;
+    }
+
+    public static String normalizeIngredientName(String name) {
+        name = VietnameseUtil.normalizeWords(name.trim());
+        //exception data
+        name = name.replace("Đậu Lành", "Đậu Nành");
+        name = name.replace("Mỳ", "Mì");
+        return name;
+    }
+
+    static Ingredient normalizeIngredient(Ingredient ingredient, Ingredient src) {
+        Ingredient i = ingredient;
+        i.setImage(src.getImage().trim());
+        i.setLink(src.getLink().trim());
+        i.setName(VietnameseUtil.normalizeWords(i.getName().trim()));
+        return i;
     }
 }

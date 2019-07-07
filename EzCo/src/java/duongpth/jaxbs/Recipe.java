@@ -6,6 +6,7 @@
 //
 package duongpth.jaxbs;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -59,7 +60,7 @@ import javax.xml.bind.annotation.XmlType;
     "categories"
 })
 @XmlRootElement(name = "recipe")
-public class Recipe {
+public class Recipe implements Serializable {
 
     protected Integer id;
     protected String title;

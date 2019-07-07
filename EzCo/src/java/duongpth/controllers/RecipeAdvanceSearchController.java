@@ -6,9 +6,13 @@
 package duongpth.controllers;
 
 import duongpth.daos.RecipeDAO;
+import duongpth.jaxbs.Recipe;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Arrays;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,13 +41,18 @@ public class RecipeAdvanceSearchController extends HttpServlet {
             String tagList = request.getParameter("tags");
             if (tagList != null) {
                 String[] tags = tagList.split(",");
-                int[] categories = Arrays.asList(tags).stream().mapToInt(Integer::parseInt).toArray();
-                for (int category : categories) {
-                    System.out.println(category);
+                int[] array = new int[tags.length];
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = Integer.parseInt(tags[i]);
                 }
                 RecipeDAO dao = new RecipeDAO();
-//                dao.getRecipeByIngredient(tagList)
+                List<Recipe> recipes = dao.getRecipeByCategories(array);
+                request.setAttribute("LIST_RECIPE", recipes);
             }
+        } catch (SQLException | NamingException ex) {
+            Logger.getLogger(RecipeAdvanceSearchController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(RecipeAdvanceSearchController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
         }

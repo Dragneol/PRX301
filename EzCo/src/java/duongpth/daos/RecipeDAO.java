@@ -240,11 +240,12 @@ public class RecipeDAO implements Serializable {
         }
         return recipes;
     }
-    
+
     public List<Recipe> getRecipeLikeName(String text) throws SQLException, NamingException {
         List<Recipe> recipes = new ArrayList<>();
         Recipe r = null;
-        String sql = "select Id, Title, Image, Description, Ration, PrepareTime, CookingTime, (PrepareTime + CookingTime) as Total from Recipe where Title like ? order by Total";
+        String sql = "select Id, Title, Image, Description, Ration, PrepareTime, CookingTime, (PrepareTime + CookingTime) "
+                + "as Total from Recipe where Title like ? order by Total";
         try {
             connection = DatabaseUtil.getConnection();
             if (connection != null) {
@@ -261,6 +262,43 @@ public class RecipeDAO implements Serializable {
                     r.setRation(resultSet.getInt("Ration"));
                     r.setTitle(resultSet.getString("Title"));
                     recipes.add(r);
+                }
+            }
+        } finally {
+            closeConnection();
+        }
+        return recipes;
+    }
+
+    public List<Recipe> getRecipeByCategories(int[] tagArr) throws SQLException, NamingException {
+        List<Recipe> recipes = new ArrayList<>();
+        Recipe recipe = null;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < tagArr.length - 1; i++) {
+            sb.append("?,");
+        }
+        sb.append('?');
+        String sql = "Select ID, Title, Image, Description, Ration, PrepareTime, CookingTime FROM Recipe, "
+                + "(select COUNT(CateID) as Total, RecipeID from CateRep where CateID in (" + sb.toString() + ") group by RecipeID) cateRep "
+                + "where Recipe.ID = cateRep.RecipeID order by cateRep.Total DESC";
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+                for (int i = 0; i < tagArr.length; i++) {
+                    preparedStatement.setInt(i + 1, tagArr[i]);
+                }
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    recipe = new Recipe();
+                    recipe.setId(resultSet.getInt("ID"));
+                    recipe.setTitle(resultSet.getString("Title"));
+                    recipe.setImage(resultSet.getString("Image"));
+                    recipe.setDescription(resultSet.getString("Description"));
+                    recipe.setRation(resultSet.getInt("Ration"));
+                    recipe.setPreparetime(resultSet.getInt("PrepareTime"));
+                    recipe.setCookingtime(resultSet.getInt("CookingTime"));
+                    recipes.add(recipe);
                 }
             }
         } finally {

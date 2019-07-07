@@ -63,8 +63,7 @@ public class RecipeCrawlerController extends HttpServlet {
                     subDomain = subdomains.get(i).getHref();
 //                    handler.crawlRecipeAtOnce(recipeSite, finalResult, homePage, subDomain, i);
 //                    handler.insertRecipesAtOnce(finalResult);
-                    handler.crawlRecipeIntoDBInterative(recipeSite, homePage, subDomain, categoryId);
-                    System.out.println("Done for " + subDomain);
+                    handler.crawlRecipeIntoDBInterative(recipeSite, homePage, subDomain, i);
                 }
             }
         } catch (JAXBException | FileNotFoundException | XMLStreamException | TransformerException ex) {

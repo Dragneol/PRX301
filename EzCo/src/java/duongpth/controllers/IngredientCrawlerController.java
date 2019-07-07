@@ -61,15 +61,7 @@ public class IngredientCrawlerController extends HttpServlet {
                     handler.crawlIngredient(ingredientSite, homePage, subDomain, i);
                 }
             }
-        } catch (JAXBException ex) {
-            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (XMLStreamException ex) {
-            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (TransformerException ex) {
-            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedEncodingException ex) {
+        } catch (JAXBException | FileNotFoundException | XMLStreamException | TransformerException | UnsupportedEncodingException ex) {
             Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);

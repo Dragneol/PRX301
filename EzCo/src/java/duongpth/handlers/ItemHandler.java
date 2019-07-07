@@ -113,7 +113,7 @@ public class ItemHandler implements Serializable {
         return finalResult;
     }
 
-    public void insertRecipesAtOnce(List<Recipe> finalResult) throws NamingException, SQLException, ClassNotFoundException {
+    public void insertRecipesAtOnce(List<Recipe> finalResult) throws NamingException, SQLException, ClassNotFoundException, Exception {
         RecipeCateDAO repCatDAO = new RecipeCateDAO();
         RecipeDAO repDAO = new RecipeDAO();
 
@@ -125,7 +125,7 @@ public class ItemHandler implements Serializable {
         }
     }
 
-    public void crawlRecipeIntoDBInterative(Website recipeSite, String homePage, String subDomain, int categoryId) throws JAXBException, FileNotFoundException, XMLStreamException, XMLStreamException, IOException, TransformerException {
+    public void crawlRecipeIntoDBInterative(Website recipeSite, String homePage, String subDomain, int categoryId) throws JAXBException, FileNotFoundException, XMLStreamException, XMLStreamException, IOException, TransformerException , Exception{
         InputStream stream = null;
         List<Recipe> list = null;
         Recipes recipes = null;
@@ -231,9 +231,10 @@ public class ItemHandler implements Serializable {
                         stream.reset();
 
                         tmp = JAXBUtil.unmarshalling(stream, new Ingredient());
-                        index = list.indexOf(ingredient);
-                        tmp.setLink(crawledLink.trim());
-                        tmp.setImage(ingredient.getImage().trim());
+                        index = list.indexOf(ingredient);                        
+                        //edit wrong data with default
+                        tmp.setLink(crawledLink.trim());                        
+                        tmp = DataErrorHandler.normalizeIngredient(tmp, ingredient);                        
                         list.set(index, tmp);
                         dao.insert(tmp);
                     }
