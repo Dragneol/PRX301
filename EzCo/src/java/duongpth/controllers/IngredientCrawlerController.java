@@ -5,18 +5,11 @@
  */
 package duongpth.controllers;
 
-import duongpth.daos.IngredientDAO;
 import duongpth.handlers.ItemHandler;
-import duongpth.jaxbs.Ingredient;
-import duongpth.jaxbs.Ingredients;
-import duongpth.jaxbs.Marker;
 import duongpth.jaxbs.Subdomain;
 import duongpth.jaxbs.Website;
-import duongpth.utils.CrawlUtil;
-import duongpth.utils.JAXBUtil;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
@@ -34,7 +27,7 @@ import javax.xml.transform.TransformerException;
  *
  * @author dragn
  */
-public class IngredientController extends HttpServlet {
+public class IngredientCrawlerController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -69,17 +62,17 @@ public class IngredientController extends HttpServlet {
                 }
             }
         } catch (JAXBException ex) {
-            Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (XMLStreamException ex) {
-            Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
-            Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            Logger.getLogger(IngredientController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IngredientCrawlerController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);
         }

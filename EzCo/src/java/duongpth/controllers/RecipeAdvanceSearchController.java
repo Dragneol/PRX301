@@ -5,28 +5,20 @@
  */
 package duongpth.controllers;
 
-import duongpth.handlers.ItemHandler;
-import duongpth.jaxbs.Subdomain;
-import duongpth.jaxbs.Website;
-import java.io.FileNotFoundException;
+import duongpth.daos.RecipeDAO;
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.transform.TransformerException;
 
 /**
  *
  * @author dragn
  */
-public class RecipeController extends HttpServlet {
+public class RecipeAdvanceSearchController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,32 +32,20 @@ public class RecipeController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = MainController.INDEX_CONTROLLER;
+        String path = MainController.RECIPE_ADVANCE_PAGE;
         try {
-            String homePage = request.getParameter("recipePage");
-            String subDomain = request.getParameter("recipeSubDomain");
-            int categoryId = Integer.parseInt(subDomain.trim());
-            HttpSession session = request.getSession();
-            Website recipeSite = (Website) session.getAttribute("RECIPE_WEBSITE");
-            List<Subdomain> subdomains = recipeSite.getSubdomains().getSubdomain();
-            ItemHandler handler = new ItemHandler(getServletContext());
-
-            if (categoryId != 0) {
-                subDomain = subdomains.get(categoryId).getHref();
-                handler.crawlRecipe(recipeSite, homePage, subDomain, categoryId);
-            } else {
-                for (int i = 1; i < subdomains.size(); i++) {
-                    subDomain = subdomains.get(i).getHref();
-                    handler.crawlRecipe(recipeSite, homePage, subDomain, i);
+            String tagList = request.getParameter("tags");
+            if (tagList != null) {
+                String[] tags = tagList.split(",");
+                int[] categories = Arrays.asList(tags).stream().mapToInt(Integer::parseInt).toArray();
+                for (int category : categories) {
+                    System.out.println(category);
                 }
+                RecipeDAO dao = new RecipeDAO();
+//                dao.getRecipeByIngredient(tagList)
             }
-
-        } catch (JAXBException | FileNotFoundException | XMLStreamException | TransformerException ex) {
-            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(RecipeController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            response.sendRedirect(path);
+            request.getRequestDispatcher(path).forward(request, response);
         }
     }
 

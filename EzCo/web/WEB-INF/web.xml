@@ -5,8 +5,8 @@
         <servlet-class>duongpth.controllers.AdminController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>IngredientController</servlet-name>
-        <servlet-class>duongpth.controllers.IngredientController</servlet-class>
+        <servlet-name>IngredientCrawlerController</servlet-name>
+        <servlet-class>duongpth.controllers.IngredientCrawlerController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MainController</servlet-name>
@@ -17,28 +17,32 @@
         <servlet-class>duongpth.controllers.IngredientInfoController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RecipeController</servlet-name>
-        <servlet-class>duongpth.controllers.RecipeController</servlet-class>
+        <servlet-name>RecipeCrawlerController</servlet-name>
+        <servlet-class>duongpth.controllers.RecipeCrawlerController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RecipeDetailController</servlet-name>
         <servlet-class>duongpth.controllers.RecipeDetailController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RecipeInfoController</servlet-name>
-        <servlet-class>duongpth.controllers.RecipeInfoController</servlet-class>
+        <servlet-name>RecipeBasicSearchController</servlet-name>
+        <servlet-class>duongpth.controllers.RecipeBasicSearchController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>IndexController</servlet-name>
         <servlet-class>duongpth.controllers.IndexController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RecipeAdvanceSearchController</servlet-name>
+        <servlet-class>duongpth.controllers.RecipeAdvanceSearchController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>IngredientController</servlet-name>
-        <url-pattern>/IngredientController</url-pattern>
+        <servlet-name>IngredientCrawlerController</servlet-name>
+        <url-pattern>/IngredientCrawlerController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
@@ -49,20 +53,24 @@
         <url-pattern>/IngredientInfoController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RecipeController</servlet-name>
-        <url-pattern>/RecipeController</url-pattern>
+        <servlet-name>RecipeCrawlerController</servlet-name>
+        <url-pattern>/RecipeCrawlerController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RecipeDetailController</servlet-name>
         <url-pattern>/RecipeDetailController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RecipeInfoController</servlet-name>
-        <url-pattern>/RecipeInfoController</url-pattern>
+        <servlet-name>RecipeBasicSearchController</servlet-name>
+        <url-pattern>/RecipeBasicSearchController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>IndexController</servlet-name>
         <url-pattern>/IndexController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecipeAdvanceSearchController</servlet-name>
+        <url-pattern>/RecipeAdvanceSearchController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

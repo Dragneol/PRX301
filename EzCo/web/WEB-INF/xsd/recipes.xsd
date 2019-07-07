@@ -30,6 +30,12 @@ and open the template in the editor.
             <xs:element name="cookingtime" type ="xs:int" minOccurs="0" default="20"/>
             <xs:element name="ingredientmenu" type="ingredientmenu" minOccurs="0"/>
             <xs:element name="instructionmenu" type="instructionmenu" minOccurs="0"/>
+            <xs:element name="categories" type="categories" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="categories">
+        <xs:sequence>
+            <xs:element name="category" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="ingredientmenu">

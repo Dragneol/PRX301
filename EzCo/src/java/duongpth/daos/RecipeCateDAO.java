@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 
@@ -114,5 +115,19 @@ public class RecipeCateDAO implements Serializable {
             closeConnection();
         }
         return inserted;
+    }
+
+    public List<Integer> getRecipeIdByCate(int cateId) throws SQLException, NamingException {
+        List<Integer> list = new ArrayList<>();
+        String sql = "";
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+            }
+        } finally {
+            closeConnection();
+        }
+        return list;
     }
 }

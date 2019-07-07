@@ -5,6 +5,7 @@
  */
 package duongpth.handlers;
 
+import duongpth.jaxbs.Categories;
 import duongpth.jaxbs.Ingredientdetail;
 import duongpth.jaxbs.Ingredientmenu;
 import duongpth.jaxbs.Recipe;
@@ -29,6 +30,12 @@ public class DataErrorHandler {
         r.setId(src.getId());
         r.setImage(src.getImage());
         r.setLink(src.getLink());
+
+//        List<Integer> categories = r.getCategories().getCategory();
+//        if (!categories.contains(categoryId)) {
+//            categories.add(categoryId);
+//        }
+
         if (r.getCookingtime() == 0) {
             r.setCookingtime(30);
         }

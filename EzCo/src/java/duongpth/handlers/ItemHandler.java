@@ -8,6 +8,7 @@ package duongpth.handlers;
 import duongpth.daos.IngredientDAO;
 import duongpth.daos.RecipeCateDAO;
 import duongpth.daos.RecipeDAO;
+import duongpth.jaxbs.Categories;
 import duongpth.jaxbs.Ingredient;
 import duongpth.jaxbs.Ingredients;
 import duongpth.jaxbs.Marker;
@@ -22,6 +23,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,7 +45,87 @@ public class ItemHandler implements Serializable {
         this.context = context;
     }
 
-    public void crawlRecipe(Website recipeSite, String homePage, String subDomain, int categoryId) throws JAXBException, FileNotFoundException, XMLStreamException, XMLStreamException, IOException, TransformerException {
+    public List<Recipe> crawlRecipeAtOnce(Website recipeSite, List<Recipe> finalResult, String homePage, String subDomain, int categoryId) throws JAXBException, FileNotFoundException, XMLStreamException, XMLStreamException, IOException, TransformerException, Exception {
+        InputStream stream = null;
+        List<Recipe> list = null;
+        Recipes recipes = null;
+        Recipe tmp = null;
+        RecipeDAO recipeDAO = new RecipeDAO();
+        RecipeCateDAO cateDAO = new RecipeCateDAO();
+        int index;
+
+        String nextPage = "";
+        String crawledLink = CrawlUtil.normalizeLink(homePage, subDomain);
+
+        Marker markerHome = recipeSite.getMarkers().getHome();
+        Marker markerDetail = recipeSite.getMarkers().getDetail();
+        String xslFileLinks = context.getRealPath("/") + markerHome.getXsl();
+        String xslFileDetail = context.getRealPath("/") + markerDetail.getXsl();
+
+        do {
+            crawledLink = CrawlUtil.normalizeLink(homePage, crawledLink);
+            System.out.println("Crawling " + crawledLink);
+            stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
+            if (stream != null) {
+                stream.reset();
+                stream = CrawlUtil.transformXML(stream, xslFileLinks);
+                recipes = JAXBUtil.unmarshalling(stream, new Recipes());
+                list = recipes.getRecipe();
+
+                for (Recipe recipe : list) {
+                    index = contained(finalResult, recipe);
+                    if (index != -1) {
+                        Categories categories = finalResult.get(index).getCategories();
+                        List<Integer> tmpCate = categories.getCategory();
+                        if (!tmpCate.contains(categoryId)) {
+                            tmpCate.add(categoryId);
+                        }
+                    } else {
+                        crawledLink = CrawlUtil.normalizeLink(homePage, recipe.getLink());
+                        System.out.println("Crawling " + recipe.getLink());
+                        stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
+                        if (stream != null) {
+                            stream.reset();
+                            stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                            tmp = JAXBUtil.unmarshalling(stream, new Recipe());
+                            //edit wrong data with default
+                            recipe.setLink(crawledLink.trim());
+                            tmp = DataErrorHandler.normalizeRecipe(tmp, recipe);
+                            Categories categories = new Categories();
+                            List<Integer> tmpCate = categories.getCategory();
+                            tmpCate.add(categoryId);
+                            tmp.setCategories(categories);
+                            finalResult.add(tmp);
+                        }
+                    }
+                }
+            }
+            try {
+                nextPage = recipes.getNextpage();
+            } catch (NullPointerException e) {
+                nextPage = "";
+            }
+
+            if (!nextPage.equals("")) {
+                crawledLink = nextPage;
+            }
+        } while (!nextPage.equals(""));
+        return finalResult;
+    }
+
+    public void insertRecipesAtOnce(List<Recipe> finalResult) throws NamingException, SQLException, ClassNotFoundException {
+        RecipeCateDAO repCatDAO = new RecipeCateDAO();
+        RecipeDAO repDAO = new RecipeDAO();
+
+        for (Recipe recipe : finalResult) {
+            repDAO.insert(recipe);
+            for (Integer cateRepID : recipe.getCategories().getCategory()) {
+                repCatDAO.insertCateOfRecipe(recipe.getId(), cateRepID);
+            }
+        }
+    }
+
+    public void crawlRecipeIntoDBInterative(Website recipeSite, String homePage, String subDomain, int categoryId) throws JAXBException, FileNotFoundException, XMLStreamException, XMLStreamException, IOException, TransformerException {
         InputStream stream = null;
         List<Recipe> list = null;
         Recipes recipes = null;
@@ -104,6 +186,15 @@ public class ItemHandler implements Serializable {
                 crawledLink = nextPage;
             }
         } while (!nextPage.equals(""));
+    }
+
+    private int contained(List<Recipe> recipes, Recipe r) {
+        for (Recipe recipe : recipes) {
+            if (r.equals(recipe)) {
+                return recipes.indexOf(recipe);
+            }
+        }
+        return -1;
     }
 
     public void crawlIngredient(Website ingredientSite, String homePage, String subDomain, int categoryId) throws TransformerException, UnsupportedEncodingException, JAXBException, FileNotFoundException, XMLStreamException, IOException, NamingException, SQLException, SQLException, ClassNotFoundException {

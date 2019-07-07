@@ -22,13 +22,15 @@ public class MainController extends HttpServlet {
     public static final String ERROR_PAGE = "error.jsp";
     public static final String INDEX_PAGE = "index.jsp";
     public static final String INGREDIENT_PAGE = "ingredient.jsp";
-    public static final String RECIPE_PAGE = "recipe.jsp";
+    public static final String RECIPE_BASIC_PAGE = "recipe.jsp";
+    public static final String RECIPE_ADVANCE_PAGE = "recipe_search.jsp";
     public static final String RECIPE_DETAIL_PAGE = "recipe_detail.jsp";
     public static final String INDEX_CONTROLLER = "IndexController";
-    public static final String RECIPE_CRAWLER = "RecipeController";
-    public static final String RECIPE_VIEWER = "RecipeInfoController";
+    public static final String RECIPE_CRAWLER = "RecipeCrawlerController";
+    public static final String RECIPE_BASIC_CONTROLLER = "RecipeBasicSearchController";
+    public static final String RECIPE_ADVANCE_CONTROLLER = "RecipeAdvanceSearchController";
     public static final String RECIPE_DETAIL = "RecipeDetailController";
-    public static final String INGREDIENT_CRAWLER = "IngredientController";
+    public static final String INGREDIENT_CRAWLER = "IngredientCrawlerController";
     public static final String INGREDIENT_VIEWER = "IngredientInfoController";
 
     /**
@@ -46,7 +48,13 @@ public class MainController extends HttpServlet {
         String path = ERROR_PAGE;
         try {
             String action = request.getParameter("action");
+            if (action == null) {
+                action = "";
+            }
             switch (action) {
+                case "":
+                    path = INDEX_CONTROLLER;
+                    break;
                 case "CrawlRecipe":
                     path = RECIPE_CRAWLER;
                     break;
@@ -57,7 +65,10 @@ public class MainController extends HttpServlet {
                     path = INGREDIENT_VIEWER;
                     break;
                 case "Search":
-                    path = RECIPE_VIEWER;
+                    path = RECIPE_BASIC_CONTROLLER;
+                    break;
+                case "AdvanceSearch":
+                    path = RECIPE_ADVANCE_CONTROLLER;
                     break;
                 case "RecipeDetail":
                     path = RECIPE_DETAIL;

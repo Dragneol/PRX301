@@ -26,11 +26,11 @@
             </div>
             <div class="list-tag">
                 <ul class="wrap-list">
-                    <li class="item-list"><a href="IndexController"><span>Recipe</span></a></li>
-                        <c:url value="MainController" var="ingIndex">
-                            <c:param name="action" value="Lookup"/>
-                        </c:url>
-                    <li class="item-list"><a href="${ingIndex}"><span>Ingredient</span></a></li>
+                    <c:url value="MainController" var="repAdvance">
+                        <c:param name="action" value="AdvanceSearch"/>
+                    </c:url>
+                    <li class="item-list"><a href="${repAdvance}"><span>Recipe</span></a></li>
+                    <li class="item-list"><a href="${repAdvance}"><span>Ingredient</span></a></li>
                 </ul>
             </div>
 

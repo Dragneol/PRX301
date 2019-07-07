@@ -8,6 +8,7 @@ package duongpth.controllers;
 import duongpth.daos.RecipeDAO;
 import duongpth.jaxbs.Recipe;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -17,13 +18,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author dragn
  */
-public class IndexController extends HttpServlet {
+public class RecipeBasicSearchController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,27 +37,26 @@ public class IndexController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String path = MainController.INDEX_PAGE;
+        response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+        String path = MainController.RECIPE_BASIC_PAGE;
         try {
+            request.setCharacterEncoding(StandardCharsets.UTF_8.toString());
+            String text = request.getParameter("txtSearch");
+            byte[] bytes = text.getBytes(StandardCharsets.ISO_8859_1);
+            text = new String(bytes, StandardCharsets.UTF_8);
             RecipeDAO dao = new RecipeDAO();
-            HttpSession session = request.getSession();
-            List<Recipe> recipes = dao.getFirst(6);
-            session.setAttribute("DEFAULT", recipes);
+            List<Recipe> list = dao.getRecipeLikeName(text);
+            request.setAttribute("LIST_RECIPE", list);
         } catch (NamingException ex) {
-            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecipeBasicSearchController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception e) {
-            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(RecipeBasicSearchController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-//            request.getRequestDispatcher(path).forward(request, response);
-            response.sendRedirect(path);
+            request.getRequestDispatcher(path).forward(request, response);
         }
     }
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

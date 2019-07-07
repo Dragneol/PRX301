@@ -5,6 +5,6 @@
               name="DBSource" 
               password="P@ssw0rd" 
               type="javax.sql.DataSource" 
-              url="jdbc:sqlserver://localhost:1433;databaseName = EzCo" 
+              url="jdbc:sqlserver://localhost:1433;databaseName = EzCoDraft" 
               username="sa"/>
 </Context>

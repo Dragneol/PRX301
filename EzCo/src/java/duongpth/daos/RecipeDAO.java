@@ -240,7 +240,7 @@ public class RecipeDAO implements Serializable {
         }
         return recipes;
     }
-
+    
     public List<Recipe> getRecipeLikeName(String text) throws SQLException, NamingException {
         List<Recipe> recipes = new ArrayList<>();
         Recipe r = null;
