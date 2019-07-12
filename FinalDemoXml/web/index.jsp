@@ -37,15 +37,25 @@
             }
 
             function getXmlHttpObject() {
+//                var xmlHttp = null;
+//                try { //firefox, opera, safari, chrome
+//                    xmlHttp = new XMLHttpRequest();
+//                } catch (e) {// IE
+//                    try {
+//                        xmlHttp = new ActiveXObject("Msxml12.XMLHTTP");
+//                    } catch (e) {
+//                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+//                    }
+//                }
+//                return xmlHttp;
+
                 var xmlHttp = null;
-                try { //firefox, opera, safari, chrome
+                if (window.XMLHttpRequest) {
+                    // code for modern browsers
                     xmlHttp = new XMLHttpRequest();
-                } catch (e) {// IE
-                    try {
-                        xmlHttp = new ActiveXObject("Msxml12.XMLHTTP");
-                    } catch (e) {
-                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
+                } else {
+                    // code for old IE browsers
+                    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
                 }
                 return xmlHttp;
             }
@@ -94,8 +104,8 @@
                 count = 0;
                 new_XMLDOM = "";
 
-//                var xmlDom = new ActiveXObject("Microsoft.XMLDOM");
-                var xmlDom = getXmlHttpObject();
+                var xmlDom = new ActiveXObject("Microsoft.XMLDOM");
+//                var xmlDom = getXmlHttpObject();
                 new_XMLDOM = '<library xmlns="http://netbeans.org.schema.library">';
                 xmlDom.async = false;
                 xmlDom.load(fileName);
@@ -146,7 +156,7 @@
             <input type="button" value="Synchronize" onclick="updateUnmarshall()"/>
         </form>
         <br/>
-        <form name="PrintPdfController">
+        <form action="PrintPdfController">
             Full name: <input type="text" name="txtSearch" value="" /><br/>
             <input type="submit" value="Search" />
         </form>

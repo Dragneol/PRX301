@@ -67,16 +67,15 @@ public class XsdController extends HttpServlet {
 
             sc.forcePackageName("jaxbs.library");
             String filePath = realPath + "/WEB-INF/library.xsd";
-
             File schema = new File(filePath);
-            InputSource source = new InputSource(schema.toURI().toString());
-            sc.parseSchema(source);
+            InputSource inSrc = new InputSource(schema.toURI().toString());
+            sc.parseSchema(inSrc);
             S2JJAXBModel model = sc.bind();
             JCodeModel code = model.generateCode(null, null);
             code.build(new File(output));
-            System.out.println("Finished");
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Finished!");
+        } catch (Exception ex) {
+            System.out.println("ERROR at XSDToObjController: " + ex.getMessage());
         }
     }
 

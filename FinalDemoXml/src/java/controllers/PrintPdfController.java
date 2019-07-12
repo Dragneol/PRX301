@@ -5,8 +5,8 @@
  */
 package controllers;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -24,11 +24,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import org.apache.fop.apps.FOUserAgent;
@@ -58,37 +60,46 @@ public class PrintPdfController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             String search = request.getParameter("txtSearch");
-            String sql = "Select username. fullname, role FROM Registration "
+            String sql = "Select username, fullname, role FROM Registration "
                     + "Where Fullname like ? "
                     + "FOR XML PATH ('account'), Root('accounts')";
 
-            String sqlConn = "jdbc://localhost:1433;databaseName=Sinhvien";
+            String sqlConn = "jdbc:sqlserver://localhost:1433;databaseName=SinhVien";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String str;
             try (Connection con = DriverManager.getConnection(sqlConn, "sa", "P@ssw0rd")) {
+                System.out.println("connetion accessed");
                 PreparedStatement statement = con.prepareStatement(sql);
                 statement.setString(1, "%" + search + "%");
+                System.out.println("prepare statement accessed");
                 try (ResultSet rs = statement.executeQuery()) {
                     if (rs.next()) {
+                        System.out.println("result set accessed");
                         str = rs.getString(1);
                         String path = getServletContext().getRealPath("/");
                         String xslPath = path + "WEB-INF/accountFO.xsl";
                         String foPath = path + "WEB-INF/accountFO.fo";
                         methodTrAX(xslPath, str, foPath, path);
-                        ByteOutputStream out = new ByteOutputStream();
+                        ByteArrayOutputStream out = new ByteArrayOutputStream();
                         response.setContentType("application/pdf");
                         FopFactory ff = FopFactory.newInstance();
-                        ff.setUserConfig(path + "WEB-INF/config.xml");
+                        ff.setUserConfig(path + "/WEB-INF/config.xml");
                         FOUserAgent fua = ff.newFOUserAgent();
                         Fop fop = ff.newFop(MimeConstants.MIME_PDF, fua, out);
                         TransformerFactory tff = TransformerFactory.newInstance();
                         Transformer trans = tff.newTransformer();
                         File fo = new File(foPath);
                         Source src = new StreamSource(fo);
+                        Result result = new SAXResult(fop.getDefaultHandler());
+                        trans.transform(src, result);
+                        byte[] content = out.toByteArray();
+                        response.setContentLength(content.length);
+                        response.getOutputStream().write(content);
+                        response.getOutputStream().flush();
                     }
                 } catch (TransformerConfigurationException ex) {
                     Logger.getLogger(PrintPdfController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SAXException ex) {
+                } catch (SAXException | TransformerException ex) {
                     Logger.getLogger(PrintPdfController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } catch (SQLException ex) {
