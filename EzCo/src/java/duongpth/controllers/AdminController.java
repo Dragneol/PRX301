@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -45,6 +46,8 @@ public class AdminController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = MainController.ADMIN_PAGE;
         try {
             String configFile = request.getServletContext().getRealPath("/") + MainController.CONFIG_FILE;
@@ -63,13 +66,7 @@ public class AdminController extends HttpServlet {
             session.setAttribute("INGREDIENT_WEBSITE", ingredientHomeUrl);
         } catch (JAXBException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (XMLStreamException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NamingException ex) {
+        } catch (FileNotFoundException | XMLStreamException | SQLException | NamingException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);

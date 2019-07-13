@@ -8,6 +8,7 @@ package duongpth.controllers;
 import duongpth.daos.RecipeDAO;
 import duongpth.jaxbs.Recipe;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -36,6 +37,8 @@ public class RecipeAdvanceSearchController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = MainController.RECIPE_ADVANCE_PAGE;
         try {
             String tagList = request.getParameter("tags");

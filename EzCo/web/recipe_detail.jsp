@@ -7,13 +7,34 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="header.jsp"/>
+<c:set var="recipe" value="${requestScope.RECIPE}"/>
+<script type="text/javascript">
+    function prinPDFwithXHR() {
+        var repId = <c:out value="${recipe.id}"/>;
+        var result = document.getElementById('xhr-result');
+        result.innerHTML = 'Đang in công thức ...';
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                var res = xhr.responseText;
+                result.innerHTML = 'Đã in xong!';
+            }
+        };
+    <c:url value="MainController" var="recipe_info">
+        <c:param name="action" value="RecipePrint"/>
+        <c:param name="id" value="${recipe.id}"/>
+    </c:url>
+        xhr.open('GET', '${recipe_info}');
+        xhr.send();
+    }
+</script>
 <content>
-    <c:set var="recipe" value="${requestScope.RECIPE}"/>
     <c:if var="check" test="${not empty recipe}">
         <div class="food-detail">
-            <div class="print-cooking">
-                <img class="icon" src="img/png/001-fax.png" alt=""> In công thức
+            <div class="print-cooking" onclick="prinPDFwithXHR()">
+                <img class="icon" src="img/png/001-fax.png" alt=""> <a href="${recipe_info}">In công thức</a>
             </div>
+            <div id="xhr-result"></div>
             <div class="cooking">
                 <h2 class="title">
                     ${recipe.title}
@@ -24,9 +45,9 @@
                 <div class="detail-cooking">
                     <div class="quick-view">
                         <ul>
-                            <li><span> <img class="icon" src="img/png/004-man-user.png" alt=""> Khẩu phần: ${recipe.ration} người</span></li>
-                            <li><span> <img class="icon" src="img/png/003-clock.png" alt=""> Chuẩn bị: ${recipe.preparetime} phút</span></li>
-                            <li><span> <img class="icon" src="img/png/002-cooking-on-fire.png" alt=""> Thực hiện: ${recipe.cookingtime} phút</span></li>
+                            <li><span><img class="icon" src="img/png/004-man-user.png" alt=""> Khẩu phần: ${recipe.ration} người</span></li>
+                            <li><span><img class="icon" src="img/png/003-clock.png" alt=""> Chuẩn bị: ${recipe.preparetime} phút</span></li>
+                            <li><span><img class="icon" src="img/png/002-cooking-on-fire.png" alt=""> Thực hiện: ${recipe.cookingtime} phút</span></li>
                         </ul>
                     </div>
                     <div class="image-food">
@@ -37,12 +58,11 @@
                             <h3 class="title">Thành phần</h3>
                             <div class="content">
                                 <c:forEach items="${recipe.ingredientmenu.ingredientdetail}" var="ing">
-                                    <div class='ingredient'>${ing.quantitive} ${ing.unit} ${ing.name}</div>
                                     <c:url value="MainController" var="ingredient_info">
                                         <c:param name="action" value="Lookup"/>
-                                        <c:param name="name" value="${ing.name}"/>
+                                        <c:param name="txtSearch" value="${ing.name}"/>
                                     </c:url>
-                                    <a href="${ingredient_info}">Tới chỗ mua</a>
+                                    <a class='ingredient' href="${ingredient_info}">${ing.quantitive} ${ing.unit} ${ing.name}</a>
                                 </c:forEach>
                             </div>
                         </div>

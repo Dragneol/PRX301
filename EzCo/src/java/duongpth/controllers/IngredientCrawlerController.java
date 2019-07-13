@@ -11,6 +11,7 @@ import duongpth.jaxbs.Website;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,6 +42,8 @@ public class IngredientCrawlerController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = MainController.INDEX_CONTROLLER;
         try {
             String homePage = request.getParameter("ingredientPage");

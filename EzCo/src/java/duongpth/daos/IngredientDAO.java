@@ -90,7 +90,6 @@ public class IngredientDAO implements Serializable {
                     link = resultSet.getString("Link").trim();
                     image = resultSet.getString("Image").trim();
                     description = resultSet.getString("Description").trim();
-                    
 
                     ingredient = new Ingredient();
                     ingredient.setId(id);
@@ -106,5 +105,32 @@ public class IngredientDAO implements Serializable {
             closeConnection();
         }
         return list;
+    }
+
+    public List<Ingredient> getIngredientsByLikeName(String text) throws SQLException, NamingException {
+        List<Ingredient> ingredients = new ArrayList<>();
+        Ingredient ingredient = null;
+        String sql = "Select [ID],[Name],[Price],[Link],[Image],[Description] FROM [Ingredient] where Name like ? order by Price";
+        try {
+            connection = DatabaseUtil.getConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, "%" + text + "%");
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    ingredient = new Ingredient();
+                    ingredient.setId(resultSet.getString("ID"));
+                    ingredient.setName(resultSet.getString("Name"));
+                    ingredient.setPrice(resultSet.getInt("Price"));
+                    ingredient.setLink(resultSet.getString("Link"));
+                    ingredient.setImage(resultSet.getString("Image"));
+                    ingredient.setDescription(resultSet.getString("Description"));
+                    ingredients.add(ingredient);
+                }
+            }
+        } finally {
+            closeConnection();
+        }
+        return ingredients;
     }
 }

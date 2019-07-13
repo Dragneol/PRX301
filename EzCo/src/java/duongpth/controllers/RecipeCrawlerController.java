@@ -11,6 +11,7 @@ import duongpth.jaxbs.Subdomain;
 import duongpth.jaxbs.Website;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -42,6 +43,8 @@ public class RecipeCrawlerController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = MainController.INDEX_CONTROLLER;
         try {
             String homePage = request.getParameter("recipePage");

@@ -29,14 +29,17 @@
                     <c:url value="MainController" var="repAdvance">
                         <c:param name="action" value="AdvanceSearch"/>
                     </c:url>
+                    <c:url value="MainController" var="ingAdvance">
+                        <c:param name="action" value="Lookup"/>
+                    </c:url>
                     <li class="item-list"><a href="${repAdvance}"><span>Recipe</span></a></li>
-                    <li class="item-list"><a href="${repAdvance}"><span>Ingredient</span></a></li>
+                    <li class="item-list"><a href="${ingAdvance}"><span>Ingredient</span></a></li>
                 </ul>
             </div>
 
             <div class="search-right">
                 <form action="MainController" method="POST" >
-                    <input type="text" name="txtSearch" value="${param.txtSearch}" />
+                    <input type="text" name="txtSearch" placeholder="i.e Lẩu"/>
                     <input class="button" type="submit" value="Search" name="action" />
                 </form>
             </div>

@@ -4,6 +4,7 @@
     Author     : dragn
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <banner>
     <div class="header-slide">
@@ -26,7 +27,11 @@
                         <p>Với sự hỗ trợ tìm kiếm thông minh dựa trên thành phần thực phẩm mong muốn
                             EzCo có thể mang lại cho quí khách những công thức có thể dễ dàng nấu với tổng thời gian ngắn nhất
                         </p>
-                        <a href="recipe.jsp">Tìm kiếm Công thức</a>
+                        <c:url value="MainController" var="repAdvance">
+                            <c:param name="action" value="AdvanceSearch"/>
+                        </c:url>
+
+                        <a href="${repAdvance}">Tìm kiếm Công thức</a>
                     </div>
                 </div>
                 <div class="item-slide">
@@ -46,7 +51,10 @@
                         <p>Với nguồn thực phẩm gồm hơn 700 nguyên liệu an toàn vệ sinh thực phẩm được chọn lọc, EzCo tin rằng sẽ có thể giúp quí khách có thể mua được những
                             nguyên liệu tốt nhất để đảm bảo sức khỏe cho cả gia đình
                         </p>
-                        <a href="ingredient.jsp">Tìm kiếm nguyên liệu</a>
+                        <c:url value="MainController" var="ingAdvance">
+                            <c:param name="action" value="Lookup"/>
+                        </c:url>
+                        <a href="${ingAdvance}">Tìm kiếm nguyên liệu</a>
                     </div>
                 </div>
                 <div class="item-slide">

@@ -19,7 +19,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,24 +56,7 @@ public class CrawlUtil implements Serializable {
         }
     }
 
-    /**
-     * Apply xsl to transform into xml
-     *
-     * @param stream
-     * @param xslUrl
-     * @return
-     * @throws TransformerConfigurationException
-     * @throws TransformerException
-     * @throws UnsupportedEncodingException
-     */
-    public static InputStream transformXML(InputStream stream, String xslUrl) throws TransformerConfigurationException, TransformerException, UnsupportedEncodingException {
-        StringWriter writer = new StringWriter();
-        StreamResult streamResult = new StreamResult(writer);
-        TransformerFactory transformFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformFactory.newTransformer(new StreamSource(new File(xslUrl)));
-        transformer.transform(new StreamSource(stream), streamResult);
-        return new ByteArrayInputStream(writer.toString().getBytes(StandardCharsets.UTF_8));
-    }
+    
 
     public static String normalizeLink(String homePage, String url) {
         String s = "";

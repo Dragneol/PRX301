@@ -6,6 +6,7 @@
 package duongpth.controllers;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,7 @@ public class MainController extends HttpServlet {
     public static final String RECIPE_CRAWLER = "RecipeCrawlerController";
     public static final String RECIPE_BASIC_CONTROLLER = "RecipeBasicSearchController";
     public static final String RECIPE_ADVANCE_CONTROLLER = "RecipeAdvanceSearchController";
+    public static final String RECIPE_PRINT_CONTROLLER = "PrintPdfController";
     public static final String RECIPE_DETAIL = "RecipeDetailController";
     public static final String INGREDIENT_CRAWLER = "IngredientCrawlerController";
     public static final String INGREDIENT_VIEWER = "IngredientInfoController";
@@ -45,6 +47,8 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = ERROR_PAGE;
         try {
             String action = request.getParameter("action");
@@ -72,6 +76,9 @@ public class MainController extends HttpServlet {
                     break;
                 case "RecipeDetail":
                     path = RECIPE_DETAIL;
+                    break;
+                case "RecipePrint":
+                    path = RECIPE_PRINT_CONTROLLER;
                     break;
                 default:
                     log("ERROR at MainController: Action not supported");

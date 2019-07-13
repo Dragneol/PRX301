@@ -11,7 +11,7 @@
 <script type="text/javascript">
     var recipes = [];
     var page = 0;
-    var PAGE_SIZE = 6;
+    const PAGE_SIZE = 6;
     <c:forEach items="${requestScope.LIST_RECIPE}" var="r">
     recipes.push({
         id: ${r.id},
@@ -24,10 +24,10 @@
 </script>
 <content>
     <div id="list-recipe"></div>
-    <div id="load-button">Load more</div>
+    <div class="load-button" id="load-button-recipes">Load more</div>
 </content>
 <script type="text/javascript">
-    const loadButton = document.getElementById("load-button");
+    const loadButtonRep = document.getElementById("load-button-recipes");
 
     function loadMoreRecipes() {
         const showedElements = recipes.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item =>
@@ -56,10 +56,11 @@
         page++;
         if (page * PAGE_SIZE > recipes.length) {
 //            loadButton.style.display = "none";
-            loadButton.outerHTML = "";
+            loadButtonRep.outerHTML = "";
         }
     }
     loadMoreRecipes();
-    loadButton.addEventListener('click', loadMoreRecipes);
+    loadButtonRep.addEventListener('click', loadMoreRecipes);
 </script>
+<script src="js/slide.js"></script>
 <jsp:include page="footer.jsp"/>

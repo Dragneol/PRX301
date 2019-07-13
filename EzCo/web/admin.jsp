@@ -8,9 +8,32 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="header.jsp"/>
 <jsp:include page="banner.jsp"/>
+<c:set var="recipeHomeUrl" value="${sessionScope.RECIPE_WEBSITE}"/>
+<c:set var="ingredienHomeUrl" value="${sessionScope.INGREDIENT_WEBSITE}"/>
+<script type="text/javascript">
+    function crawlUsingXMLRequest(type, homePage, subDomain) {
+        var result = document.getElementById('crawl-result');
+        result.innerHTML = 'Dang cao du lieu....';
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
+                var res = xhr.responseText;
+                result.innerHTML = 'Da cao xong!';
+                result.innerHTML += res;
+            }
+        };
+        var request = 'MainController?';
+        if (type === 'recipe') {
+            request += 'recipePage=' + homePage + '&recipeSubDomain=' + subDomain + '&action=CrawlRecipe';
+        } else {
+            request += 'ingredientPage=' + homePage + '&ingredientSubDomain=' + subDomain + '&action=CrawlIngredient';
+        }
+        xhr.open('GET', request);
+        xhr.send(null);
+    }
+</script>
 <content>
-    <c:set var="recipeHomeUrl" value="${sessionScope.RECIPE_WEBSITE}"/>
-    <c:set var="ingredienHomeUrl" value="${sessionScope.INGREDIENT_WEBSITE}"/>
     <form action="MainController" method="POST">
         <table border="0">
             <tbody>
@@ -25,6 +48,8 @@
                         </select>
                     </td>
                     <td><input type="submit" value="CrawlRecipe" name="action" /></td>
+                    <!--                    <td><button onclick="crawlUsingXMLRequest('recipe', 'http://www.amthuc365.vn', 0)">Crawl with ajax</button></td>
+                                        <td><div id="crawl-result"></div></td>-->
                 </tr>
                 <tr>
                     <td>Ingredient : </td>
@@ -42,4 +67,5 @@
         </table>
     </form>
 </content>
+<script src="js/slide.js"></script>
 <jsp:include page="footer.jsp"/>

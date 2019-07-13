@@ -167,7 +167,8 @@ public class RecipeDAO implements Serializable {
                     recipe.setRation(resultSet.getInt("Ration"));
                     recipe.setPreparetime(resultSet.getInt("PrepareTime"));
                     recipe.setCookingtime(resultSet.getInt("CookingTime"));
-
+                    recipe.setId(id);
+                    
                     ingredients = new Ingredientmenu();
                     preparedStatement = connection.prepareStatement(findByIdTblIngredientMenu);
                     preparedStatement.setInt(1, id);
@@ -278,9 +279,9 @@ public class RecipeDAO implements Serializable {
             sb.append("?,");
         }
         sb.append('?');
-        String sql = "Select ID, Title, Image, Description, Ration, PrepareTime, CookingTime FROM Recipe, "
+        String sql = "Select ID, Title, Image, Description, Ration, PrepareTime, CookingTime, (PrepareTime + CookingTime) as Time FROM Recipe, "
                 + "(select COUNT(CateID) as Total, RecipeID from CateRep where CateID in (" + sb.toString() + ") group by RecipeID) cateRep "
-                + "where Recipe.ID = cateRep.RecipeID order by cateRep.Total DESC";
+                + "where Recipe.ID = cateRep.RecipeID order by cateRep.Total DESC, Time";
         try {
             connection = DatabaseUtil.getConnection();
             if (connection != null) {

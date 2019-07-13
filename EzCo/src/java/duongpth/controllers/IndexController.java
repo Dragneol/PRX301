@@ -8,6 +8,7 @@ package duongpth.controllers;
 import duongpth.daos.RecipeDAO;
 import duongpth.jaxbs.Recipe;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -37,6 +38,8 @@ public class IndexController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = MainController.INDEX_PAGE;
         try {
             RecipeDAO dao = new RecipeDAO();
@@ -45,9 +48,7 @@ public class IndexController extends HttpServlet {
             session.setAttribute("DEFAULT", recipes);
         } catch (NamingException ex) {
             Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, e);

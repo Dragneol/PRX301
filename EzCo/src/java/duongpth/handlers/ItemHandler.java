@@ -16,6 +16,7 @@ import duongpth.jaxbs.Recipe;
 import duongpth.jaxbs.Recipes;
 import duongpth.jaxbs.Website;
 import duongpth.utils.CrawlUtil;
+import duongpth.utils.FormatingUtil;
 import duongpth.utils.JAXBUtil;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,7 +69,7 @@ public class ItemHandler implements Serializable {
             stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
             if (stream != null) {
                 stream.reset();
-                stream = CrawlUtil.transformXML(stream, xslFileLinks);
+                stream = FormatingUtil.transformXML(stream, xslFileLinks);
                 recipes = JAXBUtil.unmarshalling(stream, new Recipes());
                 list = recipes.getRecipe();
 
@@ -86,7 +87,7 @@ public class ItemHandler implements Serializable {
                         stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
                         if (stream != null) {
                             stream.reset();
-                            stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                            stream = FormatingUtil.transformXML(stream, xslFileDetail);
                             tmp = JAXBUtil.unmarshalling(stream, new Recipe());
                             //edit wrong data with default
                             recipe.setLink(crawledLink.trim());
@@ -148,7 +149,7 @@ public class ItemHandler implements Serializable {
             stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
             if (stream != null) {
                 stream.reset();
-                stream = CrawlUtil.transformXML(stream, xslFileLinks);
+                stream = FormatingUtil.transformXML(stream, xslFileLinks);
                 recipes = JAXBUtil.unmarshalling(stream, new Recipes());
                 list = recipes.getRecipe();
 
@@ -158,7 +159,7 @@ public class ItemHandler implements Serializable {
                     stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
                     if (stream != null) {
                         stream.reset();
-                        stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                        stream = FormatingUtil.transformXML(stream, xslFileDetail);
                         tmp = JAXBUtil.unmarshalling(stream, new Recipe());
                         //edit wrong data with default
                         recipe.setLink(crawledLink.trim());
@@ -217,7 +218,7 @@ public class ItemHandler implements Serializable {
             System.out.println("Crawling " + crawledLink);
             stream = CrawlUtil.crawlFromLink(crawledLink, markerHome);
             if (stream != null) {
-                stream = CrawlUtil.transformXML(stream, xslFileLinks);
+                stream = FormatingUtil.transformXML(stream, xslFileLinks);
                 stream.reset();
                 ingredients = JAXBUtil.unmarshalling(stream, new Ingredients());
                 list = ingredients.getIngredient();
@@ -227,7 +228,7 @@ public class ItemHandler implements Serializable {
                     System.out.println("Crawling " + crawledLink);
                     stream = CrawlUtil.crawlFromLink(crawledLink, markerDetail);
                     if (stream != null) {
-                        stream = CrawlUtil.transformXML(stream, xslFileDetail);
+                        stream = FormatingUtil.transformXML(stream, xslFileDetail);
                         stream.reset();
 
                         tmp = JAXBUtil.unmarshalling(stream, new Ingredient());

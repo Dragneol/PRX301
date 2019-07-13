@@ -13,6 +13,18 @@
     var suggestions = [];
     var tags = [];
     var suggestionIndex = 0;
+    var recipes = [];
+    var page = 0;
+    let PAGE_SIZE = 6;
+    <c:forEach items="${requestScope.LIST_RECIPE}" var="r">
+    recipes.push({
+        id: ${r.id},
+        image: `${r.image}`,
+        title: `${r.title}`,
+        description: `${r.description}`,
+        time: ${r.preparetime + r.cookingtime},
+    });
+    </c:forEach>
     <c:set value="${sessionScope.RECIPE_WEBSITE.subdomains.subdomain}" var="jspIng"/>
     <c:forEach items="${jspIng}" var="temp" varStatus="counter">
         <c:if test="${counter.count != 1}">ingredients.push({id: ${temp.id}, value: `${temp.value}`});</c:if>
@@ -77,14 +89,13 @@
             }
 </script>
 <content>
-    <h1>Recipes Advance Search</h1>
+    <h1>Tìm kiếm công thức nấu ăn dựa trên nguyên liệu</h1>
     <div class="search-center">
         <form id="searchForm" autocomplete="off">
             <input id="input-search" 
                    class="txtSearch" 
                    type="text" 
-                   placeholder="i.e: gà" name="txtSearch" 
-                   value="${param.txtSearch}" />
+                   placeholder="i.e: Mỳ/Bún/Miến" name="txtSearch" />
         </form>
         <div id="tags-included"></div>
         <div id="suggestion"></div>
@@ -94,5 +105,42 @@
         </form>
     </div>
     <script type="text/javascript">loadSuggestions();</script>
+    <div id="list-recipe"></div>
+    <div class="load-button" id="load-button-recipes">Load more</div>
 </content>
+<script type="text/javascript">
+    const loadButtonRep = document.getElementById("load-button-recipes");
+
+    function loadMoreRecipes() {
+        var showedRecipes = recipes.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item =>
+                `<div class="product-item">
+                <div class="image-product">
+                    <img src="\${item.image}" alt="Hình ảnh của \${item.title}">
+                    <div class="info">
+                        <p>\${item.title}</p>
+                    </div>
+                </div>
+                <div class="content-product">
+                    <div class="content">
+                        <h3>Tổng thời gian nấu: \${item.time} phút </h3>
+                        <p>\${item.description}</p>
+                    </div>
+                    <div>
+                        <form action="MainController?id=\${item.id}" method="POST">
+                            <input class="button" type="submit" value="RecipeDetail" name="action" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `);
+        document.getElementById("list-recipe").innerHTML += showedRecipes.join('');
+        page++;
+        if (page * PAGE_SIZE > recipes.length) {
+            loadButtonRep.outerHTML = "";
+        }
+    }
+    loadMoreRecipes();
+    loadButtonRep.addEventListener('click', loadMoreRecipes);
+</script>
+<script src="js/slide.js"></script>
 <jsp:include page="footer.jsp"/>

@@ -8,6 +8,7 @@ package duongpth.controllers;
 import duongpth.daos.RecipeDAO;
 import duongpth.jaxbs.Recipe;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +36,8 @@ public class RecipeDetailController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = MainController.RECIPE_DETAIL_PAGE;
         try {
             int id = Integer.parseInt(request.getParameter("id"));

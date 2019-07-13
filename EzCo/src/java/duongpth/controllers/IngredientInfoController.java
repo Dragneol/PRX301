@@ -8,6 +8,7 @@ package duongpth.controllers;
 import duongpth.daos.IngredientDAO;
 import duongpth.jaxbs.Ingredient;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -36,14 +37,18 @@ public class IngredientInfoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String path = MainController.INGREDIENT_PAGE;
+        IngredientDAO dao = new IngredientDAO();
+        List<Ingredient> list = null;
         try {
-            IngredientDAO dao = new IngredientDAO();
             String text = request.getParameter("txtSearch");
-            List<Ingredient> list = null;
             if (text == null) {
                 list = dao.getFirst(6);
             } else {
+//                byte[] bytes = text.getBytes(StandardCharsets.ISO_8859_1);
+//                text = new String(bytes, StandardCharsets.UTF_8);
                 list = dao.getIngredientsByLikeName(text);
             }
             request.setAttribute("LIST_INGREDIENT", list);

@@ -25,7 +25,6 @@
                     </div>
                     <div>
                         <c:url value="MainController" var="detail">
-                            <c:param name="txtSearch" value="${param.txtSearch}"/>
                             <c:param name="id" value="${r.id}"/>
                         </c:url>
                         <form action="${detail}" method="POST">
@@ -38,4 +37,5 @@
         </c:forEach>
     </div>
 </content>
+<script src="js/slide.js"></script>
 <jsp:include page="footer.jsp"/>

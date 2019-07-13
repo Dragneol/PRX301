@@ -8,6 +8,5 @@
 <footer>
     <a href="MainController"><b>EzCo</b></a> Make By <a href="https://www.facebook.com/hoangduong.dh"><b>DuongPTH</b></a> © 2019
 </footer>
-<script src="js/slide.js"></script>
 </body>
 </html>

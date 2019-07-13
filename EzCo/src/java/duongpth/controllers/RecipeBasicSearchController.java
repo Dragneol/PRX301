@@ -37,19 +37,19 @@ public class RecipeBasicSearchController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
-        String path = MainController.RECIPE_BASIC_PAGE;
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        request.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        String path = MainController.RECIPE_ADVANCE_PAGE;
         try {
-            request.setCharacterEncoding(StandardCharsets.UTF_8.toString());
             String text = request.getParameter("txtSearch");
-            byte[] bytes = text.getBytes(StandardCharsets.ISO_8859_1);
-            text = new String(bytes, StandardCharsets.UTF_8);
+//            byte[] bytes = text.getBytes(StandardCharsets.ISO_8859_1);
+//            text = new String(bytes, StandardCharsets.UTF_8);
             RecipeDAO dao = new RecipeDAO();
             List<Recipe> list = dao.getRecipeLikeName(text);
             request.setAttribute("LIST_RECIPE", list);
-        } catch (NamingException ex) {
+        } catch (NamingException | SQLException ex) {
             Logger.getLogger(RecipeBasicSearchController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(RecipeBasicSearchController.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             request.getRequestDispatcher(path).forward(request, response);

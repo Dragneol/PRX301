@@ -6,49 +6,69 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>EzCo</title>
-    </head>
-    <body>
+<jsp:include page="header.jsp"/>
+<jsp:include page="banner.jsp"/>
+<script type="text/javascript">
+    var ingredients = [];
+    var page = 0;
+    let PAGE_SIZE = 6;
+    <c:forEach items="${requestScope.LIST_INGREDIENT}" var="dto">
+    ingredients.push({
+        id: `${dto.id}`,
+        name: `${dto.name}`,
+        price: ${dto.price},
+        link: `${dto.link}`,
+        image: `${dto.image}`,
+        description: `${dto.description}`
+    });
+    </c:forEach>
+</script>
+<content>
+    <h1>Tìm kiếm nguyên liệu dựa trên từ khóa</h1>
+    <div class="search-center">
         <form action="MainController" method="POST">
-            Find <input type="text" name="txtSearch" value="${param.txtSearch}" /><br/>
-            <input type="submit" value="ViewIngredients" name="action" />
+            <input class="txtSearch" type="text" name="txtSearch" value="${param.txtSearch}" /><br/>
+            <input class="button" type="submit" value="Lookup" name="action" />
         </form>
-        <c:set var="list" value="${requestScope.LIST_INGREDIENT}"/>
-        <c:if var="check" test="${not empty list}">
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Link</th>
-                        <th>Image</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="dto" items="${list}" varStatus="counter">
-                        <tr>
-                            <td>${counter.count}</td>
-                            <td>${dto.id}</td>
-                            <td>${dto.name}</td>
-                            <td>${dto.link}</td>
-                            <td>${dto.price}</td>
-                            <td>
-                                <img src="${dto.image}" width="100" height="100"/>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+    </div>
+    <c:if test="${not empty requestScope.LIST_INGREDIENT}" var="check">
+        <div id="list-ingredients"></div>
+        <div class="load-button" id="load-button-ingredients" >Load more</div>
+    </c:if>
+    <c:if test="${not check}">
+        <h3>Không tìm thấy nguyên liệu, vui lòng thử với từ khóa khác</h3>
+    </c:if>
+</content>
+<script type="text/javascript">
+    const loadButtonIng = document.getElementById("load-button-ingredients");
 
-        </c:if>
-        <c:if test="${not check}">
-            <h3>No records</h3>
-        </c:if>
-    </body>
-</html>
+    function loadMoreIngredients() {
+        var showedIngredients = ingredients.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item =>
+                `<div class="product-item">
+        <div class="image-product">
+            <img src="\${item.image}" alt="Hình ảnh của \${item.name}" >
+            <div class="info">
+                <p>\${item.name}</p>
+            </div>
+        </div>
+        <div class="content-product">
+            <div class="content">
+               <h3>Giá: \${item.price} đồng</h3>
+                <p>\${item.description}</p>
+            </div>
+            <div>
+                <a class="button" href="\${item.link}">Tới chỗ mua</a>
+            </div>
+        </div>
+    </div>`);
+        document.getElementById("list-ingredients").innerHTML += showedIngredients.join('');
+        page++;
+        if (page * PAGE_SIZE > ingredients.length) {
+            loadButtonIng.outerHTML = "";
+        }
+    }
+    loadMoreIngredients();
+    loadButtonIng.addEventListener('click', loadMoreIngredients());
+</script>
+<script src="js/slide.js"></script>
+<jsp:include page="footer.jsp"/>
