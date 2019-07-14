@@ -30,7 +30,7 @@
                         <c:param name="action" value="AdvanceSearch"/>
                     </c:url>
                     <c:url value="MainController" var="ingAdvance">
-                        <c:param name="action" value="Lookup"/>
+                        <c:param name="action" value="IngIndex"/>
                     </c:url>
                     <li class="item-list"><a href="${repAdvance}"><span>Recipe</span></a></li>
                     <li class="item-list"><a href="${ingAdvance}"><span>Ingredient</span></a></li>

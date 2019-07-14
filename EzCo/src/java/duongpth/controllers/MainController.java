@@ -35,6 +35,7 @@ public class MainController extends HttpServlet {
     public static final String RECIPE_DETAIL = "RecipeDetailController";
     public static final String INGREDIENT_CRAWLER = "IngredientCrawlerController";
     public static final String INGREDIENT_VIEWER = "IngredientInfoController";
+    public static final String INGREDIENT_ADVANCE_VIEWER = "IngredientAdvanceInfoController";
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -68,6 +69,12 @@ public class MainController extends HttpServlet {
                     break;
                 case "Lookup":
                     path = INGREDIENT_VIEWER;
+                    break;
+                case "IngIndex":
+                    path = INGREDIENT_ADVANCE_PAGE;
+                    break;
+                case "IngController":
+                    path = INGREDIENT_ADVANCE_VIEWER;
                     break;
                 case "Search":
                     path = RECIPE_BASIC_CONTROLLER;

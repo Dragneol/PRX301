@@ -9,10 +9,11 @@
 <jsp:include page="header.jsp"/>
 <jsp:include page="banner.jsp"/>
 <script type="text/javascript">
+    <c:set value="${requestScope.LIST_INGREDIENT}" var="ingredients"/>
     var ingredients = [];
     var page = 0;
     let PAGE_SIZE = 6;
-    <c:forEach items="${requestScope.LIST_INGREDIENT}" var="dto">
+    <c:forEach items="${ingredients}" var="dto">
     ingredients.push({
         id: `${dto.id}`,
         name: `${dto.name}`,

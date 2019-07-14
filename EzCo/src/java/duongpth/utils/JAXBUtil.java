@@ -7,6 +7,7 @@ package duongpth.utils;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.StringWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,6 +37,18 @@ public class JAXBUtil {
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             marshaller.marshal(object, stringWriter);
+        } catch (JAXBException ex) {
+            Logger.getLogger(JAXBUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static <T> void marshalling(T object, OutputStream stream) {
+        try {
+            JAXBContext jc = JAXBContext.newInstance(object.getClass());
+            Marshaller marshaller = jc.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.marshal(object, stream);
         } catch (JAXBException ex) {
             Logger.getLogger(JAXBUtil.class.getName()).log(Level.SEVERE, null, ex);
         }

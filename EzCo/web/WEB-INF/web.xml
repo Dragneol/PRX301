@@ -40,6 +40,10 @@
         <servlet-name>PrintPdfController</servlet-name>
         <servlet-class>duongpth.controllers.PrintPdfController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IngredientAdvanceInfoController</servlet-name>
+        <servlet-class>duongpth.controllers.IngredientAdvanceInfoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>PrintPdfController</servlet-name>
         <url-pattern>/PrintPdfController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IngredientAdvanceInfoController</servlet-name>
+        <url-pattern>/IngredientAdvanceInfoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
