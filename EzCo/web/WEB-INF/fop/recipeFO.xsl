@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.ezco.com/XMLSchema/ezco" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                xmlns:ns="http://www.ezco.com/XMLSchema/ezco" 
+                version="1.0">
     <xsl:output method="xml" encoding="UTF-8"/>
     <xsl:param name="pathFile" select="'test'"/>
     <xsl:template match="/">
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" 
-                 font-family="Alegreya Sans, sans-serif">
+                 font-family="Arial">
             <fo:layout-master-set>
                 <fo:simple-page-master master-name="hello" page-height="11in" 
                                        page-width="8.5in" margin-top="1in" margin-bottom="1in" 
@@ -16,7 +18,7 @@
             </fo:layout-master-set>	
             <fo:page-sequence master-reference="hello">
                 <fo:static-content flow-name="xsl-region-before">
-                    <fo:block font-size="18pt" font-weight="bold"  font-family="Alegreya Sans, sans-serif">
+                    <fo:block font-size="18pt" font-weight="bold"  font-family="Arial">
                         <xsl:value-of select="//*[local-name()='title']"/>
                     </fo:block>
                 </fo:static-content>
@@ -26,7 +28,7 @@
                     </fo:block>
                 </fo:static-content>
                 <fo:flow flow-name="xsl-region-body">
-                    <fo:block font-size="14pt" text-align="left"  font-family="Alegreya Sans, sans-serif">
+                    <fo:block font-size="14pt" text-align="left"  font-family="Arial">
                         <xsl:value-of select="//*[local-name()='description']"/>
                     </fo:block>
                     <fo:block font-size="12pt" text-align="center" >
@@ -37,17 +39,17 @@
                             <fo:table-body>
                                 <fo:table-row>
                                     <fo:table-cell>
-                                        <fo:block text-align="left"  font-family="Alegreya Sans, sans-serif">
+                                        <fo:block text-align="left"  font-family="Arial"> 
                                             Khẩu phần cho <xsl:value-of select="//*[local-name()='ration']"/> người
                                         </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
-                                        <fo:block text-align="left"  font-family="Alegreya Sans, sans-serif">
+                                        <fo:block text-align="left"  font-family="Arial">
                                             Chuẩn bị <xsl:value-of select="//*[local-name()='preparetime']"/> phút
                                         </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
-                                        <fo:block text-align="left"  font-family="Alegreya Sans, sans-serif">
+                                        <fo:block text-align="left"  font-family="Arial">
                                             Thực hiện <xsl:value-of select="//*[local-name()='preparetime']"/> phút
                                         </fo:block>
                                     </fo:table-cell>
@@ -79,24 +81,24 @@
                                         <fo:block text-align="center">Thực phẩm</fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
-                                <xsl:for-each select="//*[local-name()='ingredientdetail']">
+                                <xsl:for-each select="ns:recipe/ns:ingredientmenu/ns:ingredientdetail">
                                     <fo:table-row>
                                         <fo:table-cell border-color="blue"
                                                        border-width="0.5pt" border-style="solid">
                                             <fo:block text-align="center" font-family="Arial">
-                                                <xsl:value-of select=".//quantitive"/>
+                                                <xsl:value-of select="ns:quantitive"/>
                                             </fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell border-color="blue"
                                                        border-width="0.5pt" border-style="solid" >
                                             <fo:block text-align="center" font-family="Arial">
-                                                <xsl:value-of select=".//unit"/>
+                                                <xsl:value-of select="ns:unit"/>
                                             </fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell border-color="blue"
                                                        border-width="0.5pt" border-style="solid">
                                             <fo:block text-align="center" font-family="Arial">
-                                                <xsl:value-of select=".//name"/>
+                                                <xsl:value-of select="ns:name"/>
                                             </fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>
@@ -110,7 +112,7 @@
                     <fo:block font-size="12pt" text-align="center" >
                         <fo:table border-collapse="separate" table-layout="fixed" width="100%">
                             <fo:table-column column-width="5cm"/>
-                            <fo:table-column column-width="10cm"/>
+                            <fo:table-column column-width="12cm"/>
                             <fo:table-body>
                                 <fo:table-row>
                                     <fo:table-cell border-color="blue"
@@ -122,18 +124,18 @@
                                         <fo:block text-align="center">Chi tiết</fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
-                                <xsl:for-each select="//*[local-name()='instructiondetail']">
+                                <xsl:for-each select="ns:recipe/ns:instructionmenu/ns:instructiondetail" >
                                     <fo:table-row>
                                         <fo:table-cell border-color="blue"
                                                        border-width="0.5pt" border-style="solid">
                                             <fo:block text-align="center" font-family="Arial">
-                                                <xsl:value-of select=".//numstep"/>
+                                                <xsl:value-of select="ns:numstep" />
                                             </fo:block>
                                         </fo:table-cell>
                                         <fo:table-cell border-color="blue"
                                                        border-width="0.5pt" border-style="solid" >
-                                            <fo:block text-align="center" font-family="Arial">
-                                                <xsl:value-of select=".//detail"/>
+                                            <fo:block text-align="left" font-family="Arial">
+                                                <xsl:value-of select="ns:detail"/>
                                             </fo:block>
                                         </fo:table-cell>
                                     </fo:table-row>

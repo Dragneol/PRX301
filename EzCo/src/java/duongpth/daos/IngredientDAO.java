@@ -72,7 +72,7 @@ public class IngredientDAO implements Serializable {
                 + "      ,[Link]\n"
                 + "      ,[Image]\n"
                 + "      ,[Description]\n"
-                + "  FROM [Ingredient]";
+                + "  FROM [Ingredient] ";
         try {
             connection = DatabaseUtil.getConnection();
             if (connection != null) {

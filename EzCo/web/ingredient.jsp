@@ -68,7 +68,7 @@
         }
     }
     loadMoreIngredients();
-    loadButtonIng.addEventListener('click', loadMoreIngredients());
+    loadButtonIng.addEventListener('click', loadMoreIngredients);
 </script>
 <script src="js/slide.js"></script>
 <jsp:include page="footer.jsp"/>

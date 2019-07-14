@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <fop>
     <renderers>
-        <render mime="application/pdf">
+        <renderer mime="application/pdf">
             <fonts>
-                <!--<directory recursive="true">C:]Windows\Fonts</directory>-->
                 <auto-detect/>
             </fonts>
-        </render>
+        </renderer>
     </renderers>
 </fop>

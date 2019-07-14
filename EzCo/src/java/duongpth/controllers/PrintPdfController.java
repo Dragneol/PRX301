@@ -8,8 +8,8 @@ package duongpth.controllers;
 import duongpth.daos.RecipeDAO;
 import duongpth.jaxbs.Recipe;
 import duongpth.utils.FormatingUtil;
+import duongpth.utils.VietnameseUtil;
 import duongpth.utils.JAXBUtil;
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -68,7 +68,8 @@ public class PrintPdfController extends HttpServlet {
                 Recipe recipe = dao.getRecipe(recipeid);
                 StringWriter writer = new StringWriter();
                 JAXBUtil.marshalling(recipe, writer);
-                FormatingUtil.methodTrAX(xslPath, writer.getBuffer().toString(), foPath, realPath);
+                String tmp = VietnameseUtil.encode(writer.getBuffer().toString());
+                FormatingUtil.methodTrAX(xslPath, tmp, foPath, realPath);
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 FopFactory ff = FopFactory.newInstance();
                 ff.setUserConfig(realPath + "/WEB-INF/config/fop.xml");
@@ -87,8 +88,8 @@ public class PrintPdfController extends HttpServlet {
             }
         } catch (SQLException | NamingException | ClassNotFoundException | SAXException | TransformerException ex) {
             Logger.getLogger(PrintPdfController.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (Exception ex) {
-//            Logger.getLogger(PrintPdfController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(PrintPdfController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

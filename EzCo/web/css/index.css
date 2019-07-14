@@ -91,7 +91,7 @@ header {
 
 content {
     padding: 10px 70px;
-    display: table;
+    display: block;
 }
 
 .product-item {
@@ -227,6 +227,10 @@ footer {
     flex-direction: column;
     padding: 10px;
     visibility: hidden;
+}
+
+.innerSuggest{
+    border: 1px solid red;
 }
 
 @keyframes animationProduct{

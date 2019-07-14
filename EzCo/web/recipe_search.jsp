@@ -29,6 +29,13 @@
     <c:forEach items="${jspIng}" var="temp" varStatus="counter">
         <c:if test="${counter.count != 1}">ingredients.push({id: ${temp.id}, value: `${temp.value}`});</c:if>
     </c:forEach>
+
+            function removeSuggestion(id) {
+                document.getElementById("param-index-" + id).outerHTML = "";
+                tags = tags.filter(item => item.id != id);
+                renderSuggestions();
+            }
+
             function suggest(event) {
                 if (event.keyCode === 13) {
                     const suggestions = document.getElementsByClassName("sug");
@@ -39,7 +46,7 @@
                         });
                     }
                     renderSuggestions();
-                    document.getElementById("tags-included").innerHTML = tags.map(item => `<span>\${item.value}</span>`).join('');
+                    document.getElementById("tags-included").innerHTML = tags.map(item => `<div class="innerSuggest" id="param-index-\${item.id}" onclick='removeSuggestion(\${item.id})'>\${item.value}</div>`).join('');
                     document.getElementById("tags").value = tags.map(item => item.id);
                 } else if (event.keyCode === 38) {
                     // up
@@ -70,7 +77,7 @@
                 const suggestionComponents = suggestions
                         .filter(item => !(tags.map(i => i.value)).includes(item.value))
                         .map((item, index) =>
-                                `<span class="sug \${index === suggestionIndex ? 'choosing' : ''}" data-id="\${item.id}">\${item.value}</span>`
+                                `<div class="sug \${index === suggestionIndex ? 'choosing' : ''}" data-id="\${item.id}">\${item.value}</div>`
                         );
                 const area = document.getElementById("suggestion");
                 area.innerHTML = suggestionComponents.join('');

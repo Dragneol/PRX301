@@ -47,8 +47,6 @@ public class IngredientInfoController extends HttpServlet {
             if (text == null) {
                 list = dao.getFirst(6);
             } else {
-//                byte[] bytes = text.getBytes(StandardCharsets.ISO_8859_1);
-//                text = new String(bytes, StandardCharsets.UTF_8);
                 list = dao.getIngredientsByLikeName(text);
             }
             request.setAttribute("LIST_INGREDIENT", list);
