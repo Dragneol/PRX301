@@ -11,14 +11,14 @@
 <content>
     <div>
         <c:forEach items="${sessionScope.DEFAULT}" var="r">
-            <div class="product-item">
-                <div class="image-product">
+            <table class="product-item">
+                <td class="image-product">
                     <img src="${r.image}" alt="Hình ảnh của ${r.title}">
                     <div class="info">
                         <p>${r.title}</p>
                     </div>
-                </div>
-                <div class="content-product">
+                </td>
+                <td class="content-product">
                     <div class="content">
                         <h3>Khẩu phần: ${r.ration} người </h3>
                         <p>${r.description}</p>
@@ -31,9 +31,9 @@
                             <input class="button" type="submit" value="RecipeDetail" name="action" />
                         </form>
                     </div>
-                </div>
+                </td>
 
-            </div>
+            </table>
         </c:forEach>
     </div>
 </content>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://fpt.edu.vn"
+         xmlns:article="http://fpt.edu.vn"
+         xmlns:people="">
+    <book article:id="B001" id="IB8976">
+        <article:title>The Firm</article:title>
+        <people:author>John Grisham</people:author>
+    </book>
+</library>

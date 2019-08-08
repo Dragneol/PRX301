@@ -31,6 +31,11 @@
                     <fo:block font-size="14pt" text-align="left"  font-family="Arial">
                         <xsl:value-of select="//*[local-name()='description']"/>
                     </fo:block>
+                    <fo:block>
+                        <fo:external-graphic src="ns:image">
+                        <!--<fo:external-graphic src="//*[local-name()='image']">-->
+                        </fo:external-graphic>
+                    </fo:block>
                     <fo:block font-size="12pt" text-align="center" >
                         <fo:table border-collapse="separate" table-layout="fixed" width="100%">
                             <fo:table-column column-width="6cm"/>

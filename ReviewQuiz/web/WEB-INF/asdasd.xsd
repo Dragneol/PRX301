@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema targetNamespace="http://xml.netbeans.org/schema/mail" 
+
+            xmlns="http://xml.netbeans.org/schema/mail" 
+
+            elementFormDefault="qualified">
+
+    <xsd:element name="mail">
+
+        <xsd:complexType>
+
+            <xsd:sequence>
+
+                <xsd:element name="to" type="xsd:language" />
+
+                <xsd:element name="from" type="xsd:token"/>
+
+                <xsd:element name="header" type="xsd:string"/>
+
+                <xsd:element name="body"type="xsd:normalizedString"/>
+
+            </xsd:sequence>
+
+        </xsd:complexType>
+
+    </xsd:element>
+
+</xsd:schema>

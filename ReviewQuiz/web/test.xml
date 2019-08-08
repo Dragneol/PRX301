@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+
+    <book id="B0001">
+
+        <!--<author>John & Grisham</author>-->
+
+        <title>The Firm</title>
+
+        <price>99</price>
+
+    </book>
+
+    <book id="B0002">
+
+        <title>The Firm</title>
+
+        <author>John Grisham</author>
+
+        <price><![CDATA[<![CDATA[>99]]>]]></price>
+
+    </book>
+
+    <book id="B0002">
+
+        <title>Harry Porter</title>
+
+        <author>John Grisham</author>
+
+        <price>99</price>
+
+    </book>
+
+</library>
+

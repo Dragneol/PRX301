@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+    <xsd:element name="itinerary"> 
+        <xsd:complextype> 
+            <xsd:sequence> 
+                <xsd:element type="xsd:string" name="passenger"> 
+                    <xsd:element type="xsd:string" name="origin"> 
+                        <xsd:element maxoccurs="unbounded" name="destination"> 
+                            <xsd:complextype> 
+                                <xsd:simplecontent> 
+                                    <xsd:extension base="xsd:string"> 
+                                        <xsd:attribute use="optional" type="xsd:string" fixed="true" name="transfer"> 
+                                        </xsd:attribute>
+                                    </xsd:extension> 
+                                </xsd:simplecontent> 
+                            </xsd:complextype> 
+                        </xsd:element> 
+                    </xsd:element>
+                </xsd:element>
+            </xsd:sequence> 
+            <xsd:attribute type="xsd:string" name="type"> 
+            </xsd:attribute>
+        </xsd:complextype> 
+    </xsd:element> 
+</xsd:schema> 

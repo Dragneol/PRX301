@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student studentID='st98761'>
+        <fullname>
+            Tran Ngoc Phuc
+        </fullname>
+        <password>
+            diesoon
+        </password>
+        <status>
+            dropout
+        </status>
+    </student>
+    <student studentID='fb76543'>
+        <fullname>
+            Le Viet Khanh
+        </fullname>
+        <password>
+            sun123
+        </password>
+        <status>
+            studying
+        </status>
+    </student>
+    <student studentID='kk76543'>
+        <fullname>
+            KhanhKT
+        </fullname>
+        <password>
+            12345
+        </password>
+        <status>
+            studying
+        </status>
+    </student>
+    <student studentID='sb09876'>
+        <fullname>
+            Hoang Phi Hong
+        </fullname>
+        <password>
+            987er
+        </password>
+        <status>
+            break
+        </status>
+    </student>
+    <student studentID='se76543'>
+        <fullname>
+            Hu truc
+        </fullname>
+        <password>
+            sun123
+        </password>
+        <status>
+            studying
+        </status>
+    </student>
+</students>

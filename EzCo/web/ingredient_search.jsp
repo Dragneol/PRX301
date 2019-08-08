@@ -46,7 +46,7 @@
         <input class="txtSearch" type="text" id="txtSearch" value="${param.txtSearch}" /><br/>
         <input class="button" type="button" onclick="search()" value="Search"/>
     </div>
-    <div id="list-ingredients"></div>
+    <table id="list-ingredients"></table>
     <div class="load-button" id="load-button-ingredients" >Next Page</div>
 </content>
 <script type="text/javascript">
@@ -80,14 +80,27 @@
             var link = recipe.getElementsByTagName('link')[0].textContent;
             var image = recipe.getElementsByTagName('image')[0].textContent;
             var description = recipe.getElementsByTagName('description')[0].textContent;
-            showedElement += `<div class="product-item">
-        <div class="image-product">
+            var td = document.createElement('td');
+            td.classList.add('image-product');
+            var img = document.createElement('img');
+            img.src = image;
+            img.alt = "failed";
+            var div = document.createElement('div');
+            div.classList.add("info");
+            var p = document.createElement('p');
+            p.innerHTML = name;
+            td.appendChild(img);
+            div.appendChild(p)
+            td.appendChild(div);
+
+            showedElement += `<tr class="product-item">
+        <td class="image-product">
             <img src="\${image}" alt="Hình ảnh của \${name}" >
             <div class="info">
                 <p>\${name}</p>
             </div>
-        </div>
-        <div class="content-product">
+        </td>
+        <td class="content-product">
             <div class="content">
                <h3>Giá: \${price} đồng</h3>
                 <p>\${description}</p>
@@ -95,8 +108,8 @@
             <div>
                 <a class="button" href="\${link}">Tới chỗ mua</a>
             </div>
-        </div>
-    </div>`
+        </td>
+    </tr>`;
         }
 
         if (ingredients.length < PAGE_SIZE) {

@@ -42,34 +42,35 @@
 </content>
 <script type="text/javascript">
     const loadButtonIng = document.getElementById("load-button-ingredients");
-
     function loadMoreIngredients() {
-        var showedIngredients = ingredients.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item =>
-                `<div class="product-item">
-        <div class="image-product">
-            <img src="\${item.image}" alt="Hình ảnh của \${item.name}" >
-            <div class="info">
-                <p>\${item.name}</p>
-            </div>
-        </div>
-        <div class="content-product">
-            <div class="content">
-               <h3>Giá: \${item.price} đồng</h3>
-                <p>\${item.description}</p>
-            </div>
-            <div>
-                <a class="button" href="\${item.link}">Tới chỗ mua</a>
-            </div>
-        </div>
-    </div>`);
-        document.getElementById("list-ingredients").innerHTML += showedIngredients.join('');
+        var showedItem = ingredients.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE).map(item => `
+            <div class="product-item">
+                <div class="image-product">
+                    <img src="\${item.image}" alt="Hình ảnh của \${item.title}">
+                    <div class="info">
+                        <p>\${item.title}</p>
+                    </div>
+                </div>
+                <div class="content-product">
+                    <div class="content">
+                        <h3>Giá :\${item.price} đồng </h3>
+                        <p>\${item.description}</p>
+                    </div>
+                    <div>
+                        <form action="\${item.link}" method="POST">
+                            <input class="button" type="submit" value="Tới chỗ mua" name="action" />
+                        </form>
+                    </div>
+                </div>
+
+            </div>`);
+        document.getElementById("list-ingredients").innerHTML += showedItem.join('');
         page++;
-        if (page * PAGE_SIZE > ingredients.length) {
+        if (page * PAGE_SIZE >= ingredients.length) {
             loadButtonIng.outerHTML = "";
         }
     }
     loadMoreIngredients();
-    loadButtonIng.addEventListener('click', loadMoreIngredients);
-</script>
+    loadButtonIng.addEventListener('click', loadMoreIngredients);</script>
 <script src="js/slide.js"></script>
 <jsp:include page="footer.jsp"/>
